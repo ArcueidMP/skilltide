@@ -6,7 +6,7 @@ import { ArrowDownRight, ArrowRight, ArrowUpRight, Building2, Globe2, Telescope 
 import { cn } from "@/lib/cn";
 import { cite, dataset, roleById, skillById } from "@/lib/data";
 import { allOutlooks, skillTrends, type RoleOutlook, type SkillTrend } from "@/lib/engine";
-import { pct, signed, signedPct, TREND_LABEL, TREND_TONE } from "@/lib/format";
+import { pct, signed, signedPct, SKILL_TREND_LABEL, TREND_LABEL, TREND_TONE } from "@/lib/format";
 import { CLUSTER_LABELS } from "@/lib/labels";
 import { useStore } from "@/lib/store";
 import { useAnalysis } from "@/lib/use-analysis";
@@ -63,7 +63,7 @@ export function RadarView() {
             <div className="flex items-center gap-3 text-xs text-muted">
               <Legend color="bg-rise" label="Rising" />
               <Legend color="bg-slate-400" label="Steady" />
-              <Legend color="bg-fall" label="Declining" />
+              <Legend color="bg-fall" label="Cooling" />
             </div>
           </div>
           <div className="mt-4">
@@ -207,7 +207,7 @@ function SkillDetail({ trend, previous }: { trend: SkillTrend; previous?: SkillT
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{CLUSTER_LABELS[skill.cluster]}</p>
           <h3 className="mt-1 font-display text-base font-semibold">{skill.name}</h3>
         </div>
-        <Badge tone={TREND_TONE[trend.trend]}>{TREND_LABEL[trend.trend]}</Badge>
+        <Badge tone={TREND_TONE[trend.trend]}>{SKILL_TREND_LABEL[trend.trend]}</Badge>
       </div>
       <dl className="mt-3 grid grid-cols-2 gap-3 text-[12px]">
         <div>

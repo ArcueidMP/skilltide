@@ -61,7 +61,15 @@ Refresh the data (downloads about 500 MB into `.cache/`, takes a few minutes):
 python -I pipeline/build_dataset.py --refresh
 ```
 
-A GitHub Actions workflow (`.github/workflows/refresh-data.yml`) does this every Monday, runs the tests, and commits the new `dataset.json` if anything changed.
+## Deploy
+
+Live site: **https://arcueidmp.github.io/skilltide/** (GitHub Pages, static export).
+
+```bash
+npm run deploy:pages   # build with GITHUB_PAGES=true and publish to the gh-pages branch
+```
+
+Workflow files for automatic deploys and a weekly data refresh are prepared and will be added once the repository token has the `workflow` scope.
 
 ## Responsible AI
 

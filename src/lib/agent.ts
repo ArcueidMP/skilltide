@@ -3,7 +3,7 @@
 
 import { cite, dataset, roleById, scenarioById, skillById } from "./data";
 import { allOutlooks, OUTLOOK_MODEL, rankRoles, type Pathway, type RoleMatch, type RoleOutlook, type SkillTrend } from "./engine";
-import { pct, signedPct, TREND_LABEL } from "./format";
+import { pct, signedPct, SKILL_TREND_LABEL, TREND_LABEL } from "./format";
 import type { StoreValue } from "./store";
 import type { Citation, ScenarioSpec, Snapshot } from "./types";
 
@@ -213,7 +213,7 @@ export function respond(question: string, ctx: AgentContext): Answer {
     if (trend) {
       const needing = trend.roleIds.slice(0, 3).map((id) => roleById(id)?.title).join(", ");
       return answer(
-        `${skill.name}: ${TREND_LABEL[trend.trend].toLowerCase()} (score ${Math.round(trend.score)}). ` +
+        `${skill.name}: ${SKILL_TREND_LABEL[trend.trend].toLowerCase()} (score ${Math.round(trend.score)}). ` +
           (trend.momentum ? `Mentions in hiring posts are moving ${signedPct(trend.momentum * 0.5)} versus the previous six months. ` : "Too few hiring-post mentions to measure momentum. ") +
           (needing ? `It matters most for ${needing}.` : "No role in SkillTide relies on it heavily."),
         cite(["hn", "onet"]),

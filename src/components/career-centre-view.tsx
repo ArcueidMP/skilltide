@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 import { COHORT_PER_PROGRAMME, syntheticCohort, type CohortStudent } from "@/lib/cohort";
 import { cite, dataset, roleById, skillById } from "@/lib/data";
 import { rankRoles } from "@/lib/engine";
-import { pct, TREND_LABEL, TREND_TONE } from "@/lib/format";
+import { pct, SKILL_TREND_LABEL, TREND_LABEL, TREND_TONE } from "@/lib/format";
 import { useAnalysis } from "@/lib/use-analysis";
 import { CitationList } from "./citations";
 import { SdgTag } from "./sdg";
@@ -111,7 +111,7 @@ export function CareerCentreView() {
                   <tr key={row.skillId}>
                     <td className="pr-2 text-ink">{skillById(row.skillId)?.name}</td>
                     <td>
-                      <Badge tone={TREND_TONE[row.trend]}>{TREND_LABEL[row.trend]}</Badge>
+                      <Badge tone={TREND_TONE[row.trend]}>{SKILL_TREND_LABEL[row.trend]}</Badge>
                     </td>
                     {PROGRAMMES.map((p) => {
                       const value = analysis.coverage(row.skillId, p);

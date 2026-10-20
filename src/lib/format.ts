@@ -15,6 +15,13 @@ export const TREND_LABEL: Record<Trend, string> = {
   declining: "Under pressure",
 };
 
+/** Skills cool rather than come under pressure. */
+export const SKILL_TREND_LABEL: Record<Exclude<Trend, "transforming">, string> = {
+  rising: "Rising",
+  stable: "Steady",
+  declining: "Cooling",
+};
+
 export const TREND_TONE: Record<Trend, "rise" | "neutral" | "shift" | "fall"> = {
   rising: "rise",
   stable: "neutral",
