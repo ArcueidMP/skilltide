@@ -1,0 +1,32 @@
+{
+  "_about": "SkillTide's rules for linking a role to UN SDG targets. A role gets a target when one of its O*NET task statements matches a keyword (case-insensitive regex). The matching task is stored as the evidence, so every link can be checked by reading the task next to the target text. These rules are SkillTide's own; they are not an official UN mapping.",
+  "max_links_per_role": 3,
+  "rules": [
+    { "target": "7.2", "keywords": ["solar", "photovoltaic", "wind turbine", "renewable"],
+      "why": "works directly on renewable-energy systems" },
+    { "target": "7.3", "keywords": ["energy efficien", "energy consumption", "energy conservation", "energy audit", "reduce energy", "energy use", "power consumption"],
+      "why": "cuts the energy that systems and buildings use" },
+    { "target": "7.1", "keywords": ["power distribution", "electrical power", "power systems?", "utility", "electric grid", "power grid"],
+      "why": "keeps reliable electricity reaching users" },
+    { "target": "9.c", "keywords": ["telecommunication", "broadband", "wireless", "internet", "network infrastructure", "\\bnetworks?\\b"],
+      "why": "builds or runs the networks people use to get online" },
+    { "target": "9.1", "keywords": ["security", "cyber", "intrusion", "disaster recovery", "infrastructure", "reliabilit"],
+      "why": "makes digital and physical infrastructure more resilient" },
+    { "target": "9.5", "keywords": ["research", "develop new", "prototype", "innovat", "experiment", "new technolog"],
+      "why": "advances research and technological capability" },
+    { "target": "9.4", "keywords": ["sustainab", "emission", "environmental impact", "clean technolog", "recycl"],
+      "why": "helps industry become cleaner and more resource-efficient" },
+    { "target": "9.2", "keywords": ["manufactur", "production line", "production process", "assembly"],
+      "why": "strengthens manufacturing, Malaysia's industrial base" },
+    { "target": "8.2", "keywords": ["automat", "productivity", "process improvement", "streamline", "optimi[sz]e"],
+      "why": "raises productivity through technology and automation" },
+    { "target": "8.8", "keywords": ["safety", "hazard", "ergonomic"],
+      "why": "makes workplaces safer" },
+    { "target": "12.5", "keywords": ["waste", "scrap", "recycl"],
+      "why": "reduces waste in production" },
+    { "target": "4.4", "keywords": ["train (users|staff|employees|personnel|others)", "instruct", "teach", "tutorial"],
+      "why": "builds other people's technical skills" }
+  ],
+  "default": { "target": "8.2", "why": "technology roles raise productivity through technological upgrading (default link: no task matched a rule)" },
+  "skill_target": { "target": "4.4", "why": "every skill in SkillTide is a technical skill for decent work" }
+}

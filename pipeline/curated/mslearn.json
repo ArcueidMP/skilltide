@@ -1,0 +1,22 @@
+{
+  "_about": "Microsoft Learn learning paths SkillTide may recommend. Titles, durations and URLs are read live from the Microsoft Learn Catalog API on every build; this file only says which paths teach which SkillTide skills.",
+  "paths": [
+    { "uid": "learn.wwl.get-started-with-python-fundamentals", "skills": ["python"], "level": "intro" },
+    { "uid": "learn.wwl.get-started-with-python-programs", "skills": ["python"], "level": "intro" },
+    { "uid": "learn.wwl.create-machine-learn-models", "skills": ["machine-learning"], "level": "intermediate" },
+    { "uid": "learn.tensorflow.tensorflow-fundamentals", "skills": ["deep-learning", "machine-learning"], "level": "intermediate" },
+    { "uid": "learn.wwl.develop-generative-ai-apps", "skills": ["genai"], "level": "intermediate" },
+    { "uid": "learn.github-copilot", "skills": ["genai", "git"], "level": "intro" },
+    { "uid": "learn.azure.operationalize-ai-responsibly", "skills": ["genai"], "level": "intro" },
+    { "uid": "learn.wwl.develop-computer-vision-with-foundry", "skills": ["computer-vision"], "level": "intermediate" },
+    { "uid": "learn.github-foundations", "skills": ["git"], "level": "intro" },
+    { "uid": "learn.wwl.get-started-querying-with-transact-sql", "skills": ["sql"], "level": "intro" },
+    { "uid": "learn.wwl.prepare-visualize-data-power-bi", "skills": ["data-viz"], "level": "intro" },
+    { "uid": "learn.wwl.get-started-data-engineering", "skills": ["data-engineering"], "level": "intermediate" },
+    { "uid": "learn.wwl.describe-basic-concepts-of-cybersecurity", "skills": ["cybersecurity"], "level": "intro" },
+    { "uid": "learn.wwl.devops-foundations-core-principles-practices", "skills": ["devops", "agile"], "level": "intro" },
+    { "uid": "learn.wwl.deploy-manage-containers-azure-kubernetes-service", "skills": ["devops", "cloud"], "level": "intermediate" },
+    { "uid": "learn.wwl.microsoft-azure-fundamentals-describe-cloud-concepts", "skills": ["cloud"], "level": "intro" },
+    { "uid": "learn.wwl.get-started-c-sharp-part-1", "skills": ["csharp"], "level": "intro" }
+  ]
+}

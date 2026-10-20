@@ -1,0 +1,1292 @@
+{
+  "checked": "2026-10-21",
+  "courses": [
+    {
+      "id": "kaggle-python",
+      "title": "Python",
+      "provider": "Kaggle Learn",
+      "url": "https://www.kaggle.com/learn/python",
+      "hours": 5,
+      "cost": "free",
+      "cost_note": "free (Kaggle account); free completion certificate",
+      "level": "intro",
+      "skills": [
+        "python"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.kaggle.com/learn/python",
+          "quote": "Hours to earn certificate 5 (estimated)"
+        },
+        {
+          "url": "https://www.kaggle.com/learn/python",
+          "quote": "No cost, like all Kaggle Learn Courses"
+        }
+      ]
+    },
+    {
+      "id": "cisco-python-essentials-1",
+      "title": "Python Essentials 1",
+      "provider": "Cisco Networking Academy",
+      "url": "https://www.netacad.com/courses/python-essentials-1?courseLang=en-US",
+      "hours": 30,
+      "cost": "free",
+      "cost_note": "free self-paced course (Cisco NetAcad account); badge on completion",
+      "level": "intro",
+      "skills": [
+        "python"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.netacad.com/courses/python-essentials-1?courseLang=en-US",
+          "quote": "FREE 30 HOURS BEGINNER 30 LABS SELF-PACED"
+        }
+      ]
+    },
+    {
+      "id": "kaggle-intro-to-machine-learning",
+      "title": "Intro to Machine Learning",
+      "provider": "Kaggle Learn",
+      "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+      "hours": 3,
+      "cost": "free",
+      "cost_note": "free (Kaggle account); free completion certificate",
+      "level": "intro",
+      "skills": [
+        "machine-learning"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+          "quote": "Hours to earn certificate 3 (estimated)"
+        },
+        {
+          "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+          "quote": "No cost, like all Kaggle Learn Courses"
+        }
+      ]
+    },
+    {
+      "id": "kaggle-intermediate-machine-learning",
+      "title": "Intermediate Machine Learning",
+      "provider": "Kaggle Learn",
+      "url": "https://www.kaggle.com/learn/intermediate-machine-learning",
+      "hours": 4,
+      "cost": "free",
+      "cost_note": "free (Kaggle account); free completion certificate",
+      "level": "intermediate",
+      "skills": [
+        "machine-learning"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.kaggle.com/learn/intermediate-machine-learning",
+          "quote": "Hours to earn certificate 4 (estimated)"
+        },
+        {
+          "url": "https://www.kaggle.com/learn/intermediate-machine-learning",
+          "quote": "No cost, like all Kaggle Learn Courses"
+        }
+      ]
+    },
+    {
+      "id": "kaggle-intro-to-deep-learning",
+      "title": "Intro to Deep Learning",
+      "provider": "Kaggle Learn",
+      "url": "https://www.kaggle.com/learn/intro-to-deep-learning",
+      "hours": 4,
+      "cost": "free",
+      "cost_note": "free (Kaggle account); free completion certificate",
+      "level": "intro",
+      "skills": [
+        "deep-learning"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.kaggle.com/learn/intro-to-deep-learning",
+          "quote": "Hours to earn certificate 4 (estimated)"
+        },
+        {
+          "url": "https://www.kaggle.com/learn/intro-to-deep-learning",
+          "quote": "No cost, like all Kaggle Learn Courses"
+        }
+      ]
+    },
+    {
+      "id": "dlai-chatgpt-prompt-engineering-for-developers",
+      "title": "ChatGPT Prompt Engineering for Developers",
+      "provider": "DeepLearning.AI (with OpenAI)",
+      "url": "https://www.deeplearning.ai/courses/chatgpt-prompt-eng",
+      "hours": 1.7,
+      "cost": "free",
+      "cost_note": "free to learn; accomplishment/certificate needs paid DeepLearning.AI Pro",
+      "level": "intro",
+      "skills": [
+        "genai"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.deeplearning.ai/courses/chatgpt-prompt-eng",
+          "quote": "Beginner 1h40m"
+        },
+        {
+          "url": "https://www.deeplearning.ai/courses/chatgpt-prompt-eng",
+          "quote": "Learn for Free"
+        },
+        {
+          "url": "https://www.deeplearning.ai/courses/chatgpt-prompt-eng",
+          "quote": "Earn an accomplishment with PRO"
+        }
+      ]
+    },
+    {
+      "id": "dlai-langchain-for-llm-application-development",
+      "title": "LangChain for LLM Application Development",
+      "provider": "DeepLearning.AI (with LangChain)",
+      "url": "https://www.deeplearning.ai/courses/langchain",
+      "hours": 1.8,
+      "cost": "free",
+      "cost_note": "free to learn; accomplishment/certificate needs paid DeepLearning.AI Pro",
+      "level": "intro",
+      "skills": [
+        "genai"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.deeplearning.ai/courses/langchain",
+          "quote": "Beginner 1h48m"
+        },
+        {
+          "url": "https://www.deeplearning.ai/courses/langchain",
+          "quote": "Enroll for Free"
+        },
+        {
+          "url": "https://www.deeplearning.ai/courses/langchain",
+          "quote": "Earn an accomplishment with PRO"
+        }
+      ]
+    },
+    {
+      "id": "kaggle-computer-vision",
+      "title": "Computer Vision",
+      "provider": "Kaggle Learn",
+      "url": "https://www.kaggle.com/learn/computer-vision",
+      "hours": 4,
+      "cost": "free",
+      "cost_note": "free (Kaggle account); free completion certificate",
+      "level": "intermediate",
+      "skills": [
+        "computer-vision",
+        "deep-learning"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.kaggle.com/learn/computer-vision",
+          "quote": "Hours to earn certificate 4 (estimated)"
+        },
+        {
+          "url": "https://www.kaggle.com/learn/computer-vision",
+          "quote": "No cost, like all Kaggle Learn Courses"
+        }
+      ]
+    },
+    {
+      "id": "kaggle-pandas",
+      "title": "Pandas",
+      "provider": "Kaggle Learn",
+      "url": "https://www.kaggle.com/learn/pandas",
+      "hours": 4,
+      "cost": "free",
+      "cost_note": "free (Kaggle account); free completion certificate",
+      "level": "intro",
+      "skills": [
+        "data-analysis",
+        "python"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.kaggle.com/learn/pandas",
+          "quote": "Hours to earn certificate 4 (estimated)"
+        },
+        {
+          "url": "https://www.kaggle.com/learn/pandas",
+          "quote": "No cost, like all Kaggle Learn Courses"
+        }
+      ]
+    },
+    {
+      "id": "saylor-ma121-introduction-to-statistics",
+      "title": "MA121: Introduction to Statistics",
+      "provider": "Saylor University (Saylor Academy)",
+      "url": "https://learn.saylor.org/course/ma121",
+      "hours": 15,
+      "cost": "free",
+      "cost_note": "free; free certificate",
+      "level": "intro",
+      "skills": [
+        "statistics"
+      ],
+      "evidence": [
+        {
+          "url": "https://learn.saylor.org/course/ma121",
+          "quote": "Time: 15 hours"
+        },
+        {
+          "url": "https://learn.saylor.org/course/ma121",
+          "quote": "Free Certificate"
+        }
+      ]
+    },
+    {
+      "id": "edx-harvardx-data-science-r-basics",
+      "title": "Data Science: R Basics",
+      "provider": "HarvardX on edX",
+      "url": "https://www.edx.org/learn/r-programming/harvard-university-data-science-r-basics",
+      "hours": 16,
+      "cost": "free",
+      "cost_note": "free audit with time-limited access (current run's audit access expires 15 Dec 2026; no graded work); certificate track US$219",
+      "level": "intro",
+      "skills": [
+        "r-lang"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.edx.org/learn/r-programming/harvard-university-data-science-r-basics",
+          "quote": "8 weeks 1-2 hours per week [8 x 2 = 16 h, upper bound]"
+        },
+        {
+          "url": "https://www.edx.org/learn/r-programming/harvard-university-data-science-r-basics",
+          "quote": "Audit Access Expires Dec 15"
+        },
+        {
+          "url": "https://www.edx.org/resources/how-to-audit-an-edx-class",
+          "quote": "you can audit a course and enroll for free"
+        }
+      ]
+    },
+    {
+      "id": "cisco-data-analytics-essentials",
+      "title": "Data Analytics Essentials",
+      "provider": "Cisco Networking Academy",
+      "url": "https://www.netacad.com/courses/data-analytics-essentials?courseLang=en-US",
+      "hours": 30,
+      "cost": "free",
+      "cost_note": "free self-paced course (Cisco NetAcad account); covers Excel, SQL and Tableau",
+      "level": "intro",
+      "skills": [
+        "data-viz",
+        "sql",
+        "statistics"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.netacad.com/courses/data-analytics-essentials?courseLang=en-US",
+          "quote": "FREE 30 HOURS BEGINNER 29 LABS SELF-PACED"
+        }
+      ]
+    },
+    {
+      "id": "kaggle-intro-to-sql",
+      "title": "Intro to SQL",
+      "provider": "Kaggle Learn",
+      "url": "https://www.kaggle.com/learn/intro-to-sql",
+      "hours": 3,
+      "cost": "free",
+      "cost_note": "free (Kaggle account); free completion certificate",
+      "level": "intro",
+      "skills": [
+        "sql"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.kaggle.com/learn/intro-to-sql",
+          "quote": "Hours to earn certificate 3 (estimated)"
+        },
+        {
+          "url": "https://www.kaggle.com/learn/intro-to-sql",
+          "quote": "No cost, like all Kaggle Learn Courses"
+        }
+      ]
+    },
+    {
+      "id": "datatalksclub-data-engineering-zoomcamp",
+      "title": "Data Engineering Zoomcamp",
+      "provider": "DataTalks.Club",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+      "hours": 135,
+      "cost": "free",
+      "cost_note": "free materials/homework; free certificate only in a live cohort (next: January 2027), self-paced anytime without certificate; GCP cloud usage may incur charges",
+      "level": "intermediate",
+      "skills": [
+        "data-engineering"
+      ],
+      "evidence": [
+        {
+          "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+          "quote": "a free 9-week course on building production-ready data pipelines"
+        },
+        {
+          "url": "https://datatalksclub.github.io/docs/courses/zoomcamp-logistics/before-you-start/",
+          "quote": "10 to 15 hours per week during the cohort. [9 x 15 = 135 h, upper bound]"
+        }
+      ]
+    },
+    {
+      "id": "helsinki-java-programming-mooc",
+      "title": "Java Programming I (Java Programming MOOC)",
+      "provider": "University of Helsinki (MOOC.fi)",
+      "url": "https://java-programming.mooc.fi/",
+      "hours": 70,
+      "cost": "free",
+      "cost_note": "free; free certificate per course (I and II); legacy course - no ECTS credits, content no longer updated",
+      "level": "intro",
+      "skills": [
+        "java"
+      ],
+      "evidence": [
+        {
+          "url": "https://java-programming.mooc.fi/",
+          "quote": "Each course consists of seven parts"
+        },
+        {
+          "url": "https://java-programming.mooc.fi/",
+          "quote": "we recommend reserving at least 10 hours per part [7 x 10 = 70 h for Java Programming I]"
+        },
+        {
+          "url": "https://java-programming.mooc.fi/",
+          "quote": "A free online course on learning Java"
+        }
+      ]
+    },
+    {
+      "id": "cisco-cpp-essentials-1",
+      "title": "C++ Essentials 1",
+      "provider": "Cisco Networking Academy (with OpenEDG C++ Institute)",
+      "url": "https://www.netacad.com/courses/c-plus-plus-essentials-1?courseLang=en-US",
+      "hours": 42,
+      "cost": "free",
+      "cost_note": "free self-paced course (Cisco NetAcad account)",
+      "level": "intro",
+      "skills": [
+        "c-cpp"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.netacad.com/courses/c-plus-plus-essentials-1?courseLang=en-US",
+          "quote": "FREE 42 HOURS BEGINNER SELF-PACED"
+        }
+      ]
+    },
+    {
+      "id": "cisco-javascript-essentials-1",
+      "title": "JavaScript Essentials 1",
+      "provider": "Cisco Networking Academy",
+      "url": "https://www.netacad.com/courses/javascript-essentials-1?courseLang=en-US",
+      "hours": 40,
+      "cost": "free",
+      "cost_note": "free self-paced course (Cisco NetAcad account)",
+      "level": "intro",
+      "skills": [
+        "javascript"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.netacad.com/courses/javascript-essentials-1?courseLang=en-US",
+          "quote": "FREE 40 HOURS BEGINNER SELF-PACED"
+        }
+      ]
+    },
+    {
+      "id": "cisco-html-essentials",
+      "title": "HTML Essentials",
+      "provider": "Cisco Networking Academy",
+      "url": "https://www.netacad.com/courses/html-essentials?courseLang=en-US",
+      "hours": 30,
+      "cost": "free",
+      "cost_note": "free self-paced course (Cisco NetAcad account)",
+      "level": "intro",
+      "skills": [
+        "frontend"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.netacad.com/courses/html-essentials?courseLang=en-US",
+          "quote": "FREE 30 HOURS BEGINNER SELF-PACED"
+        }
+      ]
+    },
+    {
+      "id": "mongodb-nodejs-developer-path",
+      "title": "MongoDB Node.js Developer Path",
+      "provider": "MongoDB University",
+      "url": "https://learn.mongodb.com/learning-paths/mongodb-nodejs-developer-path",
+      "hours": 20,
+      "cost": "free",
+      "cost_note": "free (MongoDB University account)",
+      "level": "intermediate",
+      "skills": [
+        "backend",
+        "javascript",
+        "sql"
+      ],
+      "evidence": [
+        {
+          "url": "https://learn.mongodb.com/learning-paths/mongodb-nodejs-developer-path",
+          "quote": "20 Hours FREE"
+        }
+      ]
+    },
+    {
+      "id": "android-basics-with-compose",
+      "title": "Android Basics with Compose",
+      "provider": "Google (Android Developers)",
+      "url": "https://developer.android.com/courses/android-basics-compose/course",
+      "hours": 100,
+      "cost": "free",
+      "cost_note": "free, self-paced; needs a computer that can run Android Studio",
+      "level": "intro",
+      "skills": [
+        "mobile"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.android.com/courses/android-basics-compose/course",
+          "quote": "Duration: 10 hours / Duration: 21 hours / Duration: 15 hours / Duration: 28 hours / Duration: 9 hours / Duration: 10 hours / Duration: 3 hours / Duration: 4 hours [sum of the 8 unit durations = 100 h]"
+        },
+        {
+          "url": "https://android-developers.googleblog.com/2022/05/new-android-basics-with-compose-course.html",
+          "quote": "This is the first free course that teaches Android development with Jetpack Compose to everyone"
+        }
+      ]
+    },
+    {
+      "id": "tau-source-control-with-git",
+      "title": "Source Control for Test Automation with Git",
+      "provider": "Test Automation University (Applitools)",
+      "url": "https://testautomationu.applitools.com/git-tutorial/",
+      "hours": 2.9,
+      "cost": "free",
+      "cost_note": "free (TAU account); free certificate",
+      "level": "intro",
+      "skills": [
+        "git"
+      ],
+      "evidence": [
+        {
+          "url": "https://testautomationu.applitools.com/",
+          "quote": "Source Control for Test Automation with Git 800 Credits 2 hrs 56 mins"
+        },
+        {
+          "url": "https://testautomationu.applitools.com/",
+          "quote": "Become a test automation superstar - Free!"
+        }
+      ]
+    },
+    {
+      "id": "tau-introduction-to-pytest",
+      "title": "Introduction to pytest",
+      "provider": "Test Automation University (Applitools)",
+      "url": "https://testautomationu.applitools.com/pytest-tutorial/",
+      "hours": 1.5,
+      "cost": "free",
+      "cost_note": "free (TAU account); free certificate",
+      "level": "intro",
+      "skills": [
+        "software-testing",
+        "python"
+      ],
+      "evidence": [
+        {
+          "url": "https://testautomationu.applitools.com/",
+          "quote": "Introduction to pytest 1200 Credits 1 hr 30 mins"
+        },
+        {
+          "url": "https://testautomationu.applitools.com/",
+          "quote": "Become a test automation superstar - Free!"
+        }
+      ]
+    },
+    {
+      "id": "openlearn-approaches-to-software-development",
+      "title": "Approaches to software development",
+      "provider": "The Open University (OpenLearn)",
+      "url": "https://www.open.edu/openlearn/science-maths-technology/approaches-software-development/content-section-0",
+      "hours": 9,
+      "cost": "free",
+      "cost_note": "free (OpenLearn account optional)",
+      "level": "advanced",
+      "skills": [
+        "agile",
+        "software-design"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.open.edu/openlearn/science-maths-technology/approaches-software-development/content-section-0",
+          "quote": "9 hours study"
+        },
+        {
+          "url": "https://www.open.edu/openlearn/science-maths-technology/approaches-software-development/content-section-0",
+          "quote": "Free course"
+        }
+      ]
+    },
+    {
+      "id": "saylor-cs302-software-engineering",
+      "title": "CS302: Software Engineering",
+      "provider": "Saylor University (Saylor Academy)",
+      "url": "https://learn.saylor.org/course/cs302",
+      "hours": 36,
+      "cost": "free",
+      "cost_note": "free; free certificate",
+      "level": "intermediate",
+      "skills": [
+        "software-design"
+      ],
+      "evidence": [
+        {
+          "url": "https://learn.saylor.org/course/cs302",
+          "quote": "Time: 36 hours"
+        },
+        {
+          "url": "https://learn.saylor.org/course/cs302",
+          "quote": "Free Certificate"
+        }
+      ]
+    },
+    {
+      "id": "lf-lfs101-introduction-to-linux",
+      "title": "Introduction to Linux (LFS101)",
+      "provider": "The Linux Foundation",
+      "url": "https://training.linuxfoundation.org/training/introduction-to-linux/",
+      "hours": 60,
+      "cost": "free",
+      "cost_note": "free ($0); 90 days of access",
+      "level": "intro",
+      "skills": [
+        "linux"
+      ],
+      "evidence": [
+        {
+          "url": "https://training.linuxfoundation.org/training/introduction-to-linux/",
+          "quote": "60 Hours of Course Material"
+        },
+        {
+          "url": "https://training.linuxfoundation.org/training/introduction-to-linux/",
+          "quote": "$0"
+        }
+      ]
+    },
+    {
+      "id": "aws-cloud-practitioner-essentials",
+      "title": "AWS Cloud Practitioner Essentials",
+      "provider": "AWS Skill Builder",
+      "url": "https://skillbuilder.aws/learn/94T2BEN85A/aws-cloud-practitioner-essentials/8D79F3AVR7",
+      "hours": 12.75,
+      "cost": "free",
+      "cost_note": "free (AWS Skill Builder account); page notes a format update on 23 Oct 2026 that may reset in-progress learners",
+      "level": "intro",
+      "skills": [
+        "cloud"
+      ],
+      "evidence": [
+        {
+          "url": "https://skillbuilder.aws/learn/94T2BEN85A/aws-cloud-practitioner-essentials/8D79F3AVR7",
+          "quote": "Course duration 12 hours 45 minutes"
+        },
+        {
+          "url": "https://skillbuilder.aws/learn/94T2BEN85A/aws-cloud-practitioner-essentials/8D79F3AVR7",
+          "quote": "Access Free"
+        }
+      ]
+    },
+    {
+      "id": "lf-lfs162-devops-and-sre",
+      "title": "Introduction to DevOps and Site Reliability Engineering (LFS162)",
+      "provider": "The Linux Foundation",
+      "url": "https://training.linuxfoundation.org/training/introduction-to-devops-and-site-reliability-engineering-lfs162/",
+      "hours": 12,
+      "cost": "free",
+      "cost_note": "free ($0)",
+      "level": "intro",
+      "skills": [
+        "devops"
+      ],
+      "evidence": [
+        {
+          "url": "https://training.linuxfoundation.org/training/introduction-to-devops-and-site-reliability-engineering-lfs162/",
+          "quote": "10-12 Hours of Course Material [upper bound used]"
+        },
+        {
+          "url": "https://training.linuxfoundation.org/training/introduction-to-devops-and-site-reliability-engineering-lfs162/",
+          "quote": "$0"
+        }
+      ]
+    },
+    {
+      "id": "lf-lfs158-introduction-to-kubernetes",
+      "title": "Introduction to Kubernetes (LFS158)",
+      "provider": "The Linux Foundation",
+      "url": "https://training.linuxfoundation.org/training/introduction-to-kubernetes/",
+      "hours": 20,
+      "cost": "free",
+      "cost_note": "free ($0)",
+      "level": "intro",
+      "skills": [
+        "devops",
+        "cloud"
+      ],
+      "evidence": [
+        {
+          "url": "https://training.linuxfoundation.org/training/introduction-to-kubernetes/",
+          "quote": "15-20 Hours of Course Material [upper bound used]"
+        },
+        {
+          "url": "https://training.linuxfoundation.org/training/introduction-to-kubernetes/",
+          "quote": "$0"
+        }
+      ]
+    },
+    {
+      "id": "cisco-networking-basics",
+      "title": "Networking Basics",
+      "provider": "Cisco Networking Academy",
+      "url": "https://www.netacad.com/courses/networking-basics?courseLang=en-US",
+      "hours": 22,
+      "cost": "free",
+      "cost_note": "free self-paced course (Cisco NetAcad account)",
+      "level": "intro",
+      "skills": [
+        "networking"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.netacad.com/courses/networking-basics?courseLang=en-US",
+          "quote": "FREE 22 HOURS BEGINNER 13 LABS SELF-PACED"
+        }
+      ]
+    },
+    {
+      "id": "cisco-introduction-to-cybersecurity",
+      "title": "Introduction to Cybersecurity",
+      "provider": "Cisco Networking Academy",
+      "url": "https://www.netacad.com/courses/introduction-to-cybersecurity?courseLang=en-US",
+      "hours": 6,
+      "cost": "free",
+      "cost_note": "free self-paced course (Cisco NetAcad account)",
+      "level": "intro",
+      "skills": [
+        "cybersecurity"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.netacad.com/courses/introduction-to-cybersecurity?courseLang=en-US",
+          "quote": "FREE 6 HOURS BEGINNER 7 LABS SELF-PACED"
+        }
+      ]
+    },
+    {
+      "id": "mathworks-circuit-simulation-onramp",
+      "title": "Circuit Simulation Onramp",
+      "provider": "MathWorks (MATLAB Academy)",
+      "url": "https://matlabacademy.mathworks.com/details/circuit-simulation-onramp/circuits",
+      "hours": 1.5,
+      "cost": "free",
+      "cost_note": "free with MathWorks account; runs in browser, no product licence needed",
+      "level": "intro",
+      "skills": [
+        "circuits"
+      ],
+      "evidence": [
+        {
+          "url": "https://matlabacademy.mathworks.com/details/circuit-simulation-onramp/circuits",
+          "quote": "Length: About 1.5 hours"
+        },
+        {
+          "url": "https://www.mathworks.com/learn/training/online-courses-faq.html",
+          "quote": "Onramp courses are free for everyone and do not require a subscription to access."
+        }
+      ]
+    },
+    {
+      "id": "openlearn-introduction-to-electronics",
+      "title": "An introduction to electronics",
+      "provider": "The Open University (OpenLearn)",
+      "url": "https://www.open.edu/openlearn/science-maths-technology/an-introduction-electronics/content-section-0",
+      "hours": 10,
+      "cost": "free",
+      "cost_note": "free (OpenLearn account optional)",
+      "level": "intermediate",
+      "skills": [
+        "circuits",
+        "signal-processing"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.open.edu/openlearn/science-maths-technology/an-introduction-electronics/content-section-0",
+          "quote": "10 hours study"
+        },
+        {
+          "url": "https://www.open.edu/openlearn/science-maths-technology/an-introduction-electronics/content-section-0",
+          "quote": "Free course"
+        }
+      ]
+    },
+    {
+      "id": "autodesk-fusion-electronics-design-project",
+      "title": "Project | Electronics design (Fusion PCB design project)",
+      "provider": "Autodesk",
+      "url": "https://www.autodesk.com/learn/ondemand/module/project-or-electronics-design",
+      "hours": 3,
+      "cost": "free",
+      "cost_note": "free with Autodesk account; Fusion software free for eligible students/educators",
+      "level": "intermediate",
+      "skills": [
+        "pcb"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.autodesk.com/learn/ondemand/module/project-or-electronics-design",
+          "quote": "Length: 3 hr."
+        },
+        {
+          "url": "https://www.autodesk.com/solutions/design-manufacturing/fusion-tutorials",
+          "quote": "Eligible students and classroom educators have free access to Fusion software"
+        }
+      ]
+    },
+    {
+      "id": "lf-lfd116-embedded-software-engineering-basics",
+      "title": "Software Engineering Basics for Embedded Systems (LFD116)",
+      "provider": "The Linux Foundation",
+      "url": "https://training.linuxfoundation.org/training/software-engineering-basics-for-embedded-systems-lfd116/",
+      "hours": 6,
+      "cost": "free",
+      "cost_note": "free ($0)",
+      "level": "intro",
+      "skills": [
+        "embedded",
+        "software-design"
+      ],
+      "evidence": [
+        {
+          "url": "https://training.linuxfoundation.org/training/software-engineering-basics-for-embedded-systems-lfd116/",
+          "quote": "4-6 Hours of Course Material [upper bound used]"
+        },
+        {
+          "url": "https://training.linuxfoundation.org/training/software-engineering-basics-for-embedded-systems-lfd116/",
+          "quote": "$0"
+        }
+      ]
+    },
+    {
+      "id": "edx-arm-embedded-systems-microbit",
+      "title": "Embedded Systems Essentials with Arm: Get Started with the micro:bit",
+      "provider": "Arm Education on edX",
+      "url": "https://www.edx.org/learn/embedded-systems/arm-education-embedded-systems-essentials-with-arm-getting-started",
+      "hours": 36,
+      "cost": "free",
+      "cost_note": "free audit with time-limited access (current run's audit access expires 1 Dec 2026); certificate track US$99; micro:bit simulator available, hardware optional",
+      "level": "intermediate",
+      "skills": [
+        "embedded",
+        "sensors-iot"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.edx.org/learn/embedded-systems/arm-education-embedded-systems-essentials-with-arm-getting-started",
+          "quote": "6 weeks 3-6 hours per week [6 x 6 = 36 h, upper bound]"
+        },
+        {
+          "url": "https://www.edx.org/learn/embedded-systems/arm-education-embedded-systems-essentials-with-arm-getting-started",
+          "quote": "Audit Access Expires Dec 1"
+        },
+        {
+          "url": "https://www.edx.org/resources/how-to-audit-an-edx-class",
+          "quote": "you can audit a course and enroll for free"
+        }
+      ]
+    },
+    {
+      "id": "lf-lfd111x-building-a-risc-v-cpu-core",
+      "title": "Building a RISC-V CPU Core (LFD111x)",
+      "provider": "The Linux Foundation (hosted on edX)",
+      "url": "https://training.linuxfoundation.org/training/building-a-riscv-cpu-core-lfd111x/",
+      "hours": 7,
+      "cost": "free",
+      "cost_note": "free course-only track ($0, 7 weeks access on edX); verified certificate optional and paid; uses TL-Verilog in the browser-based Makerchip IDE",
+      "level": "intro",
+      "skills": [
+        "hdl-fpga"
+      ],
+      "evidence": [
+        {
+          "url": "https://training.linuxfoundation.org/training/building-a-riscv-cpu-core-lfd111x/",
+          "quote": "5-7 Hours of Course Material [upper bound used]"
+        },
+        {
+          "url": "https://training.linuxfoundation.org/training/building-a-riscv-cpu-core-lfd111x/",
+          "quote": "$0 Course only"
+        }
+      ]
+    },
+    {
+      "id": "coursera-asu-semiconductor-packaging-manufacturing",
+      "title": "Semiconductor Packaging Manufacturing",
+      "provider": "Arizona State University on Coursera",
+      "url": "https://www.coursera.org/learn/manufacturing",
+      "hours": 9,
+      "cost": "low",
+      "cost_note": "Coursera course: normally needs a paid subscription. It may be free through Rakyat Digital's Global Learning Pass, which covers selected Coursera courses with limited places — check before you enrol.",
+      "level": "intro",
+      "skills": [
+        "semiconductor-test",
+        "lean-quality"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.coursera.org/learn/manufacturing",
+          "quote": "Beginner level"
+        },
+        {
+          "url": "https://www.coursera.org/learn/manufacturing",
+          "quote": "9 hours to complete"
+        },
+        {
+          "url": "https://rakyatdigital.gov.my/coursera-terms",
+          "quote": "mengakses kursus dalam talian yang dipilih di platform Coursera tanpa sebarang kos"
+        },
+        {
+          "url": "https://rakyatdigital.gov.my/skills-hub",
+          "quote": "akses PERCUMA selama 3 bulan"
+        }
+      ]
+    },
+    {
+      "id": "mathworks-signal-processing-onramp",
+      "title": "Signal Processing Onramp",
+      "provider": "MathWorks (MATLAB Academy)",
+      "url": "https://matlabacademy.mathworks.com/details/signal-processing-onramp/signalprocessing",
+      "hours": 1,
+      "cost": "free",
+      "cost_note": "free with MathWorks account; runs in browser, no product licence needed",
+      "level": "intro",
+      "skills": [
+        "signal-processing"
+      ],
+      "evidence": [
+        {
+          "url": "https://matlabacademy.mathworks.com/details/signal-processing-onramp/signalprocessing",
+          "quote": "Length: About 1 hour"
+        },
+        {
+          "url": "https://www.mathworks.com/learn/training/online-courses-faq.html",
+          "quote": "Onramp courses are free for everyone and do not require a subscription to access."
+        }
+      ]
+    },
+    {
+      "id": "mathworks-wireless-communications-onramp",
+      "title": "Wireless Communications Onramp",
+      "provider": "MathWorks (MATLAB Academy)",
+      "url": "https://matlabacademy.mathworks.com/details/wireless-communications-onramp/wireless",
+      "hours": 1,
+      "cost": "free",
+      "cost_note": "free with MathWorks account; runs in browser, no product licence needed",
+      "level": "intro",
+      "skills": [
+        "rf-telecom"
+      ],
+      "evidence": [
+        {
+          "url": "https://matlabacademy.mathworks.com/details/wireless-communications-onramp/wireless",
+          "quote": "Length: About 1 hour"
+        },
+        {
+          "url": "https://www.mathworks.com/learn/training/online-courses-faq.html",
+          "quote": "Onramp courses are free for everyone and do not require a subscription to access."
+        }
+      ]
+    },
+    {
+      "id": "mathworks-power-electronics-simulation-onramp",
+      "title": "Power Electronics Simulation Onramp",
+      "provider": "MathWorks (MATLAB Academy)",
+      "url": "https://matlabacademy.mathworks.com/details/power-electronics-simulation-onramp/powerelectronics",
+      "hours": 1,
+      "cost": "free",
+      "cost_note": "free with MathWorks account; runs in browser, no product licence needed",
+      "level": "intro",
+      "skills": [
+        "power-electronics"
+      ],
+      "evidence": [
+        {
+          "url": "https://matlabacademy.mathworks.com/details/power-electronics-simulation-onramp/powerelectronics",
+          "quote": "Length: About 1 hour"
+        },
+        {
+          "url": "https://www.mathworks.com/learn/training/online-courses-faq.html",
+          "quote": "Onramp courses are free for everyone and do not require a subscription to access."
+        }
+      ]
+    },
+    {
+      "id": "mathworks-power-systems-simulation-onramp",
+      "title": "Power Systems Simulation Onramp",
+      "provider": "MathWorks (MATLAB Academy)",
+      "url": "https://matlabacademy.mathworks.com/details/power-systems-simulation-onramp/orps",
+      "hours": 1.5,
+      "cost": "free",
+      "cost_note": "free with MathWorks account; runs in browser, no product licence needed",
+      "level": "intro",
+      "skills": [
+        "power-systems"
+      ],
+      "evidence": [
+        {
+          "url": "https://matlabacademy.mathworks.com/details/power-systems-simulation-onramp/orps",
+          "quote": "Length: About 1.5 hours"
+        },
+        {
+          "url": "https://www.mathworks.com/learn/training/online-courses-faq.html",
+          "quote": "Onramp courses are free for everyone and do not require a subscription to access."
+        }
+      ]
+    },
+    {
+      "id": "openlearn-renewable-energy-power-the-world",
+      "title": "Can renewable energy sources power the world?",
+      "provider": "The Open University (OpenLearn)",
+      "url": "https://www.open.edu/openlearn/mod/oucontent/view.php?id=79919",
+      "hours": 24,
+      "cost": "free",
+      "cost_note": "free badged open course; free OU digital badge on completion; Week 3 covers solar photovoltaics",
+      "level": "intro",
+      "skills": [
+        "solar-pv"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.open.edu/openlearn/mod/oucontent/view.php?id=79919",
+          "quote": "24 hours study"
+        },
+        {
+          "url": "https://www.open.edu/openlearn/mod/oucontent/view.php?id=79919",
+          "quote": "eight weeks, with approximately three hours of study in each [8 x 3 = 24 h]"
+        },
+        {
+          "url": "https://www.open.edu/openlearn/mod/oucontent/view.php?id=79919",
+          "quote": "Welcome to this free badged open course"
+        }
+      ]
+    },
+    {
+      "id": "openlearn-energy-in-buildings",
+      "title": "Energy in buildings",
+      "provider": "The Open University (OpenLearn)",
+      "url": "https://www.open.edu/openlearn/nature-environment/energy-buildings/content-section-0",
+      "hours": 10,
+      "cost": "free",
+      "cost_note": "free (OpenLearn account optional); includes a home energy assessment section",
+      "level": "advanced",
+      "skills": [
+        "energy-efficiency"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.open.edu/openlearn/nature-environment/energy-buildings/content-section-0",
+          "quote": "10 hours study"
+        },
+        {
+          "url": "https://www.open.edu/openlearn/nature-environment/energy-buildings/content-section-0",
+          "quote": "Free course"
+        }
+      ]
+    },
+    {
+      "id": "mathworks-simscape-battery-onramp",
+      "title": "Simscape Battery Onramp",
+      "provider": "MathWorks (MATLAB Academy)",
+      "url": "https://matlabacademy.mathworks.com/details/simscape-battery-onramp/orsb",
+      "hours": 1,
+      "cost": "free",
+      "cost_note": "free with MathWorks account; runs in browser, no product licence needed",
+      "level": "intro",
+      "skills": [
+        "batteries"
+      ],
+      "evidence": [
+        {
+          "url": "https://matlabacademy.mathworks.com/details/simscape-battery-onramp/orsb",
+          "quote": "Length: About 1 hour"
+        },
+        {
+          "url": "https://www.mathworks.com/learn/training/online-courses-faq.html",
+          "quote": "Onramp courses are free for everyone and do not require a subscription to access."
+        }
+      ]
+    },
+    {
+      "id": "coursera-packt-siemens-plc-tia-portal-essentials",
+      "title": "Siemens PLC and TIA Portal Essentials",
+      "provider": "Packt on Coursera",
+      "url": "https://www.coursera.org/learn/packt-siemens-plc-and-tia-portal-essentials-fd8dj",
+      "hours": 10,
+      "cost": "low",
+      "cost_note": "Coursera course: normally needs a paid subscription. It may be free through Rakyat Digital's Global Learning Pass, which covers selected Coursera courses with limited places — check before you enrol.",
+      "level": "intro",
+      "skills": [
+        "plc"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.coursera.org/learn/packt-siemens-plc-and-tia-portal-essentials-fd8dj",
+          "quote": "Beginner level"
+        },
+        {
+          "url": "https://www.coursera.org/learn/packt-siemens-plc-and-tia-portal-essentials-fd8dj",
+          "quote": "1 week to complete at 10 hours a week [1 x 10 = 10 h]"
+        },
+        {
+          "url": "https://rakyatdigital.gov.my/coursera-terms",
+          "quote": "mengakses kursus dalam talian yang dipilih di platform Coursera tanpa sebarang kos"
+        },
+        {
+          "url": "https://rakyatdigital.gov.my/skills-hub",
+          "quote": "akses PERCUMA selama 3 bulan"
+        }
+      ]
+    },
+    {
+      "id": "iu-ignition-tags",
+      "title": "Tags in Ignition (Ignition 8.3)",
+      "provider": "Inductive University (Inductive Automation)",
+      "url": "https://inductiveuniversity.com/courses/ignition/tags-in-ignition/8.3",
+      "hours": 1.9,
+      "cost": "free",
+      "cost_note": "free; free Inductive University credential",
+      "level": "intro",
+      "skills": [
+        "scada"
+      ],
+      "evidence": [
+        {
+          "url": "https://inductiveuniversity.com/courses/ignition/tags-in-ignition/8.3",
+          "quote": "Version: 8.3 Length: 1 hr 56 min Challenges: 6"
+        },
+        {
+          "url": "https://inductiveuniversity.com/courses/ignition/tags-in-ignition/8.3",
+          "quote": "Master Ignition and get credentialed. All for free."
+        }
+      ]
+    },
+    {
+      "id": "iu-ignition-perspective-pages-views",
+      "title": "Perspective Pages, Views, and Containers (Ignition 8.3)",
+      "provider": "Inductive University (Inductive Automation)",
+      "url": "https://inductiveuniversity.com/courses/ignition/perspective-pages-views-and-containers/8.3",
+      "hours": 1.5,
+      "cost": "free",
+      "cost_note": "free; free Inductive University credential",
+      "level": "intro",
+      "skills": [
+        "scada"
+      ],
+      "evidence": [
+        {
+          "url": "https://inductiveuniversity.com/courses/ignition/perspective-pages-views-and-containers/8.3",
+          "quote": "Version: 8.3 Length: 1 hr 27 min Challenges: 5"
+        },
+        {
+          "url": "https://inductiveuniversity.com/courses/ignition/tags-in-ignition/8.3",
+          "quote": "Master Ignition and get credentialed. All for free."
+        }
+      ]
+    },
+    {
+      "id": "mathworks-control-design-onramp",
+      "title": "Control Design Onramp with Simulink",
+      "provider": "MathWorks (MATLAB Academy)",
+      "url": "https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls",
+      "hours": 0.5,
+      "cost": "free",
+      "cost_note": "free with MathWorks account; runs in browser, no product licence needed",
+      "level": "intro",
+      "skills": [
+        "control-systems"
+      ],
+      "evidence": [
+        {
+          "url": "https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls",
+          "quote": "Length: About 0.5 hours"
+        },
+        {
+          "url": "https://www.mathworks.com/learn/training/online-courses-faq.html",
+          "quote": "Onramp courses are free for everyone and do not require a subscription to access."
+        }
+      ]
+    },
+    {
+      "id": "coursera-packt-ros-2-from-scratch",
+      "title": "ROS 2 from Scratch",
+      "provider": "Packt on Coursera",
+      "url": "https://www.coursera.org/learn/packt-ros-2-from-scratch",
+      "hours": 30,
+      "cost": "low",
+      "cost_note": "Coursera course: normally needs a paid subscription. It may be free through Rakyat Digital's Global Learning Pass, which covers selected Coursera courses with limited places — check before you enrol.",
+      "level": "intro",
+      "skills": [
+        "robotics"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.coursera.org/learn/packt-ros-2-from-scratch",
+          "quote": "Beginner level"
+        },
+        {
+          "url": "https://www.coursera.org/learn/packt-ros-2-from-scratch",
+          "quote": "3 weeks to complete at 10 hours a week [3 x 10 = 30 h]"
+        },
+        {
+          "url": "https://rakyatdigital.gov.my/coursera-terms",
+          "quote": "mengakses kursus dalam talian yang dipilih di platform Coursera tanpa sebarang kos"
+        },
+        {
+          "url": "https://rakyatdigital.gov.my/skills-hub",
+          "quote": "akses PERCUMA selama 3 bulan"
+        }
+      ]
+    },
+    {
+      "id": "autodesk-learn-fusion-cad-90-minutes",
+      "title": "Learn Fusion for CAD in 90 minutes",
+      "provider": "Autodesk",
+      "url": "https://www.autodesk.com/learn/ondemand/course/learn-fusion-for-cad-in-90-minutes",
+      "hours": 1.5,
+      "cost": "free",
+      "cost_note": "free with Autodesk account; Fusion software free for eligible students/educators",
+      "level": "intro",
+      "skills": [
+        "cad"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.autodesk.com/learn/ondemand/course/learn-fusion-for-cad-in-90-minutes",
+          "quote": "Length: 1 hr. 30 min."
+        },
+        {
+          "url": "https://www.autodesk.com/solutions/design-manufacturing/fusion-tutorials",
+          "quote": "This 90-minute free course includes downloadable files"
+        }
+      ]
+    },
+    {
+      "id": "cisco-introduction-to-iot",
+      "title": "Introduction to IoT and Digital Transformation",
+      "provider": "Cisco Networking Academy",
+      "url": "https://www.netacad.com/courses/introduction-iot?courseLang=en-US",
+      "hours": 6,
+      "cost": "free",
+      "cost_note": "free self-paced course (Cisco NetAcad account)",
+      "level": "intro",
+      "skills": [
+        "sensors-iot"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.netacad.com/courses/introduction-iot?courseLang=en-US",
+          "quote": "FREE 6 HOURS BEGINNER SELF-PACED"
+        }
+      ]
+    },
+    {
+      "id": "elatih-lean-six-sigma-white-belt",
+      "title": "Certified Lean Six Sigma White Belt Practitioner",
+      "provider": "Duke Training & Consultancy via HRD Corp e-LATiH",
+      "url": "https://elatih.hrdcorp.gov.my/courses-details/certified-lean-six-sigma-white-belt-practitioner",
+      "hours": 4,
+      "cost": "low",
+      "cost_note": "RM100 on HRD Corp e-LATiH (Malaysian platform); certificate of completion included",
+      "level": "intro",
+      "skills": [
+        "lean-quality"
+      ],
+      "evidence": [
+        {
+          "url": "https://elatih.hrdcorp.gov.my/courses-details/certified-lean-six-sigma-white-belt-practitioner",
+          "quote": "RM100.00"
+        },
+        {
+          "url": "https://elatih.hrdcorp.gov.my/courses-details/certified-lean-six-sigma-white-belt-practitioner",
+          "quote": "Duration: 4 Hours"
+        }
+      ]
+    },
+    {
+      "id": "elatih-project-management-fundamental",
+      "title": "Project Management - The Fundamental",
+      "provider": "HRD Corp e-LATiH (trainer: Jamal Lazaar)",
+      "url": "https://elatih.hrdcorp.gov.my/courses-details/project-management-the-fundamental",
+      "hours": 2.7,
+      "cost": "free",
+      "cost_note": "free on HRD Corp e-LATiH (registration required); certificate of completion; covers Waterfall, Agile, Scrum, Kanban",
+      "level": "intro",
+      "skills": [
+        "project-management",
+        "agile"
+      ],
+      "evidence": [
+        {
+          "url": "https://elatih.hrdcorp.gov.my/courses-details/project-management-the-fundamental",
+          "quote": "Free"
+        },
+        {
+          "url": "https://elatih.hrdcorp.gov.my/courses-details/project-management-the-fundamental",
+          "quote": "Duration: 2 Hours 40 Min"
+        }
+      ]
+    },
+    {
+      "id": "saylor-bus402-project-management",
+      "title": "BUS402: Project Management",
+      "provider": "Saylor University (Saylor Academy)",
+      "url": "https://learn.saylor.org/course/bus402",
+      "hours": 52,
+      "cost": "free",
+      "cost_note": "free; free certificate",
+      "level": "intermediate",
+      "skills": [
+        "project-management"
+      ],
+      "evidence": [
+        {
+          "url": "https://learn.saylor.org/course/bus402",
+          "quote": "Time: 52 hours"
+        },
+        {
+          "url": "https://learn.saylor.org/course/bus402",
+          "quote": "Free Certificate"
+        }
+      ]
+    },
+    {
+      "id": "cisco-creating-compelling-reports",
+      "title": "Creating Compelling Reports",
+      "provider": "Cisco Networking Academy",
+      "url": "https://www.netacad.com/courses/compelling-reports?courseLang=en-US",
+      "hours": 4,
+      "cost": "free",
+      "cost_note": "free self-paced course (Cisco NetAcad account)",
+      "level": "intro",
+      "skills": [
+        "technical-writing"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.netacad.com/courses/compelling-reports?courseLang=en-US",
+          "quote": "FREE 4 HOURS BEGINNER SELF-PACED"
+        }
+      ]
+    }
+  ]
+}

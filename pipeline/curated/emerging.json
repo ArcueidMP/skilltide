@@ -1,0 +1,378 @@
+{
+  "checked": "2026-10-21",
+  "emerging_roles": [
+    {
+      "name": "Generative AI System Application Specialist",
+      "name_original": "生成式人工智能系统应用员",
+      "recognised_by": "China MOHRSS with SAMR & NBS - new occupation 4-04-05-13 (digital occupation), notice 人社厅发〔2024〕36号",
+      "date": "2024-07-31",
+      "source_url": "https://www.gov.cn/zhengce/zhengceku/202407/content_6965461.htm",
+      "description": "Uses generative-AI tools to design, call, train, tune and maintain generative-AI systems for real-world applications.",
+      "closest_onet": "15-2051.00"
+    },
+    {
+      "name": "Cybersecurity Classified-Protection (MLPS) Assessor",
+      "name_original": "网络安全等级保护测评师",
+      "recognised_by": "China MOHRSS with SAMR & NBS - new occupation 4-04-04-07 (digital occupation), notice 人社厅发〔2024〕36号",
+      "date": "2024-07-31",
+      "source_url": "https://www.gov.cn/zhengce/zhengceku/202407/content_6965461.htm",
+      "description": "Tests and evaluates networks and data against China's multi-level cybersecurity protection standards, covering both technical and management controls.",
+      "closest_onet": "15-1212.00"
+    },
+    {
+      "name": "Cloud-Network Intelligent O&M Technician",
+      "name_original": "云网智能运维员",
+      "recognised_by": "China MOHRSS with SAMR & NBS - new occupation 4-04-05-12 (digital occupation), notice 人社厅发〔2024〕36号",
+      "date": "2024-07-31",
+      "source_url": "https://www.gov.cn/zhengce/zhengceku/202407/content_6965461.htm",
+      "description": "Keeps cloud and network service systems running: day-to-day management, performance tuning, troubleshooting and incident response using cloud and intelligent-network tools.",
+      "closest_onet": "15-1244.00"
+    },
+    {
+      "name": "Intelligent Manufacturing System O&M Technician",
+      "name_original": "智能制造系统运维员",
+      "recognised_by": "China MOHRSS with SAMR & NBS - new occupation 6-31-07-04 (digital occupation), notice 人社厅发〔2024〕36号",
+      "date": "2024-07-31",
+      "source_url": "https://www.gov.cn/zhengce/zhengceku/202407/content_6965461.htm",
+      "description": "Collects data, monitors condition, diagnoses faults and performs preventive maintenance and production optimisation on smart-factory systems.",
+      "closest_onet": "17-3024.00"
+    },
+    {
+      "name": "Electronic Circuit Designer",
+      "name_original": "电子电路设计师",
+      "recognised_by": "China MOHRSS with SAMR & NBS - 7th batch of new occupations (occupation code 4-08-08-31)",
+      "date": "2025-07-22",
+      "source_url": "https://www.gov.cn/lianbo/bumen/202507/content_7033240.htm",
+      "description": "Designs electronic circuit schematics and printed circuit boards using components and EDA/simulation software.",
+      "closest_onet": "17-2072.00"
+    },
+    {
+      "name": "Power Aggregation Operator (virtual power plant)",
+      "name_original": "电力聚合运营员",
+      "recognised_by": "China MOHRSS with SAMR & NBS - 7th batch of new occupations (code 4-11-01-07, green and digital occupation)",
+      "date": "2025-07-22",
+      "source_url": "https://www.gov.cn/lianbo/bumen/202507/content_7033240.htm",
+      "description": "Uses virtual-power-plant hardware and software to recruit distributed loads, storage and generation, monitor the aggregated portfolio and trade electricity.",
+      "closest_onet": "17-2199.03"
+    },
+    {
+      "name": "Embodied AI Robot Application Technician",
+      "name_original": "具身智能机器人应用技术员",
+      "recognised_by": "China MOHRSS and other departments - 8th batch of new occupations (digital occupation)",
+      "date": "2026-09-09",
+      "source_url": "https://www.shanghai.gov.cn/nw17239/20260910/bef53eee2f334c9293315a5536047385.html",
+      "description": "Collects multimodal robot data with teleoperation and simulation tools, fine-tunes AI models, and deploys, debugs and maintains embodied robots on site.",
+      "closest_onet": "17-3024.01"
+    },
+    {
+      "name": "Digital Twin Engineering Technologist",
+      "name_original": "数字孪生工程技术人员",
+      "recognised_by": "China MOHRSS and other departments - 8th batch of new occupations (digital occupation)",
+      "date": "2026-09-09",
+      "source_url": "https://www.shanghai.gov.cn/nw17239/20260910/bef53eee2f334c9293315a5536047385.html",
+      "description": "Engineers who research, plan, build, commission, optimise and maintain digital-twin systems.",
+      "closest_onet": "15-1299.08"
+    },
+    {
+      "name": "Microgrid Administrator",
+      "name_original": "微电网管理员",
+      "recognised_by": "China MOHRSS and other departments - 8th batch of new occupations (green and digital occupation)",
+      "date": "2026-09-09",
+      "source_url": "https://www.shanghai.gov.cn/nw17239/20260910/bef53eee2f334c9293315a5536047385.html",
+      "description": "Monitors and forecasts microgrid power data via an energy-management system, runs operating strategies (grid-tied/islanded switching, black start) and evaluates performance.",
+      "closest_onet": "17-2071.00"
+    },
+    {
+      "name": "AI Agent Developer",
+      "name_original": "智能体开发员",
+      "recognised_by": "China MOHRSS and other departments - new work type (工种) in the 8th batch (23 new work types)",
+      "date": "2026-09-09",
+      "source_url": "https://www.shanghai.gov.cn/nw17239/20260910/bef53eee2f334c9293315a5536047385.html",
+      "description": "Newly listed work type for people who build AI agents; the detailed official definition was not available in the sources checked.",
+      "closest_onet": "15-1252.00"
+    },
+    {
+      "name": "Artificial Intelligence Engineer (telecommunications)",
+      "name_original": "",
+      "recognised_by": "TalentCorp & MCMC - Impact Study on AI, Digital and the Green Economy on the Malaysian Workforce for the Communications and Multimedia Sector (AI engineers were also cited as emerging in Phase 1, Nov 2024)",
+      "date": "2026-10-05",
+      "source_url": "https://www.talentcorp.com.my/resources/press-releases/talentcorp-and-mcmc-bring-industry-ecosystem-together-to-strengthen-future-talent/",
+      "description": "Builds and deploys AI systems; flagged as an emerging role in Malaysia's telecommunications subsector.",
+      "closest_onet": "15-2051.00"
+    },
+    {
+      "name": "Edge Computing Specialist (telecommunications)",
+      "name_original": "",
+      "recognised_by": "TalentCorp & MCMC - Impact Study on AI, Digital and the Green Economy on the Malaysian Workforce for the Communications and Multimedia Sector",
+      "date": "2026-10-05",
+      "source_url": "https://www.talentcorp.com.my/resources/press-releases/talentcorp-and-mcmc-bring-industry-ecosystem-together-to-strengthen-future-talent/",
+      "description": "Designs and runs computing at the network edge; flagged as an emerging role in Malaysia's telecommunications subsector.",
+      "closest_onet": "15-1299.08"
+    },
+    {
+      "name": "Artificial Intelligence Ethics Officer (telecommunications)",
+      "name_original": "",
+      "recognised_by": "TalentCorp & MCMC - Impact Study on AI, Digital and the Green Economy on the Malaysian Workforce for the Communications and Multimedia Sector",
+      "date": "2026-10-05",
+      "source_url": "https://www.talentcorp.com.my/resources/press-releases/talentcorp-and-mcmc-bring-industry-ecosystem-together-to-strengthen-future-talent/",
+      "description": "Oversees responsible and ethical use of AI; flagged as an emerging role in Malaysia's telecommunications subsector.",
+      "closest_onet": null
+    },
+    {
+      "name": "Automation Technician",
+      "name_original": "",
+      "recognised_by": "TalentCorp Impact Study Phase 1 (10 sectors) - named among its 43 AI/digital emerging roles in the HR Minister's parliamentary written reply",
+      "date": "2025-08-19",
+      "source_url": "https://www.thestar.com.my/news/nation/2025/08/19/ai-digitalisation-and-green-tech-to-affect-over-620000-jobs-in-five-years-says-sim",
+      "description": "Sets up, maintains and troubleshoots automated equipment; one of the AI/digital emerging roles named from Malaysia's Phase 1 study.",
+      "closest_onet": "17-3024.00"
+    },
+    {
+      "name": "Big Data Specialists",
+      "name_original": "",
+      "recognised_by": "World Economic Forum - Future of Jobs Report 2025 (employer outlook 2025-2030)",
+      "date": "2025-01",
+      "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+      "description": "One of the three fastest-growing jobs worldwide in percentage terms; specialists who manage and analyse very large datasets.",
+      "closest_onet": "15-2051.00"
+    },
+    {
+      "name": "FinTech Engineers",
+      "name_original": "",
+      "recognised_by": "World Economic Forum - Future of Jobs Report 2025 (employer outlook 2025-2030)",
+      "date": "2025-01",
+      "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+      "description": "One of the three fastest-growing jobs worldwide in percentage terms; engineers building software for financial-technology products.",
+      "closest_onet": "15-1252.00"
+    },
+    {
+      "name": "AI and Machine Learning Specialists",
+      "name_original": "",
+      "recognised_by": "World Economic Forum - Future of Jobs Report 2025 (employer outlook 2025-2030)",
+      "date": "2025-01",
+      "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+      "description": "One of the three fastest-growing jobs worldwide in percentage terms; build and apply machine-learning and AI models.",
+      "closest_onet": "15-2051.00"
+    },
+    {
+      "name": "Software and Applications Developers",
+      "name_original": "",
+      "recognised_by": "World Economic Forum - Future of Jobs Report 2025 (employer outlook 2025-2030)",
+      "date": "2025-01",
+      "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+      "description": "Named by WEF among the technology roles leading its fastest-growing jobs list.",
+      "closest_onet": "15-1252.00"
+    },
+    {
+      "name": "Autonomous and Electric Vehicle Specialists",
+      "name_original": "",
+      "recognised_by": "World Economic Forum - Future of Jobs Report 2025 (employer outlook 2025-2030)",
+      "date": "2025-01",
+      "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+      "description": "Green and energy-transition role that WEF places among the top fastest-growing jobs; works on self-driving and electric vehicle systems.",
+      "closest_onet": "17-2199.05"
+    },
+    {
+      "name": "Renewable Energy Engineers",
+      "name_original": "",
+      "recognised_by": "World Economic Forum - Future of Jobs Report 2025 (employer outlook 2025-2030)",
+      "date": "2025-01",
+      "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+      "description": "Green and energy-transition role that WEF places among the top fastest-growing jobs; designs and develops renewable power systems.",
+      "closest_onet": "17-2199.11"
+    }
+  ],
+  "mycol": {
+    "edition": "MyMahir Malaysia Critical Occupations List (MyCOL) 2024/2025 - 8th edition, 66 critical occupations across 18 sectors",
+    "source_url": "https://www.talentcorp.com.my/images/uploads/publication/205/MyMahir-MyCOL-20242025-Brochure-1773377416.pdf",
+    "note": "Official TalentCorp source: listed titles come from TalentCorp's MyCOL 2024/2025 brochure, which lists all 66 occupations. The full report (https://www.talentcorp.com.my/images/uploads/publication/204/MyMahir-Malaysia-Critical-Occupations-List-MyCOL20242025-1773385490.pdf) is over 10 MB and could not be fetched, so per-occupation sectors could not be read. A sector is given only where the brochure states 'Top Sectors' (Software Developers). The release date is not stated in the brochure. DOSM's Q2 2026 Job Market Insights (18 Aug 2026) still cites MyCOL 2024/2025, and no newer edition was found. Matches by MASCO description use KESUMA's e-MASCO portal (MASCO 2020): unit group 2512 includes 'IT Systems Architect'; 2519 covers software testers, system testers and QA engineers; 2524 Data Professionals covers data scientists and data analysts; 2531 Cyber Security Professionals covers security analysts and offensive/defensive operations; 2141 Industrial and Production Engineers lists automation, robotics, energy and new-energy engineers; 2152 Electronic Engineers covers circuits and systems used in computing; 3119 Industrial and Production Technicians includes helping test and design robotic equipment; and 2166 Graphic and Multimedia Designers includes e-commerce website designers. Three matches are partial: Business Intelligence Analysts (via data analyst), Solar Energy Systems Engineers (via 'Jurutera Tenaga Baharu', new-energy engineer) and Web and Digital Interface Designers (via e-commerce website designer). These candidate occupations were not matched: Web Developers (MASCO 2513 is not on the list), Computer User Support Specialists, Telecommunications Engineering Specialists (2153 is not listed), Computer and Information Research Scientists, Microsystems Engineers, and Mechatronics Engineers and Electro-Mechanical/Mechatronics Technicians (no explicit MASCO title; the nearest is 2141-01 Automation Engineer). Three were too loose to match: Data Warehousing Specialists (2521 lists database architects only), Validation Engineers ('Engineering Professionals NEC' lists QA/QC and commissioning engineers) and Electrical and Electronics Drafters (examples under 'Draughtspersons and Surveying Technicians' are architectural, civil and survey roles). Software Developers, Information Technology System Administrators and Industrial and Production Engineers have appeared in all eight MyCOL editions since 2015.",
+    "matches": [
+      {
+        "onet": "15-1252.00",
+        "listed_title": "Software Developers",
+        "sector": "Top sectors: Manufacturing; Transportation and storage; Information and communication"
+      },
+      {
+        "onet": "15-1251.00",
+        "listed_title": "Application Programmers",
+        "sector": ""
+      },
+      {
+        "onet": "15-1211.00",
+        "listed_title": "Computer Systems Analysts",
+        "sector": ""
+      },
+      {
+        "onet": "15-1253.00",
+        "listed_title": "Software and Application Developers and Analysts Not Elsewhere Classified",
+        "sector": ""
+      },
+      {
+        "onet": "15-1244.00",
+        "listed_title": "Information Technology System Administrators",
+        "sector": ""
+      },
+      {
+        "onet": "15-1244.00",
+        "listed_title": "Computer Network Professionals",
+        "sector": ""
+      },
+      {
+        "onet": "15-2051.00",
+        "listed_title": "Data Professionals",
+        "sector": ""
+      },
+      {
+        "onet": "15-2051.01",
+        "listed_title": "Data Professionals",
+        "sector": ""
+      },
+      {
+        "onet": "15-1212.00",
+        "listed_title": "Cyber Security Professionals",
+        "sector": ""
+      },
+      {
+        "onet": "15-1299.04",
+        "listed_title": "Cyber Security Professionals",
+        "sector": ""
+      },
+      {
+        "onet": "15-1255.00",
+        "listed_title": "Graphic and Multimedia Designers",
+        "sector": ""
+      },
+      {
+        "onet": "17-2071.00",
+        "listed_title": "Electrical Engineers",
+        "sector": ""
+      },
+      {
+        "onet": "17-2072.00",
+        "listed_title": "Electronic Engineers",
+        "sector": ""
+      },
+      {
+        "onet": "17-2061.00",
+        "listed_title": "Electronic Engineers",
+        "sector": ""
+      },
+      {
+        "onet": "17-2112.00",
+        "listed_title": "Industrial and Production Engineers",
+        "sector": ""
+      },
+      {
+        "onet": "17-2112.03",
+        "listed_title": "Industrial and Production Engineers",
+        "sector": ""
+      },
+      {
+        "onet": "17-3023.00",
+        "listed_title": "Electrical Engineering Technicians",
+        "sector": ""
+      },
+      {
+        "onet": "17-3023.00",
+        "listed_title": "Electronics Engineering Technicians",
+        "sector": ""
+      },
+      {
+        "onet": "17-3024.01",
+        "listed_title": "Industrial and Production Technicians",
+        "sector": ""
+      }
+    ]
+  },
+  "malaysia_context": [
+    {
+      "id": "hays-ai-use-2025",
+      "label": "Hays Asia Salary Guide 2025 - AI use among Malaysian professionals (Hays Malaysia press release)",
+      "value": "56% use AI tools at work; 26% have received training to use them",
+      "date": "2025-03-07",
+      "source_url": "https://www.hays.com.my/press-release/content/future-of-work-malaysia-technology-ai-impact",
+      "quote": "56 per cent of working professionals in Malaysia use AI tools at work ... only 26 per cent have received training to use such tools"
+    },
+    {
+      "id": "mosti-600k-reskilling",
+      "label": "MOSTI Minister Chang Lih Kang at the MBOT Professional Development Certification launch, Putrajaya",
+      "value": "More than 600,000 workers need reskilling within 3-5 years",
+      "date": "2025-01-07",
+      "source_url": "https://thesun.my/malaysia-news/ai-to-impact-over-30-of-jobs-in-malaysia-in-the-next-10-years-chang-JP13491228",
+      "quote": "more than 600,000 workers must undergo reskilling training within three to five years"
+    },
+    {
+      "id": "kesuma-600k-reskilling-origin",
+      "label": "Origin of the ~600k figure - HR Minister Steven Sim on the KESUMA/TalentCorp Phase 1 study",
+      "value": "About 600,000 workers need reskilling over the next 3-5 years",
+      "date": "2024-10-10",
+      "source_url": "https://bernama.com/en/general/news.php?id=2350085",
+      "quote": "Approximately 600,000 workers have been identified as needing reskilling over the next three to five years"
+    },
+    {
+      "id": "talentcorp-impact-phase1",
+      "label": "TalentCorp Impact Study of AI, Digital and Green Economy - Phase 1 (10 sectors, launched Nov 2024)",
+      "value": "About 620,000 employees (~18%) expected to be significantly affected in 3-5 years; 60 emerging roles; 949 roles analysed",
+      "date": "2024-11-18",
+      "source_url": "https://www.talentcorp.com.my/impact-study/",
+      "quote": "Approximately 18% of the workforce within the analysed sectors is projected to be significantly affected"
+    },
+    {
+      "id": "talentcorp-impact-2026-update",
+      "label": "TalentCorp impact study update (Group CEO Biruntha Mooruthi to Bernama)",
+      "value": "About 697,000 workers significantly affected across 22 sectors in 3-5 years; ~120 emerging roles (73% in roles such as AI architects and data scientists, 18% green economy, 9% emerging tech)",
+      "date": "2026-05-01",
+      "source_url": "https://www.bernama.com/en/general/news.php?id=2551724",
+      "quote": "approximately 697,000 workers in Malaysia are expected to be significantly affected"
+    },
+    {
+      "id": "talentcorp-ee-sector",
+      "label": "TalentCorp Impact Study - Electrical & Electronics sector report",
+      "value": "2 roles highly, 44 moderately and 4 minimally impacted; 9 emerging roles; 11 initiatives",
+      "date": "2024-11-17",
+      "source_url": "https://www.mymahir.my/publication/5/impact-study-of-ai-digital-and-green-economy-electrical-and-electronics-sector",
+      "quote": "Within the E&E sector, the study projected that two (2) roles would be highly impacted from these trends"
+    },
+    {
+      "id": "talentcorp-ict-sector",
+      "label": "TalentCorp Impact Study - ICT sector report",
+      "value": "159 key ICT roles studied (156 existing, 3 emerging AI-driven roles); 9 initiatives",
+      "date": "2024-11-17",
+      "source_url": "https://www.mymahir.my/publication/9/impact-study-of-ai-digital-and-green-economy-information-and-communication-technology-sector",
+      "quote": "159 key ICT roles were identified during the study"
+    },
+    {
+      "id": "talentcorp-sector-jobs-impacted",
+      "label": "Jobs significantly impacted by sector (TalentCorp Phase 1; HR Minister's parliamentary written reply)",
+      "value": "E&E: 37,000 jobs; ICT: 30,000 jobs (out of 620,000+ nationally in the 10 sectors)",
+      "date": "2025-08-19",
+      "source_url": "https://www.thestar.com.my/news/nation/2025/08/19/ai-digitalisation-and-green-tech-to-affect-over-620000-jobs-in-five-years-says-sim",
+      "quote": "electrical and electronics (37,000)"
+    },
+    {
+      "id": "pwc-ai-jobs-barometer-2026-my",
+      "label": "PwC 2026 Global AI Jobs Barometer - Malaysia: share of job postings requiring AI skills",
+      "value": "4.0% of postings in 2025, up from 1.9% in 2024",
+      "date": "2026-07",
+      "source_url": "https://www.pwc.com/my/en/assets/publications/2026/pwc-my-ai-jobs-barometer.pdf",
+      "quote": "The share of job postings requiring AI skills is still limited at 4.0% in 2025—despite doubling from 1.9% in 2024."
+    },
+    {
+      "id": "dosm-jmi-q2-2026",
+      "label": "DOSM Big Data Analytics: Job Market Insights, Q2 2026",
+      "value": "555,509 online job offerings (-11.4% q-o-q); Professionals 51.5%; Software Developers 5th most advertised occupation (19,899)",
+      "date": "2026-08-18",
+      "source_url": "https://www.dosm.gov.my/portal-main/release-content/big-data-analytics-job-market-insights-q22026",
+      "quote": "The number of online job offerings advertised in the second quarter of 2026 decreased by 11.4 per cent to 555,509."
+    },
+    {
+      "id": "hrdcorp-graduate-madani-scheme",
+      "label": "HRD Corp Graduate MADANI Scheme (SGM - Skim Graduan MADANI)",
+      "value": "HRD Corp-registered employers can use up to 50% of their levy balance to fund 12-month structured workplace training for Malaysian graduates (incl. SKM Level 4+) on their first structured placement; covers training from 1 Jan 2025, grant applications open from 1 Jan 2026",
+      "date": "2025-08-22",
+      "source_url": "https://hrdcorp.gov.my/wp-content/uploads/2025/08/v3_Media-Release-HRD-Corp-Introduces-SGM_V2-20250821_SM.pdf",
+      "quote": "Registered employers can claim up to 50% of their levy balance of the application year for training programmes undertaken from 1 January 2025 onwards."
+    }
+  ],
+  "_about": "Emerging roles, Malaysia's Critical Occupations List (MyCOL) matches and Malaysian context figures, each with a source URL and date, checked on 2026-10-21. MyCOL matches are by occupation title; loose matches were removed by hand."
+}

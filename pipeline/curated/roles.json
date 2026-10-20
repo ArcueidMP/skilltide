@@ -1,0 +1,278 @@
+{
+  "_about": "Roles SkillTide matches students to. Every role is an O*NET 31.0 occupation; 'title' is a singular display form of the O*NET title. 'indeed' lists the Indeed Hiring Lab sectors whose postings trend stands in for the role's demand.",
+  "roles": [
+    {
+      "id": "software-developer",
+      "onet": "15-1252.00",
+      "title": "Software Developer",
+      "family": "software",
+      "indeed": [
+        "Software Development"
+      ]
+    },
+    {
+      "id": "web-developer",
+      "onet": "15-1254.00",
+      "title": "Web Developer",
+      "family": "software",
+      "indeed": [
+        "Software Development"
+      ]
+    },
+    {
+      "id": "software-qa",
+      "onet": "15-1253.00",
+      "title": "Software QA Analyst & Tester",
+      "family": "software",
+      "indeed": [
+        "Software Development"
+      ]
+    },
+    {
+      "id": "computer-programmer",
+      "onet": "15-1251.00",
+      "title": "Computer Programmer",
+      "family": "software",
+      "indeed": [
+        "Software Development"
+      ]
+    },
+    {
+      "id": "ui-designer",
+      "onet": "15-1255.00",
+      "title": "Web & Digital Interface Designer",
+      "family": "software",
+      "indeed": [
+        "Software Development"
+      ]
+    },
+    {
+      "id": "systems-engineer",
+      "onet": "15-1299.08",
+      "title": "Computer Systems Engineer / Architect",
+      "family": "software",
+      "indeed": [
+        "IT Systems & Solutions"
+      ]
+    },
+    {
+      "id": "systems-analyst",
+      "onet": "15-1211.00",
+      "title": "Computer Systems Analyst",
+      "family": "software",
+      "indeed": [
+        "IT Systems & Solutions"
+      ]
+    },
+    {
+      "id": "network-admin",
+      "onet": "15-1244.00",
+      "title": "Network & Computer Systems Administrator",
+      "family": "software",
+      "indeed": [
+        "IT Infrastructure, Operations & Support"
+      ]
+    },
+    {
+      "id": "it-support",
+      "onet": "15-1232.00",
+      "title": "Computer User Support Specialist",
+      "family": "software",
+      "indeed": [
+        "IT Infrastructure, Operations & Support"
+      ]
+    },
+    {
+      "id": "security-analyst",
+      "onet": "15-1212.00",
+      "title": "Information Security Analyst",
+      "family": "software",
+      "indeed": [
+        "IT Systems & Solutions"
+      ]
+    },
+    {
+      "id": "penetration-tester",
+      "onet": "15-1299.04",
+      "title": "Penetration Tester",
+      "family": "software",
+      "indeed": [
+        "IT Systems & Solutions"
+      ]
+    },
+    {
+      "id": "data-scientist",
+      "onet": "15-2051.00",
+      "title": "Data Scientist",
+      "family": "data-ai",
+      "indeed": [
+        "Data & Analytics"
+      ]
+    },
+    {
+      "id": "bi-analyst",
+      "onet": "15-2051.01",
+      "title": "Business Intelligence Analyst",
+      "family": "data-ai",
+      "indeed": [
+        "Data & Analytics"
+      ]
+    },
+    {
+      "id": "data-warehousing",
+      "onet": "15-1243.01",
+      "title": "Data Warehousing Specialist",
+      "family": "data-ai",
+      "indeed": [
+        "Data & Analytics"
+      ]
+    },
+    {
+      "id": "research-scientist",
+      "onet": "15-1221.00",
+      "title": "Computer & Information Research Scientist",
+      "family": "data-ai",
+      "indeed": [
+        "Scientific Research & Development"
+      ]
+    },
+    {
+      "id": "electrical-engineer",
+      "onet": "17-2071.00",
+      "title": "Electrical Engineer",
+      "family": "electronics",
+      "indeed": [
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "id": "electronics-engineer",
+      "onet": "17-2072.00",
+      "title": "Electronics Engineer",
+      "family": "electronics",
+      "indeed": [
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "id": "hardware-engineer",
+      "onet": "17-2061.00",
+      "title": "Computer Hardware Engineer",
+      "family": "electronics",
+      "indeed": [
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "id": "microsystems-engineer",
+      "onet": "17-2199.06",
+      "title": "Microsystems Engineer",
+      "family": "electronics",
+      "indeed": [
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "id": "telecom-engineer",
+      "onet": "15-1241.01",
+      "title": "Telecommunications Engineering Specialist",
+      "family": "electronics",
+      "indeed": [
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "id": "ee-technician",
+      "onet": "17-3023.00",
+      "title": "Electrical & Electronic Engineering Technician",
+      "family": "electronics",
+      "indeed": [
+        "Installation & Maintenance"
+      ]
+    },
+    {
+      "id": "electronics-drafter",
+      "onet": "17-3012.00",
+      "title": "Electrical & Electronics Drafter",
+      "family": "electronics",
+      "indeed": [
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "id": "mechatronics-engineer",
+      "onet": "17-2199.05",
+      "title": "Mechatronics Engineer",
+      "family": "automation",
+      "indeed": [
+        "Electrical Engineering",
+        "Mechanical Engineering"
+      ]
+    },
+    {
+      "id": "robotics-engineer",
+      "onet": "17-2199.08",
+      "title": "Robotics Engineer",
+      "family": "automation",
+      "indeed": [
+        "Mechanical Engineering",
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "id": "robotics-technician",
+      "onet": "17-3024.01",
+      "title": "Robotics Technician",
+      "family": "automation",
+      "indeed": [
+        "Installation & Maintenance"
+      ]
+    },
+    {
+      "id": "mechatronics-technician",
+      "onet": "17-3024.00",
+      "title": "Electro-Mechanical & Mechatronics Technician",
+      "family": "automation",
+      "indeed": [
+        "Installation & Maintenance"
+      ]
+    },
+    {
+      "id": "manufacturing-engineer",
+      "onet": "17-2112.03",
+      "title": "Manufacturing Engineer",
+      "family": "automation",
+      "indeed": [
+        "Industrial Engineering"
+      ]
+    },
+    {
+      "id": "industrial-engineer",
+      "onet": "17-2112.00",
+      "title": "Industrial Engineer",
+      "family": "automation",
+      "indeed": [
+        "Industrial Engineering"
+      ]
+    },
+    {
+      "id": "solar-engineer",
+      "onet": "17-2199.11",
+      "title": "Solar Energy Systems Engineer",
+      "family": "energy",
+      "indeed": [
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "id": "energy-engineer",
+      "onet": "17-2199.03",
+      "title": "Energy Engineer",
+      "family": "energy",
+      "indeed": [
+        "Electrical Engineering",
+        "Industrial Engineering"
+      ]
+    }
+  ]
+}

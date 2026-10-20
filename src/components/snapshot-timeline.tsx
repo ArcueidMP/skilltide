@@ -1,0 +1,62 @@
+"use client";
+
+import { History } from "lucide-react";
+import { cn } from "@/lib/cn";
+import { dataset, snapshotById } from "@/lib/data";
+import { useStore } from "@/lib/store";
+
+/** Dated data snapshots as a clickable timeline: the same engine, fed with what was known on each date. */
+export function SnapshotTimeline() {
+  const { snapshotId, update } = useStore();
+  const current = snapshotById(snapshotId);
+  const snapshots = dataset.snapshots;
+
+  return (
+    <div className="glass rounded-2xl px-5 py-4">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <History className="h-4 w-4 text-brand" aria-hidden />
+          <p className="text-sm font-medium">Data snapshot</p>
+          <span className="font-mono text-xs text-muted">
+            AI use: {current?.aiUsePeriod} · job demand as of {current?.asOf}
+          </span>
+        </div>
+        <p className="text-xs text-muted">Click a date to see what SkillTide would have said then.</p>
+      </div>
+      <div role="radiogroup" aria-label="Data snapshot" className="relative mt-4">
+        <div className="absolute left-3 right-3 top-[7px] h-px bg-linear-to-r from-brand/20 via-brand/50 to-accent/60" />
+        <div className="relative flex justify-between">
+          {snapshots.map((snapshot) => {
+            const active = snapshot.id === current?.id;
+            return (
+              <button
+                key={snapshot.id}
+                role="radio"
+                aria-checked={active}
+                onClick={() => update({ snapshotId: snapshot.id })}
+                className="group flex w-20 flex-col items-center gap-2 text-center"
+              >
+                <span
+                  className={cn(
+                    "h-3.5 w-3.5 rounded-full border-2 transition-all",
+                    active
+                      ? "scale-125 border-brand bg-brand shadow-[0_0_14px_rgba(45,212,191,0.9)]"
+                      : "border-border-strong bg-background group-hover:border-brand",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "font-mono text-[11px] leading-tight",
+                    active ? "text-brand-strong" : "text-muted group-hover:text-ink",
+                  )}
+                >
+                  {snapshot.id === "latest" ? "Latest" : snapshot.label}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}

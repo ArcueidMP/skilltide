@@ -1,0 +1,1319 @@
+{
+  "_about": "SkillTide skills list. Each skill maps onto O*NET 31.0 evidence: technologies (onet_tech, exact 'Workplace Example' names), rated elements (onet_elements), or keywords searched in task statements (task_keywords, regex, matched case-insensitively with word boundaries). Aliases recognise the skill in CV text; an alias starting with '=' is matched case-sensitively.",
+  "skills": [
+    {
+      "id": "machine-learning",
+      "name": "Machine learning",
+      "cluster": "ai-data",
+      "aliases": [
+        "machine learning",
+        "scikit-learn",
+        "sklearn",
+        "predictive model",
+        "classification model",
+        "xgboost",
+        "kaggle"
+      ],
+      "onet_tech": [
+        "Scikit-learn",
+        "TensorFlow",
+        "PyTorch",
+        "Keras"
+      ],
+      "task_keywords": [
+        "machine learning",
+        "predictive model",
+        "artificial intelligence",
+        "neural network"
+      ]
+    },
+    {
+      "id": "deep-learning",
+      "name": "Deep learning (PyTorch / TensorFlow)",
+      "cluster": "ai-data",
+      "aliases": [
+        "deep learning",
+        "pytorch",
+        "tensorflow",
+        "keras",
+        "neural network",
+        "convolutional"
+      ],
+      "onet_tech": [
+        "PyTorch",
+        "TensorFlow",
+        "Keras"
+      ],
+      "task_keywords": [
+        "neural network",
+        "deep learning"
+      ]
+    },
+    {
+      "id": "genai",
+      "name": "Generative AI & LLM apps",
+      "cluster": "ai-data",
+      "aliases": [
+        "llm",
+        "large language model",
+        "generative ai",
+        "genai",
+        "prompt engineering",
+        "langchain",
+        "hugging face",
+        "openai api",
+        "chatgpt",
+        "=RAG",
+        "retrieval-augmented"
+      ],
+      "onet_tech": [
+        "LangChain",
+        "Hugging Face",
+        "OpenAI ChatGPT"
+      ],
+      "task_keywords": [
+        "generative",
+        "large language model",
+        "natural language processing"
+      ]
+    },
+    {
+      "id": "computer-vision",
+      "name": "Computer vision",
+      "cluster": "ai-data",
+      "aliases": [
+        "computer vision",
+        "opencv",
+        "image processing",
+        "object detection",
+        "yolo",
+        "machine vision",
+        "vision-guided"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "image processing",
+        "computer vision",
+        "machine vision",
+        "vision system"
+      ]
+    },
+    {
+      "id": "data-analysis",
+      "name": "Data analysis (pandas / notebooks)",
+      "cluster": "ai-data",
+      "aliases": [
+        "data analysis",
+        "data analytics",
+        "pandas",
+        "numpy",
+        "data cleaning",
+        "exploratory data analysis",
+        "jupyter",
+        "data mining"
+      ],
+      "onet_tech": [
+        "pandas",
+        "NumPy",
+        "Jupyter Notebook"
+      ],
+      "task_keywords": [
+        "analyze data",
+        "data analysis",
+        "analyze .{0,30}data",
+        "interpret data",
+        "data mining"
+      ]
+    },
+    {
+      "id": "statistics",
+      "name": "Statistics & forecasting",
+      "cluster": "ai-data",
+      "aliases": [
+        "statistics",
+        "statistical",
+        "hypothesis testing",
+        "regression analysis",
+        "spss",
+        "minitab",
+        "=SAS",
+        "forecasting",
+        "time series"
+      ],
+      "onet_tech": [
+        "SAS",
+        "IBM SPSS Statistics",
+        "Minitab",
+        "SAS JMP",
+        "StataCorp Stata"
+      ],
+      "task_keywords": [
+        "statistical",
+        "forecast"
+      ]
+    },
+    {
+      "id": "r-lang",
+      "name": "R programming",
+      "cluster": "ai-data",
+      "aliases": [
+        "r programming",
+        "rstudio",
+        "tidyverse",
+        "ggplot2",
+        "r language"
+      ],
+      "onet_tech": [
+        "R"
+      ],
+      "task_keywords": []
+    },
+    {
+      "id": "data-viz",
+      "name": "Data visualisation & BI (Power BI / Tableau)",
+      "cluster": "ai-data",
+      "aliases": [
+        "power bi",
+        "tableau",
+        "data visualisation",
+        "data visualization",
+        "looker studio",
+        "=Qlik"
+      ],
+      "onet_tech": [
+        "Microsoft Power BI",
+        "Tableau",
+        "Qlik Tech QlikView"
+      ],
+      "task_keywords": [
+        "visualiz",
+        "dashboard"
+      ]
+    },
+    {
+      "id": "sql",
+      "name": "SQL & databases",
+      "cluster": "ai-data",
+      "aliases": [
+        "sql",
+        "mysql",
+        "postgresql",
+        "postgres",
+        "sql server",
+        "sqlite",
+        "pl/sql",
+        "database systems",
+        "databases"
+      ],
+      "onet_tech": [
+        "Structured query language SQL",
+        "MySQL",
+        "PostgreSQL",
+        "Microsoft SQL Server",
+        "Oracle PL/SQL",
+        "Transact-SQL"
+      ],
+      "task_keywords": [
+        "database"
+      ]
+    },
+    {
+      "id": "data-engineering",
+      "name": "Data pipelines & big data",
+      "cluster": "ai-data",
+      "aliases": [
+        "etl",
+        "data pipeline",
+        "apache spark",
+        "pyspark",
+        "hadoop",
+        "kafka",
+        "airflow",
+        "snowflake",
+        "data warehouse"
+      ],
+      "onet_tech": [
+        "Apache Spark",
+        "Apache Hadoop",
+        "Apache Kafka",
+        "Apache Airflow",
+        "Snowflake",
+        "Amazon Redshift"
+      ],
+      "task_keywords": [
+        "data warehous",
+        "extract, transform",
+        "data pipeline"
+      ]
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "cluster": "software",
+      "aliases": [
+        "python"
+      ],
+      "onet_tech": [
+        "Python"
+      ],
+      "task_keywords": []
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "cluster": "software",
+      "aliases": [
+        "java",
+        "spring boot"
+      ],
+      "onet_tech": [
+        "Oracle Java",
+        "Spring Boot",
+        "Spring Framework"
+      ],
+      "task_keywords": []
+    },
+    {
+      "id": "c-cpp",
+      "name": "C / C++",
+      "cluster": "software",
+      "aliases": [
+        "c++",
+        "c programming",
+        "embedded c",
+        "in c",
+        "written in c",
+        "cpp"
+      ],
+      "onet_tech": [
+        "C++",
+        "C"
+      ],
+      "task_keywords": []
+    },
+    {
+      "id": "csharp",
+      "name": "C# / .NET",
+      "cluster": "software",
+      "aliases": [
+        "c#",
+        ".net",
+        "asp.net"
+      ],
+      "onet_tech": [
+        "C#",
+        "Microsoft .NET Framework",
+        "Microsoft ASP.NET"
+      ],
+      "task_keywords": []
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript / TypeScript",
+      "cluster": "software",
+      "aliases": [
+        "javascript",
+        "typescript",
+        "es6"
+      ],
+      "onet_tech": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "task_keywords": []
+    },
+    {
+      "id": "frontend",
+      "name": "Front-end (React, HTML/CSS)",
+      "cluster": "software",
+      "aliases": [
+        "=React",
+        "react.js",
+        "reactjs",
+        "html",
+        "css",
+        "=Vue",
+        "=Angular",
+        "next.js",
+        "tailwind",
+        "front-end",
+        "frontend"
+      ],
+      "onet_tech": [
+        "React",
+        "Hypertext markup language HTML",
+        "Cascading style sheets CSS",
+        "Google Angular",
+        "jQuery"
+      ],
+      "task_keywords": [
+        "user interface",
+        "web page",
+        "website"
+      ]
+    },
+    {
+      "id": "backend",
+      "name": "Back-end & APIs (Node.js, REST)",
+      "cluster": "software",
+      "aliases": [
+        "node.js",
+        "nodejs",
+        "=Express",
+        "express.js",
+        "rest api",
+        "restful",
+        "django",
+        "flask",
+        "fastapi",
+        "graphql"
+      ],
+      "onet_tech": [
+        "Node.js",
+        "Django",
+        "Flask",
+        "Spring Boot",
+        "Postman"
+      ],
+      "task_keywords": [
+        "application programming interface",
+        "\\bapis?\\b",
+        "server-side",
+        "back-end"
+      ]
+    },
+    {
+      "id": "mobile",
+      "name": "Mobile apps (Android / iOS)",
+      "cluster": "software",
+      "aliases": [
+        "android",
+        "kotlin",
+        "=Swift",
+        "flutter",
+        "react native",
+        "ios app",
+        "mobile app"
+      ],
+      "onet_tech": [
+        "Google Android",
+        "Kotlin",
+        "Swift",
+        "React Native"
+      ],
+      "task_keywords": [
+        "mobile"
+      ]
+    },
+    {
+      "id": "git",
+      "name": "Git & version control",
+      "cluster": "software",
+      "aliases": [
+        "git",
+        "github",
+        "gitlab",
+        "version control",
+        "pull request"
+      ],
+      "onet_tech": [
+        "Git",
+        "GitHub",
+        "Apache Subversion SVN"
+      ],
+      "task_keywords": [
+        "version control"
+      ]
+    },
+    {
+      "id": "software-testing",
+      "name": "Automated software testing",
+      "cluster": "software",
+      "aliases": [
+        "unit test",
+        "unit testing",
+        "jest",
+        "junit",
+        "pytest",
+        "selenium",
+        "test automation",
+        "automated testing",
+        "cypress",
+        "integration testing"
+      ],
+      "onet_tech": [
+        "Selenium",
+        "JUnit",
+        "Postman"
+      ],
+      "task_keywords": [
+        "test scripts?",
+        "test cases?",
+        "automated test",
+        "software test",
+        "unit test"
+      ]
+    },
+    {
+      "id": "manual-testing",
+      "name": "Manual testing & QA",
+      "cluster": "software",
+      "aliases": [
+        "manual testing",
+        "quality assurance",
+        "qa testing",
+        "test plan",
+        "bug report",
+        "user acceptance testing",
+        "=UAT",
+        "release candidate"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "test plans?",
+        "defects?",
+        "bugs?",
+        "quality assurance"
+      ]
+    },
+    {
+      "id": "agile",
+      "name": "Agile & Scrum",
+      "cluster": "software",
+      "aliases": [
+        "agile",
+        "scrum",
+        "jira",
+        "kanban"
+      ],
+      "onet_tech": [
+        "Atlassian JIRA"
+      ],
+      "task_keywords": [
+        "agile"
+      ]
+    },
+    {
+      "id": "software-design",
+      "name": "Software design & architecture",
+      "cluster": "software",
+      "aliases": [
+        "system design",
+        "software architecture",
+        "design patterns",
+        "uml",
+        "object-oriented",
+        "software engineering",
+        "data structures"
+      ],
+      "onet_tech": [
+        "Unified modeling language UML"
+      ],
+      "task_keywords": [
+        "software architecture",
+        "system architecture",
+        "software design",
+        "design .{0,20}software",
+        "software systems?"
+      ]
+    },
+    {
+      "id": "linux",
+      "name": "Linux & shell scripting",
+      "cluster": "cloud-security",
+      "aliases": [
+        "linux",
+        "bash",
+        "shell script",
+        "ubuntu",
+        "unix",
+        "command line",
+        "operating systems"
+      ],
+      "onet_tech": [
+        "Linux",
+        "UNIX",
+        "Bash",
+        "Shell script",
+        "Ubuntu",
+        "Red Hat Enterprise Linux"
+      ],
+      "task_keywords": [
+        "operating systems?"
+      ]
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud platforms (AWS / Azure / GCP)",
+      "cluster": "cloud-security",
+      "aliases": [
+        "=AWS",
+        "amazon web services",
+        "azure",
+        "google cloud",
+        "=GCP",
+        "cloud computing",
+        "ec2"
+      ],
+      "onet_tech": [
+        "Amazon Web Services AWS software",
+        "Microsoft Azure software",
+        "Google Cloud software",
+        "Amazon Elastic Compute Cloud EC2"
+      ],
+      "task_keywords": [
+        "cloud"
+      ]
+    },
+    {
+      "id": "devops",
+      "name": "Containers & CI/CD (Docker, Kubernetes)",
+      "cluster": "cloud-security",
+      "aliases": [
+        "docker",
+        "kubernetes",
+        "k8s",
+        "ci/cd",
+        "jenkins",
+        "github actions",
+        "terraform",
+        "ansible",
+        "devops",
+        "containers"
+      ],
+      "onet_tech": [
+        "Docker",
+        "Kubernetes",
+        "Jenkins CI",
+        "Ansible software",
+        "Red Hat OpenShift",
+        "Chef",
+        "Puppet"
+      ],
+      "task_keywords": [
+        "continuous integration",
+        "deployment pipeline",
+        "containers?"
+      ]
+    },
+    {
+      "id": "networking",
+      "name": "Computer networking",
+      "cluster": "cloud-security",
+      "aliases": [
+        "networking",
+        "tcp/ip",
+        "ccna",
+        "routing and switching",
+        "network configuration",
+        "computer networks"
+      ],
+      "onet_tech": [
+        "Cisco IOS",
+        "Wireshark",
+        "Virtual private networking VPN software"
+      ],
+      "task_keywords": [
+        "networks?",
+        "routers?",
+        "switches"
+      ]
+    },
+    {
+      "id": "cybersecurity",
+      "name": "Cybersecurity",
+      "cluster": "cloud-security",
+      "aliases": [
+        "cybersecurity",
+        "cyber security",
+        "information security",
+        "penetration testing",
+        "ethical hacking",
+        "owasp",
+        "vulnerability assessment",
+        "wireshark",
+        "kali linux",
+        "metasploit",
+        "burp suite",
+        "=SIEM",
+        "splunk"
+      ],
+      "onet_tech": [
+        "Kali Linux",
+        "Metasploit",
+        "Nmap",
+        "Portswigger BurP Suite",
+        "Snort",
+        "Splunk Enterprise"
+      ],
+      "task_keywords": [
+        "security",
+        "vulnerabilit",
+        "intrusion",
+        "threat",
+        "malware"
+      ]
+    },
+    {
+      "id": "circuits",
+      "name": "Circuit design & analysis",
+      "cluster": "electronics",
+      "aliases": [
+        "circuit design",
+        "circuit analysis",
+        "analog circuit",
+        "digital electronics",
+        "electronic circuit",
+        "ltspice",
+        "pspice",
+        "multisim",
+        "breadboard"
+      ],
+      "onet_tech": [
+        "Linear Technology LTSpice",
+        "Cadence PSpice",
+        "Cadence OrCAD PSpice",
+        "Hierarchical simulation program with integrated circuit emphasis HSPICE"
+      ],
+      "task_keywords": [
+        "circuit"
+      ]
+    },
+    {
+      "id": "pcb",
+      "name": "PCB design",
+      "cluster": "electronics",
+      "aliases": [
+        "pcb",
+        "printed circuit board",
+        "kicad",
+        "altium",
+        "=Eagle",
+        "orcad",
+        "pcb layout"
+      ],
+      "onet_tech": [
+        "KiCad",
+        "Altium Designer",
+        "Cadence Allegro PCB Designer",
+        "OrCAD Capture",
+        "Mentor Graphics PADS"
+      ],
+      "task_keywords": [
+        "printed circuit",
+        "circuit boards?"
+      ]
+    },
+    {
+      "id": "embedded",
+      "name": "Embedded systems & microcontrollers",
+      "cluster": "electronics",
+      "aliases": [
+        "embedded systems",
+        "embedded software",
+        "microcontroller",
+        "arduino",
+        "stm32",
+        "esp32",
+        "raspberry pi",
+        "firmware",
+        "=RTOS",
+        "data logger"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "embedded",
+        "firmware",
+        "microcontrollers?",
+        "microprocessors?"
+      ]
+    },
+    {
+      "id": "hdl-fpga",
+      "name": "Digital design (Verilog / VHDL / FPGA)",
+      "cluster": "electronics",
+      "aliases": [
+        "verilog",
+        "systemverilog",
+        "vhdl",
+        "fpga",
+        "rtl design",
+        "asic"
+      ],
+      "onet_tech": [
+        "Verilog",
+        "SystemVerilog",
+        "Very high-speed integrated circuit VHSIC hardware description language VHDL"
+      ],
+      "task_keywords": [
+        "integrated circuits?",
+        "logic design",
+        "fpga",
+        "asic"
+      ]
+    },
+    {
+      "id": "semiconductor-test",
+      "name": "Semiconductor & electronics testing",
+      "cluster": "electronics",
+      "aliases": [
+        "semiconductor",
+        "test engineer",
+        "test engineering",
+        "automated test equipment",
+        "wafer",
+        "failure analysis",
+        "burn-in",
+        "yield",
+        "tester logs"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "semiconductor",
+        "yield",
+        "failure analysis",
+        "test equipment",
+        "test(s|ing)? .{0,40}(electronic|circuits?)"
+      ]
+    },
+    {
+      "id": "instruments",
+      "name": "Lab instruments & measurement",
+      "cluster": "electronics",
+      "aliases": [
+        "oscilloscope",
+        "multimeter",
+        "signal generator",
+        "spectrum analyzer",
+        "logic analyzer",
+        "soldering",
+        "labview"
+      ],
+      "onet_tech": [
+        "National Instruments LabVIEW"
+      ],
+      "task_keywords": [
+        "oscilloscopes?",
+        "test instruments?",
+        "meters",
+        "measuring instruments?",
+        "calibrat"
+      ]
+    },
+    {
+      "id": "matlab",
+      "name": "MATLAB & Simulink",
+      "cluster": "electronics",
+      "aliases": [
+        "matlab",
+        "simulink"
+      ],
+      "onet_tech": [
+        "The MathWorks MATLAB",
+        "MathWorks Simulink"
+      ],
+      "task_keywords": []
+    },
+    {
+      "id": "signal-processing",
+      "name": "Signal processing",
+      "cluster": "electronics",
+      "aliases": [
+        "signal processing",
+        "=DSP",
+        "signals and systems",
+        "fourier",
+        "filter design"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "signals?"
+      ]
+    },
+    {
+      "id": "rf-telecom",
+      "name": "RF & telecommunications engineering",
+      "cluster": "electronics",
+      "aliases": [
+        "=RF",
+        "radio frequency",
+        "antenna",
+        "=5G",
+        "=LTE",
+        "wireless communication",
+        "telecommunications"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "radio frequency",
+        "wireless",
+        "antennas?",
+        "telecommunications?"
+      ]
+    },
+    {
+      "id": "power-electronics",
+      "name": "Power electronics",
+      "cluster": "energy",
+      "aliases": [
+        "power electronics",
+        "inverter",
+        "dc-dc converter",
+        "motor drive",
+        "mppt",
+        "maximum power point"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "power electronic",
+        "inverters?",
+        "converters?"
+      ]
+    },
+    {
+      "id": "power-systems",
+      "name": "Power systems & electrical installation",
+      "cluster": "energy",
+      "aliases": [
+        "power systems",
+        "power distribution",
+        "switchgear",
+        "electrical installation",
+        "load flow",
+        "=ETAP",
+        "protection relay",
+        "high voltage"
+      ],
+      "onet_tech": [
+        "ETAP",
+        "DIgSILENT PowerFactory"
+      ],
+      "task_keywords": [
+        "power systems?",
+        "power distribution",
+        "electrical systems?",
+        "substations?",
+        "transmission",
+        "switchgear",
+        "electrical power"
+      ]
+    },
+    {
+      "id": "solar-pv",
+      "name": "Solar PV design",
+      "cluster": "energy",
+      "aliases": [
+        "solar pv",
+        "photovoltaic",
+        "solar panel",
+        "pvsyst",
+        "solar energy",
+        "rooftop solar",
+        "net energy metering"
+      ],
+      "onet_tech": [
+        "PVsyst",
+        "HOMER Micropower Optimization Model"
+      ],
+      "task_keywords": [
+        "solar",
+        "photovoltaic"
+      ]
+    },
+    {
+      "id": "energy-efficiency",
+      "name": "Energy efficiency & audits",
+      "cluster": "energy",
+      "aliases": [
+        "energy efficiency",
+        "energy audit",
+        "energy management",
+        "building energy",
+        "iso 50001",
+        "energy saving"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "energy efficien",
+        "energy consumption",
+        "energy audits?",
+        "energy use",
+        "energy conservation"
+      ]
+    },
+    {
+      "id": "batteries",
+      "name": "Batteries & energy storage",
+      "cluster": "energy",
+      "aliases": [
+        "battery",
+        "energy storage",
+        "battery management",
+        "=BMS"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "batter(y|ies)",
+        "energy storage"
+      ]
+    },
+    {
+      "id": "plc",
+      "name": "PLC programming",
+      "cluster": "automation",
+      "aliases": [
+        "=PLC",
+        "ladder logic",
+        "programmable logic controller",
+        "rslogix",
+        "tia portal",
+        "step 7",
+        "codesys"
+      ],
+      "onet_tech": [
+        "Programmable logic controller PLC software",
+        "Rockwell RSLogix",
+        "Siemens SIMATIC STEP 7",
+        "Ladder Logic"
+      ],
+      "task_keywords": [
+        "programmable logic",
+        "programmable controllers?",
+        "\\bplcs?\\b"
+      ]
+    },
+    {
+      "id": "scada",
+      "name": "SCADA & HMI",
+      "cluster": "automation",
+      "aliases": [
+        "scada",
+        "=HMI",
+        "human machine interface",
+        "wincc",
+        "distributed control system",
+        "=DCS"
+      ],
+      "onet_tech": [
+        "Supervisory control and data acquisition SCADA software",
+        "Rockwell RSView"
+      ],
+      "task_keywords": [
+        "supervisory control",
+        "human machine interface",
+        "scada",
+        "control panels?"
+      ]
+    },
+    {
+      "id": "control-systems",
+      "name": "Control systems",
+      "cluster": "automation",
+      "aliases": [
+        "control systems",
+        "=PID",
+        "control theory",
+        "feedback control",
+        "state space"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "control systems?",
+        "feedback control",
+        "process control",
+        "control algorithms?"
+      ]
+    },
+    {
+      "id": "robotics",
+      "name": "Robotics (ROS, robot programming)",
+      "cluster": "automation",
+      "aliases": [
+        "robotics",
+        "=ROS",
+        "robot operating system",
+        "robot programming",
+        "robotic arm",
+        "industrial robot",
+        "pick-and-place",
+        "cobot",
+        "robot"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "robot"
+      ]
+    },
+    {
+      "id": "cad",
+      "name": "CAD (AutoCAD / SolidWorks)",
+      "cluster": "automation",
+      "aliases": [
+        "autocad",
+        "solidworks",
+        "catia",
+        "=Creo",
+        "fusion 360",
+        "=CAD",
+        "3d modelling",
+        "technical drawing"
+      ],
+      "onet_tech": [
+        "Autodesk AutoCAD",
+        "Dassault Systemes SolidWorks",
+        "Dassault Systemes CATIA",
+        "PTC Creo Parametric"
+      ],
+      "onet_elements": [
+        {
+          "file": "knowledge",
+          "id": "2.C.3.c"
+        }
+      ],
+      "task_keywords": [
+        "drawings",
+        "blueprints",
+        "computer-aided design",
+        "\\bcad\\b"
+      ]
+    },
+    {
+      "id": "sensors-iot",
+      "name": "Sensors & industrial IoT",
+      "cluster": "automation",
+      "aliases": [
+        "sensors",
+        "=IoT",
+        "internet of things",
+        "industrial iot",
+        "iiot",
+        "mqtt",
+        "data acquisition",
+        "instrumentation"
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "sensors?",
+        "instrumentation",
+        "data acquisition"
+      ]
+    },
+    {
+      "id": "maintenance",
+      "name": "Equipment maintenance & troubleshooting",
+      "cluster": "automation",
+      "aliases": [
+        "troubleshooting",
+        "preventive maintenance",
+        "equipment maintenance",
+        "maintenance",
+        "repair",
+        "root cause"
+      ],
+      "onet_elements": [
+        {
+          "file": "transferable_skills",
+          "id": "2.B.3.k"
+        },
+        {
+          "file": "transferable_skills",
+          "id": "2.B.3.j"
+        }
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "maintain",
+        "repair",
+        "troubleshoot"
+      ]
+    },
+    {
+      "id": "lean-quality",
+      "name": "Quality & lean (SPC, Six Sigma)",
+      "cluster": "automation",
+      "aliases": [
+        "six sigma",
+        "lean manufacturing",
+        "kaizen",
+        "statistical process control",
+        "=SPC",
+        "=5S",
+        "root cause analysis",
+        "=FMEA",
+        "iso 9001",
+        "quality control"
+      ],
+      "onet_tech": [
+        "Minitab"
+      ],
+      "onet_elements": [
+        {
+          "file": "transferable_skills",
+          "id": "2.B.3.m"
+        },
+        {
+          "file": "knowledge",
+          "id": "2.C.2.a"
+        }
+      ],
+      "task_keywords": [
+        "quality",
+        "process improvement",
+        "\\blean\\b",
+        "six sigma"
+      ]
+    },
+    {
+      "id": "math",
+      "name": "Engineering mathematics",
+      "cluster": "automation",
+      "aliases": [
+        "engineering mathematics",
+        "calculus",
+        "linear algebra",
+        "differential equations",
+        "numerical methods"
+      ],
+      "onet_elements": [
+        {
+          "file": "knowledge",
+          "id": "2.C.4.a"
+        }
+      ],
+      "onet_tech": [],
+      "task_keywords": []
+    },
+    {
+      "id": "spreadsheets",
+      "name": "Spreadsheets (Excel)",
+      "cluster": "human",
+      "aliases": [
+        "microsoft excel",
+        "in excel",
+        "excel pivot",
+        "pivot table",
+        "vlookup",
+        "google sheets",
+        "spreadsheet"
+      ],
+      "onet_tech": [
+        "Microsoft Excel"
+      ],
+      "task_keywords": [
+        "spreadsheets?"
+      ]
+    },
+    {
+      "id": "technical-writing",
+      "name": "Technical writing & documentation",
+      "cluster": "human",
+      "aliases": [
+        "technical writing",
+        "technical report",
+        "documentation",
+        "report writing"
+      ],
+      "onet_elements": [
+        {
+          "file": "essential_skills",
+          "id": "2.A.1.c"
+        }
+      ],
+      "onet_tech": [],
+      "task_keywords": [
+        "document",
+        "reports?"
+      ]
+    },
+    {
+      "id": "communication",
+      "name": "Presenting & communication",
+      "cluster": "human",
+      "aliases": [
+        "presentation",
+        "presenting",
+        "public speaking",
+        "communication skills",
+        "stakeholder",
+        "data storytelling"
+      ],
+      "onet_elements": [
+        {
+          "file": "essential_skills",
+          "id": "2.A.1.d"
+        }
+      ],
+      "onet_tech": [],
+      "task_keywords": []
+    },
+    {
+      "id": "teamwork",
+      "name": "Teamwork & coordination",
+      "cluster": "human",
+      "aliases": [
+        "teamwork",
+        "team player",
+        "collaborated",
+        "cross-functional",
+        "working in shifts"
+      ],
+      "onet_elements": [
+        {
+          "file": "transferable_skills",
+          "id": "2.B.1.b"
+        }
+      ],
+      "onet_tech": [],
+      "task_keywords": []
+    },
+    {
+      "id": "problem-solving",
+      "name": "Complex problem solving",
+      "cluster": "human",
+      "aliases": [
+        "problem solving",
+        "problem-solving",
+        "analytical thinking",
+        "critical thinking"
+      ],
+      "onet_elements": [
+        {
+          "file": "transferable_skills",
+          "id": "2.B.2.i"
+        },
+        {
+          "file": "essential_skills",
+          "id": "2.A.2.a"
+        }
+      ],
+      "onet_tech": [],
+      "task_keywords": []
+    },
+    {
+      "id": "project-management",
+      "name": "Project management",
+      "cluster": "human",
+      "aliases": [
+        "project management",
+        "=PMP",
+        "gantt",
+        "microsoft project",
+        "project planning"
+      ],
+      "onet_elements": [
+        {
+          "file": "knowledge",
+          "id": "2.C.1.a"
+        }
+      ],
+      "onet_tech": [
+        "Microsoft Project"
+      ],
+      "task_keywords": [
+        "project schedules?",
+        "manage projects?",
+        "project management"
+      ]
+    }
+  ]
+}
