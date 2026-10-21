@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-22",
+ "generatedAt": "2026-10-21",
  "horizonYears": 3,
  "scenarioBasis": {
   "automationTrend": [
@@ -44,45 +44,56 @@
    "inputs": [
     {
      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/emerging_tasks.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:16+00:00"
     },
     {
      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/essential_skills.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:26+00:00"
     },
     {
      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/job_zones.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:26+00:00"
     },
     {
      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/knowledge.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:21+00:00"
     },
     {
      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/occupation_data.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:22:50+00:00"
     },
     {
      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/sample_of_reported_titles.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:16+00:00"
     },
     {
      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/software_skills.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:16+00:00"
     },
     {
      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_ratings.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:13+00:00"
     },
     {
      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:22:52+00:00"
     },
     {
      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/transferable_skills.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:25+00:00"
     }
-   ]
+   ],
+   "retrieved": "2026-10-21T17:23:26+00:00"
   },
   "eloundou": {
    "id": "eloundou",
@@ -95,9 +106,11 @@
    "inputs": [
     {
      "url": "https://raw.githubusercontent.com/openai/GPTs-are-GPTs/main/data/full_labelset.tsv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:28+00:00"
     }
-   ]
+   ],
+   "retrieved": "2026-10-21T17:23:28+00:00"
   },
   "aei": {
    "id": "aei",
@@ -110,33 +123,41 @@
    "inputs": [
     {
      "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/release_2025_02_10/onet_task_statements.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:29+00:00"
     },
     {
      "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/release_2025_03_27/automation_vs_augmentation_by_task.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:29+00:00"
     },
     {
      "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/release_2025_03_27/task_pct_v2.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:29+00:00"
     },
     {
      "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/release_2025_09_15/data/output/aei_enriched_claude_ai_2025-08-04_to_2025-08-11.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:30+00:00"
     },
     {
      "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/release_2026_01_15/data/intermediate/aei_raw_claude_ai_2025-11-13_to_2025-11-20.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:31+00:00"
     },
     {
      "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/release_2026_03_24/data/aei_raw_claude_ai_2026-02-05_to_2026-02-12.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:34+00:00"
     },
     {
      "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/release_2026_06_26/data/aei_claude_ai_2026-06-26.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:38+00:00"
     }
-   ]
+   ],
+   "retrieved": "2026-10-21T17:23:38+00:00"
   },
   "aei-method": {
    "id": "aei-method",
@@ -157,9 +178,11 @@
    "inputs": [
     {
      "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/robot_exposure/robot_exposure_occupations.csv",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:44+00:00"
     }
-   ]
+   ],
+   "retrieved": "2026-10-21T17:23:44+00:00"
   },
   "indeed-ai": {
    "id": "indeed-ai",
@@ -173,10 +196,10 @@
     {
      "url": "https://raw.githubusercontent.com/hiring-lab/ai-tracker/main/AI_posting.csv",
      "access": "downloaded",
-     "downloadedAt": "2026-10-21T16:33:10+00:00"
+     "downloadedAt": "2026-10-21T17:23:45+00:00"
     }
    ],
-   "retrieved": "2026-10-21T16:33:10+00:00"
+   "retrieved": "2026-10-21T17:23:45+00:00"
   },
   "indeed": {
    "id": "indeed",
@@ -190,35 +213,35 @@
     {
      "url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/master/AU/aggregate_job_postings_AU.csv",
      "access": "downloaded",
-     "downloadedAt": "2026-10-21T16:33:09+00:00"
+     "downloadedAt": "2026-10-21T17:23:45+00:00"
     },
     {
      "url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/master/AU/job_postings_by_sector_AU.csv",
      "access": "downloaded",
-     "downloadedAt": "2026-10-21T16:33:16+00:00"
+     "downloadedAt": "2026-10-21T17:23:47+00:00"
     },
     {
      "url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/master/GB/aggregate_job_postings_GB.csv",
      "access": "downloaded",
-     "downloadedAt": "2026-10-21T16:33:09+00:00"
+     "downloadedAt": "2026-10-21T17:23:45+00:00"
     },
     {
      "url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/master/GB/job_postings_by_sector_GB.csv",
      "access": "downloaded",
-     "downloadedAt": "2026-10-21T16:33:14+00:00"
+     "downloadedAt": "2026-10-21T17:23:46+00:00"
     },
     {
      "url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/master/US/aggregate_job_postings_US.csv",
      "access": "downloaded",
-     "downloadedAt": "2026-10-21T16:33:09+00:00"
+     "downloadedAt": "2026-10-21T17:23:45+00:00"
     },
     {
      "url": "https://raw.githubusercontent.com/hiring-lab/job_postings_tracker/master/US/job_postings_by_sector_US.csv",
      "access": "downloaded",
-     "downloadedAt": "2026-10-21T16:33:12+00:00"
+     "downloadedAt": "2026-10-21T17:23:45+00:00"
     }
    ],
-   "retrieved": "2026-10-21T16:33:16+00:00"
+   "retrieved": "2026-10-21T17:23:47+00:00"
   },
   "hn": {
    "id": "hn",
@@ -231,140 +254,171 @@
    "inputs": [
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_39562986&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:32+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_39894820&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:31+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_40224213&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:30+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_40563283&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:30+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_40846428&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:29+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_41129813&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:28+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_41425910&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:27+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_41709301&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:26+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_42017580&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:25+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_42297424&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:24+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_42575537&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:23+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_42919502&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:22+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_43243024&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:21+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_43547611&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:20+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_43858554&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:19+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_44159528&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:18+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_44434576&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:18+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_44757794&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:17+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_45093192&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:16+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_45438503&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:15+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_45800465&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:14+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_46108941&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:13+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_46466074&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:12+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_46857488&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:24:11+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_47219668&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:56+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_47601859&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:55+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_47975571&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:55+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_48357725&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:53+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_48747976&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:52+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_49156683&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:52+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_49522897&hitsPerPage=1000",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:23:51+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search?tags=comment,story_49922569&hitsPerPage=1000",
      "access": "downloaded",
-     "downloadedAt": "2026-10-21T16:33:19+00:00"
+     "downloadedAt": "2026-10-21T17:23:50+00:00"
     },
     {
      "url": "https://hn.algolia.com/api/v1/search_by_date?tags=story,author_whoishiring&hitsPerPage=200",
      "access": "downloaded",
-     "downloadedAt": "2026-10-21T16:33:18+00:00"
+     "downloadedAt": "2026-10-21T17:23:48+00:00"
     }
    ],
-   "retrieved": "2026-10-21T16:33:19+00:00"
+   "retrieved": "2026-10-21T17:24:32+00:00"
   },
   "un-sdg": {
    "id": "un-sdg",
@@ -376,9 +430,11 @@
    "inputs": [
     {
      "url": "https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/List?includechildren=true",
-     "access": "cached"
+     "access": "downloaded",
+     "downloadedAt": "2026-10-21T17:26:25+00:00"
     }
-   ]
+   ],
+   "retrieved": "2026-10-21T17:26:25+00:00"
   },
   "mslearn": {
    "id": "mslearn",
@@ -391,10 +447,10 @@
     {
      "url": "https://learn.microsoft.com/api/catalog/?locale=en-us&type=learningPaths",
      "access": "downloaded",
-     "downloadedAt": "2026-10-21T16:34:49+00:00"
+     "downloadedAt": "2026-10-21T17:26:26+00:00"
     }
    ],
-   "retrieved": "2026-10-21T16:34:49+00:00"
+   "retrieved": "2026-10-21T17:26:26+00:00"
   },
   "course-checks": {
    "id": "course-checks",
@@ -1498,7 +1554,7 @@
    "sdg": [
     "4.4",
     "9.5",
-    "8.2"
+    "9.c"
    ],
    "sources": [
     "onet"
@@ -1564,8 +1620,8 @@
    "cluster": "human",
    "sdg": [
     "4.4",
-    "8.2",
-    "9.c"
+    "9.c",
+    "8.2"
    ],
    "sources": [
     "onet"
@@ -2789,18 +2845,18 @@
    ],
    "sdg": [
     {
-     "targetId": "4.4",
-     "rationale": "This role builds other people's technical skills.",
-     "task": "Conduct trial runs of programs and software applications to be sure they will produce the desired information and that the instructions are correct.",
+     "targetId": "9.c",
+     "rationale": "This role builds or runs the networks people use to get online.",
+     "task": "Investigate whether networks, workstations, the central processing unit of the system, or peripheral equipment are responding to a program's instructions.",
      "sources": [
       "onet",
       "un-sdg"
      ]
     },
     {
-     "targetId": "9.c",
-     "rationale": "This role builds or runs the networks people use to get online.",
-     "task": "Investigate whether networks, workstations, the central processing unit of the system, or peripheral equipment are responding to a program's instructions.",
+     "targetId": "4.4",
+     "rationale": "This role builds other people's technical skills.",
+     "task": "Train users on the use and function of computer programs.",
      "sources": [
       "onet",
       "un-sdg"
@@ -7290,18 +7346,18 @@
      ]
     },
     {
-     "targetId": "4.4",
-     "rationale": "This role builds other people's technical skills.",
-     "task": "Read blueprints, wiring diagrams, schematic drawings, or engineering instructions for assembling electronics units, applying knowledge of electronic theory and components.",
+     "targetId": "8.2",
+     "rationale": "This role raises productivity through technology and automation.",
+     "task": "Install or maintain electrical control systems, industrial automation systems, or electrical equipment, including control circuits, variable speed drives, or programmable logic controllers.",
      "sources": [
       "onet",
       "un-sdg"
      ]
     },
     {
-     "targetId": "8.2",
-     "rationale": "This role raises productivity through technology and automation.",
-     "task": "Install or maintain electrical control systems, industrial automation systems, or electrical equipment, including control circuits, variable speed drives, or programmable logic controllers.",
+     "targetId": "9.c",
+     "rationale": "This role builds or runs the networks people use to get online.",
+     "task": "Produce electronics drawings or other graphics representing industrial control, instrumentation, sensors, or analog or digital telecommunications networks, using computer-aided design (CAD) software.",
      "sources": [
       "onet",
       "un-sdg"
@@ -7593,15 +7649,6 @@
      "targetId": "9.2",
      "rationale": "This role strengthens manufacturing, Malaysia's industrial base.",
      "task": "Draft detail and assembly drawings of design components, circuitry or printed circuit boards, using computer-assisted equipment or standard drafting techniques and devices.",
-     "sources": [
-      "onet",
-      "un-sdg"
-     ]
-    },
-    {
-     "targetId": "4.4",
-     "rationale": "This role builds other people's technical skills.",
-     "task": "Draft working drawings, wiring diagrams, wiring connection specifications, or cross-sections of underground cables, as required for instructions to installation crew.",
      "sources": [
       "onet",
       "un-sdg"
@@ -9302,15 +9349,6 @@
      "targetId": "9.1",
      "rationale": "This role makes digital and physical infrastructure more resilient.",
      "task": "Analyze statistical data and product specifications to determine standards and establish quality and reliability objectives of finished product.",
-     "sources": [
-      "onet",
-      "un-sdg"
-     ]
-    },
-    {
-     "targetId": "4.4",
-     "rationale": "This role builds other people's technical skills.",
-     "task": "Formulate sampling procedures and designs and develop forms and instructions for recording, evaluating, and reporting quality and reliability data.",
      "sources": [
       "onet",
       "un-sdg"
@@ -26031,19 +26069,19 @@
      "mentions": 135
     },
     "genai": {
-     "momentum": 0.445,
-     "mentions": 637
+     "momentum": 0.442,
+     "mentions": 636
     },
     "computer-vision": {
-     "momentum": 0.446,
+     "momentum": 0.447,
      "mentions": 94
     },
     "data-analysis": {
-     "momentum": 0.358,
+     "momentum": 0.359,
      "mentions": 69
     },
     "statistics": {
-     "momentum": 0.62,
+     "momentum": 0.621,
      "mentions": 44
     },
     "r-lang": {
@@ -26051,19 +26089,19 @@
      "mentions": 1
     },
     "data-viz": {
-     "momentum": -0.64,
+     "momentum": -0.639,
      "mentions": 35
     },
     "sql": {
-     "momentum": 0.334,
-     "mentions": 853
+     "momentum": 0.33,
+     "mentions": 852
     },
     "data-engineering": {
-     "momentum": 0.423,
+     "momentum": 0.424,
      "mentions": 313
     },
     "python": {
-     "momentum": -0.164,
+     "momentum": -0.163,
      "mentions": 986
     },
     "java": {
@@ -26071,31 +26109,31 @@
      "mentions": 137
     },
     "c-cpp": {
-     "momentum": -0.058,
+     "momentum": -0.057,
      "mentions": 176
     },
     "csharp": {
-     "momentum": 0.066,
+     "momentum": 0.067,
      "mentions": 77
     },
     "javascript": {
-     "momentum": 0.005,
-     "mentions": 1057
+     "momentum": 0.003,
+     "mentions": 1056
     },
     "frontend": {
-     "momentum": -0.152,
-     "mentions": 1407
+     "momentum": -0.154,
+     "mentions": 1406
     },
     "backend": {
-     "momentum": 0.13,
+     "momentum": 0.131,
      "mentions": 611
     },
     "mobile": {
-     "momentum": 0.095,
+     "momentum": 0.096,
      "mentions": 347
     },
     "git": {
-     "momentum": -0.02,
+     "momentum": -0.019,
      "mentions": 412
     },
     "software-testing": {
@@ -26107,31 +26145,31 @@
      "mentions": 17
     },
     "agile": {
-     "momentum": -0.186,
+     "momentum": -0.185,
      "mentions": 48
     },
     "software-design": {
-     "momentum": 0.217,
+     "momentum": 0.218,
      "mentions": 220
     },
     "linux": {
-     "momentum": -0.106,
+     "momentum": -0.105,
      "mentions": 184
     },
     "cloud": {
-     "momentum": 0.012,
-     "mentions": 831
+     "momentum": 0.008,
+     "mentions": 830
     },
     "devops": {
-     "momentum": -0.086,
+     "momentum": -0.085,
      "mentions": 779
     },
     "networking": {
-     "momentum": -0.413,
+     "momentum": -0.412,
      "mentions": 60
     },
     "cybersecurity": {
-     "momentum": 0.267,
+     "momentum": 0.268,
      "mentions": 72
     },
     "circuits": {
@@ -26143,7 +26181,7 @@
      "mentions": 10
     },
     "embedded": {
-     "momentum": -0.249,
+     "momentum": -0.248,
      "mentions": 57
     },
     "hdl-fpga": {
@@ -26187,7 +26225,7 @@
      "mentions": 6
     },
     "batteries": {
-     "momentum": 0.027,
+     "momentum": 0.028,
      "mentions": 36
     },
     "plc": {
@@ -26203,19 +26241,19 @@
      "mentions": 19
     },
     "robotics": {
-     "momentum": 0.868,
+     "momentum": 0.87,
      "mentions": 111
     },
     "cad": {
-     "momentum": 0.177,
+     "momentum": 0.178,
      "mentions": 33
     },
     "sensors-iot": {
-     "momentum": 0.553,
+     "momentum": 0.554,
      "mentions": 65
     },
     "maintenance": {
-     "momentum": -0.047,
+     "momentum": -0.046,
      "mentions": 54
     },
     "lean-quality": {
@@ -26231,19 +26269,19 @@
      "mentions": 30
     },
     "technical-writing": {
-     "momentum": 0.839,
+     "momentum": 0.84,
      "mentions": 59
     },
     "communication": {
-     "momentum": -0.15,
+     "momentum": -0.149,
      "mentions": 101
     },
     "teamwork": {
-     "momentum": -0.624,
+     "momentum": -0.623,
      "mentions": 51
     },
     "problem-solving": {
-     "momentum": -0.287,
+     "momentum": -0.286,
      "mentions": 35
     },
     "project-management": {
@@ -29715,23 +29753,23 @@
      "mentions": 231
     },
     "deep-learning": {
-     "momentum": 0.35,
+     "momentum": 0.351,
      "mentions": 141
     },
     "genai": {
-     "momentum": 0.502,
-     "mentions": 652
+     "momentum": 0.499,
+     "mentions": 651
     },
     "computer-vision": {
      "momentum": 0.531,
      "mentions": 95
     },
     "data-analysis": {
-     "momentum": 0.315,
+     "momentum": 0.317,
      "mentions": 84
     },
     "statistics": {
-     "momentum": 0.267,
+     "momentum": 0.268,
      "mentions": 54
     },
     "r-lang": {
@@ -29743,23 +29781,23 @@
      "mentions": 26
     },
     "sql": {
-     "momentum": 0.264,
-     "mentions": 878
+     "momentum": 0.26,
+     "mentions": 877
     },
     "data-engineering": {
-     "momentum": 0.512,
+     "momentum": 0.514,
      "mentions": 340
     },
     "python": {
-     "momentum": -0.001,
+     "momentum": 0,
      "mentions": 1004
     },
     "java": {
-     "momentum": -0.048,
+     "momentum": -0.047,
      "mentions": 133
     },
     "c-cpp": {
-     "momentum": -0.011,
+     "momentum": -0.01,
      "mentions": 177
     },
     "csharp": {
@@ -29767,27 +29805,27 @@
      "mentions": 74
     },
     "javascript": {
-     "momentum": -0.071,
-     "mentions": 1033
+     "momentum": -0.074,
+     "mentions": 1032
     },
     "frontend": {
-     "momentum": -0.128,
-     "mentions": 1334
+     "momentum": -0.13,
+     "mentions": 1333
     },
     "backend": {
-     "momentum": 0.01,
+     "momentum": 0.011,
      "mentions": 604
     },
     "mobile": {
-     "momentum": 0.251,
+     "momentum": 0.252,
      "mentions": 329
     },
     "git": {
-     "momentum": 0.024,
+     "momentum": 0.025,
      "mentions": 408
     },
     "software-testing": {
-     "momentum": 0.196,
+     "momentum": 0.198,
      "mentions": 47
     },
     "manual-testing": {
@@ -29795,31 +29833,31 @@
      "mentions": 16
     },
     "agile": {
-     "momentum": 0.807,
+     "momentum": 0.808,
      "mentions": 42
     },
     "software-design": {
-     "momentum": -0.106,
+     "momentum": -0.105,
      "mentions": 228
     },
     "linux": {
-     "momentum": 0.015,
+     "momentum": 0.016,
      "mentions": 184
     },
     "cloud": {
-     "momentum": 0.064,
-     "mentions": 814
+     "momentum": 0.06,
+     "mentions": 813
     },
     "devops": {
-     "momentum": 0.062,
+     "momentum": 0.063,
      "mentions": 770
     },
     "networking": {
-     "momentum": 0.556,
+     "momentum": 0.557,
      "mentions": 62
     },
     "cybersecurity": {
-     "momentum": -0.106,
+     "momentum": -0.105,
      "mentions": 76
     },
     "circuits": {
@@ -29831,7 +29869,7 @@
      "mentions": 13
     },
     "embedded": {
-     "momentum": 0.105,
+     "momentum": 0.106,
      "mentions": 60
     },
     "hdl-fpga": {
@@ -29875,7 +29913,7 @@
      "mentions": 7
     },
     "batteries": {
-     "momentum": 0.706,
+     "momentum": 0.708,
      "mentions": 32
     },
     "plc": {
@@ -29891,7 +29929,7 @@
      "mentions": 19
     },
     "robotics": {
-     "momentum": 0.969,
+     "momentum": 0.971,
      "mentions": 135
     },
     "cad": {
@@ -29899,11 +29937,11 @@
      "mentions": 51
     },
     "sensors-iot": {
-     "momentum": 0.105,
+     "momentum": 0.106,
      "mentions": 64
     },
     "maintenance": {
-     "momentum": -0.185,
+     "momentum": -0.184,
      "mentions": 54
     },
     "lean-quality": {
@@ -29919,19 +29957,19 @@
      "mentions": 38
     },
     "technical-writing": {
-     "momentum": -0.474,
+     "momentum": -0.473,
      "mentions": 69
     },
     "communication": {
-     "momentum": 0.063,
+     "momentum": 0.064,
      "mentions": 99
     },
     "teamwork": {
-     "momentum": -0.882,
+     "momentum": -0.881,
      "mentions": 49
     },
     "problem-solving": {
-     "momentum": -0.449,
+     "momentum": -0.448,
      "mentions": 33
     },
     "project-management": {
@@ -33407,8 +33445,8 @@
      "mentions": 124
     },
     "genai": {
-     "momentum": 0.591,
-     "mentions": 605
+     "momentum": 0.594,
+     "mentions": 604
     },
     "computer-vision": {
      "momentum": 0.504,
@@ -33431,8 +33469,8 @@
      "mentions": 20
     },
     "sql": {
-     "momentum": -0.106,
-     "mentions": 861
+     "momentum": -0.102,
+     "mentions": 860
     },
     "data-engineering": {
      "momentum": -0.025,
@@ -33455,12 +33493,12 @@
      "mentions": 79
     },
     "javascript": {
-     "momentum": -0.26,
-     "mentions": 932
+     "momentum": -0.257,
+     "mentions": 931
     },
     "frontend": {
-     "momentum": -0.299,
-     "mentions": 1172
+     "momentum": -0.296,
+     "mentions": 1171
     },
     "backend": {
      "momentum": -0.401,
@@ -33483,7 +33521,7 @@
      "mentions": 16
     },
     "agile": {
-     "momentum": 0.255,
+     "momentum": 0.256,
      "mentions": 49
     },
     "software-design": {
@@ -33495,8 +33533,8 @@
      "mentions": 179
     },
     "cloud": {
-     "momentum": -0.262,
-     "mentions": 740
+     "momentum": -0.257,
+     "mentions": 739
     },
     "devops": {
      "momentum": -0.043,
@@ -33603,7 +33641,7 @@
      "mentions": 6
     },
     "spreadsheets": {
-     "momentum": 0.665,
+     "momentum": 0.666,
      "mentions": 45
     },
     "technical-writing": {
@@ -34156,14 +34194,15 @@
   ]
  },
  "refresh": {
-  "builtAt": "2026-10-21T16:34:50+00:00",
+  "builtAt": "2026-10-21T17:26:28+00:00",
   "mode": "refresh",
-  "contentHash": "03b3aae8b1a8270f19855b33ed30548b15c6480a66d58421de827329980273b1",
+  "contentHash": "074cfef3d8d5c2eff31c26a073f0e3afe89f31b456b40a2067cc89dcffecf19b",
   "dataChanged": true,
-  "downloadedInputs": 10,
-  "cachedInputs": 51,
-  "unknownDownloadDates": 51,
-  "validatedAt": "2026-10-21T16:35:01.848Z",
-  "lastSuccessfulAt": "2026-10-21T16:35:01.848Z"
+  "downloadedInputs": 61,
+  "cachedInputs": 0,
+  "unknownDownloadDates": 0,
+  "lastSuccessfulAt": "2026-10-21T17:26:35.730Z",
+  "validatedAt": "2026-10-21T17:26:35.730Z",
+  "runUrl": "https://github.com/ArcueidMP/skilltide/actions/runs/39643199831"
  }
 }

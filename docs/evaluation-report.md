@@ -2,7 +2,7 @@
 
 This is a reproducible design-case check, not validated employment forecasting, independent expert assessment, or a user study. Expected role families were authored before this suite was ranked; they are intentionally coarse and may themselves need review. Scoring coefficients have not been tuned to these cases.
 
-Dataset build: 2026-10-22. Signal snapshot: 2026-10-16. Content hash: 03b3aae8b1a8270f19855b33ed30548b15c6480a66d58421de827329980273b1.
+Dataset build: 2026-10-21. Signal snapshot: 2026-10-16. Content hash: 074cfef3d8d5c2eff31c26a073f0e3afe89f31b456b40a2067cc89dcffecf19b.
 
 - Cases: 12; non-empty case/scenario evaluations: 22.
 - Top-three expected-family coverage: 20/20; skills-only comparator: 20/20. Empty and one-skill cases have no family label and are excluded from this denominator.
@@ -42,7 +42,7 @@ No expected-family misses in this suite. This is a small synthetic set and does 
 
 ## Sensitivity and limitations
 
-Increasing outlook weight changed the leading role in 8/22 non-empty evaluations. Detailed rankings, baseline outcomes and assumptions are in evaluation-results.json.
+Increasing outlook weight changed the leading role in 7/22 non-empty evaluations. Detailed rankings, baseline outcomes and assumptions are in evaluation-results.json.
 Compare the two-hours and twenty-hours cases: they have identical skills, rankings and course hours, with different weekly schedules. A stable result across scenarios is a valid outcome; the demonstration does not manufacture a ranking change.
 Family coverage is not a ranking-quality score. It ignores the order within the top three, may reward broad families, and has no observed career outcomes. Sparse CVs, US-centric role data, changing AI measurement methods and curated course coverage remain limitations.
 

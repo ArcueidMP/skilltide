@@ -1,5 +1,5 @@
 {
-  "datasetGeneratedAt": "2026-10-22",
+  "datasetGeneratedAt": "2026-10-21",
   "snapshot": "2026-10-16",
   "weights": {
     "skills": 50,
@@ -397,16 +397,16 @@
           "score": 36.25
         },
         {
-          "id": "ee-technician",
-          "title": "Electrical & Electronic Engineering Technician",
-          "family": "electronics",
-          "score": 34.84
-        },
-        {
           "id": "solar-engineer",
           "title": "Solar Energy Systems Engineer",
           "family": "energy",
           "score": 34.77
+        },
+        {
+          "id": "it-support",
+          "title": "Computer User Support Specialist",
+          "family": "software",
+          "score": 32.7
         }
       ],
       "topThreeFamilyHit": null,
@@ -441,16 +441,16 @@
           "score": 34.53
         },
         {
-          "id": "ee-technician",
-          "title": "Electrical & Electronic Engineering Technician",
-          "family": "electronics",
-          "score": 33.39
-        },
-        {
           "id": "solar-engineer",
           "title": "Solar Energy Systems Engineer",
           "family": "energy",
           "score": 32.95
+        },
+        {
+          "id": "it-support",
+          "title": "Computer User Support Specialist",
+          "family": "software",
+          "score": 29.9
         }
       ],
       "topThreeFamilyHit": null,
@@ -546,8 +546,8 @@
       "topThreeFamilyHit": true,
       "skillsOnlyFamilyHit": true,
       "skillsOnlyLeadingRole": "web-developer",
-      "outlookWeightedLeadingRole": "industrial-engineer",
-      "leadingRoleChangesWithWeights": true,
+      "outlookWeightedLeadingRole": "ui-designer",
+      "leadingRoleChangesWithWeights": false,
       "priorityGapsAddressed": 4,
       "priorityGapsConsidered": 5,
       "remainingPriorityGaps": [
