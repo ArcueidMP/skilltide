@@ -161,7 +161,7 @@ export function ProfileBuilder() {
                   className={cn(
                     "rounded-lg border px-3 py-1.5 text-left text-[13px] transition-all",
                     profile.name === persona.profile.name
-                      ? "border-brand/50 bg-brand-soft text-brand-strong shadow-[0_0_16px_rgba(45,212,191,0.2)]"
+                      ? "border-ink/50 bg-brand-soft text-ink"
                       : "border-border text-ink-soft hover:border-border-strong hover:text-ink",
                   )}
                 >
@@ -212,7 +212,7 @@ export function ProfileBuilder() {
                 onChange={(event) => setCvText(event.target.value)}
                 rows={12}
                 placeholder={"Paste your CV here. Use headings like Experience, Projects and Coursework so SkillTide can tell how you used each skill.\n\nPlease use a sample or your own made-up CV — never someone else's real CV."}
-                className="w-full resize-y rounded-xl border border-border bg-surface-muted p-4 font-mono text-[12.5px] leading-relaxed text-ink placeholder:font-sans placeholder:text-muted focus:border-brand focus:outline-none"
+                className="w-full resize-y rounded-md border border-border-strong bg-surface p-4 font-mono text-[12.5px] leading-relaxed text-ink placeholder:font-sans placeholder:text-muted focus:border-brand focus:outline-none"
               />
               <div className="flex flex-wrap items-center gap-2">
                 <Button onClick={() => scan(cvText)} disabled={!cvText.trim() || !!importStatus}>
@@ -261,7 +261,7 @@ export function ProfileBuilder() {
               </p>
               {[...byCluster.entries()].map(([cluster, skills]) => (
                 <div key={cluster}>
-                  <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
+                  <h3 className="chart-label text-muted">
                     {CLUSTER_LABELS[cluster]}
                   </h3>
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -320,7 +320,7 @@ export function ProfileBuilder() {
                   step={1}
                   value={profile.hoursPerWeek}
                   onChange={(event) => setProfile({ hoursPerWeek: Number(event.target.value) })}
-                  className="w-full accent-[#2dd4bf]"
+                  className="w-full accent-[#1d5c8a]"
                   aria-label="Study hours per week"
                 />
               </Field>

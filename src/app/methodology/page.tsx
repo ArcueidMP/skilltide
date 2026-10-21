@@ -23,7 +23,7 @@ const USES: Record<string, string> = {
 
 function Formula({ children }: { children: React.ReactNode }) {
   return (
-    <pre className="overflow-x-auto rounded-xl border border-border bg-background/60 px-4 py-3 font-mono text-[12.5px] leading-relaxed text-brand-strong">
+    <pre className="overflow-x-auto rounded-md border border-border bg-surface-muted/60 px-4 py-3 font-mono text-[12.5px] leading-relaxed text-brand-strong">
       {children}
     </pre>
   );
@@ -57,7 +57,7 @@ export default function MethodologyPage() {
                 ["Score", "The engine projects each task under a scenario, rolls tasks up to roles, then matches roles to your skills and goals."],
                 ["Plan", "Address priority gaps with real courses whose hours and cost we could check, ending with a portfolio project."],
               ].map(([title, body], index) => (
-                <li key={title} className="rounded-xl border border-border bg-surface-muted p-4">
+                <li key={title} className="rounded-md border border-border bg-surface-muted p-4">
                   <p className="font-mono text-xs text-brand">0{index + 1}</p>
                   <p className="mt-1 font-display font-semibold">{title}</p>
                   <p className="mt-1 text-[13px] leading-relaxed text-muted">{body}</p>
@@ -131,7 +131,7 @@ match = (w_skills × skills fit + w_outlook × outlook + w_sdg × SDG fit) ÷ (w
             <div className="grid gap-4 p-5 lg:grid-cols-[1fr_320px]">
               <ul className="space-y-3">
                 {dataset.scenarios.map((scenario) => (
-                  <li key={scenario.id} className="rounded-xl border border-border bg-surface-muted p-4 text-[13.5px]">
+                  <li key={scenario.id} className="rounded-md border border-border bg-surface-muted p-4 text-[13.5px]">
                     <p className="font-display font-semibold">
                       {scenario.label} <span className="font-mono text-xs text-muted">r = {scenario.adoptionRate}/yr</span>
                     </p>
@@ -146,7 +146,7 @@ match = (w_skills × skills fit + w_outlook × outlook + w_sdg × SDG fit) ÷ (w
                   {trend.map((point) => (
                     <li key={point.release} className="flex items-center gap-2 text-[12px]">
                       <span className="w-28 shrink-0 font-mono text-muted">{point.period}</span>
-                      <span className="h-2 rounded-full bg-linear-to-r from-accent to-brand" style={{ width: `${point.share * 160}px` }} />
+                      <span className="h-2 rounded-[2px] bg-brand" style={{ width: `${point.share * 160}px` }} />
                       <span className="font-mono text-ink-soft">{Math.round(point.share * 100)}%</span>
                     </li>
                   ))}

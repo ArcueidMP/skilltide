@@ -203,10 +203,10 @@ function SkillDetail({ trend, previous }: { trend: SkillTrend; previous?: SkillT
     .filter(Boolean)
     .slice(0, 4);
   return (
-    <Card className="glow-brand p-4">
+    <Card className="border-ink/30 p-4">
       <div className="flex items-start justify-between gap-2">
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{CLUSTER_LABELS[skill.cluster]}</p>
+          <p className="chart-label text-[10px] text-muted">{CLUSTER_LABELS[skill.cluster]}</p>
           <h3 className="mt-1 font-display text-base font-semibold">{skill.name}</h3>
         </div>
         <Badge tone={TREND_TONE[trend.trend]}>{SKILL_TREND_LABEL[trend.trend]}</Badge>
@@ -261,13 +261,13 @@ function RoleList({
           const before = previous?.get(outlook.roleId);
           const yoy = snapshot?.roles[outlook.roleId]?.postingsYoY;
           return (
-            <li key={outlook.roleId} className="rounded-xl px-3 py-2.5 hover:bg-surface-muted">
+            <li key={outlook.roleId} className="rounded-md px-3 py-2.5 hover:bg-surface-muted">
               <div className="flex items-center justify-between gap-3">
                 <div className="min-w-0">
                   <p className="truncate text-[14px] font-medium">
                     {role?.title}
                     {role?.mycol ? (
-                      <span className="ml-2 rounded border border-accent/40 px-1 font-mono text-[10px] text-indigo-200" title="On Malaysia's Critical Occupations List">
+                      <span className="ml-2 rounded-[3px] border border-accent/40 bg-accent-soft px-1 font-mono text-[10px] text-accent" title="On Malaysia's Critical Occupations List">
                         MyCOL
                       </span>
                     ) : null}
@@ -313,7 +313,7 @@ function AutomationTrendCard() {
           <div key={point.release} className="flex flex-1 flex-col items-center gap-1">
             <span className="font-mono text-[10.5px] text-ink-soft">{pct(point.share)}</span>
             <div
-              className="w-full rounded-t-md bg-linear-to-t from-accent/40 to-brand shadow-[0_0_12px_rgba(45,212,191,0.3)]"
+              className="w-full rounded-t-[2px] bg-brand"
               style={{ height: `${(point.share / max) * 80}px` }}
             />
             <span className="text-center font-mono text-[9.5px] leading-tight text-muted">{point.period}</span>

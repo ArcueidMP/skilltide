@@ -10,11 +10,15 @@ import { CLUSTER_LABELS, CLUSTER_ORDER } from "@/lib/labels";
 const SIZE = 600;
 const CENTER = SIZE / 2;
 const RADIUS = 228;
+/** Room round the chart for sector and skill labels. */
+const PAD = 48;
+const VIEW = SIZE + 2 * PAD;
 
+// Starboard green, slate and port red, matching the theme tokens.
 const COLOR: Record<SkillTrend["trend"], string> = {
-  rising: "#34d399",
-  stable: "#94a3b8",
-  declining: "#fb7185",
+  rising: "#2a7348",
+  stable: "#5d6b78",
+  declining: "#b3382b",
 };
 
 /** Rounded so server and browser trigonometry produce identical markup. */
@@ -78,21 +82,15 @@ export function SkillsRadar({
   const active = blips.find((b) => b.skill.id === (hover ?? selected));
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[600px]">
-      {/* Rotating sweep behind the chart. */}
-      <div
-        className="pointer-events-none absolute animate-sweep rounded-full bg-[conic-gradient(from_0deg,rgba(45,212,191,0.22),rgba(45,212,191,0.04)_40deg,transparent_60deg)]"
-        style={{ inset: `${((CENTER - RADIUS) / SIZE) * 100}%` }}
-        aria-hidden
-      />
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="relative h-full w-full" role="img" aria-label="Future skills radar">
+    <div className="relative mx-auto aspect-square w-full max-w-[660px]">
+      <svg viewBox={`${-PAD} ${-PAD} ${VIEW} ${VIEW}`} className="relative h-full w-full" role="img" aria-label="Future skills radar">
         <defs>
           <radialGradient id="radar-core">
-            <stop offset="0%" stopColor="rgba(45,212,191,0.28)" />
-            <stop offset="100%" stopColor="rgba(45,212,191,0)" />
+            <stop offset="0%" stopColor="rgba(29,92,138,0.14)" />
+            <stop offset="100%" stopColor="rgba(29,92,138,0)" />
           </radialGradient>
         </defs>
-        <circle cx={CENTER} cy={CENTER} r={RADIUS} fill="rgba(10,16,32,0.55)" stroke="rgba(45,212,191,0.35)" />
+        <circle cx={CENTER} cy={CENTER} r={RADIUS} fill="#fbfaf5" stroke="#12263a" strokeOpacity={0.55} />
         <circle cx={CENTER} cy={CENTER} r={RADIUS * 0.3} fill="url(#radar-core)" />
         {RINGS.map((ring) => (
           <g key={ring.label}>
@@ -101,13 +99,14 @@ export function SkillsRadar({
               cy={CENTER}
               r={r2(radiusFor(ring.score))}
               fill="none"
-              stroke="rgba(148,163,184,0.16)"
-              strokeDasharray="3 5"
+              stroke="#1d5c8a"
+              strokeOpacity={0.35}
+              strokeDasharray="4 4"
             />
             <text
               x={CENTER + 4}
-              y={r2(CENTER - radiusFor(ring.score) + 12)}
-              className="fill-[#8797b0] font-mono text-[10px] uppercase tracking-widest"
+              y={r2(CENTER - radiusFor(ring.score) + 13)}
+              className="fill-brand font-display text-[12px] italic"
             >
               {ring.label}
             </text>
@@ -125,14 +124,15 @@ export function SkillsRadar({
                 y1={CENTER}
                 x2={r2(CENTER + RADIUS * Math.cos(start))}
                 y2={r2(CENTER + RADIUS * Math.sin(start))}
-                stroke="rgba(148,163,184,0.14)"
+                stroke="#12263a"
+                strokeOpacity={0.14}
               />
               <text
                 x={lx}
                 y={ly}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                className="fill-[#c2cee0] text-[11.5px] font-semibold"
+                className="fill-ink text-[11.5px] font-semibold"
               >
                 {CLUSTER_LABELS[cluster]}
               </text>
@@ -150,7 +150,7 @@ export function SkillsRadar({
               x2={b.x}
               y2={b.y}
               stroke={COLOR[b.trend.trend]}
-              strokeOpacity={0.45}
+              strokeOpacity={0.55}
               strokeWidth={1.5}
               strokeDasharray="2 3"
             />
@@ -177,21 +177,23 @@ export function SkillsRadar({
               className="cursor-pointer outline-none"
             >
               {isOwned ? (
-                <circle cx={b.x} cy={b.y} r={10} fill="none" stroke="#e8eef8" strokeOpacity={0.85} strokeWidth={1.4} />
+                <circle cx={b.x} cy={b.y} r={10} fill="none" stroke="#12263a" strokeOpacity={0.8} strokeWidth={1.4} />
               ) : null}
               <circle
                 cx={b.x}
                 cy={b.y}
                 r={isActive ? 8 : 5.5}
                 fill={COLOR[b.trend.trend]}
-                style={{ filter: `drop-shadow(0 0 ${isActive ? 8 : 4}px ${COLOR[b.trend.trend]})`, transition: "all 0.4s ease" }}
+                stroke="#fbfaf5"
+                strokeWidth={1.5}
+                style={{ transition: "all 0.4s ease" }}
               />
               {isOwned || isActive ? (
                 <text
                   x={b.x + (Math.cos(b.angle) >= 0 ? 13 : -13)}
                   y={b.y + 4}
                   textAnchor={Math.cos(b.angle) >= 0 ? "start" : "end"}
-                  className={cn("text-[11px]", isActive ? "fill-white font-semibold" : "fill-[#c2cee0]")}
+                  className={cn("text-[11px]", isActive ? "fill-ink font-semibold" : "fill-ink-soft")}
                 >
                   {b.skill.name.split(" (")[0]}
                 </text>
@@ -203,10 +205,10 @@ export function SkillsRadar({
 
       {active ? (
         <div
-          className="glass pointer-events-none absolute z-10 w-56 -translate-x-1/2 rounded-xl px-3 py-2 text-[12px] shadow-xl"
+          className="panel pointer-events-none absolute z-10 w-56 -translate-x-1/2 rounded-md px-3 py-2 text-[12px] shadow-md"
           style={{
-            left: `${(active.x / SIZE) * 100}%`,
-            top: `${(active.y / SIZE) * 100 + (active.y > CENTER ? -24 : 4)}%`,
+            left: `${((active.x + PAD) / VIEW) * 100}%`,
+            top: `${((active.y + PAD) / VIEW) * 100 + (active.y > CENTER ? -22 : 4)}%`,
           }}
         >
           <p className="font-semibold text-ink">{active.skill.name}</p>

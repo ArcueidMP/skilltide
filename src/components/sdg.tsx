@@ -32,7 +32,7 @@ export function SdgPicker({
             disabled={full}
             onClick={() => toggle(goal.goal)}
             className={cn(
-              "relative flex aspect-square flex-col justify-between rounded-xl p-2 text-left text-white transition-all",
+              "relative flex aspect-square flex-col justify-between rounded-md p-2 text-left text-white transition-all",
               selected ? "scale-[1.03] ring-2 ring-white/80" : "opacity-60 hover:opacity-90",
               full && "cursor-not-allowed opacity-25 hover:opacity-25",
             )}

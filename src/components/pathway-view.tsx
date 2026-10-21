@@ -39,7 +39,7 @@ export function PathwayView() {
       <Card className="animate-rise-in p-5">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">Pathway towards</p>
+            <p className="chart-label text-muted">Pathway towards</p>
             <h2 className="mt-1 font-display text-2xl font-semibold">{role.title}</h2>
           </div>
           <label className="flex items-center gap-2 text-[13px] text-muted">
@@ -66,8 +66,8 @@ export function PathwayView() {
       </Card>
 
       {replan ? (
-        <div className="flex items-start gap-3 rounded-2xl border border-accent/40 bg-accent-soft px-4 py-3 text-[13px]">
-          <RefreshCw className="mt-0.5 h-4 w-4 shrink-0 text-indigo-200" aria-hidden />
+        <div className="flex items-start gap-3 rounded-lg border border-accent/40 bg-accent-soft px-4 py-3 text-[13px]">
+          <RefreshCw className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
           <p>
             <span className="font-medium text-ink">Re-planned.</span> The data or scenario changed, so your pathway was rebuilt.{" "}
             {replan}
@@ -77,7 +77,7 @@ export function PathwayView() {
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
         <ol className="relative space-y-4 pl-8">
-          <span className="absolute bottom-4 left-[11px] top-4 w-px bg-linear-to-b from-brand via-accent/60 to-transparent" aria-hidden />
+          <span className="absolute bottom-4 left-[11px] top-4 border-l-2 border-dashed border-ink/30" aria-hidden />
           {pathway.steps.map((step, index) => (
             <StepCard key={`${step.kind}-${step.course?.id ?? step.task?.id}`} step={step} index={index} />
           ))}
@@ -113,7 +113,7 @@ export function PathwayView() {
 
 function Stat({ icon: Icon, label, value }: { icon: typeof Clock; label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-border bg-surface-muted px-4 py-3">
+    <div className="rounded-md border border-border bg-surface-muted px-4 py-3">
       <dt className="flex items-center gap-1.5 text-[11.5px] text-muted">
         <Icon className="h-3.5 w-3.5" aria-hidden /> {label}
       </dt>
@@ -130,8 +130,8 @@ function StepCard({ step, index }: { step: PathwayStep; index: number }) {
         className={cn(
           "absolute -left-8 top-5 flex h-6 w-6 items-center justify-center rounded-full border-2 font-mono text-[11px] font-semibold",
           isProject
-            ? "border-accent bg-accent text-brand-ink shadow-[0_0_14px_rgba(129,140,248,0.8)]"
-            : "border-brand bg-background text-brand-strong shadow-[0_0_14px_rgba(45,212,191,0.6)]",
+            ? "border-accent bg-accent text-brand-ink"
+            : "border-ink bg-surface text-ink",
         )}
       >
         {index + 1}
@@ -193,7 +193,7 @@ function StepCard({ step, index }: { step: PathwayStep; index: number }) {
             {step.course!.evidence?.length ? (
               <ul className="mt-1 space-y-1">
                 {step.course!.evidence.slice(0, 2).map((e) => (
-                  <li key={e.url} className="text-[11.5px] text-muted">
+                  <li key={`${e.url}-${e.quote}`} className="text-[11.5px] text-muted">
                     <span className="italic">&ldquo;{e.quote}&rdquo;</span>{" "}
                     <a href={e.url} target="_blank" rel="noreferrer" className="underline underline-offset-2">
                       source
@@ -217,13 +217,13 @@ function SdgImpact({ roleId, skillIds }: { roleId: string; skillIds: string[] })
   const role = roleById(roleId)!;
   const skillTargets = new Set(skillIds.flatMap((id) => skillById(id)?.sdg ?? []));
   return (
-    <Card className="glow-brand">
+    <Card className="border-ink/30">
       <CardHeader title="What this path contributes to" subtitle="Specific UN SDG targets, with the evidence behind each link" />
       <ul className="space-y-3 p-5 pt-3">
         {role.sdg.map((link) => {
           const chosen = profile?.sdgGoals.includes(Number(link.targetId.split(".")[0]));
           return (
-            <li key={link.targetId} className={cn("rounded-xl border p-3", chosen ? "border-brand/50 bg-brand-soft" : "border-border")}>
+            <li key={link.targetId} className={cn("rounded-md border p-3", chosen ? "border-brand/50 bg-brand-soft" : "border-border")}>
               <SdgTag targetId={link.targetId} withText />
               <p className="mt-2 text-[12.5px] text-ink-soft">{link.rationale}</p>
               {link.task ? (
@@ -236,7 +236,7 @@ function SdgImpact({ roleId, skillIds }: { roleId: string; skillIds: string[] })
           );
         })}
         {skillTargets.size ? (
-          <li className="rounded-xl border border-border p-3">
+          <li className="rounded-md border border-border p-3">
             <p className="text-[12.5px] text-ink-soft">
               Every skill you build here also counts towards SDG 4.4 — more young people with the technical skills for decent jobs.
             </p>

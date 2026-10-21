@@ -66,7 +66,7 @@ export function MatchView() {
             {fairness ? (
               <div
                 className={cn(
-                  "flex items-start gap-2 rounded-xl border p-3 text-[12.5px]",
+                  "flex items-start gap-2 rounded-md border p-3 text-[12.5px]",
                   fairness.identical ? "border-rise/30 bg-rise-soft" : "border-fall/30 bg-fall-soft",
                 )}
               >
@@ -80,7 +80,7 @@ export function MatchView() {
                 </span>
               </div>
             ) : null}
-            <div className="flex items-start gap-2 rounded-xl border border-border bg-surface-muted p-3 text-[12.5px] text-ink-soft">
+            <div className="flex items-start gap-2 rounded-md border border-border bg-surface-muted p-3 text-[12.5px] text-ink-soft">
               <Info className="mt-0.5 h-4 w-4 shrink-0 text-muted" aria-hidden />
               <span>
                 {scenario?.label} scenario, data as of {snapshot?.label}. These are estimates to help you think — you decide.
@@ -153,7 +153,7 @@ function WeightSlider({
         value={value}
         disabled={disabled}
         onChange={(event) => onChange(Number(event.target.value))}
-        className="mt-2 w-full accent-[#2dd4bf]"
+        className="mt-2 w-full accent-[#1d5c8a]"
       />
     </label>
   );
@@ -184,7 +184,7 @@ function MatchCard({
   }
 
   return (
-    <Card className={cn("overflow-hidden transition-shadow", rank === 1 && "glow-brand")}>
+    <Card className={cn("overflow-hidden", rank === 1 && "border-l-[3px] border-l-accent")}>
       <div className="flex flex-wrap items-center gap-5 p-5">
         <span className="font-mono text-2xl font-semibold text-muted/70">{String(rank).padStart(2, "0")}</span>
         <ScoreRing value={match.score} label="match" />
@@ -220,7 +220,7 @@ function MatchCard({
 
       <div className="flex flex-wrap gap-x-8 gap-y-3 border-t border-border px-5 py-3">
         <div className="min-w-0">
-          <p className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">You have</p>
+          <p className="mb-1.5 chart-label text-[10px] text-muted">You have</p>
           <div className="flex flex-wrap gap-1.5">
             {match.strengths.length ? (
               match.strengths.slice(0, 5).map((s) => (
@@ -232,7 +232,7 @@ function MatchCard({
           </div>
         </div>
         <div className="min-w-0">
-          <p className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">Top gaps</p>
+          <p className="mb-1.5 chart-label text-[10px] text-muted">Top gaps</p>
           <div className="flex flex-wrap gap-1.5">
             {match.gaps.slice(0, 4).map((g) => (
               <SkillChip
@@ -245,7 +245,7 @@ function MatchCard({
           </div>
         </div>
         <div className="min-w-0">
-          <p className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">SDG targets</p>
+          <p className="mb-1.5 chart-label text-[10px] text-muted">SDG targets</p>
           <div className="flex flex-wrap gap-1.5">
             {role.sdg.map((link) => (
               <span
@@ -301,7 +301,7 @@ function MatchCard({
           </div>
           <div className="space-y-4">
             <div>
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">Most AI-exposed tasks</p>
+              <p className="mb-2 chart-label text-[10px] text-muted">Most AI-exposed tasks</p>
               <ul className="space-y-2">
                 {match.outlook.tasks.slice(0, 4).map((task) => (
                   <li key={task.taskId} className="text-[12.5px]">
@@ -318,7 +318,7 @@ function MatchCard({
             </div>
             {role.newTasks.length ? (
               <div>
-                <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+                <p className="mb-2 chart-label text-[10px] text-muted">
                   New tasks O*NET added ({role.newTasks[0].date})
                 </p>
                 <ul className="list-disc space-y-1 pl-4 text-[12.5px] text-ink-soft">

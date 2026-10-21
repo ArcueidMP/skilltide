@@ -60,7 +60,7 @@ export function ScenarioComparisonView({ snapshot }: { snapshot: Snapshot }) {
       <div className="grid gap-4 xl:grid-cols-2">
         {[comparison.moderate, comparison.fast].map((result) => (
           <Card key={result.scenarioId} className="flex flex-col p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-brand-strong">{result.label}</p>
+            <p className="chart-label text-brand-strong">{result.label}</p>
             <h3 className="mt-2 font-display text-lg font-semibold">{roleById(result.leadingMatch.roleId)?.title}</h3>
             <p className="mt-1 text-[13px] text-muted">Match {result.leadingMatch.score.toFixed(1)} · Outlook {result.leadingMatch.outlook.score.toFixed(1)}</p>
             <dl className="my-4 grid grid-cols-2 gap-3 text-[13px]">

@@ -120,9 +120,9 @@ export function CareerCentreView() {
                           key={p}
                           className="rounded-md text-center font-mono text-[11.5px]"
                           style={{
-                            backgroundColor: `rgba(45,212,191,${0.06 + value * 0.6})`,
-                            color: value > 0.45 ? "#02171a" : "#c2cee0",
-                            boxShadow: value > 0.6 ? "0 0 12px rgba(45,212,191,0.35)" : undefined,
+                            // Deeper blue for more coverage, like depth tints on a chart.
+                            backgroundColor: `rgba(29,92,138,${0.06 + value * 0.9})`,
+                            color: value > 0.7 ? "#fbfaf5" : "#12263a",
                           }}
                         >
                           {pct(value)}
@@ -137,7 +137,7 @@ export function CareerCentreView() {
         </Card>
 
         <div className="space-y-4">
-          <Card className="glow-brand p-5">
+          <Card className="border-ink/30 p-5">
             <div className="flex items-center gap-2">
               <Lightbulb className="h-4 w-4 text-brand" aria-hidden />
               <h3 className="font-display text-sm font-semibold">Where to run workshops</h3>
@@ -186,7 +186,7 @@ export function CareerCentreView() {
           {analysis.readiness.map((item) => {
             const outlook = outlooks.get(item.roleId);
             return (
-              <div key={item.roleId} className="rounded-xl border border-border bg-surface-muted p-4">
+              <div key={item.roleId} className="rounded-md border border-border bg-surface-muted p-4">
                 <div className="flex items-start justify-between gap-2">
                   <p className="font-medium text-ink">{roleById(item.roleId)?.title}</p>
                   {outlook ? <Badge tone={TREND_TONE[outlook.trend]}>{TREND_LABEL[outlook.trend]}</Badge> : null}

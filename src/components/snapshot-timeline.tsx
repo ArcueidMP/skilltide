@@ -12,7 +12,7 @@ export function SnapshotTimeline() {
   const snapshots = dataset.snapshots;
 
   return (
-    <div className="glass rounded-2xl px-5 py-4">
+    <div className="panel rounded-md px-5 py-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <History className="h-4 w-4 text-brand" aria-hidden />
@@ -24,7 +24,7 @@ export function SnapshotTimeline() {
         <p className="text-xs text-muted">Replay historical signals with the current catalogue and assumptions.</p>
       </div>
       <div role="radiogroup" aria-label="Data snapshot" className="relative mt-4">
-        <div className="absolute left-3 right-3 top-[7px] h-px bg-linear-to-r from-brand/20 via-brand/50 to-accent/60" />
+        <div className="absolute left-10 right-10 top-[7px] border-t border-dashed border-ink/35" />
         <div className="relative flex justify-between">
           {snapshots.map((snapshot) => {
             const active = snapshot.id === current?.id;
@@ -40,14 +40,14 @@ export function SnapshotTimeline() {
                   className={cn(
                     "h-3.5 w-3.5 rounded-full border-2 transition-all",
                     active
-                      ? "scale-125 border-brand bg-brand shadow-[0_0_14px_rgba(45,212,191,0.9)]"
-                      : "border-border-strong bg-background group-hover:border-brand",
+                      ? "scale-125 border-accent bg-accent"
+                      : "border-ink/45 bg-surface group-hover:border-ink",
                   )}
                 />
                 <span
                   className={cn(
                     "font-mono text-[11px] leading-tight",
-                    active ? "text-brand-strong" : "text-muted group-hover:text-ink",
+                    active ? "font-semibold text-ink" : "text-muted group-hover:text-ink",
                   )}
                 >
                   {snapshot.id === "latest" ? "Latest" : snapshot.label}

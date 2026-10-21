@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { Send } from "lucide-react";
+import { LifeBuoy, Send } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { useStore } from "@/lib/store";
 import { replanMessage, respond, suggestionsFor, type AgentContext, type AgentMessage } from "@/lib/agent";
@@ -70,14 +70,13 @@ export function AgentPanel() {
   return (
     <section
       aria-label="SkillTide guide"
-      className="glass flex h-full flex-col overflow-hidden rounded-2xl"
+      className="panel flex h-full flex-col overflow-hidden rounded-md"
     >
       <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
         <div className="flex items-center gap-2">
-          <span
-            className="h-7 w-7 animate-orb rounded-full bg-[radial-gradient(circle_at_35%_30%,#ccfbf1,#2dd4bf_45%,#6366f1_100%)]"
-            aria-hidden
-          />
+          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-accent/40 bg-accent-soft text-accent" aria-hidden>
+            <LifeBuoy className="h-4 w-4" />
+          </span>
           <div>
             <p className="font-display text-sm font-semibold">SkillTide Guide</p>
             <p className="text-[11px] text-muted">Answers only from SkillTide data</p>
@@ -101,9 +100,9 @@ export function AgentPanel() {
           >
             <div
               className={cn(
-                "max-w-[92%] rounded-xl px-3 py-2 text-[13px] leading-relaxed",
+                "max-w-[92%] rounded-md px-3 py-2 text-[13px] leading-relaxed",
                 message.role === "user"
-                  ? "border border-brand/30 bg-brand-soft text-ink"
+                  ? "border border-ink/20 bg-brand-soft text-ink"
                   : message.kind === "replan"
                     ? "border border-accent/40 bg-accent-soft text-ink"
                     : "border border-border bg-surface-muted text-ink",
@@ -125,7 +124,7 @@ export function AgentPanel() {
               <button
                 key={suggestion}
                 onClick={() => ask(suggestion)}
-                className="rounded-full border border-border px-2.5 py-1 text-[12px] text-ink-soft hover:border-brand hover:text-brand-strong"
+                className="rounded-md border border-border-strong bg-surface px-2.5 py-1 text-[12px] text-ink-soft hover:border-ink/50 hover:text-ink"
               >
                 {suggestion}
               </button>
@@ -141,12 +140,12 @@ export function AgentPanel() {
             value={draft}
             onChange={(event) => setDraft(event.target.value)}
             placeholder="Ask why, what if, or where from…"
-            className="h-9 min-w-0 flex-1 rounded-lg border border-border bg-surface-muted px-3 text-[13px] text-ink placeholder:text-muted outline-none focus:border-brand"
+            className="h-9 min-w-0 flex-1 rounded-md border border-border-strong bg-surface px-3 text-[13px] text-ink placeholder:text-muted outline-none focus:border-brand"
           />
           <button
             type="submit"
             aria-label="Send"
-            className="flex h-9 w-9 items-center justify-center rounded-lg bg-linear-to-br from-brand to-cyan-300 text-brand-ink shadow-[0_0_16px_rgba(45,212,191,0.4)]"
+            className="flex h-9 w-9 items-center justify-center rounded-md bg-ink text-brand-ink hover:bg-brand-strong"
           >
             <Send className="h-4 w-4" aria-hidden />
           </button>
