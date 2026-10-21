@@ -13,6 +13,7 @@
 # testing
 /coverage
 /output/playwright/
+/output/browser/
 /playwright-report/
 /test-results/
 /.wrangler/
