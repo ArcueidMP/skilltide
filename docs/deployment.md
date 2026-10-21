@@ -27,7 +27,7 @@ Raw downloads and their provenance sidecars stay in the ignored cache. Older fil
 
 ## Continuous delivery
 
-The repository contains a validation workflow and a weekly/manual refresh workflow. Production deployment uses Cloudflare Workers Builds connected to this repository's `main` branch. Its build command is `npm ci && npm run lint && npm test && npm run build:static`, and its deploy command is `npx wrangler deploy`. Preview builds are disabled for this competition release. Cloudflare manages its build credential; a personal Wrangler OAuth token is not stored in GitHub secrets.
+The repository contains a validation workflow and a weekly/manual refresh workflow. Production deployment uses Cloudflare Workers Builds connected to this repository's `main` branch. Cloudflare installs dependencies, then runs `npm run lint && npm test && npm run build:static`; the deploy command is `npx wrangler deploy`. Node 24 and build caching are configured. Preview builds are disabled for this competition release. Cloudflare manages its build credential; a personal Wrangler OAuth token is not stored in GitHub secrets.
 
 Before describing continuous deployment as active, verify that the Cloudflare integration is configured and that a successful production run exists. Workflow files alone are not proof of activation. GitHub's current default branch is `main`.
 
