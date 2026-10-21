@@ -103,8 +103,8 @@ export function RadarView() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         <RoleList
-          title="Roles AI is lifting"
-          subtitle={`Highest outlook under the ${scenario.label.toLowerCase()} scenario over ${dataset.horizonYears} years`}
+          title="Roles on the rise"
+          subtitle={`Highest outlook under the ${scenario.label.toLowerCase()} scenario over ${dataset.horizonYears} years: hiring demand plus how AI touches the work`}
           roles={roles.slice(0, 6)}
           previous={previous?.outlooks}
         />
@@ -361,8 +361,31 @@ function MalaysiaCard() {
   );
 }
 
+const EMERGING_REGIONS = [
+  { label: "Malaysia", pattern: /TalentCorp|MCMC|Malaysia/i },
+  { label: "China", pattern: /China|MOHRSS/i },
+  { label: "Global", pattern: /World Economic Forum|WEF/i },
+];
+const EMERGING_PREVIEW = 6;
+
+function regionOf(recognisedBy: string) {
+  return EMERGING_REGIONS.find((region) => region.pattern.test(recognisedBy))?.label ?? "Other";
+}
+
+/** Interleaves the source lists, Malaysian first, so one country's list cannot fill the card. */
+function balancedEmerging() {
+  const groups = [...EMERGING_REGIONS.map((region) => region.label), "Other"].map((label) =>
+    dataset.emergingRoles.filter((item) => regionOf(item.recognised_by) === label),
+  );
+  const longest = Math.max(0, ...groups.map((group) => group.length));
+  return Array.from({ length: longest }, (_, index) => groups.flatMap((group) => group[index] ?? [])).flat();
+}
+const BALANCED_EMERGING = balancedEmerging();
+
 function EmergingCard() {
-  const items = dataset.emergingRoles.slice(0, 5);
+  const [showAll, setShowAll] = useState(false);
+  const all = BALANCED_EMERGING;
+  const items = showAll ? all : all.slice(0, EMERGING_PREVIEW);
   return (
     <Card className="p-5">
       <div className="flex items-center gap-2">
@@ -370,22 +393,36 @@ function EmergingCard() {
         <h3 className="font-display text-sm font-semibold">Newly recognised roles</h3>
       </div>
       {items.length ? (
-        <ul className="mt-3 space-y-2.5">
-          {items.map((item) => (
-            <li key={`${item.name}-${item.date}`} className="text-[12.5px]">
-              <p className="font-medium text-ink">
-                {item.name}
-                {item.name_original ? <span className="ml-1 text-muted">{item.name_original}</span> : null}
-              </p>
-              <p className="text-muted">
-                {item.recognised_by} · {item.date} ·{" "}
-                <a href={item.source_url} target="_blank" rel="noreferrer" className="underline underline-offset-2">
-                  source
-                </a>
-              </p>
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="mt-3 space-y-2.5">
+            {items.map((item) => (
+              <li key={`${item.name}-${item.date}`} className="text-[12.5px]">
+                <p className="font-medium text-ink">
+                  <Badge tone="neutral" className="mr-1.5 align-middle">
+                    {regionOf(item.recognised_by)}
+                  </Badge>
+                  {item.name}
+                  {item.name_original ? <span className="ml-1 text-muted">{item.name_original}</span> : null}
+                </p>
+                <p className="text-muted">
+                  {item.recognised_by} · {item.date} ·{" "}
+                  <a href={item.source_url} target="_blank" rel="noreferrer" className="underline underline-offset-2">
+                    source
+                  </a>
+                </p>
+              </li>
+            ))}
+          </ul>
+          {all.length > EMERGING_PREVIEW ? (
+            <button
+              type="button"
+              onClick={() => setShowAll(!showAll)}
+              className="mt-3 text-[12.5px] font-medium text-brand underline-offset-2 hover:underline"
+            >
+              {showAll ? "Show fewer" : `Show all ${all.length}`}
+            </button>
+          ) : null}
+        </>
       ) : (
         <p className="mt-3 text-[13px] text-muted">Official new-occupation lists are being checked and will appear here.</p>
       )}

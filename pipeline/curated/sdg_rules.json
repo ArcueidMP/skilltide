@@ -24,7 +24,7 @@
       "why": "makes workplaces safer" },
     { "target": "12.5", "keywords": ["waste", "scrap", "recycl"],
       "why": "reduces waste in production" },
-    { "target": "4.4", "keywords": ["train (users|staff|employees|personnel|others)", "instruct", "teach", "tutorial"],
+    { "target": "4.4", "keywords": ["train (users|staff|employees|personnel|others)", "instruct(?!ions)", "teach", "tutorial"],
       "why": "builds other people's technical skills" }
   ],
   "default": { "target": "8.2", "why": "technology roles raise productivity through technological upgrading (default link: no task matched a rule)" },

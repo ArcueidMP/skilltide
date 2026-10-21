@@ -1,7 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import { Card, CardHeader, PageHeader } from "@/components/ui";
 import { DataFreshness } from "@/components/data-freshness";
-import { dataset, hasData } from "@/lib/data";
+import { dataset, hasData, roleById } from "@/lib/data";
 import { dataDate } from "@/lib/freshness";
 import { LANGUAGE_TRANSFER, OUTLOOK_MODEL, PROJECT_HOURS, SKILL_MODEL } from "@/lib/engine";
 
@@ -33,6 +33,9 @@ export default function MethodologyPage() {
   const m = OUTLOOK_MODEL;
   const s = SKILL_MODEL;
   const trend = dataset.scenarioBasis?.automationTrend ?? [];
+  const latest = dataset.snapshots.at(-1);
+  const capped = latest ? Object.entries(latest.roles).filter(([, signal]) => Math.abs(signal.demand) >= 0.999) : [];
+  const cappedSectors = new Set(capped.flatMap(([id]) => roleById(id)?.indeedSectors ?? []));
   return (
     <>
       <PageHeader
@@ -91,6 +94,12 @@ MyCOL   = the role is on Malaysia's Critical Occupations List (TalentCorp), i.e.
                 <span className="text-fall">under pressure</span>, and a role where AI touches at least{" "}
                 {Math.round(m.transformingAt * 100)}% of the work is <span className="text-shift">transforming</span>. Demand is
                 measured against all postings so a hiring slump that hits every sector does not make every role look bad.
+              </p>
+              <p>
+                Hiring data comes by Indeed sector, not by job title, so roles that share a sector share a demand value.
+                {capped.length && latest
+                  ? ` In the latest snapshot (${latest.asOf}), ${capped.length} roles drawing on ${cappedSectors.size} sectors are at the cap; between them, outlooks differ only through the AI signals and the MyCOL bonus.`
+                  : null}
               </p>
             </div>
           </Card>

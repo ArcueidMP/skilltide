@@ -22,7 +22,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "SkillTide — career navigator for the AI era",
   description:
-    "SkillTide helps final-year students in Malaysia see which skills and roles AI is lifting or eroding, find best-fit future roles, and follow a reskilling pathway linked to the UN SDGs.",
+    "SkillTide helps final-year students in Malaysia see which skills and roles are rising or under pressure as AI spreads, find best-fit future roles, and follow a reskilling pathway linked to the UN SDGs.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

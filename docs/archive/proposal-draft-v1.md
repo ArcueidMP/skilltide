@@ -1,3 +1,5 @@
+> **Archived on 2026-10-22.** This is an earlier working draft, kept for reference. The team's proposal is maintained and submitted separately and supersedes this file.
+
 # SkillTide: a career navigator for the AI era
 
 Working proposal for the XMUM Hackathon, Aiversecity Future-Ready Workforce domain. This draft is approximately 1,000 words; the supplied domain brief does not specify the official submission length. All demonstration profiles are synthetic.

@@ -8,7 +8,7 @@ Built for the XMUM Hackathon, *Aiversecity Future-Ready Workforce* domain (main 
 
 ## Who it is for
 
-A final-year student in computer science, electrical & electronic engineering or mechatronics who is about to job-hunt and wants to know: *which roles is AI lifting, which is it eroding, where do I fit, and what should I learn in the next few months?* A cohort view serves university career centres.
+A final-year student in computer science, electrical & electronic engineering or mechatronics who is about to job-hunt and wants to know: *which roles are rising and which are under pressure as AI spreads, where do I fit, and what should I learn in the next few months?* A cohort view serves university career centres.
 
 ## What it does
 
@@ -78,12 +78,12 @@ The repository includes validation and weekly/manual data-refresh workflows. Ref
 
 ## Competition materials
 
-- [Proposal](docs/proposal.md)
+- The proposal is submitted separately; an [earlier working draft](docs/archive/proposal-draft-v1.md) is archived for reference.
 - [Three-minute demo script and fallback](docs/demo-script.md)
 - [Judge Q&A and requirement evidence](docs/judges-qa.md)
 - [Synthetic evaluation report](docs/evaluation-report.md) and [machine-readable results](docs/evaluation-results.json)
 
-The evaluation uses 12 synthetic design cases and an explicit skills-only comparator. It is not independent expert validation, a user study, or a forecasting-accuracy claim. The working proposal length and demo duration are defaults, not official submission limits.
+The evaluation uses 12 synthetic design cases and an explicit skills-only comparator. It is not independent expert validation, a user study, or a forecasting-accuracy claim. The demo duration is a working default, not an official submission limit.
 
 ## Responsible AI
 

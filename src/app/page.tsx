@@ -23,7 +23,7 @@ const JOURNEY = [
   {
     icon: Radar,
     title: "See the Skills Radar",
-    body: "Which skills and roles AI is lifting or eroding, from dated public signals.",
+    body: "Which skills and roles are rising or under pressure as AI spreads, from dated public signals.",
   },
   {
     icon: Target,
