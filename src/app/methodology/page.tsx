@@ -1,6 +1,8 @@
 import { ExternalLink } from "lucide-react";
 import { Card, CardHeader, PageHeader } from "@/components/ui";
+import { DataFreshness } from "@/components/data-freshness";
 import { dataset, hasData } from "@/lib/data";
+import { dataDate } from "@/lib/freshness";
 import { LANGUAGE_TRANSFER, OUTLOOK_MODEL, PROJECT_HOURS, SKILL_MODEL } from "@/lib/engine";
 
 const USES: Record<string, string> = {
@@ -39,6 +41,7 @@ export default function MethodologyPage() {
       />
       {!hasData ? null : (
         <div className="space-y-6">
+          <DataFreshness />
           <Card>
             <CardHeader
               title="How it fits together"
@@ -49,7 +52,7 @@ export default function MethodologyPage() {
                 ["Collect", "Download dated public data: O*NET 31.0, Anthropic Economic Index releases, Indeed postings, Hacker News hiring threads, UN SDG targets, course catalogues."],
                 ["Signal", "Turn them into per-task AI exposure, per-role hiring demand and per-skill momentum — one set for each dated snapshot."],
                 ["Score", "The engine projects each task under a scenario, rolls tasks up to roles, then matches roles to your skills and goals."],
-                ["Plan", "Close the highest-priority gaps with real courses whose hours and cost we could check, ending with a portfolio project."],
+                ["Plan", "Address priority gaps with real courses whose hours and cost we could check, ending with a portfolio project."],
               ].map(([title, body], index) => (
                 <li key={title} className="rounded-xl border border-border bg-surface-muted p-4">
                   <p className="font-mono text-xs text-brand">0{index + 1}</p>
@@ -106,7 +109,7 @@ match = (w_skills × skills fit + w_outlook × outlook + w_sdg × SDG fit) ÷ (w
   SDG fit    = share of your chosen goals the role contributes to (switched off if you pick none)`}</Formula>
               <p>
                 Role requirements come from O*NET: technologies O*NET flags as in demand for that occupation, rated skills and
-                knowledge, and skills named in its task statements. Each requirement keeps that evidence. The pathway closes the
+                knowledge, and skills named in its task statements. Each requirement keeps that evidence. The pathway addresses the
                 highest-priority technical gaps first, choosing courses that cover the most priority per hour of study within your
                 budget, schedules them by your weekly hours, and ends with a ~{PROJECT_HOURS}-hour portfolio project built on a real
                 task from the role that AI assists rather than replaces.
@@ -152,7 +155,8 @@ match = (w_skills × skills fit + w_outlook × outlook + w_sdg × SDG fit) ÷ (w
                     <th className="pb-2 font-normal">Source</th>
                     <th className="pb-2 font-normal">Used for</th>
                     <th className="pb-2 font-normal">Licence</th>
-                    <th className="pb-2 font-normal">Date</th>
+                    <th className="pb-2 pr-3 font-normal">Published / data as of</th>
+                    <th className="pb-2 font-normal">Latest recorded download</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -166,7 +170,11 @@ match = (w_skills × skills fit + w_outlook × outlook + w_sdg × SDG fit) ÷ (w
                       </td>
                       <td className="py-2 pr-3 text-ink-soft">{USES[source.id] ?? source.note}</td>
                       <td className="py-2 pr-3 text-muted">{source.licence}</td>
-                      <td className="py-2 font-mono text-[12px] text-muted">{source.published ?? source.retrieved}</td>
+                      <td className="py-2 pr-3 font-mono text-[12px] text-muted">{dataDate(source.published)}</td>
+                      <td className="py-2 font-mono text-[12px] text-muted">
+                        {dataDate(source.retrieved)}
+                        {source.inputs?.length ? <p className="mt-1 font-sans text-[11px]">{source.inputs.filter((input) => input.downloadedAt).length}/{source.inputs.length} input dates recorded</p> : <p className="mt-1 font-sans text-[11px]">Curated reference</p>}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -193,7 +201,8 @@ match = (w_skills × skills fit + w_outlook × outlook + w_sdg × SDG fit) ÷ (w
               <li>SkillTide supports your decisions; it does not make them, and it is not a hiring tool.</li>
               <li>Scoring never uses name, age, gender, ethnicity or background. Every match is re-checked against profile variants with different names and graduation years, and must come out identical.</li>
               <li>Your profile stays in your browser. Sample students are synthetic; please never paste someone else&apos;s CV.</li>
-              <li>CV reading and the guide&apos;s answers are rule-based. An optional switch can let an OpenAI model rephrase explanations; it is off by default, and it never supplies jobs, courses or numbers.</li>
+              <li>CV reading and the guide&apos;s answers are rule-based. No language model runs in the product. Recommendations use published data, explicit formulas and stated scenario assumptions.</li>
+              <li>Historical views replay past signals with the current role catalogue and scenario assumptions; they are not a historical forecasting backtest. Learning plans address skill gaps, but completing a course does not establish mastery.</li>
             </ul>
           </Card>
         </div>

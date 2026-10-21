@@ -14,6 +14,7 @@ import { CitationList } from "./citations";
 import { SdgTag } from "./sdg";
 import { SkillsRadar } from "./skills-radar";
 import { SnapshotTimeline } from "./snapshot-timeline";
+import { DataFreshness } from "./data-freshness";
 import { Badge, Card, CardHeader, Meter, buttonClasses } from "./ui";
 
 export function RadarView() {
@@ -49,6 +50,7 @@ export function RadarView() {
   return (
     <div className="space-y-6">
       <SnapshotTimeline />
+      <DataFreshness />
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
         <Card className="animate-rise-in p-4 sm:p-6">

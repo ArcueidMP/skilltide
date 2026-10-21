@@ -52,8 +52,9 @@ export interface SourceInfo {
   licence: string;
   /** Release date of the dataset version used, when the publisher states one. */
   published?: string;
-  /** When the pipeline fetched it. */
-  retrieved: string;
+  /** Latest recorded input download; older cache files can have unknown dates. */
+  retrieved?: string;
+  inputs?: { url: string; access: "downloaded" | "cached"; downloadedAt?: string }[];
   note?: string;
 }
 
@@ -226,6 +227,18 @@ export interface ContextFact {
 
 export interface Dataset {
   generatedAt: string;
+  refresh?: {
+    builtAt: string;
+    mode: "refresh" | "cache";
+    contentHash: string;
+    dataChanged: boolean | null;
+    downloadedInputs: number;
+    cachedInputs: number;
+    unknownDownloadDates: number;
+    validatedAt?: string;
+    lastSuccessfulAt?: string;
+    runUrl?: string;
+  };
   horizonYears: number;
   scenarioBasis: {
     automationTrend: { period: string; release: string; share: number }[];

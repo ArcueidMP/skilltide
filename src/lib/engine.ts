@@ -425,7 +425,7 @@ export function buildPathway(
       hours: course.hours,
       startWeek,
       endWeek: Math.max(startWeek, Math.ceil(elapsed / perWeek)),
-      reason: "closes the highest-priority gaps for the hours it takes",
+      reason: "addresses priority gaps for the study time available",
     });
   }
 

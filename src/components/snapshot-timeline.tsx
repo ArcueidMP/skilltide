@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 import { dataset, snapshotById } from "@/lib/data";
 import { useStore } from "@/lib/store";
 
-/** Dated data snapshots as a clickable timeline: the same engine, fed with what was known on each date. */
+/** Replay dated signals using today's role catalogue and scenario assumptions. */
 export function SnapshotTimeline() {
   const { snapshotId, update } = useStore();
   const current = snapshotById(snapshotId);
@@ -21,7 +21,7 @@ export function SnapshotTimeline() {
             AI use: {current?.aiUsePeriod} · job demand as of {current?.asOf}
           </span>
         </div>
-        <p className="text-xs text-muted">Click a date to see what SkillTide would have said then.</p>
+        <p className="text-xs text-muted">Replay historical signals with the current catalogue and assumptions.</p>
       </div>
       <div role="radiogroup" aria-label="Data snapshot" className="relative mt-4">
         <div className="absolute left-3 right-3 top-[7px] h-px bg-linear-to-r from-brand/20 via-brand/50 to-accent/60" />

@@ -61,7 +61,7 @@ export function PathwayView() {
           <Stat icon={Clock} label="Study time" value={`${Math.round(pathway.totalHours)} h`} />
           <Stat icon={BookOpen} label={`At ${profile.hoursPerWeek} h a week`} value={`${pathway.totalWeeks} weeks`} />
           <Stat icon={Wallet} label="Cost" value={allFree ? "Free" : "Free + low cost"} />
-          <Stat icon={Leaf} label="Skill gaps closed" value={`${pathway.closedSkillIds.length} of ${pathway.closedSkillIds.length + pathway.uncoveredSkillIds.length}`} />
+          <Stat icon={Leaf} label="Priority gaps addressed" value={`${pathway.closedSkillIds.length} of ${pathway.closedSkillIds.length + pathway.uncoveredSkillIds.length}`} />
         </dl>
       </Card>
 
@@ -178,7 +178,7 @@ function StepCard({ step, index }: { step: PathwayStep; index: number }) {
         ) : null}
 
         <div className="mt-3 flex flex-wrap items-center gap-1.5">
-          <span className="text-[12px] text-muted">{isProject ? "Shows" : "Closes"}:</span>
+          <span className="text-[12px] text-muted">{isProject ? "Practises" : "Addresses"}:</span>
           {step.skillIds.map((id) => (
             <Badge key={id} tone="brand">
               {skillById(id)?.name}

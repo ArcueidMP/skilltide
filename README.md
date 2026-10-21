@@ -12,11 +12,11 @@ A final-year student in computer science, electrical & electronic engineering or
 
 ## What it does
 
-1. **Profile** — paste a CV, tick skills, or load a synthetic sample student. Skills are recognised in the browser with fixed rules; each match shows the phrase it came from.
-2. **Future Skills Radar** — skills and roles rising or under pressure, from dated data. A timeline lets you replay what SkillTide would have said at six points since March 2025.
+1. **Profile** — paste a CV, upload a PDF/TXT/Markdown CV, tick skills, or load a synthetic sample student. Skills are recognised in the browser with fixed rules; each match shows the phrase it came from.
+2. **Future Skills Radar** — skills and roles rising or under pressure, from dated data. Replay six historical signal snapshots with the current catalogue and assumptions, and inspect actual refresh provenance.
 3. **Matches** — roles ranked by an explainable score (skills fit, AI outlook, SDG fit) with weights you control, skill gaps, and a fairness check.
 4. **Pathway** — an ordered plan of courses whose hours and cost were checked at the source, ending with a portfolio project built on a real task from the role.
-5. **Scenarios** — *Moderate* and *Fast* AI adoption change every number on every page.
+5. **Scenarios** — compare *Moderate* and *Fast* AI adoption side by side with the same profile, snapshot and weights. See both top-five rankings and leading pathways, including outcomes that stay unchanged.
 6. **Guide** — a side panel that answers "why?", "what if?" and "where from?" from SkillTide's own data, with sources. Re-plans automatically when the data or scenario changes.
 7. **Career-centre view** — skills heatmap, readiness and SDG contribution across a (synthetic) cohort.
 
@@ -55,29 +55,43 @@ npm run dev          # http://localhost:3000
 npm test             # engine unit tests + dataset sanity checks
 ```
 
+CV imports are processed locally, including PDF text extraction with [Mozilla PDF.js](https://mozilla.github.io/pdf.js/). Files must be at most 10 MB; PDFs can contain up to 20 pages and need selectable text (no OCR). Password-protected PDFs must be unlocked first. Extracted text can be reviewed and edited before re-scanning; imports add skills without lowering existing levels. Use synthetic CVs for the hackathon demo.
+
+`npm run dev`, `npm run build` and `npm run build:static` prepare versioned PDF.js workers, character maps and font assets under `public/pdfjs/` (generated, git-ignored). These assets are served by the app itself and included in the static export; no external PDF service is used. The original file and full CV text are not saved; the profile, including skill evidence snippets, stays in browser storage. **Reset demo** clears the profile, CV text and preferences.
+
 Refresh the data (downloads about 500 MB into `.cache/`, takes a few minutes):
 
 ```bash
-python -I pipeline/build_dataset.py --refresh
+npm run data:refresh  # refresh, validate and build; restore the old dataset on failure
+npm run evaluate      # update the synthetic case evidence
 ```
 
 ## Deploy
 
-Live site: **https://arcueidmp.github.io/skilltide/** (GitHub Pages, static export).
+Live site: **[xmumhkt.arcueidmp.com](https://xmumhkt.arcueidmp.com)** (Cloudflare Worker `xmumhkt`, static assets).
 
 ```bash
-npm run deploy:pages   # build with GITHUB_PAGES=true and publish to the gh-pages branch
+npm run deploy:cloudflare  # build a static export, then deploy with Wrangler
 ```
 
-Workflow files for automatic deploys and a weekly data refresh are prepared and will be added once the repository token has the `workflow` scope.
+The repository includes validation and weekly/manual data-refresh workflows. Refreshes are scheduled for Monday at 10:00 SGT. Check actual Actions runs and the Cloudflare build integration before claiming automation is active. See [deployment instructions](docs/deployment.md).
+
+## Competition materials
+
+- [Proposal](docs/proposal.md)
+- [Three-minute demo script and fallback](docs/demo-script.md)
+- [Judge Q&A and requirement evidence](docs/judges-qa.md)
+- [Synthetic evaluation report](docs/evaluation-report.md) and [machine-readable results](docs/evaluation-results.json)
+
+The evaluation uses 12 synthetic design cases and an explicit skills-only comparator. It is not independent expert validation, a user study, or a forecasting-accuracy claim. The working proposal length and demo duration are defaults, not official submission limits.
 
 ## Responsible AI
 
 - SkillTide supports career decisions; it does not make them and is not a hiring tool.
-- Scoring never uses name, age, gender, ethnicity or background. Every match is re-checked against profile variants with different names and graduation years and must come out identical.
+- Scoring never uses name, age, gender, ethnicity or background. Rankings are re-checked against name/graduation-year variants. This narrow invariance check does not establish fairness across all groups or inputs.
 - No real personal data: sample students and the career-centre cohort are synthetic. Profiles stay in the user's browser.
 - Every recommendation cites its source. Jobs, courses and figures come only from the sources above; nothing is generated by a language model.
-- **AI disclosure:** the app uses no language model at runtime. It was built with help from Claude Code (Anthropic) as a coding assistant.
+- **AI disclosure:** the app uses no language model at runtime. Claude Code (Anthropic) and Codex (OpenAI) assisted development. Runtime recommendations use explicit formulas and published data.
 
 ## Project layout
 

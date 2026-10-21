@@ -3,18 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/prepare-pdf-assets.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/prepare-pdf-assets.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "deploy:pages": "node scripts/deploy-pages.mjs"
+    "build:static": "node scripts/build-static.mjs",
+    "deploy:cloudflare": "node scripts/deploy-cloudflare.mjs",
+    "test:pipeline": "python -m unittest discover -s pipeline -p test_*.py",
+    "data:refresh": "node scripts/refresh-data.mjs",
+    "evaluate": "tsx scripts/evaluate.mts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "lucide-react": "^1.60.0",
     "motion": "^14.4.0",
     "next": "16.4.2",
+    "pdfjs-dist": "^6.4.299",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "recharts": "^3.10.1",
@@ -28,7 +35,9 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5",
-    "vitest": "^5.0.5"
+    "vitest": "^5.0.5",
+    "wrangler": "^4.151.3"
   }
 }

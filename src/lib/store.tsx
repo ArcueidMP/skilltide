@@ -10,7 +10,6 @@ interface PersistedState {
   targetRoleId: string | null;
   weights: MatchWeights;
   agentOpen: boolean;
-  llmEnabled: boolean;
 }
 
 const DEFAULT_STATE: PersistedState = {
@@ -20,7 +19,6 @@ const DEFAULT_STATE: PersistedState = {
   targetRoleId: null,
   weights: { skills: 50, outlook: 30, sdg: 20 },
   agentOpen: true,
-  llmEnabled: false,
 };
 
 const STORAGE_KEY = "skilltide:v1";
@@ -36,7 +34,11 @@ function load() {
   loaded = true;
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (raw) current = { ...DEFAULT_STATE, ...(JSON.parse(raw) as Partial<PersistedState>) };
+    if (raw) {
+      const saved = JSON.parse(raw) as Partial<PersistedState> & { llmEnabled?: unknown };
+      delete saved.llmEnabled;
+      current = { ...DEFAULT_STATE, ...saved };
+    }
   } catch {
     // Unreadable storage: keep defaults.
   }
@@ -66,7 +68,7 @@ function write(next: PersistedState) {
 
 export interface StoreValue extends PersistedState {
   hydrated: boolean;
-  update: (patch: Partial<PersistedState>) => void;
+  update: (patch: Partial<PersistedState> | ((state: PersistedState) => Partial<PersistedState>)) => void;
   reset: () => void;
 }
 
@@ -76,7 +78,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const state = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
 
-  const update = useCallback((patch: Partial<PersistedState>) => write({ ...current, ...patch }), []);
+  const update = useCallback<StoreValue["update"]>((patch) => {
+    write({ ...current, ...(typeof patch === "function" ? patch(current) : patch) });
+  }, []);
   const reset = useCallback(() => write(DEFAULT_STATE), []);
 
   const value = useMemo(() => ({ ...state, hydrated, update, reset }), [state, hydrated, update, reset]);

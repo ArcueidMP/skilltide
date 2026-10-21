@@ -15,6 +15,7 @@ import { useAnalysis } from "@/lib/use-analysis";
 import { CitationList } from "./citations";
 import { SdgTag } from "./sdg";
 import { SkillChip } from "./skill-chip";
+import { ScenarioComparisonView } from "./scenario-comparison";
 import { Badge, Button, Card, Meter, ScoreRing, buttonClasses } from "./ui";
 
 export function MatchView() {
@@ -22,6 +23,7 @@ export function MatchView() {
   const { matches, scenario, snapshot, fairness } = useAnalysis();
   const [showAll, setShowAll] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
+  const [comparing, setComparing] = useState(false);
 
   if (!profile || profile.skills.length === 0) {
     return (
@@ -87,6 +89,14 @@ export function MatchView() {
           </div>
         </div>
       </Card>
+
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <p className="text-[13px] text-muted">Explore how your choices depend on AI adoption.</p>
+        <Button variant="secondary" aria-expanded={comparing} aria-controls="scenario-comparison" onClick={() => setComparing(!comparing)}>
+          {comparing ? "Hide scenario comparison" : "Compare scenarios"}
+        </Button>
+      </div>
+      {comparing && snapshot ? <ScenarioComparisonView snapshot={snapshot} /> : null}
 
       <LayoutGroup>
         <ol className="space-y-3">

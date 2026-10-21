@@ -1,0 +1,39 @@
+name: Validate SkillTide
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: npm ci
+      - run: npm test
+      - run: npm run test:pipeline
+      - run: npm run lint
+      - run: npm run build:static
+      - uses: actions/upload-artifact@v4
+        with:
+          name: skilltide-static-site
+          path: out/
+          include-hidden-files: true
+          retention-days: 7

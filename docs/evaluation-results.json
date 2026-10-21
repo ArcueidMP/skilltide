@@ -1,0 +1,1002 @@
+{
+  "datasetGeneratedAt": "2026-10-22",
+  "snapshot": "2026-10-16",
+  "weights": {
+    "skills": 50,
+    "outlook": 30,
+    "sdg": 20
+  },
+  "summary": {
+    "syntheticCases": 12,
+    "scenarioEvaluations": 22,
+    "eligibleFamilyEvaluations": 20,
+    "topThreeFamilyHits": 20,
+    "skillsOnlyFamilyHits": 20,
+    "budgetChecksPassed": 22,
+    "fairnessChecksPassed": 22
+  },
+  "records": [
+    {
+      "caseId": "aina",
+      "label": "Aina Sofea",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [
+        "electronics",
+        "energy"
+      ],
+      "expectationRationale": "Circuit, PCB and solar projects support an electronics or energy starting point.",
+      "topThree": [
+        {
+          "id": "electrical-engineer",
+          "title": "Electrical Engineer",
+          "family": "electronics",
+          "score": 67.07
+        },
+        {
+          "id": "energy-engineer",
+          "title": "Energy Engineer",
+          "family": "energy",
+          "score": 65.35
+        },
+        {
+          "id": "electronics-engineer",
+          "title": "Electronics Engineer",
+          "family": "electronics",
+          "score": 64.41
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "electrical-engineer",
+      "outlookWeightedLeadingRole": "electrical-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 3,
+      "priorityGapsConsidered": 4,
+      "remainingPriorityGaps": [
+        "maintenance"
+      ],
+      "totalHours": 29,
+      "totalWeeks": 4,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "aina",
+      "label": "Aina Sofea",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [
+        "electronics",
+        "energy"
+      ],
+      "expectationRationale": "Circuit, PCB and solar projects support an electronics or energy starting point.",
+      "topThree": [
+        {
+          "id": "electrical-engineer",
+          "title": "Electrical Engineer",
+          "family": "electronics",
+          "score": 64.94
+        },
+        {
+          "id": "energy-engineer",
+          "title": "Energy Engineer",
+          "family": "energy",
+          "score": 63.42
+        },
+        {
+          "id": "electronics-engineer",
+          "title": "Electronics Engineer",
+          "family": "electronics",
+          "score": 62.7
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "electrical-engineer",
+      "outlookWeightedLeadingRole": "electronics-engineer",
+      "leadingRoleChangesWithWeights": true,
+      "priorityGapsAddressed": 3,
+      "priorityGapsConsidered": 4,
+      "remainingPriorityGaps": [
+        "maintenance"
+      ],
+      "totalHours": 29,
+      "totalWeeks": 4,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "weijie",
+      "label": "Lim Wei Jie",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [
+        "software"
+      ],
+      "expectationRationale": "Web development and software internship experience support software roles.",
+      "topThree": [
+        {
+          "id": "software-qa",
+          "title": "Software QA Analyst & Tester",
+          "family": "software",
+          "score": 59.4
+        },
+        {
+          "id": "software-developer",
+          "title": "Software Developer",
+          "family": "software",
+          "score": 58.77
+        },
+        {
+          "id": "web-developer",
+          "title": "Web Developer",
+          "family": "software",
+          "score": 54.28
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "software-qa",
+      "outlookWeightedLeadingRole": "software-developer",
+      "leadingRoleChangesWithWeights": true,
+      "priorityGapsAddressed": 4,
+      "priorityGapsConsidered": 4,
+      "remainingPriorityGaps": [],
+      "totalHours": 153.6,
+      "totalWeeks": 16,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "weijie",
+      "label": "Lim Wei Jie",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [
+        "software"
+      ],
+      "expectationRationale": "Web development and software internship experience support software roles.",
+      "topThree": [
+        {
+          "id": "software-qa",
+          "title": "Software QA Analyst & Tester",
+          "family": "software",
+          "score": 55.35
+        },
+        {
+          "id": "software-developer",
+          "title": "Software Developer",
+          "family": "software",
+          "score": 55.21
+        },
+        {
+          "id": "web-developer",
+          "title": "Web Developer",
+          "family": "software",
+          "score": 50.35
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "software-qa",
+      "outlookWeightedLeadingRole": "software-developer",
+      "leadingRoleChangesWithWeights": true,
+      "priorityGapsAddressed": 4,
+      "priorityGapsConsidered": 4,
+      "remainingPriorityGaps": [],
+      "totalHours": 153.6,
+      "totalWeeks": 16,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "kavin",
+      "label": "Kavin a/l Raj",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [
+        "automation"
+      ],
+      "expectationRationale": "PLC, robotics and factory automation experience support automation roles.",
+      "topThree": [
+        {
+          "id": "manufacturing-engineer",
+          "title": "Manufacturing Engineer",
+          "family": "automation",
+          "score": 55.66
+        },
+        {
+          "id": "mechatronics-engineer",
+          "title": "Mechatronics Engineer",
+          "family": "automation",
+          "score": 53.45
+        },
+        {
+          "id": "mechatronics-technician",
+          "title": "Electro-Mechanical & Mechatronics Technician",
+          "family": "automation",
+          "score": 51.75
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "robotics-technician",
+      "outlookWeightedLeadingRole": "manufacturing-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 2,
+      "priorityGapsConsidered": 3,
+      "remainingPriorityGaps": [
+        "lean-quality"
+      ],
+      "totalHours": 45,
+      "totalWeeks": 8,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "kavin",
+      "label": "Kavin a/l Raj",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [
+        "automation"
+      ],
+      "expectationRationale": "PLC, robotics and factory automation experience support automation roles.",
+      "topThree": [
+        {
+          "id": "manufacturing-engineer",
+          "title": "Manufacturing Engineer",
+          "family": "automation",
+          "score": 53.9
+        },
+        {
+          "id": "mechatronics-engineer",
+          "title": "Mechatronics Engineer",
+          "family": "automation",
+          "score": 51.26
+        },
+        {
+          "id": "mechatronics-technician",
+          "title": "Electro-Mechanical & Mechatronics Technician",
+          "family": "automation",
+          "score": 50.18
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "robotics-technician",
+      "outlookWeightedLeadingRole": "manufacturing-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 2,
+      "priorityGapsConsidered": 3,
+      "remainingPriorityGaps": [
+        "lean-quality"
+      ],
+      "totalHours": 45,
+      "totalWeeks": 8,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "nurul",
+      "label": "Nurul Izzah",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [
+        "data-ai"
+      ],
+      "expectationRationale": "Statistics, forecasting and reporting experience support data roles.",
+      "topThree": [
+        {
+          "id": "industrial-engineer",
+          "title": "Industrial Engineer",
+          "family": "automation",
+          "score": 52.3
+        },
+        {
+          "id": "systems-analyst",
+          "title": "Computer Systems Analyst",
+          "family": "software",
+          "score": 50.08
+        },
+        {
+          "id": "data-scientist",
+          "title": "Data Scientist",
+          "family": "data-ai",
+          "score": 49.95
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "bi-analyst",
+      "outlookWeightedLeadingRole": "industrial-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 1,
+      "priorityGapsConsidered": 3,
+      "remainingPriorityGaps": [
+        "lean-quality",
+        "manual-testing"
+      ],
+      "totalHours": 21.5,
+      "totalWeeks": 3,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "nurul",
+      "label": "Nurul Izzah",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [
+        "data-ai"
+      ],
+      "expectationRationale": "Statistics, forecasting and reporting experience support data roles.",
+      "topThree": [
+        {
+          "id": "industrial-engineer",
+          "title": "Industrial Engineer",
+          "family": "automation",
+          "score": 50.63
+        },
+        {
+          "id": "data-scientist",
+          "title": "Data Scientist",
+          "family": "data-ai",
+          "score": 47.14
+        },
+        {
+          "id": "systems-analyst",
+          "title": "Computer Systems Analyst",
+          "family": "software",
+          "score": 46.95
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "bi-analyst",
+      "outlookWeightedLeadingRole": "industrial-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 1,
+      "priorityGapsConsidered": 3,
+      "remainingPriorityGaps": [
+        "lean-quality",
+        "manual-testing"
+      ],
+      "totalHours": 21.5,
+      "totalWeeks": 3,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "empty",
+      "label": "Empty intake",
+      "scenario": "moderate",
+      "skipped": true,
+      "reason": "Empty intake: the product requests skills before displaying matches."
+    },
+    {
+      "caseId": "empty",
+      "label": "Empty intake",
+      "scenario": "fast",
+      "skipped": true,
+      "reason": "Empty intake: the product requests skills before displaying matches."
+    },
+    {
+      "caseId": "sparse",
+      "label": "One coursework skill",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [],
+      "expectationRationale": "One skill is insufficient for a meaningful family expectation; exclude from relevance coverage.",
+      "topThree": [
+        {
+          "id": "electronics-engineer",
+          "title": "Electronics Engineer",
+          "family": "electronics",
+          "score": 36.25
+        },
+        {
+          "id": "ee-technician",
+          "title": "Electrical & Electronic Engineering Technician",
+          "family": "electronics",
+          "score": 34.84
+        },
+        {
+          "id": "solar-engineer",
+          "title": "Solar Energy Systems Engineer",
+          "family": "energy",
+          "score": 34.77
+        }
+      ],
+      "topThreeFamilyHit": null,
+      "skillsOnlyFamilyHit": null,
+      "skillsOnlyLeadingRole": "security-analyst",
+      "outlookWeightedLeadingRole": "electronics-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 3,
+      "priorityGapsConsidered": 6,
+      "remainingPriorityGaps": [
+        "maintenance",
+        "matlab",
+        "manual-testing"
+      ],
+      "totalHours": 37.5,
+      "totalWeeks": 4,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "sparse",
+      "label": "One coursework skill",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [],
+      "expectationRationale": "One skill is insufficient for a meaningful family expectation; exclude from relevance coverage.",
+      "topThree": [
+        {
+          "id": "electronics-engineer",
+          "title": "Electronics Engineer",
+          "family": "electronics",
+          "score": 34.53
+        },
+        {
+          "id": "ee-technician",
+          "title": "Electrical & Electronic Engineering Technician",
+          "family": "electronics",
+          "score": 33.39
+        },
+        {
+          "id": "solar-engineer",
+          "title": "Solar Energy Systems Engineer",
+          "family": "energy",
+          "score": 32.95
+        }
+      ],
+      "topThreeFamilyHit": null,
+      "skillsOnlyFamilyHit": null,
+      "skillsOnlyLeadingRole": "security-analyst",
+      "outlookWeightedLeadingRole": "electronics-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 3,
+      "priorityGapsConsidered": 6,
+      "remainingPriorityGaps": [
+        "maintenance",
+        "matlab",
+        "manual-testing"
+      ],
+      "totalHours": 37.5,
+      "totalWeeks": 4,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "web-experienced",
+      "label": "Strong web portfolio",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [
+        "software"
+      ],
+      "expectationRationale": "Applied web, API and testing skills should make software roles visible.",
+      "topThree": [
+        {
+          "id": "ui-designer",
+          "title": "Web & Digital Interface Designer",
+          "family": "software",
+          "score": 50.35
+        },
+        {
+          "id": "software-developer",
+          "title": "Software Developer",
+          "family": "software",
+          "score": 49.97
+        },
+        {
+          "id": "software-qa",
+          "title": "Software QA Analyst & Tester",
+          "family": "software",
+          "score": 49.08
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "web-developer",
+      "outlookWeightedLeadingRole": "software-developer",
+      "leadingRoleChangesWithWeights": true,
+      "priorityGapsAddressed": 4,
+      "priorityGapsConsidered": 5,
+      "remainingPriorityGaps": [
+        "maintenance"
+      ],
+      "totalHours": 108.7,
+      "totalWeeks": 11,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "web-experienced",
+      "label": "Strong web portfolio",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [
+        "software"
+      ],
+      "expectationRationale": "Applied web, API and testing skills should make software roles visible.",
+      "topThree": [
+        {
+          "id": "ui-designer",
+          "title": "Web & Digital Interface Designer",
+          "family": "software",
+          "score": 47.05
+        },
+        {
+          "id": "software-developer",
+          "title": "Software Developer",
+          "family": "software",
+          "score": 46.42
+        },
+        {
+          "id": "software-qa",
+          "title": "Software QA Analyst & Tester",
+          "family": "software",
+          "score": 45.03
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "web-developer",
+      "outlookWeightedLeadingRole": "industrial-engineer",
+      "leadingRoleChangesWithWeights": true,
+      "priorityGapsAddressed": 4,
+      "priorityGapsConsidered": 5,
+      "remainingPriorityGaps": [
+        "maintenance"
+      ],
+      "totalHours": 108.7,
+      "totalWeeks": 11,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "embedded-experienced",
+      "label": "Embedded engineering portfolio",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [
+        "electronics",
+        "energy"
+      ],
+      "expectationRationale": "Embedded systems and PCB experience support electronics roles.",
+      "topThree": [
+        {
+          "id": "hardware-engineer",
+          "title": "Computer Hardware Engineer",
+          "family": "electronics",
+          "score": 54.31
+        },
+        {
+          "id": "mechatronics-engineer",
+          "title": "Mechatronics Engineer",
+          "family": "automation",
+          "score": 51.53
+        },
+        {
+          "id": "electrical-engineer",
+          "title": "Electrical Engineer",
+          "family": "electronics",
+          "score": 50.5
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "hardware-engineer",
+      "outlookWeightedLeadingRole": "hardware-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 5,
+      "priorityGapsConsidered": 6,
+      "remainingPriorityGaps": [
+        "matlab"
+      ],
+      "totalHours": 92.3,
+      "totalWeeks": 12,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "embedded-experienced",
+      "label": "Embedded engineering portfolio",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [
+        "electronics",
+        "energy"
+      ],
+      "expectationRationale": "Embedded systems and PCB experience support electronics roles.",
+      "topThree": [
+        {
+          "id": "hardware-engineer",
+          "title": "Computer Hardware Engineer",
+          "family": "electronics",
+          "score": 51.82
+        },
+        {
+          "id": "mechatronics-engineer",
+          "title": "Mechatronics Engineer",
+          "family": "automation",
+          "score": 49.34
+        },
+        {
+          "id": "energy-engineer",
+          "title": "Energy Engineer",
+          "family": "energy",
+          "score": 48.52
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "hardware-engineer",
+      "outlookWeightedLeadingRole": "hardware-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 5,
+      "priorityGapsConsidered": 6,
+      "remainingPriorityGaps": [
+        "matlab"
+      ],
+      "totalHours": 92.3,
+      "totalWeeks": 12,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "free-only",
+      "label": "Free-only web student",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [
+        "software"
+      ],
+      "expectationRationale": "Same web profile as Wei Jie; constrain all suggested courses to free options.",
+      "topThree": [
+        {
+          "id": "software-qa",
+          "title": "Software QA Analyst & Tester",
+          "family": "software",
+          "score": 59.4
+        },
+        {
+          "id": "software-developer",
+          "title": "Software Developer",
+          "family": "software",
+          "score": 58.77
+        },
+        {
+          "id": "web-developer",
+          "title": "Web Developer",
+          "family": "software",
+          "score": 54.28
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "software-qa",
+      "outlookWeightedLeadingRole": "software-developer",
+      "leadingRoleChangesWithWeights": true,
+      "priorityGapsAddressed": 4,
+      "priorityGapsConsidered": 4,
+      "remainingPriorityGaps": [],
+      "totalHours": 153.6,
+      "totalWeeks": 16,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "free-only",
+      "label": "Free-only web student",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [
+        "software"
+      ],
+      "expectationRationale": "Same web profile as Wei Jie; constrain all suggested courses to free options.",
+      "topThree": [
+        {
+          "id": "software-qa",
+          "title": "Software QA Analyst & Tester",
+          "family": "software",
+          "score": 55.35
+        },
+        {
+          "id": "software-developer",
+          "title": "Software Developer",
+          "family": "software",
+          "score": 55.21
+        },
+        {
+          "id": "web-developer",
+          "title": "Web Developer",
+          "family": "software",
+          "score": 50.35
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "software-qa",
+      "outlookWeightedLeadingRole": "software-developer",
+      "leadingRoleChangesWithWeights": true,
+      "priorityGapsAddressed": 4,
+      "priorityGapsConsidered": 4,
+      "remainingPriorityGaps": [],
+      "totalHours": 153.6,
+      "totalWeeks": 16,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "no-sdg",
+      "label": "Electronics without SDG preference",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [
+        "electronics",
+        "energy"
+      ],
+      "expectationRationale": "Keep the same technical evidence while removing the optional SDG preference.",
+      "topThree": [
+        {
+          "id": "electrical-engineer",
+          "title": "Electrical Engineer",
+          "family": "electronics",
+          "score": 58.84
+        },
+        {
+          "id": "energy-engineer",
+          "title": "Energy Engineer",
+          "family": "energy",
+          "score": 56.69
+        },
+        {
+          "id": "mechatronics-engineer",
+          "title": "Mechatronics Engineer",
+          "family": "automation",
+          "score": 56.41
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "electrical-engineer",
+      "outlookWeightedLeadingRole": "electrical-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 3,
+      "priorityGapsConsidered": 4,
+      "remainingPriorityGaps": [
+        "maintenance"
+      ],
+      "totalHours": 29,
+      "totalWeeks": 4,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "no-sdg",
+      "label": "Electronics without SDG preference",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [
+        "electronics",
+        "energy"
+      ],
+      "expectationRationale": "Keep the same technical evidence while removing the optional SDG preference.",
+      "topThree": [
+        {
+          "id": "electrical-engineer",
+          "title": "Electrical Engineer",
+          "family": "electronics",
+          "score": 56.18
+        },
+        {
+          "id": "energy-engineer",
+          "title": "Energy Engineer",
+          "family": "energy",
+          "score": 54.27
+        },
+        {
+          "id": "mechatronics-engineer",
+          "title": "Mechatronics Engineer",
+          "family": "automation",
+          "score": 53.67
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "electrical-engineer",
+      "outlookWeightedLeadingRole": "electronics-engineer",
+      "leadingRoleChangesWithWeights": true,
+      "priorityGapsAddressed": 3,
+      "priorityGapsConsidered": 4,
+      "remainingPriorityGaps": [
+        "maintenance"
+      ],
+      "totalHours": 29,
+      "totalWeeks": 4,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "two-hours",
+      "label": "Automation student, 2 hours/week",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [
+        "automation"
+      ],
+      "expectationRationale": "Study availability changes the schedule, not existing skills or role fit.",
+      "topThree": [
+        {
+          "id": "manufacturing-engineer",
+          "title": "Manufacturing Engineer",
+          "family": "automation",
+          "score": 55.66
+        },
+        {
+          "id": "mechatronics-engineer",
+          "title": "Mechatronics Engineer",
+          "family": "automation",
+          "score": 53.45
+        },
+        {
+          "id": "mechatronics-technician",
+          "title": "Electro-Mechanical & Mechatronics Technician",
+          "family": "automation",
+          "score": 51.75
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "robotics-technician",
+      "outlookWeightedLeadingRole": "manufacturing-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 2,
+      "priorityGapsConsidered": 3,
+      "remainingPriorityGaps": [
+        "lean-quality"
+      ],
+      "totalHours": 45,
+      "totalWeeks": 23,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "two-hours",
+      "label": "Automation student, 2 hours/week",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [
+        "automation"
+      ],
+      "expectationRationale": "Study availability changes the schedule, not existing skills or role fit.",
+      "topThree": [
+        {
+          "id": "manufacturing-engineer",
+          "title": "Manufacturing Engineer",
+          "family": "automation",
+          "score": 53.9
+        },
+        {
+          "id": "mechatronics-engineer",
+          "title": "Mechatronics Engineer",
+          "family": "automation",
+          "score": 51.26
+        },
+        {
+          "id": "mechatronics-technician",
+          "title": "Electro-Mechanical & Mechatronics Technician",
+          "family": "automation",
+          "score": 50.18
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "robotics-technician",
+      "outlookWeightedLeadingRole": "manufacturing-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 2,
+      "priorityGapsConsidered": 3,
+      "remainingPriorityGaps": [
+        "lean-quality"
+      ],
+      "totalHours": 45,
+      "totalWeeks": 23,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "twenty-hours",
+      "label": "Automation student, 20 hours/week",
+      "scenario": "moderate",
+      "skipped": false,
+      "expectedFamilies": [
+        "automation"
+      ],
+      "expectationRationale": "Compare the identical automation profile with ten times the weekly study availability.",
+      "topThree": [
+        {
+          "id": "manufacturing-engineer",
+          "title": "Manufacturing Engineer",
+          "family": "automation",
+          "score": 55.66
+        },
+        {
+          "id": "mechatronics-engineer",
+          "title": "Mechatronics Engineer",
+          "family": "automation",
+          "score": 53.45
+        },
+        {
+          "id": "mechatronics-technician",
+          "title": "Electro-Mechanical & Mechatronics Technician",
+          "family": "automation",
+          "score": 51.75
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "robotics-technician",
+      "outlookWeightedLeadingRole": "manufacturing-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 2,
+      "priorityGapsConsidered": 3,
+      "remainingPriorityGaps": [
+        "lean-quality"
+      ],
+      "totalHours": 45,
+      "totalWeeks": 3,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    },
+    {
+      "caseId": "twenty-hours",
+      "label": "Automation student, 20 hours/week",
+      "scenario": "fast",
+      "skipped": false,
+      "expectedFamilies": [
+        "automation"
+      ],
+      "expectationRationale": "Compare the identical automation profile with ten times the weekly study availability.",
+      "topThree": [
+        {
+          "id": "manufacturing-engineer",
+          "title": "Manufacturing Engineer",
+          "family": "automation",
+          "score": 53.9
+        },
+        {
+          "id": "mechatronics-engineer",
+          "title": "Mechatronics Engineer",
+          "family": "automation",
+          "score": 51.26
+        },
+        {
+          "id": "mechatronics-technician",
+          "title": "Electro-Mechanical & Mechatronics Technician",
+          "family": "automation",
+          "score": 50.18
+        }
+      ],
+      "topThreeFamilyHit": true,
+      "skillsOnlyFamilyHit": true,
+      "skillsOnlyLeadingRole": "robotics-technician",
+      "outlookWeightedLeadingRole": "manufacturing-engineer",
+      "leadingRoleChangesWithWeights": false,
+      "priorityGapsAddressed": 2,
+      "priorityGapsConsidered": 3,
+      "remainingPriorityGaps": [
+        "lean-quality"
+      ],
+      "totalHours": 45,
+      "totalWeeks": 3,
+      "budgetCompliant": true,
+      "fairnessIdentical": true
+    }
+  ]
+}

@@ -12,10 +12,16 @@
 
 # testing
 /coverage
+/output/playwright/
+/playwright-report/
+/test-results/
+/.wrangler/
+__pycache__/
 
 # next.js
 /.next/
 /out/
+/public/pdfjs/
 
 # production
 /build

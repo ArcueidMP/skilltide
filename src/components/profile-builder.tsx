@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import { ArrowRight, FileText, ScanLine, SlidersHorizontal, Sparkles, Upload, UserRound } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowRight, FileText, LoaderCircle, RotateCcw, ScanLine, SlidersHorizontal, Sparkles, Upload, UserRound } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { CvImportError, readCvFile } from "@/lib/cv-file";
 import { dataset, skillById } from "@/lib/data";
 import { extractSkills } from "@/lib/engine";
 import { CLUSTER_LABELS } from "@/lib/labels";
@@ -36,13 +37,30 @@ const EMPTY_PROFILE: Profile = {
 type Tab = "cv" | "skills" | "questions";
 
 export function ProfileBuilder() {
-  const { profile: saved, update } = useStore();
+  const { profile: saved, update, reset } = useStore();
   const profile = saved ?? EMPTY_PROFILE;
   const [tab, setTab] = useState<Tab>("cv");
   const [cvText, setCvText] = useState("");
   const [scanNote, setScanNote] = useState<string | null>(null);
+  const [importStatus, setImportStatus] = useState<string | null>(null);
+  const [importError, setImportError] = useState<string | null>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
+  const importId = useRef(0);
+
+  useEffect(() => () => { importId.current += 1; }, []);
 
   const setProfile = (patch: Partial<Profile>) => update({ profile: { ...profile, ...patch } });
+
+  function resetDemo() {
+    importId.current += 1;
+    reset();
+    setTab("cv");
+    setCvText("");
+    setImportStatus(null);
+    setImportError(null);
+    setScanNote("Demo reset. Your profile, CV text and saved preferences have been cleared from this browser.");
+    if (fileInput.current) fileInput.current.value = "";
+  }
 
   function setLevel(skillId: string, level: SkillLevel) {
     const exists = profile.skills.some((s) => s.skillId === skillId);
@@ -57,24 +75,32 @@ export function ProfileBuilder() {
     setProfile({ skills: profile.skills.filter((s) => s.skillId !== skillId) });
   }
 
-  function scan(text: string) {
+  function scan(text: string, source?: string) {
     const found = extractSkills(text, dataset.skills);
-    const merged = new Map(profile.skills.map((s) => [s.skillId, s]));
-    for (const claim of found) {
-      const current = merged.get(claim.skillId);
-      if (!current || current.level < claim.level) merged.set(claim.skillId, claim);
-    }
-    setProfile({ skills: [...merged.values()] });
+    // PDF extraction is asynchronous; retain edits made while it was reading.
+    update((state) => {
+      const latest = state.profile ?? EMPTY_PROFILE;
+      const merged = new Map(latest.skills.map((s) => [s.skillId, s]));
+      for (const claim of found) {
+        const current = merged.get(claim.skillId);
+        if (!current || current.level < claim.level) merged.set(claim.skillId, claim);
+      }
+      return { profile: { ...latest, skills: [...merged.values()] } };
+    });
+    setImportError(null);
     setScanNote(
-      found.length
+      (source ? `${source} ` : "") + (found.length
         ? `Found ${found.length} skills. Hover a chip to see the phrase it came from, and fix any level that looks wrong.`
-        : "No skills from SkillTide's list were found. Try the skills tab instead.",
+        : "No skills from SkillTide's list were found. Try the skills tab instead."),
     );
   }
 
   function loadSample(id: string) {
     const persona = SAMPLE_PERSONAS.find((p) => p.id === id);
     if (!persona) return;
+    importId.current += 1;
+    setImportStatus(null);
+    setImportError(null);
     setCvText(persona.cv);
     const claims = extractSkills(persona.cv, dataset.skills);
     update({ profile: { ...persona.profile, skills: claims }, targetRoleId: null });
@@ -82,9 +108,26 @@ export function ProfileBuilder() {
   }
 
   async function readFile(file: File) {
-    const text = await file.text();
-    setCvText(text);
-    scan(text);
+    const id = ++importId.current;
+    setImportError(null);
+    setScanNote(null);
+    setImportStatus(`Reading ${file.name}…`);
+    try {
+      const result = await readCvFile(file, (page, total) => {
+        if (importId.current === id) setImportStatus(`Reading ${file.name} — page ${page} of ${total}…`);
+      });
+      if (importId.current !== id) return;
+      setCvText(result.text);
+      scan(result.text, `Imported ${file.name}${result.pages ? ` (${result.pages} ${result.pages === 1 ? "page" : "pages"})` : ""}.`);
+    } catch (error) {
+      if (importId.current === id) {
+        setImportError(error instanceof CvImportError
+          ? error.message
+          : "This file could not be read. Please try again, or paste your CV text.");
+      }
+    } finally {
+      if (importId.current === id) setImportStatus(null);
+    }
   }
 
   const byCluster = useMemo(() => {
@@ -107,6 +150,9 @@ export function ProfileBuilder() {
               <UserRound className="h-4 w-4 text-brand" aria-hidden />
               <p className="text-sm text-ink-soft">Try a synthetic sample student</p>
             </div>
+            <Button variant="ghost" size="sm" onClick={resetDemo}>
+              <RotateCcw className="h-3.5 w-3.5" aria-hidden /> Reset demo
+            </Button>
             <div className="flex flex-wrap gap-2">
               {SAMPLE_PERSONAS.map((persona) => (
                 <button
@@ -155,39 +201,53 @@ export function ProfileBuilder() {
           </div>
 
           {tab === "cv" ? (
-            <div className="space-y-3 p-5">
+            <div className="space-y-3 p-5" aria-busy={!!importStatus}>
               <label htmlFor="cv-text" className="sr-only">
                 CV text
               </label>
               <textarea
                 id="cv-text"
                 value={cvText}
+                readOnly={!!importStatus}
                 onChange={(event) => setCvText(event.target.value)}
                 rows={12}
                 placeholder={"Paste your CV here. Use headings like Experience, Projects and Coursework so SkillTide can tell how you used each skill.\n\nPlease use a sample or your own made-up CV — never someone else's real CV."}
                 className="w-full resize-y rounded-xl border border-border bg-surface-muted p-4 font-mono text-[12.5px] leading-relaxed text-ink placeholder:font-sans placeholder:text-muted focus:border-brand focus:outline-none"
               />
               <div className="flex flex-wrap items-center gap-2">
-                <Button onClick={() => scan(cvText)} disabled={!cvText.trim()}>
+                <Button onClick={() => scan(cvText)} disabled={!cvText.trim() || !!importStatus}>
                   <ScanLine className="h-4 w-4" aria-hidden /> Scan for skills
                 </Button>
-                <label className={cn(buttonClasses("secondary"), "cursor-pointer")}>
-                  <Upload className="h-4 w-4" aria-hidden /> Upload .txt
-                  <input
-                    type="file"
-                    accept=".txt,.md,text/plain"
-                    className="sr-only"
-                    onChange={(event) => {
-                      const file = event.target.files?.[0];
-                      if (file) void readFile(file);
-                      event.target.value = "";
-                    }}
-                  />
-                </label>
+                <Button variant="secondary" onClick={() => fileInput.current?.click()} disabled={!!importStatus}>
+                  {importStatus ? <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden /> : <Upload className="h-4 w-4" aria-hidden />}
+                  {importStatus ? "Reading CV…" : "Upload PDF or text"}
+                </Button>
+                <input
+                  ref={fileInput}
+                  type="file"
+                  accept=".pdf,.txt,.md,application/pdf,text/plain,text/markdown"
+                  aria-label="Upload CV file"
+                  className="hidden"
+                  disabled={!!importStatus}
+                  onChange={(event) => {
+                    const file = event.target.files?.[0];
+                    event.target.value = "";
+                    if (file) void readFile(file);
+                  }}
+                />
                 <p className="text-xs text-muted">Scanned in your browser with fixed rules — nothing is uploaded.</p>
               </div>
+              <p className="text-xs text-muted">PDF, TXT or Markdown · up to 10 MB and 20 PDF pages. PDFs need selectable text. Use synthetic CVs for the demo.</p>
+              <div role="status" aria-live="polite" className="text-[13px] text-ink-soft">
+                {importStatus}
+              </div>
+              {importError ? (
+                <p role="alert" className="rounded-lg border border-fall/25 bg-fall-soft px-3 py-2 text-[13px] text-fall">
+                  {importError}
+                </p>
+              ) : null}
               {scanNote ? (
-                <p className="rounded-lg border border-brand/25 bg-brand-soft px-3 py-2 text-[13px] text-ink-soft">
+                <p role="status" className="rounded-lg border border-brand/25 bg-brand-soft px-3 py-2 text-[13px] text-ink-soft">
                   {scanNote}
                 </p>
               ) : null}

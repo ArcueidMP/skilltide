@@ -83,9 +83,7 @@ export function AgentPanel() {
             <p className="text-[11px] text-muted">Answers only from SkillTide data</p>
           </div>
         </div>
-        <Badge tone={store.llmEnabled ? "brand" : "neutral"}>
-          {store.llmEnabled ? "AI wording on" : "Rule-based"}
-        </Badge>
+        <Badge tone="neutral">Rule-based</Badge>
       </div>
 
       <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">

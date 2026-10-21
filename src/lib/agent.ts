@@ -141,7 +141,7 @@ export function respond(question: string, ctx: AgentContext): Answer {
 
   if (/stored|privacy|private|my cv|upload/.test(q)) {
     return answer(
-      "Your profile never leaves this browser: it is kept in local storage so the page remembers it, and you can clear it any time. CV scanning runs here with fixed rules. The optional AI wording switch is off by default; if you turn it on, only the explanation being reworded is sent to the model — never your CV.",
+      "Your profile and skill evidence stay in this browser's local storage. PDF and text CVs are scanned locally with fixed rules; the original file and full CV text are not saved. Use Reset demo on Profile to clear your profile, CV text and preferences. This guide makes no language-model calls.",
     );
   }
 
@@ -175,7 +175,7 @@ export function respond(question: string, ctx: AgentContext): Answer {
     if (!step) return answer("Pick a target role on the matches page and I'll show your first step.");
     return step.kind === "course"
       ? answer(
-          `Start with “${step.course!.title}” (${step.course!.provider}, ${step.hours} h, ${step.course!.cost}). It closes ${step.skillIds.map((id) => skillById(id)?.name).join(", ")}, your highest-priority gap${step.skillIds.length > 1 ? "s" : ""} for the hours it takes.`,
+          `Start with “${step.course!.title}” (${step.course!.provider}, ${step.hours} h, ${step.course!.cost}). It addresses ${step.skillIds.map((id) => skillById(id)?.name).join(", ")}, your highest-priority gap${step.skillIds.length > 1 ? "s" : ""} for the hours it takes.`,
           cite(step.course!.sources),
         )
       : answer(`Your gaps are already covered, so go straight to the portfolio project: “${step.task?.statement}”.`);
@@ -195,7 +195,7 @@ export function respond(question: string, ctx: AgentContext): Answer {
 
   if (/order|why this|sequence/.test(q) && ctx.pathway) {
     return answer(
-      "Courses are picked to close the most important gaps per hour of study, then ordered from introductory to advanced so each builds on the last. The project comes last so you can show the skills together on a real task from the role.",
+      "Courses are picked to address important gaps for the study time available, then ordered from introductory to advanced. The project comes last so you can practise the skills together on a real task from the role. The plan does not certify mastery.",
     );
   }
 
@@ -242,7 +242,7 @@ export function respond(question: string, ctx: AgentContext): Answer {
 
   if (/fill|what should i|how (does|do)|help/.test(q)) {
     return answer(
-      "Paste a CV with headings like Experience, Projects and Coursework, or tick skills under Pick skills, or load a sample student. Then set your study hours, budget and SDG goals under Quick questions.",
+      "Upload a text-based PDF, TXT or Markdown CV, paste CV text with headings like Experience, Projects and Coursework, or load a synthetic sample student. You can also use Pick skills. Then set your study hours, budget and SDG goals under Quick questions.",
     );
   }
 

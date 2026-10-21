@@ -18,8 +18,10 @@ from __future__ import annotations
 import csv
 import datetime as dt
 import html
+import hashlib
 import json
 import math
+import os
 import re
 import shutil
 import statistics
@@ -37,6 +39,7 @@ OUT = ROOT / "src" / "data" / "dataset.json"
 UA = "SkillTide-pipeline/0.1 (student hackathon prototype; github.com/ArcueidMP/skilltide)"
 TODAY = dt.date.today()
 REFRESH = "--refresh" in sys.argv
+FETCH_RECORDS: dict[str, dict] = {}
 
 csv.field_size_limit(10**9)
 
@@ -51,7 +54,20 @@ def log(message: str) -> None:
 
 def fetch(url: str, dest: Path, *, refresh: bool = False) -> Path:
     """Download url to dest unless a non-empty cached copy exists."""
+    metadata_path = dest.with_suffix(dest.suffix + ".download.json")
+    metadata = {}
+    if metadata_path.exists():
+        try:
+            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        except (ValueError, OSError):
+            pass
+    if metadata.get("url") not in (None, url):
+        refresh = True
     if dest.exists() and dest.stat().st_size > 0 and not refresh:
+        with dest.open("rb") as handle:
+            digest = hashlib.file_digest(handle, "sha256").hexdigest()
+        recorded = metadata.get("downloadedAt") if metadata.get("sha256") == digest else None
+        FETCH_RECORDS[str(dest)] = {"url": url, "access": "cached", **({"downloadedAt": recorded} if recorded else {})}
         return dest
     dest.parent.mkdir(parents=True, exist_ok=True)
     tmp = dest.with_suffix(dest.suffix + ".part")
@@ -60,7 +76,14 @@ def fetch(url: str, dest: Path, *, refresh: bool = False) -> Path:
         try:
             with urllib.request.urlopen(request, timeout=600) as response, open(tmp, "wb") as out:
                 shutil.copyfileobj(response, out)
+            with tmp.open("rb") as handle:
+                digest = hashlib.file_digest(handle, "sha256").hexdigest()
+            downloaded = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
             tmp.replace(dest)
+            metadata_tmp = metadata_path.with_suffix(".tmp")
+            metadata_tmp.write_text(json.dumps({"url": url, "downloadedAt": downloaded, "sha256": digest}), encoding="utf-8")
+            metadata_tmp.replace(metadata_path)
+            FETCH_RECORDS[str(dest)] = {"url": url, "access": "downloaded", "downloadedAt": downloaded}
             return dest
         except Exception as error:  # noqa: BLE001 - network errors vary by platform
             if attempt == 2:
@@ -105,9 +128,54 @@ SOURCES: dict[str, dict] = {}
 
 
 def source(id_: str, **info) -> str:
-    info.setdefault("retrieved", TODAY.isoformat())
     SOURCES[id_] = {"id": id_, **info}
     return id_
+
+
+def content_hash(dataset: dict) -> str:
+    """Exclude build/download bookkeeping so a cache read is not a data change."""
+    content = {key: value for key, value in dataset.items() if key not in ("generatedAt", "refresh")}
+    content["sources"] = {
+        key: {field: value for field, value in info.items() if field not in ("retrieved", "inputs")}
+        for key, info in dataset.get("sources", {}).items()
+    }
+    return hashlib.sha256(json.dumps(content, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
+
+
+def attach_provenance(dataset: dict, previous: dict | None) -> None:
+    groups = {
+        "onet": lambda p: p.parent == ONET_DIR,
+        "eloundou": lambda p: p.parent == ELOUNDOU_DIR,
+        "aei": lambda p: p.parent == AEI_DIR and not p.name.startswith("robot_exposure"),
+        "aei-robots": lambda p: p.parent == AEI_DIR and p.name.startswith("robot_exposure"),
+        "indeed": lambda p: p.parent == INDEED_DIR and p.name != "AI_posting.csv",
+        "indeed-ai": lambda p: p == INDEED_DIR / "AI_posting.csv",
+        "hn": lambda p: p.parent == HN_DIR,
+        "un-sdg": lambda p: p.parent == CACHE / "sdg",
+        "mslearn": lambda p: p.parent == CACHE / "mslearn",
+    }
+    for id_, info in dataset["sources"].items():
+        # Old datasets used the build date here. Only actual download records count.
+        info.pop("retrieved", None)
+        matches = groups.get(id_)
+        inputs = sorted((record for path, record in FETCH_RECORDS.items() if matches and matches(Path(path))), key=lambda item: item["url"])
+        if inputs:
+            info["inputs"] = inputs
+            dates = [item["downloadedAt"] for item in inputs if item.get("downloadedAt")]
+            if dates:
+                info["retrieved"] = max(dates)
+    digest = content_hash(dataset)
+    prior = (previous or {}).get("refresh", {})
+    dataset["refresh"] = {
+        "builtAt": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        "mode": "refresh" if REFRESH else "cache",
+        "contentHash": digest,
+        "dataChanged": digest != content_hash(previous) if previous else None,
+        "downloadedInputs": sum(item["access"] == "downloaded" for item in FETCH_RECORDS.values()),
+        "cachedInputs": sum(item["access"] == "cached" for item in FETCH_RECORDS.values()),
+        "unknownDownloadDates": sum(not item.get("downloadedAt") for item in FETCH_RECORDS.values()),
+        **{key: prior[key] for key in ("lastSuccessfulAt", "runUrl") if key in prior},
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -1032,6 +1100,7 @@ def build_scenarios(releases) -> tuple[list[dict], dict]:
 # 10. Assemble
 
 def main() -> None:
+    previous = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else None
     log("loading O*NET")
     onet = load_onet()
     log("loading Eloundou exposure labels")
@@ -1130,8 +1199,11 @@ def main() -> None:
         "malaysiaContext": extras.get("malaysia_context", []),
         "mycol": extras.get("mycol"),
     }
+    attach_provenance(dataset, previous)
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(dataset, ensure_ascii=False, indent=1), encoding="utf-8")
+    temporary = OUT.with_suffix(".json.tmp")
+    temporary.write_text(json.dumps(dataset, ensure_ascii=False, indent=1), encoding="utf-8")
+    os.replace(temporary, OUT)
     log(
         f"wrote {OUT.relative_to(ROOT)} ({OUT.stat().st_size / 1024:.0f} KB): "
         f"{len(roles)} roles, {len(skills)} skills, {len(courses)} courses, {len(snapshots)} snapshots"
