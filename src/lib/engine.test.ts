@@ -231,6 +231,15 @@ describe("extractSkills", () => {
   it("does not match aliases inside other words", () => {
     expect(extractSkills("Explicit pythonic style", dataset.skills)).toEqual([]);
   });
+
+  it("recognises letter-spaced headings from designed PDF templates", () => {
+    const spaced = cv
+      .replace("Projects", "P R O J E C T S")
+      .replace("Industrial training", "I N D U S T R I A L T R A I N I N G");
+    const claims = new Map(extractSkills(spaced, dataset.skills).map((c) => [c.skillId, c]));
+    expect(claims.get("cpp")!.level).toBe(2);
+    expect(claims.get("plc")!.level).toBe(3);
+  });
 });
 
 describe("fairnessCheck", () => {

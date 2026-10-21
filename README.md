@@ -12,7 +12,7 @@ A final-year student in computer science, electrical & electronic engineering or
 
 ## What it does
 
-1. **Profile** — paste a CV, upload a PDF/TXT/Markdown CV, tick skills, or load a synthetic sample student. Skills are recognised in the browser with fixed rules; each match shows the phrase it came from.
+1. **Profile** — paste a CV, upload a PDF/TXT/Markdown CV, tick skills, or load a synthetic sample student. Skills are recognised in the browser with fixed rules; each match shows the phrase it came from. A [synthetic sample CV](public/samples/kavin-raj-synthetic-cv.pdf) is included for trying the upload.
 2. **Future Skills Radar** — skills and roles rising or under pressure, from dated data. Replay six historical signal snapshots with the current catalogue and assumptions, and inspect actual refresh provenance.
 3. **Matches** — roles ranked by an explainable score (skills fit, AI outlook, SDG fit) with weights you control, skill gaps, and a fairness check.
 4. **Pathway** — an ordered plan of courses whose hours and cost were checked at the source, ending with a portfolio project built on a real task from the role.

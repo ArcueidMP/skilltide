@@ -237,7 +237,18 @@ export function ProfileBuilder() {
                 />
                 <p className="text-xs text-muted">Scanned in your browser with fixed rules — nothing is uploaded.</p>
               </div>
-              <p className="text-xs text-muted">PDF, TXT or Markdown · up to 10 MB and 20 PDF pages. PDFs need selectable text. Use synthetic CVs for the demo.</p>
+              <p className="text-xs text-muted">
+                PDF, TXT or Markdown · up to 10 MB and 20 PDF pages. PDFs need selectable text. Use synthetic CVs for the
+                demo — for example this{" "}
+                <a
+                  href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/samples/kavin-raj-synthetic-cv.pdf`}
+                  download
+                  className="font-medium text-brand underline underline-offset-2"
+                >
+                  sample CV (PDF)
+                </a>
+                .
+              </p>
               <div role="status" aria-live="polite" className="text-[13px] text-ink-soft">
                 {importStatus}
               </div>

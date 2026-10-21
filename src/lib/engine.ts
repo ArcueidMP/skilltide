@@ -461,10 +461,12 @@ export function buildPathway(
 // ---------------------------------------------------------------------------
 // 6. Skill extraction from free text (rule-based; no AI call)
 
+// Patterns are matched with spaces removed, so letter-spaced headings that PDF
+// extraction returns as "P R O J E C T S" are recognised too.
 const SECTION_LEVELS: { pattern: RegExp; level: SkillLevel }[] = [
-  { pattern: /^(work\s+)?experience|^employment|^internships?|^industrial training/, level: 3 },
-  { pattern: /^projects?|^final[- ]year project|^portfolio|^competitions?|^hackathons?/, level: 2 },
-  { pattern: /^skills?|^technical skills|^education|^coursework|^relevant coursework|^certifications?/, level: 1 },
+  { pattern: /^(work)?experience|^employment|^internships?|^industrialtraining/, level: 3 },
+  { pattern: /^projects?|^final-?yearproject|^portfolio|^competitions?|^hackathons?/, level: 2 },
+  { pattern: /^skills?|^technicalskills|^education|^coursework|^relevantcoursework|^certifications?/, level: 1 },
 ];
 
 function escapeRegExp(text: string) {
@@ -476,8 +478,8 @@ export function extractSkills(text: string, skills: Skill[]): SkillClaim[] {
   const lines = text.split(/\r?\n/);
   let level: SkillLevel = 1;
   const leveled = lines.map((line) => {
-    const heading = line.trim().toLowerCase().replace(/[:#*]/g, "").trim();
-    const section = heading.length < 40 ? SECTION_LEVELS.find((s) => s.pattern.test(heading)) : undefined;
+    const heading = line.toLowerCase().replace(/[:#*\s]/g, "");
+    const section = heading.length < 32 ? SECTION_LEVELS.find((s) => s.pattern.test(heading)) : undefined;
     if (section) level = section.level;
     return { line, level };
   });
