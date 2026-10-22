@@ -2,7 +2,7 @@ import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vite
 import { handleApi } from "@/server/api";
 import { computeMatches, computeOutlooks } from "./analysis";
 import { getApiStatus, resetApiStatus, skilltideApi } from "./api";
-import { toApiProfile, type MatchesRequest } from "./api-types";
+import { API_REVISION, toApiProfile, type MatchesRequest } from "./api-types";
 import { dataset, datasetVersion } from "./data";
 import { extractSkills } from "./engine";
 import { resetResources, resource } from "./remote";
@@ -44,7 +44,7 @@ describe("API client", () => {
     vi.stubGlobal("fetch", fetcher);
     await expect(skilltideApi.outlooks("latest", "moderate")).resolves.toEqual({ roles: [], skills: [] });
     const [url, init] = fetcher.mock.calls[0];
-    expect(String(url)).toBe(`/api/v1/outlooks?snapshot=latest&scenario=moderate&v=${datasetVersion}`);
+    expect(String(url)).toBe(`/api/v1/outlooks?snapshot=latest&scenario=moderate&v=${datasetVersion}&r=${API_REVISION}`);
     expect((init?.headers as Record<string, string>)["x-skilltide-dataset"]).toBe(datasetVersion);
     expect(getApiStatus()).toBe("online");
   });

@@ -17,9 +17,11 @@ import {
   Target,
   TriangleAlert,
   Undo2,
+  Users,
   Wallet,
 } from "lucide-react";
 import { badgesFor, type BadgeId } from "@/lib/badges";
+import type { StudyCircle } from "@/lib/circles";
 import { cn } from "@/lib/cn";
 import { cite, dataset, roleById, skillById } from "@/lib/data";
 import type { Pathway, PathwayStep } from "@/lib/engine";
@@ -55,7 +57,7 @@ export function PathwayView() {
   const t = useMessages(PATHWAY);
   const labels = useMessages(LABELS);
   const { profile, progress, update, targetRoleId } = useStore();
-  const { matches, target, pathway, basis, loading, pending } = useAnalysis();
+  const { matches, target, pathway, circle, basis, loading, pending } = useAnalysis();
   // Keyed on the scenario and snapshot the pathway was built for, which can lag the selection while loading.
   const replan = useReplanNotice(pathway, `${basis}|${target?.roleId}`);
   const [lastDone, setLastDone] = useState<{ record: ProgressRecord; title: string; before: number } | null>(null);
@@ -187,6 +189,7 @@ export function PathwayView() {
 
         <aside className="space-y-4">
           <BadgesCard pathway={pathway} />
+          {circle ? <CircleCard circle={circle} /> : null}
           <SdgImpact roleId={role.id} skillIds={pathway.closedSkillIds} />
           {pathway.uncoveredSkillIds.length ? (
             <Card className="p-4">
@@ -393,6 +396,46 @@ function BadgesCard({ pathway }: { pathway: Pathway }) {
           );
         })}
       </ul>
+    </Card>
+  );
+}
+
+function CircleCard({ circle }: { circle: StudyCircle }) {
+  const t = useMessages(PATHWAY);
+  const labels = useMessages(LABELS);
+  const course = circle.courseId ? dataset.courses.find((candidate) => candidate.id === circle.courseId) : undefined;
+  return (
+    <Card className="p-4">
+      <div className="flex items-center gap-2">
+        <Users className="h-4 w-4 text-brand" aria-hidden />
+        <h3 className="font-display text-sm font-semibold">{t.circleTitle}</h3>
+      </div>
+      <p className="mt-1 text-[12px] text-muted">{t.circleSubtitle}</p>
+      <p className="mt-3 text-[12.5px] text-ink-soft">{t.circleIntro(circle.members.length)}</p>
+      {course ? (
+        <p className="mt-2 text-[12.5px] text-ink-soft">
+          {t.circleCourse}{" "}
+          <a href={course.url} target="_blank" rel="noreferrer" className="font-medium text-ink underline underline-offset-2 hover:text-brand-strong">
+            {course.title}
+          </a>{" "}
+          ({course.hours} h)
+        </p>
+      ) : null}
+      <ul className="mt-3 space-y-2">
+        {circle.members.map((member) => (
+          <li key={member.id} className="rounded-md border border-border bg-surface-muted px-3 py-2">
+            <p className="text-[12px] text-ink">{t.member(labels.programme[member.programme], member.hoursPerWeek)}</p>
+            <div className="mt-1 flex flex-wrap gap-1">
+              {member.shared.map((id) => (
+                <Badge key={id} tone="brand">
+                  {skillById(id)?.name}
+                </Badge>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 text-[11.5px] leading-relaxed text-muted">{t.circleNote}</p>
     </Card>
   );
 }

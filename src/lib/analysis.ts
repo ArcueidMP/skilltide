@@ -2,6 +2,7 @@
 // runs the same functions when the API cannot be reached, so both always agree.
 
 import { fromApiProfile, type CompareRequest, type MatchesRequest } from "./api-types";
+import { studyCircle, type StudyCircle } from "./circles";
 import { cohortSummary, type CohortSummary } from "./cohort";
 import { compareScenarios, summarizeComparison, type ScenarioComparisonSummary } from "./comparison";
 import { dataset, scenarioById, snapshotById } from "./data";
@@ -37,6 +38,8 @@ export interface MatchAnalysis {
   /** The role the pathway is built for: the requested target if it exists, else the top match. */
   targetRoleId: string | null;
   pathway: Pathway | null;
+  /** Synthetic students who share the next gaps on the pathway. */
+  circle: StudyCircle | null;
   fairness: FairnessResult;
 }
 
@@ -52,6 +55,7 @@ export function computeMatches(request: MatchesRequest, outlooks: Map<string, Ro
     matches,
     targetRoleId: target?.roleId ?? null,
     pathway,
+    circle: target && pathway ? studyCircle(target, pathway, dataset) : null,
     fairness: fairnessCheck(profile, dataset, snapshot, outlooks, request.weights),
   };
 }

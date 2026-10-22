@@ -1,4 +1,4 @@
-// The Pathway step: the plan, progress and badges.
+// The Pathway step: the plan, progress, badges and study circle.
 
 import type { BadgeId } from "@/lib/badges";
 import { defineMessages } from "@/lib/i18n";
@@ -57,6 +57,12 @@ interface PathwayText {
   badgesSubtitle: string;
   earned: string;
   badges: Record<BadgeId, { name: string; hint: string }>;
+  circleTitle: string;
+  circleSubtitle: string;
+  circleIntro: (students: number) => string;
+  circleCourse: string;
+  member: (programme: string, hours: number) => string;
+  circleNote: string;
 }
 
 export const PATHWAY = defineMessages<PathwayText>({
@@ -124,6 +130,13 @@ export const PATHWAY = defineMessages<PathwayText>({
       "sdg-step": { name: "SDG step", hint: "Finish a step whose skills serve a goal you picked." },
       "pathway-complete": { name: "Pathway complete", hint: "Finish every step." },
     },
+    circleTitle: "Study circle",
+    circleSubtitle: "Students who need the same skills next",
+    circleIntro: (students) => `${students} students in SkillTide's synthetic cohort have the same next gaps for this role.`,
+    circleCourse: "Take this course together:",
+    member: (programme, hours) => `${programme} · ${hours} h a week`,
+    circleNote:
+      "Synthetic students for the demo: SkillTide has no accounts and stores no one's data. A career centre could form real circles from students who opt in.",
   },
   ms: {
     loading: "Membina laluan anda…",
@@ -190,6 +203,13 @@ export const PATHWAY = defineMessages<PathwayText>({
       "sdg-step": { name: "Langkah SDG", hint: "Selesaikan langkah yang kemahirannya menyumbang kepada matlamat yang anda pilih." },
       "pathway-complete": { name: "Laluan selesai", hint: "Selesaikan semua langkah." },
     },
+    circleTitle: "Bulatan belajar",
+    circleSubtitle: "Pelajar yang memerlukan kemahiran yang sama selepas ini",
+    circleIntro: (students) => `${students} pelajar dalam kohort sintetik SkillTide mempunyai jurang seterusnya yang sama untuk peranan ini.`,
+    circleCourse: "Ambil kursus ini bersama-sama:",
+    member: (programme, hours) => `${programme} · ${hours} jam seminggu`,
+    circleNote:
+      "Pelajar sintetik untuk demo: SkillTide tidak mempunyai akaun dan tidak menyimpan data sesiapa. Pusat kerjaya boleh membentuk bulatan sebenar daripada pelajar yang memilih untuk menyertainya.",
   },
   zh: {
     loading: "正在生成你的学习路径…",
@@ -254,5 +274,11 @@ export const PATHWAY = defineMessages<PathwayText>({
       "sdg-step": { name: "SDG 贡献", hint: "完成一个其技能服务于你所选目标的步骤。" },
       "pathway-complete": { name: "路径完成", hint: "完成所有步骤。" },
     },
+    circleTitle: "学习小组",
+    circleSubtitle: "接下来需要同样技能的同学",
+    circleIntro: (students) => `SkillTide 合成年级群体中有 ${students} 名同学，在这个岗位上和你有相同的下一步缺口。`,
+    circleCourse: "一起学这门课：",
+    member: (programme, hours) => `${programme} · 每周 ${hours} 小时`,
+    circleNote: "这些是演示用的合成同学：SkillTide 没有账号，也不保存任何人的数据。就业指导中心可以从自愿参加的学生中组建真正的学习小组。",
   },
 });

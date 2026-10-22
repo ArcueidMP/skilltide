@@ -2,27 +2,29 @@
 
 import { FlaskConical, Lightbulb, School, Target, Users } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { COHORT_PER_PROGRAMME, type CohortStudent } from "@/lib/cohort";
-import { cite, roleById, skillById } from "@/lib/data";
-import { pct, SKILL_TREND_LABEL, TREND_LABEL, TREND_TONE } from "@/lib/format";
+import { COHORT_PER_PROGRAMME, GROUP_SIZE, type CohortStudent } from "@/lib/cohort";
+import { cite, dataset, roleById, skillById } from "@/lib/data";
+import { pct, TREND_TONE } from "@/lib/format";
 import { useAnalysis, useCohort } from "@/lib/use-analysis";
+import { useMessages } from "@/lib/use-messages";
+import { CAREER_CENTRE } from "@/messages/career-centre";
+import { COMMON, snapshotName } from "@/messages/common";
+import { LABELS } from "@/messages/labels";
 import { CitationList } from "./citations";
 import { SdgTag } from "./sdg";
 import { Badge, Card, CardHeader, Loading } from "./ui";
 
-const PROGRAMME_LABELS: Record<CohortStudent["programme"], string> = {
-  cs: "Computing",
-  ee: "Electrical & electronic",
-  mechatronics: "Mechatronics",
-};
-const PROGRAMMES = Object.keys(PROGRAMME_LABELS) as CohortStudent["programme"][];
+const PROGRAMMES: CohortStudent["programme"][] = ["cs", "ee", "mechatronics"];
 
 export function CareerCentreView() {
+  const t = useMessages(CAREER_CENTRE);
+  const labels = useMessages(LABELS);
+  const common = useMessages(COMMON);
   const { snapshot, scenario } = useAnalysis();
   const { value: analysis, pending } = useCohort(snapshot?.id, scenario?.id);
 
   if (!snapshot || !scenario) return null;
-  if (!analysis) return <Loading label="Summarising the synthetic cohort…" />;
+  if (!analysis) return <Loading label={t.loading} />;
   const maxTarget = Math.max(...analysis.targets.map((target) => target.count), 1);
 
   return (
@@ -30,30 +32,23 @@ export function CareerCentreView() {
       <Card className="flex flex-wrap items-center gap-4 border-shift/30 p-4">
         <FlaskConical className="h-5 w-5 text-shift" aria-hidden />
         <p className="flex-1 text-[13px] text-ink-soft">
-          <span className="font-medium text-ink">Demo cohort, not real students.</span> {analysis.students} synthetic final-year
-          students ({COHORT_PER_PROGRAMME} per programme) drawn from typical skill mixes with a fixed seed. A real career
-          centre would load its own anonymised, aggregated survey data instead.
+          <span className="font-medium text-ink">{t.demoTitle}</span> {t.demoBody(analysis.students, COHORT_PER_PROGRAMME)}
         </p>
-        <Badge tone="neutral">
-          {scenario.label} · data {snapshot.label}
-        </Badge>
+        <Badge tone="neutral">{t.basis(labels.scenario[scenario.id], snapshotName(common, snapshot))}</Badge>
       </Card>
 
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
         <Card>
-          <CardHeader
-            title="Skills heatmap"
-            subtitle="Share of each programme with the skill at project level or above, for the 16 technical skills with the strongest outlook"
-          />
+          <CardHeader title={t.heatTitle} subtitle={t.heatSubtitle} />
           <div className="overflow-x-auto p-5">
             <table className="w-full min-w-[520px] border-separate border-spacing-1 text-[12.5px]">
               <thead>
                 <tr>
-                  <th className="text-left font-normal text-muted">Skill</th>
-                  <th className="text-left font-normal text-muted">Outlook</th>
+                  <th className="text-left font-normal text-muted">{t.skill}</th>
+                  <th className="text-left font-normal text-muted">{t.outlook}</th>
                   {PROGRAMMES.map((p) => (
                     <th key={p} className="font-normal text-muted">
-                      {PROGRAMME_LABELS[p]}
+                      {labels.programme[p]}
                     </th>
                   ))}
                 </tr>
@@ -63,7 +58,7 @@ export function CareerCentreView() {
                   <tr key={row.skillId}>
                     <td className="pr-2 text-ink">{skillById(row.skillId)?.name}</td>
                     <td>
-                      <Badge tone={TREND_TONE[row.trend]}>{SKILL_TREND_LABEL[row.trend]}</Badge>
+                      <Badge tone={TREND_TONE[row.trend]}>{labels.skillTrend[row.trend]}</Badge>
                     </td>
                     {PROGRAMMES.map((p) => {
                       const value = row.coverage[p];
@@ -92,16 +87,14 @@ export function CareerCentreView() {
           <Card className="border-ink/30 p-5">
             <div className="flex items-center gap-2">
               <Lightbulb className="h-4 w-4 text-brand" aria-hidden />
-              <h3 className="font-display text-sm font-semibold">Where to run workshops</h3>
+              <h3 className="font-display text-sm font-semibold">{t.workshopsTitle}</h3>
             </div>
-            <p className="mt-1 text-[12.5px] text-muted">Rising skills the fewest students have at project level.</p>
+            <p className="mt-1 text-[12.5px] text-muted">{t.workshopsSubtitle}</p>
             <ul className="mt-3 space-y-3">
               {analysis.gaps.map((gap) => (
                 <li key={gap.skillId} className="text-[13px]">
                   <p className="font-medium text-ink">{skillById(gap.skillId)?.name}</p>
-                  <p className="text-muted">
-                    Outlook score {Math.round(gap.score)}, but only {pct(gap.coverage)} of the cohort can use it in a project.
-                  </p>
+                  <p className="text-muted">{t.workshopGap(Math.round(gap.score), pct(gap.coverage))}</p>
                 </li>
               ))}
             </ul>
@@ -109,9 +102,9 @@ export function CareerCentreView() {
           <Card className="p-5">
             <div className="flex items-center gap-2">
               <Target className="h-4 w-4 text-brand" aria-hidden />
-              <h3 className="font-display text-sm font-semibold">SDG targets the cohort is heading towards</h3>
+              <h3 className="font-display text-sm font-semibold">{t.targetsTitle}</h3>
             </div>
-            <p className="mt-1 text-[12.5px] text-muted">Targets linked to each student&apos;s top-matched role.</p>
+            <p className="mt-1 text-[12.5px] text-muted">{t.targetsSubtitle}</p>
             <ul className="mt-3 space-y-2">
               {analysis.targets.map(({ targetId, count }) => (
                 <li key={targetId}>
@@ -129,25 +122,59 @@ export function CareerCentreView() {
         </div>
       </div>
 
+      {analysis.groups.length ? (
+        <Card>
+          <CardHeader title={t.groupsTitle} subtitle={t.groupsSubtitle(GROUP_SIZE)} />
+          <ul className="grid gap-3 p-5 sm:grid-cols-2 lg:grid-cols-3">
+            {analysis.groups.map((group) => {
+              const course = group.courseId ? dataset.courses.find((candidate) => candidate.id === group.courseId) : undefined;
+              return (
+                <li key={group.skillId} className="rounded-md border border-border bg-surface-muted p-4">
+                  <p className="font-medium text-ink">{skillById(group.skillId)?.name}</p>
+                  <p className="mt-1 flex items-center gap-1.5 text-[12px] text-muted">
+                    <Users className="h-3.5 w-3.5" aria-hidden /> {t.groupCount(group.students, group.groups)}
+                  </p>
+                  <p className="mt-1 font-mono text-[11px] text-ink-soft">
+                    {PROGRAMMES.filter((p) => group.programmes[p])
+                      .map((p) => `${t.programmeShort[p]} ${group.programmes[p]}`)
+                      .join(" · ")}
+                  </p>
+                  <p className="mt-2 text-[12.5px] text-ink-soft">
+                    {course ? (
+                      <>
+                        <span className="text-muted">{t.starter}:</span>{" "}
+                        <a href={course.url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-brand-strong">
+                          {course.title}
+                        </a>{" "}
+                        ({course.hours} h, {labels.cost[course.cost]})
+                      </>
+                    ) : (
+                      t.noCourse
+                    )}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        </Card>
+      ) : null}
+
       <Card>
-        <CardHeader
-          title="Readiness for the roles students match best"
-          subtitle="How many students are top-matched to each role, and what share already cover 60% of its weighted skills"
-        />
+        <CardHeader title={t.readinessTitle} subtitle={t.readinessSubtitle} />
         <div className="grid gap-3 p-5 sm:grid-cols-2 lg:grid-cols-3">
           {analysis.readiness.map((item) => {
             return (
               <div key={item.roleId} className="rounded-md border border-border bg-surface-muted p-4">
                 <div className="flex items-start justify-between gap-2">
                   <p className="font-medium text-ink">{roleById(item.roleId)?.title}</p>
-                  {item.trend ? <Badge tone={TREND_TONE[item.trend]}>{TREND_LABEL[item.trend]}</Badge> : null}
+                  {item.trend ? <Badge tone={TREND_TONE[item.trend]}>{labels.trend[item.trend]}</Badge> : null}
                 </div>
                 <div className="mt-3 flex items-end justify-between">
                   <span className="flex items-center gap-1.5 text-[12px] text-muted">
-                    <Users className="h-3.5 w-3.5" aria-hidden /> {item.topCount} top-matched
+                    <Users className="h-3.5 w-3.5" aria-hidden /> {t.topMatched(item.topCount)}
                   </span>
                   <span className={cn("font-mono text-lg", item.ready >= 0.5 ? "text-rise" : "text-shift")}>
-                    {pct(item.ready)} ready
+                    {t.ready(pct(item.ready))}
                   </span>
                 </div>
               </div>
@@ -160,8 +187,7 @@ export function CareerCentreView() {
       </Card>
 
       <p className="flex items-center gap-2 text-[12px] text-muted">
-        <School className="h-4 w-4" aria-hidden /> Aggregated view only: SkillTide never shows a career centre an individual
-        student&apos;s profile.
+        <School className="h-4 w-4" aria-hidden /> {t.aggregated}
       </p>
     </div>
   );

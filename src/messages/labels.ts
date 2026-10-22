@@ -2,7 +2,7 @@
 
 import type { Trend } from "@/lib/engine";
 import { defineMessages } from "@/lib/i18n";
-import type { Course, ScenarioId, SkillLevel } from "@/lib/types";
+import type { Course, Programme, ScenarioId, SkillLevel } from "@/lib/types";
 
 interface Labels {
   trend: Record<Trend, string>;
@@ -13,6 +13,7 @@ interface Labels {
   cost: Record<Course["cost"], string>;
   courseLevel: Record<Course["level"], string>;
   jobZone: Record<number, string>;
+  programme: Record<Programme, string>;
   /** What each scenario assumes. `rate` is the yearly adoption pace; `first` and `last` are the measured automation shares. */
   scenarioNote: {
     moderate: (rate: string) => string;
@@ -40,6 +41,7 @@ export const LABELS = defineMessages<Labels>({
       4: "Bachelor's degree",
       5: "Postgraduate degree usually expected",
     },
+    programme: { cs: "Computing", ee: "Electrical & electronic", mechatronics: "Mechatronics", other: "Other" },
     scenarioNote: {
       moderate: (rate) =>
         `Each year AI use closes ${rate} of the gap between how much it is used on a task today and what current models could do, and the split between automating and assisting stays as observed today. The ${rate} yearly pace is SkillTide's assumption, not a measured rate.`,
@@ -61,6 +63,7 @@ export const LABELS = defineMessages<Labels>({
       4: "Ijazah sarjana muda",
       5: "Biasanya memerlukan ijazah pascasiswazah",
     },
+    programme: { cs: "Pengkomputeran", ee: "Elektrik & elektronik", mechatronics: "Mekatronik", other: "Lain-lain" },
     scenarioNote: {
       moderate: (rate) =>
         `Setiap tahun, penggunaan AI menutup ${rate} daripada jurang antara tahap penggunaannya pada sesuatu tugas hari ini dengan apa yang mampu dilakukan oleh model semasa, dan pembahagian antara mengautomasi dengan membantu kekal seperti yang diperhatikan hari ini. Kadar ${rate} setahun ialah andaian SkillTide, bukan kadar yang diukur.`,
@@ -82,6 +85,7 @@ export const LABELS = defineMessages<Labels>({
       4: "学士学位",
       5: "通常需要研究生学位",
     },
+    programme: { cs: "计算机", ee: "电气与电子", mechatronics: "机电一体化", other: "其他" },
     scenarioNote: {
       moderate: (rate) =>
         `每年，AI 在一项任务上的实际使用与现有模型能做到的上限之间的差距缩小 ${rate}，“自动化”和“辅助”的比例保持当前观察到的水平。每年 ${rate} 的速度是 SkillTide 的假设，不是实测数据。`,

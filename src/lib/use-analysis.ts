@@ -95,6 +95,7 @@ export function useAnalysis() {
     matches,
     target,
     pathway: analysis?.pathway ?? null,
+    circle: analysis?.circle ?? null,
     fairness: analysis?.fairness ?? null,
     /** The scenario and snapshot the shown matches belong to; while loading they can lag the selection. */
     basis: analysis ? `${analysis.scenario}|${analysis.snapshot}` : null,

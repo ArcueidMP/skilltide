@@ -1,8 +1,8 @@
 // A synthetic cohort for the career-centre view. No real student data: each student is drawn
 // from programme-typical skill mixes with a fixed seed, so every visit shows the same cohort.
 
-import { rankRoles, type RoleOutlook, type SkillTrend, type Trend } from "./engine";
-import type { Dataset, MatchWeights, Profile, Programme, SkillLevel, Snapshot } from "./types";
+import { generalSkillIds, LEVEL_RANK, rankRoles, type RoleOutlook, type SkillTrend, type Trend } from "./engine";
+import type { Course, Dataset, MatchWeights, Profile, Programme, SkillLevel, Snapshot } from "./types";
 
 /** Chance that a student in the programme lists the skill at all. SkillTide's assumptions, for the demo only. */
 const PROGRAMME_MIX: Record<Exclude<Programme, "other">, Record<string, number>> = {
@@ -91,6 +91,10 @@ export function syntheticCohort(): CohortStudent[] {
 /** Fixed weights for the cohort view, so a career centre sees every student ranked the same way. */
 export const COHORT_WEIGHTS: MatchWeights = { skills: 50, outlook: 30, sdg: 20 };
 
+/** Study groups have at most this many students; a gap needs at least GROUP_MIN students to get one. */
+export const GROUP_SIZE = 6;
+export const GROUP_MIN = 3;
+
 type CohortProgramme = CohortStudent["programme"];
 
 export interface CohortSummary {
@@ -103,6 +107,30 @@ export interface CohortSummary {
   readiness: { roleId: string; ready: number; topCount: number; trend: Trend | null }[];
   /** SDG targets linked to each student's top-matched role. */
   targets: { targetId: string; count: number }[];
+  /**
+   * Students grouped by the first gap their pathway would address (the top technical gap for their
+   * top-matched role), split into study groups of up to GROUP_SIZE, with a starter course for each gap.
+   */
+  groups: {
+    skillId: string;
+    students: number;
+    groups: number;
+    programmes: Record<CohortProgramme, number>;
+    courseId: string | null;
+  }[];
+}
+
+/** The course a new group would start with: free first, then the most introductory, then the shortest. */
+function starterCourse(dataset: Dataset, skillId: string): Course | undefined {
+  return dataset.courses
+    .filter((course) => course.skills.includes(skillId))
+    .sort(
+      (a, b) =>
+        Number(a.cost !== "free") - Number(b.cost !== "free") ||
+        LEVEL_RANK[a.level] - LEVEL_RANK[b.level] ||
+        a.hours - b.hours ||
+        a.id.localeCompare(b.id),
+    )[0];
 }
 
 /** Aggregates for the career-centre view. Ranking every student is too slow for one Worker request, so the API serves these precomputed. */
@@ -160,5 +188,25 @@ export function cohortSummary(
     .slice(0, 6)
     .map(([targetId, count]) => ({ targetId, count }));
 
-  return { students: cohort.length, heatRows, gaps, readiness, targets };
+  const general = generalSkillIds(dataset);
+  const byGap = new Map<string, CohortStudent[]>();
+  results.forEach((matches, index) => {
+    const gap = matches[0].gaps.find((candidate) => !general.has(candidate.skillId));
+    if (gap) byGap.set(gap.skillId, [...(byGap.get(gap.skillId) ?? []), cohort[index]]);
+  });
+  const groups = [...byGap.entries()]
+    .filter(([, students]) => students.length >= GROUP_MIN)
+    .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+    .slice(0, 5)
+    .map(([skillId, students]) => ({
+      skillId,
+      students: students.length,
+      groups: Math.ceil(students.length / GROUP_SIZE),
+      programmes: Object.fromEntries(
+        programmes.map((p) => [p, students.filter((student) => student.programme === p).length]),
+      ) as Record<CohortProgramme, number>,
+      courseId: starterCourse(dataset, skillId)?.id ?? null,
+    }));
+
+  return { students: cohort.length, heatRows, gaps, readiness, targets, groups };
 }

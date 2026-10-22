@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { badgesFor, type BadgeId } from "./badges";
+import { CIRCLE_SIZE, studyCircle } from "./circles";
+import { cohortSummary, GROUP_MIN, GROUP_SIZE } from "./cohort";
 import { dataset } from "./data";
-import { allOutlooks, buildPathway, extractSkills, rankRoles } from "./engine";
+import { allOutlooks, buildPathway, extractSkills, rankRoles, skillTrends } from "./engine";
 import { markDone, pathwayDone, undoDone } from "./progress";
 import { SAMPLE_PERSONAS } from "./samples";
 import type { Profile, ProgressRecord } from "./types";
@@ -75,6 +77,34 @@ describe("pathway progress", () => {
     const final = earned({ ...profile, sdgGoals: [9] }, progress, plans.length - 1);
     for (const id of ["first-step", "halfway", "gap-closed", "sdg-step", "pathway-complete"] as BadgeId[]) {
       expect(final.has(id)).toBe(true);
+    }
+  });
+});
+
+describe("study circles", () => {
+  it("picks up to five synthetic students who share the next step's gaps, from skills alone", () => {
+    const { match, pathway } = planFor(start, []);
+    const circle = studyCircle(match, pathway, dataset)!;
+    expect(circle.members.length).toBeGreaterThan(0);
+    expect(circle.members.length).toBeLessThanOrEqual(CIRCLE_SIZE);
+    for (const member of circle.members) {
+      expect(member.shared.length).toBeGreaterThan(0);
+      for (const id of member.shared) expect(circle.skillIds).toContain(id);
+    }
+    expect(studyCircle(match, pathway, dataset)).toEqual(circle);
+  });
+});
+
+describe("cohort study groups", () => {
+  it("groups students by a shared first gap, at most six to a group, with a course that teaches it", () => {
+    const { groups } = cohortSummary(dataset, snapshot, outlooks, skillTrends(dataset, snapshot, outlooks));
+    expect(groups.length).toBeGreaterThan(0);
+    for (const [index, group] of groups.entries()) {
+      expect(group.students).toBeGreaterThanOrEqual(GROUP_MIN);
+      expect(group.groups).toBe(Math.ceil(group.students / GROUP_SIZE));
+      expect(Object.values(group.programmes).reduce((sum, n) => sum + n, 0)).toBe(group.students);
+      if (index) expect(groups[index - 1].students).toBeGreaterThanOrEqual(group.students);
+      if (group.courseId) expect(dataset.courses.find((c) => c.id === group.courseId)?.skills).toContain(group.skillId);
     }
   });
 });

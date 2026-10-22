@@ -68,6 +68,8 @@ export const METHODOLOGY = defineMessages({
         `Role requirements come from O*NET: technologies O*NET flags as in demand for that occupation, rated skills and knowledge, and skills named in its task statements. Each requirement keeps that evidence. The pathway addresses the highest-priority technical gaps first, choosing courses that cover the most priority per hour of study within your budget, schedules them by your weekly hours, and ends with a ~${projectHours}-hour portfolio project built on a real task from the role that AI assists rather than replaces.`,
       progress:
         "Marking a step done raises the skills it covers to the level its evidence supports: a course to level 1 (coursework), the portfolio project to level 2 (project work), the levels a CV's Coursework and Projects sections give. Matches and the pathway are then recomputed, and finished courses are not suggested again. Badges are worked out from the finished steps (first step, halfway, a gap closed to the role's level, a step serving an SDG goal you picked, the whole pathway); undoing a step takes back what it earned.",
+      circles: (circleSize: number, groupSize: number) =>
+        `A study circle lists up to ${circleSize} synthetic cohort students who lack the same skills as your next course, matched on skill gaps alone. The career-centre view groups the cohort by the first gap on each student's pathway, up to ${groupSize} to a group, each with a starter course. SkillTide has no accounts, so these show how a career centre could group students who opt in; nobody's data is shared.`,
     },
     scenarios: {
       title: "4. Scenarios",
@@ -200,6 +202,8 @@ export const METHODOLOGY = defineMessages({
         `Keperluan peranan datang daripada O*NET: teknologi yang ditandai O*NET sebagai tinggi permintaan bagi pekerjaan itu, kemahiran dan pengetahuan yang dinilai, serta kemahiran yang disebut dalam pernyataan tugasnya. Setiap keperluan menyimpan bukti tersebut. Laluan menangani jurang teknikal yang paling diutamakan dahulu, memilih kursus yang meliputi paling banyak keutamaan bagi setiap jam belajar dalam bajet anda, menjadualkannya mengikut jam belajar seminggu anda, dan diakhiri dengan projek portfolio kira-kira ${projectHours} jam berdasarkan tugas sebenar dalam peranan itu yang dibantu AI, bukan digantikan olehnya.`,
       progress:
         "Apabila anda menandakan satu langkah sebagai selesai, kemahiran yang diliputinya naik ke tahap yang disokong oleh buktinya: kursus ke tahap 1 (kerja kursus), projek portfolio ke tahap 2 (kerja projek), iaitu tahap yang sama diberikan oleh bahagian Kerja Kursus dan Projek dalam CV. Padanan dan laluan kemudian dikira semula, dan kursus yang telah selesai tidak dicadangkan lagi. Lencana dikira daripada langkah yang telah selesai (langkah pertama, separuh jalan, jurang yang ditutup ke tahap yang diperlukan peranan, langkah yang menyumbang kepada matlamat SDG pilihan anda, dan keseluruhan laluan); membuat asal satu langkah menarik balik apa yang diperolehnya.",
+      circles: (circleSize, groupSize) =>
+        `Bulatan belajar menyenaraikan sehingga ${circleSize} pelajar kohort sintetik yang kekurangan kemahiran yang sama dengan kursus anda yang seterusnya, dipadankan berdasarkan jurang kemahiran sahaja. Paparan pusat kerjaya mengumpulkan kohort mengikut jurang pertama dalam laluan setiap pelajar, sehingga ${groupSize} orang bagi setiap kumpulan, masing-masing dengan kursus permulaan. SkillTide tidak mempunyai akaun, jadi ini menunjukkan cara pusat kerjaya boleh mengumpulkan pelajar yang memilih untuk menyertainya; tiada data sesiapa dikongsi.`,
     },
     scenarios: {
       title: "4. Senario",
@@ -329,6 +333,8 @@ export const METHODOLOGY = defineMessages({
         `岗位要求来自 O*NET：O*NET 标注为该职业热门需求的技术、经过评级的技能和知识，以及任务陈述中提到的技能。每项要求都保留相应的依据。学习路径先补最高优先级的技术缺口：在你的预算内，挑选每小时学习能覆盖最多优先需求的课程，按你每周的学习时长排期，最后安排一个约 ${projectHours} 小时的作品集项目，项目基于该岗位中一项由 AI 辅助而非取代的真实任务。`,
       progress:
         "把一个步骤标记为完成后，它覆盖的技能会提升到其依据所支持的水平：课程提升到 1 级（课程学习），作品集项目提升到 2 级（项目实践），与简历中“课程”和“项目”部分给出的等级相同。随后会重新计算岗位匹配和学习路径，已完成的课程不会再被推荐。徽章根据已完成的步骤计算（迈出第一步、完成一半、把一个缺口补到岗位要求的水平、完成一个服务你所选 SDG 目标的步骤、完成整条路径）；撤销一个步骤会收回它带来的徽章。",
+      circles: (circleSize, groupSize) =>
+        `学习小组列出最多 ${circleSize} 名合成年级群体中的同学，他们缺少的技能与你的下一门课程相同，只按技能缺口匹配。就业指导中心视图按每名学生学习路径上的第一个缺口为群体分组，每组最多 ${groupSize} 人，并各配一门入门课程。SkillTide 没有账号，所以这些只是展示就业指导中心可以如何为自愿参加的学生分组，不会共享任何人的数据。`,
     },
     scenarios: {
       title: "4. 情景",

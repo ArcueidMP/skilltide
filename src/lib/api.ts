@@ -2,6 +2,7 @@
 // call fails, so a failure here never stops a page.
 
 import {
+  API_REVISION,
   API_PREFIX,
   DATASET_HEADER,
   type ApiSuccess,
@@ -101,8 +102,9 @@ const post = (body: unknown): RequestInit => ({
   body: JSON.stringify(body),
 });
 
-// The dataset version in the URL makes these responses safe to cache for good.
-const query = (snapshot: string, scenario: ScenarioId) => new URLSearchParams({ snapshot, scenario, v: datasetVersion }).toString();
+// The dataset version and API revision in the URL make these responses safe to cache for good.
+const query = (snapshot: string, scenario: ScenarioId) =>
+  new URLSearchParams({ snapshot, scenario, v: datasetVersion, r: API_REVISION }).toString();
 
 export const skilltideApi = {
   outlooks: (snapshot: string, scenario: ScenarioId) => call<OutlooksResult>(`/outlooks?${query(snapshot, scenario)}`),

@@ -1,5 +1,6 @@
 // Request and response shapes of SkillTide's HTTP API (src/server), shared by the Worker and the browser.
 
+import type { StudyCircle } from "./circles";
 import type { CohortSummary } from "./cohort";
 import type { ScenarioComparisonSummary } from "./comparison";
 import type { FairnessResult, Pathway, RoleMatch, RoleOutlook, SkillTrend } from "./engine";
@@ -10,6 +11,9 @@ export const API_PREFIX = "/api/v1";
 
 /** Request header with the dataset version the page was built with. */
 export const DATASET_HEADER = "x-skilltide-dataset";
+
+/** Bump when a GET response changes shape, so browsers stop reusing responses cached in the old shape. */
+export const API_REVISION = "2";
 
 /**
  * The part of a profile the API needs. Names, graduation years, interests, CV text and evidence
@@ -92,6 +96,7 @@ export interface MatchesResult {
   /** The role the pathway was built for: the requested target if it exists, else the top match. */
   targetRoleId: string | null;
   pathway: Pathway | null;
+  circle: StudyCircle | null;
   fairness: FairnessResult;
 }
 

@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it, vi } from "vitest";
 import { respond, type AgentContext } from "@/lib/agent";
 import { computeCohort, computeComparison, computeMatches, computeOutlooks } from "@/lib/analysis";
-import { toApiProfile, type GuideRequest, type GuideResult, type MatchesRequest, type MatchesResult } from "@/lib/api-types";
+import { API_REVISION, toApiProfile, type GuideRequest, type GuideResult, type MatchesRequest, type MatchesResult } from "@/lib/api-types";
 import { dataset, datasetVersion, scenarioById, snapshotById } from "@/lib/data";
 import { extractSkills, type RoleMatch } from "@/lib/engine";
 import type { Locale } from "@/lib/i18n";
@@ -215,7 +215,9 @@ describe("API requests", () => {
   });
 
   it("lets browsers cache versioned reads and nothing personal", async () => {
-    expect((await get(`/outlooks?snapshot=latest&scenario=fast&v=${datasetVersion}`)).headers.get("cache-control")).toBe("public, max-age=31536000, immutable");
+    expect((await get(`/outlooks?snapshot=latest&scenario=fast&v=${datasetVersion}&r=${API_REVISION}`)).headers.get("cache-control")).toBe("public, max-age=31536000, immutable");
+    // A page from before the last change of response shape must not keep the old answer for a year.
+    expect((await get(`/outlooks?snapshot=latest&scenario=fast&v=${datasetVersion}`)).headers.get("cache-control")).toBe("public, max-age=300");
     expect((await get("/outlooks?snapshot=latest&scenario=fast")).headers.get("cache-control")).toBe("public, max-age=300");
     expect((await post("/matches", matchesRequest())).headers.get("cache-control")).toBe("no-store");
     expect((await get("/health")).headers.get("cache-control")).toBe("no-store");

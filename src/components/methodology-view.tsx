@@ -2,6 +2,8 @@
 
 import type { ReactNode } from "react";
 import { ExternalLink } from "lucide-react";
+import { CIRCLE_SIZE } from "@/lib/circles";
+import { GROUP_SIZE } from "@/lib/cohort";
 import { dataset, roleById } from "@/lib/data";
 import { LANGUAGE_TRANSFER, OUTLOOK_MODEL, PROJECT_HOURS, SKILL_MODEL } from "@/lib/engine";
 import { dataDate } from "@/lib/freshness";
@@ -106,6 +108,7 @@ match = (w_skills × skills fit + w_outlook × outlook + w_sdg × SDG fit) ÷ (w
   SDG fit    = share of your chosen goals the role contributes to (switched off if you pick none)`}</Formula>
           <p>{t.skills.body(PROJECT_HOURS)}</p>
           <p>{t.skills.progress}</p>
+          <p>{t.skills.circles(CIRCLE_SIZE, GROUP_SIZE)}</p>
         </div>
       </Card>
 

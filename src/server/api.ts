@@ -3,7 +3,7 @@
 
 import { computeComparison, computeMatches } from "@/lib/analysis";
 import type { CohortSummary } from "@/lib/cohort";
-import { API_PREFIX, DATASET_HEADER, type ApiSuccess, type GuideResult, type HealthResult, type MatchesResult, type OutlooksResult } from "@/lib/api-types";
+import { API_PREFIX, API_REVISION, DATASET_HEADER, type ApiSuccess, type GuideResult, type HealthResult, type MatchesResult, type OutlooksResult } from "@/lib/api-types";
 import { dataset, datasetVersion } from "@/lib/data";
 import materialized from "./generated/cohort.json";
 import { answerGuide, type EdgeCache, type GuideDeps } from "./guide";
@@ -104,7 +104,8 @@ function edgeCache(): EdgeCache | null {
 
 function cacheControl(route: Route, url: URL) {
   if (route.cache === "versioned") {
-    return url.searchParams.get("v") === datasetVersion ? "public, max-age=31536000, immutable" : "public, max-age=300";
+    const current = url.searchParams.get("v") === datasetVersion && url.searchParams.get("r") === API_REVISION;
+    return current ? "public, max-age=31536000, immutable" : "public, max-age=300";
   }
   return "no-store";
 }
