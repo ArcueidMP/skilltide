@@ -1,0 +1,19 @@
+# Installed or downloaded locally (see README)
+/node_modules/
+/.venv/
+/models/
+
+# Generated while building the film. The timeline and sound cues are kept so the
+# picture can be rendered without re-running the narration.
+/build/*
+!/build/timeline.json
+!/build/sfx.json
+
+# Rendered films and audio stems are too large for git (GitHub's limit is 100 MB a file).
+/out/*
+!/out/skilltide-demo.srt
+!/out/narration-script.txt
+!/out/poster.png
+
+# Full-viewport previews written by the capture; the film only uses the layers.
+/assets/plates/*/flat.png

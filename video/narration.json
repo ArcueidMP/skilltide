@@ -1,0 +1,206 @@
+[
+ {
+  "id": "L01",
+  "scene": "open",
+  "sub": "AI is changing the tasks inside entry-level technical jobs, faster than degree programmes and career advice can follow.",
+  "say": "AI is changing the tasks inside entry-level technical jobs, faster than degree programmes, and career advice, can follow."
+ },
+ {
+  "id": "L02",
+  "scene": "open",
+  "sub": "This is SkillTide: a chart of that change, for students about to graduate into it.",
+  "say": "This is SkillTide: a chart of that change, for students about to graduate into it."
+ },
+ {
+  "id": "L03",
+  "scene": "problem",
+  "sub": "In Malaysia, 56% of working professionals already use AI tools at work. Only 26% have been trained to use them.",
+  "say": "In Malaysia, fifty-six percent of working professionals already use AI tools at work. Only twenty-six percent have been trained to use them."
+ },
+ {
+  "id": "L04",
+  "scene": "problem",
+  "sub": "TalentCorp expects about 697,000 workers to be significantly affected by AI, digitalisation and the green economy within three to five years.",
+  "say": "Talent Corp expects about six hundred and ninety-seven thousand workers to be significantly affected by AI, digitalisation and the green economy, within three to five years."
+ },
+ {
+  "id": "L05",
+  "scene": "problem",
+  "sub": "For a final-year student, that leaves three gaps: no live view of the change, no evidence behind the advice, and no plan that fits final year.",
+  "say": "For a final-year student, that leaves three gaps. No live view of the change. No evidence behind the advice. And no plan that fits final year."
+ },
+ {
+  "id": "L06",
+  "scene": "approach",
+  "sub": "SkillTide turns dated public signals into an AI-exposure estimate for every task in a job, then rolls tasks up into roles and skills.",
+  "say": "SkillTide turns dated public signals into an AI-exposure estimate for every task in a job, then rolls those tasks up into roles and skills."
+ },
+ {
+  "id": "L07",
+  "scene": "approach",
+  "sub": "A student moves through four steps, with a guide that explains every answer.",
+  "say": "A student moves through four steps, with a guide that explains every answer."
+ },
+ {
+  "id": "L08",
+  "scene": "profile",
+  "sub": "Meet Kavin, a synthetic final-year mechatronics student in Johor.",
+  "say": "Meet Kavin, a synthetic final-year mechatronics student in Johor."
+ },
+ {
+  "id": "L09",
+  "scene": "profile",
+  "sub": "His CV is read right in the browser. Nothing is uploaded.",
+  "say": "His CV is read right in the browser. Nothing is uploaded."
+ },
+ {
+  "id": "L10",
+  "scene": "profile",
+  "sub": "SkillTide finds twelve skills and grades each by where it appears: PLC, SCADA and maintenance from his internship; robotics, vision and Python from projects; control and sensors from coursework.",
+  "say": "SkillTide finds twelve skills, and grades each one by where it appears. PLC, Scada and maintenance from his internship. Robotics, vision and Python from his projects. Control systems and sensors from coursework."
+ },
+ {
+  "id": "L11",
+  "scene": "radar",
+  "sub": "The Skills Radar marks 57 skills and 30 roles as rising, steady, transforming or under pressure.",
+  "say": "The Skills Radar marks fifty-seven skills and thirty roles as rising, steady, transforming, or under pressure."
+ },
+ {
+  "id": "L12",
+  "scene": "radar",
+  "sub": "Each estimate is built task by task: how people already use AI on it, how far AI could go, and how hiring is moving.",
+  "say": "Each estimate is built task by task: how people already use AI on it, how far AI could go, and how hiring is moving."
+ },
+ {
+  "id": "L13",
+  "scene": "match",
+  "sub": "Matches rank 30 roles with a visible formula: skills fit, AI outlook and SDG fit, weighted the way Kavin chooses.",
+  "say": "Matches rank thirty roles with a visible formula: skills fit, AI outlook, and SDG fit, weighted the way Kavin chooses."
+ },
+ {
+  "id": "L14",
+  "scene": "match",
+  "sub": "With no goals set, Mechatronics Engineer comes first.",
+  "say": "With no goals set, Mechatronics Engineer comes first."
+ },
+ {
+  "id": "L15",
+  "scene": "match",
+  "sub": "Kavin cares about industry and innovation, and about less waste, so he picks SDG 9 and SDG 12.",
+  "say": "Kavin cares about industry and innovation, and about less waste, so he picks SDG nine, and SDG twelve."
+ },
+ {
+  "id": "L16",
+  "scene": "match",
+  "sub": "Manufacturing Engineer now leads with 56, and each SDG link names the real task behind it.",
+  "say": "Manufacturing Engineer now leads, with fifty-six. And each SDG link names the real task behind it."
+ },
+ {
+  "id": "L17",
+  "scene": "replay",
+  "sub": "Every signal is dated, so the forecast can be replayed.",
+  "say": "Every signal is dated, so the forecast can be replayed."
+ },
+ {
+  "id": "L18",
+  "scene": "replay",
+  "sub": "With March 2025 data, the same profile pointed to Electro-Mechanical & Mechatronics Technician. With today's data, it's Manufacturing Engineer.",
+  "say": "With March twenty twenty-five data, the same profile pointed to Electro-Mechanical and Mechatronics Technician. With today's data, it's Manufacturing Engineer."
+ },
+ {
+  "id": "L19",
+  "scene": "replay",
+  "sub": "The Guide notices, re-plans, and says what replaced what. Replays use today's catalogue, so they are not a backtest.",
+  "say": "The Guide notices, re-plans, and says what replaced what. Replays use today's catalogue, so they are not a back-test."
+ },
+ {
+  "id": "L20",
+  "scene": "scenario",
+  "sub": "Nobody knows how fast AI will spread, so SkillTide runs two scenarios side by side, changing only the adoption assumption.",
+  "say": "Nobody knows how fast AI will spread, so SkillTide runs two scenarios side by side, changing only the adoption assumption."
+ },
+ {
+  "id": "L21",
+  "scene": "scenario",
+  "sub": "Manufacturing Engineer leads in both, but under fast adoption its outlook drops from 73 to 67.",
+  "say": "Manufacturing Engineer leads in both. But under fast adoption, its outlook drops from seventy-three, to sixty-seven."
+ },
+ {
+  "id": "L22",
+  "scene": "pathway",
+  "sub": "Kavin leaves with a plan: 45 hours over six weeks, at eight hours a week.",
+  "say": "Kavin leaves with a plan: forty-five hours over six weeks, at eight hours a week."
+ },
+ {
+  "id": "L23",
+  "scene": "pathway",
+  "sub": "Two free courses, then a 20-hour portfolio project built on a real task of the role.",
+  "say": "Two free courses, then a twenty-hour portfolio project, built on a real task of the role."
+ },
+ {
+  "id": "L24",
+  "scene": "pathway",
+  "sub": "Every course links to where its hours and cost were read, and a gap with no verified course is named, not filled.",
+  "say": "Every course links to where its hours and cost were read. And a gap with no verified course is named, not filled."
+ },
+ {
+  "id": "L25",
+  "scene": "cohort",
+  "sub": "Career centres run the same engine across a synthetic cohort, to see which rising skills few students have.",
+  "say": "Career centres run the same engine across a synthetic cohort, to see which rising skills few students have."
+ },
+ {
+  "id": "L26",
+  "scene": "cohort",
+  "sub": "Scoring never uses names or backgrounds, and every ranking is re-run for eight profile variants. It must stay identical.",
+  "say": "Scoring never uses names or backgrounds, and every ranking is re-run for eight profile variants. It must stay identical."
+ },
+ {
+  "id": "L27",
+  "scene": "engine",
+  "sub": "Under the hood, one Python script rebuilds the dataset from 13 public sources.",
+  "say": "Under the hood, one Python script rebuilds the dataset from thirteen public sources."
+ },
+ {
+  "id": "L28",
+  "scene": "engine",
+  "sub": "Every Monday, GitHub Actions refreshes it, runs the tests, and redeploys only if they pass.",
+  "say": "Every Monday, GitHub Actions refreshes it, runs the tests, and redeploys only if they pass."
+ },
+ {
+  "id": "L29",
+  "scene": "engine",
+  "sub": "No language model runs in SkillTide, so it cannot invent a job, a course or a number.",
+  "say": "No language model runs in SkillTide, so it cannot invent a job, a course, or a number."
+ },
+ {
+  "id": "L30",
+  "scene": "engine",
+  "sub": "Twelve synthetic test cases check coverage, budgets and fairness. They are design checks, not proof of job outcomes.",
+  "say": "Twelve synthetic test cases check coverage, budgets and fairness. They are design checks, not proof of job outcomes."
+ },
+ {
+  "id": "L31",
+  "scene": "future",
+  "sub": "Each layer reads only the one above it, so every new source flows through to every screen.",
+  "say": "Each layer reads only the one above it, so every new source flows through to every screen."
+ },
+ {
+  "id": "L32",
+  "scene": "future",
+  "sub": "Next: more Malaysian signals, from the critical occupations list and national job-market data.",
+  "say": "Next, more Malaysian signals: from the critical occupations list, and national job-market data."
+ },
+ {
+  "id": "L33",
+  "scene": "future",
+  "sub": "Testing with final-year volunteers, Bahasa Malaysia and Chinese, and a low-bandwidth mode.",
+  "say": "Testing with final-year volunteers. Bahasa Malaysia and Chinese. And a low-bandwidth mode."
+ },
+ {
+  "id": "L34",
+  "scene": "close",
+  "sub": "SkillTide. Chart your course before you graduate.",
+  "say": "SkillTide. Chart your course, before you graduate."
+ }
+]

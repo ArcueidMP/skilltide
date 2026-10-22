@@ -1,0 +1,14 @@
+import { chromium } from "playwright-core";
+import fs from "node:fs/promises";
+const browser = await chromium.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
+const page = await browser.newPage();
+page.on("pageerror", (e) => console.log("pageerror", e.message));
+await page.goto("http://127.0.0.1:5199/tools/cv.html");
+await page.waitForFunction(() => window.__result, null, { timeout: 60000 });
+const r = await page.evaluate(() => window.__result);
+await fs.writeFile("assets/cv/page.png", Buffer.from(r.png.split(",")[1], "base64"));
+delete r.png;
+await fs.writeFile("assets/cv/text.json", JSON.stringify(r, null, 1));
+console.log(r.width, r.height, r.items.length, "items");
+for (const i of r.items) console.log(Math.round(i.x), Math.round(i.y), Math.round(i.w), Math.round(i.h), i.str);
+await browser.close();

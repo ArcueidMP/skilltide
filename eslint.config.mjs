@@ -18,6 +18,8 @@ const eslintConfig = defineConfig([
     "test-results/**",
     "build/**",
     "next-env.d.ts",
+    // The demo film is a separate browser project with its own tooling.
+    "video/**",
   ]),
 ]);
 
