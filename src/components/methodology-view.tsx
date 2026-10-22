@@ -105,6 +105,7 @@ match = (w_skills × skills fit + w_outlook × outlook + w_sdg × SDG fit) ÷ (w
                (another programming language you know counts as ${LANGUAGE_TRANSFER * 100}% of the way)
   SDG fit    = share of your chosen goals the role contributes to (switched off if you pick none)`}</Formula>
           <p>{t.skills.body(PROJECT_HOURS)}</p>
+          <p>{t.skills.progress}</p>
         </div>
       </Card>
 

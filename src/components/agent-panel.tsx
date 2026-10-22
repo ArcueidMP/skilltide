@@ -1,15 +1,17 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 import { LifeBuoy, Send } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { useStore } from "@/lib/store";
 import { replanMessage, suggestionsFor, type AgentContext, type AgentMessage } from "@/lib/agent";
 import { toApiProfile } from "@/lib/api-types";
 import { askGuide } from "@/lib/guide-client";
+import { pathwayDone } from "@/lib/progress";
 import { useAnalysis } from "@/lib/use-analysis";
 import { useMessages } from "@/lib/use-messages";
+import { useProgressNote } from "@/lib/use-progress-note";
 import { GUIDE_PANEL } from "@/messages/guide";
 import { Segmented } from "./ui";
 import { CitationList } from "./citations";
@@ -55,6 +57,12 @@ export function AgentPanel() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [viewKey, topRole, store.hydrated]);
 
+  // After a pathway step is marked done, say what changed once the re-planned results arrive.
+  const postNote = useCallback((text: string) => {
+    setMessages((current) => [...current, { id: `m${nextId.current++}`, role: "agent", kind: "replan", text }]);
+  }, []);
+  useProgressNote(analysis, postNote);
+
   async function ask(question: string) {
     const text = question.trim();
     if (!text) return;
@@ -78,6 +86,7 @@ export function AgentPanel() {
       weights: store.weights,
       profile: store.profile ? toApiProfile(store.profile) : null,
       targetRoleId: store.targetRoleId,
+      done: pathwayDone(store.progress),
       locale: store.locale,
     });
     setMessages((current) => current.map((message) => (message.id === replyId ? { ...reply, id: replyId } : message)));

@@ -156,7 +156,7 @@ export const GUIDE = defineMessages<GuideText>({
     list: commaList,
     price: { free: "free", low: "low cost" },
     privacy:
-      "Your profile and skill evidence are kept only in this browser's local storage. PDF and text CVs are scanned in your browser with fixed rules; the file and full CV text are never uploaded or saved. To rank roles and build your pathway, SkillTide's API receives only your skills and levels, chosen goals, weekly study hours and budget, and the interface language, and stores none of them. AI wording is off unless you turn it on; then your question and SkillTide's computed facts are sent to OpenAI to phrase the answer. Use Reset demo on Profile to clear your profile, CV text and preferences.",
+      "Your profile, skill evidence, pathway progress and badges are kept only in this browser's local storage. PDF and text CVs are scanned in your browser with fixed rules; the file and full CV text are never uploaded or saved. To rank roles and build your pathway, SkillTide's API receives only your skills and levels, chosen goals, weekly study hours and budget, the ids of the pathway steps you marked done (course ids and O*NET task ids) and the interface language, and stores none of them. AI wording is off unless you turn it on; then your question and SkillTide's computed facts are sent to OpenAI to phrase the answer. Use Reset demo on Profile to clear your profile, CV text, pathway progress and preferences.",
     fairness:
       "Scoring uses only your skills, study time, budget and chosen goals — never your name, age, gender, ethnicity or background. Each time you are matched, SkillTide re-ranks eight variants of your profile with different names and graduation years; the rankings must be identical, and the result is shown on the matches page.",
     accuracy:
@@ -253,7 +253,7 @@ export const GUIDE = defineMessages<GuideText>({
     list: commaList,
     price: { free: "percuma", low: "kos rendah" },
     privacy:
-      "Profil dan bukti kemahiran anda disimpan hanya dalam storan tempatan pelayar ini. CV PDF dan teks diimbas dalam pelayar anda menggunakan peraturan tetap; fail dan teks penuh CV tidak pernah dimuat naik atau disimpan. Untuk menyusun kedudukan peranan dan membina laluan anda, API SkillTide hanya menerima kemahiran dan tahap anda, matlamat yang dipilih, jam belajar mingguan dan bajet serta bahasa antara muka, dan tidak menyimpan satu pun daripadanya. Susunan ayat AI dimatikan melainkan anda menghidupkannya; apabila dihidupkan, soalan anda dan fakta yang dikira oleh SkillTide dihantar kepada OpenAI untuk menyusun ayat jawapan. Gunakan Tetapkan semula demo pada halaman Profil untuk mengosongkan profil, teks CV dan pilihan anda.",
+      "Profil, bukti kemahiran, kemajuan laluan dan lencana anda disimpan hanya dalam storan tempatan pelayar ini. CV PDF dan teks diimbas dalam pelayar anda menggunakan peraturan tetap; fail dan teks penuh CV tidak pernah dimuat naik atau disimpan. Untuk menyusun kedudukan peranan dan membina laluan anda, API SkillTide hanya menerima kemahiran dan tahap anda, matlamat yang dipilih, jam belajar mingguan dan bajet, ID langkah laluan yang anda tandakan selesai (ID kursus dan ID tugas O*NET) serta bahasa antara muka, dan tidak menyimpan satu pun daripadanya. Susunan ayat AI dimatikan melainkan anda menghidupkannya; apabila dihidupkan, soalan anda dan fakta yang dikira oleh SkillTide dihantar kepada OpenAI untuk menyusun ayat jawapan. Gunakan Tetapkan semula demo pada halaman Profil untuk mengosongkan profil, teks CV, kemajuan laluan dan pilihan anda.",
     fairness:
       "Pemarkahan hanya menggunakan kemahiran, masa belajar, bajet dan matlamat yang anda pilih — bukan nama, umur, jantina, etnik atau latar belakang anda. Setiap kali anda dipadankan, SkillTide menyusun semula kedudukan lapan variasi profil anda yang mempunyai nama dan tahun graduasi berbeza; kedudukannya mesti sama, dan hasilnya ditunjukkan pada halaman Padanan.",
     accuracy:
@@ -352,7 +352,7 @@ export const GUIDE = defineMessages<GuideText>({
     list: chineseList,
     price: { free: "免费", low: "低成本" },
     privacy:
-      "你的个人档案和技能证据只保存在这个浏览器的本地存储中。PDF 和文本简历在你的浏览器里按固定规则扫描；文件本身和简历全文从不上传，也不保存。为了给岗位排名并生成学习路径，SkillTide 的 API 只接收你的技能及其水平、所选目标、每周学习时长和预算以及界面语言，并且一项都不保存。AI 措辞默认关闭；只有你打开后，你的问题和 SkillTide 计算出的事实才会发送给 OpenAI，用来组织回答的措辞。在“个人档案”页面使用“重置演示”，即可清除你的个人档案、简历文本和偏好设置。",
+      "你的个人档案、技能证据、学习路径进度和徽章只保存在这个浏览器的本地存储中。PDF 和文本简历在你的浏览器里按固定规则扫描；文件本身和简历全文从不上传，也不保存。为了给岗位排名并生成学习路径，SkillTide 的 API 只接收你的技能及其水平、所选目标、每周学习时长和预算、你标记为已完成的路径步骤的 ID（课程 ID 和 O*NET 任务 ID）以及界面语言，并且一项都不保存。AI 措辞默认关闭；只有你打开后，你的问题和 SkillTide 计算出的事实才会发送给 OpenAI，用来组织回答的措辞。在“个人档案”页面使用“重置演示”，即可清除你的个人档案、简历文本、学习路径进度和偏好设置。",
     fairness:
       "评分只使用你的技能、学习时间、预算和你选择的目标，绝不使用你的姓名、年龄、性别、族裔或背景。每次匹配时，SkillTide 都会把你的个人档案换成八个姓名和毕业年份各不相同的版本，重新排名；这些排名必须完全一致，结果显示在“岗位匹配”页面上。",
     accuracy:

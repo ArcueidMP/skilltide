@@ -5,6 +5,7 @@ import type {
   Course,
   Dataset,
   MatchWeights,
+  PathwayDone,
   Profile,
   Role,
   ScenarioSpec,
@@ -365,21 +366,31 @@ export interface Pathway {
   uncoveredSkillIds: string[];
 }
 
-const LEVEL_RANK = { intro: 0, intermediate: 1, advanced: 2 } as const;
+export const LEVEL_RANK = { intro: 0, intermediate: 1, advanced: 2 } as const;
 export const PROJECT_HOURS = 20;
+
+/** Human skills and maths are practised in projects rather than taught by one course. */
+export function generalSkillIds(dataset: Dataset): Set<string> {
+  return new Set(dataset.skills.filter((s) => s.cluster === "human" || s.id === "math").map((s) => s.id));
+}
 
 export function buildPathway(
   profile: Profile,
   match: RoleMatch,
   dataset: Dataset,
-  options: { maxGaps?: number; maxHours?: number } = {},
+  options: { maxGaps?: number; maxHours?: number; done?: PathwayDone } = {},
 ): Pathway {
   const maxGaps = options.maxGaps ?? 6;
   const maxHours = options.maxHours ?? 240;
-  const allowed = (course: Course) => profile.budget === "low" || course.cost === "free";
-  const general = new Set(dataset.skills.filter((s) => s.cluster === "human" || s.id === "math").map((s) => s.id));
-  const focus = match.gaps.filter((gap) => !general.has(gap.skillId)).slice(0, maxGaps);
-  const practise = match.gaps.filter((gap) => general.has(gap.skillId)).map((gap) => gap.skillId);
+  const doneCourses = new Set(options.done?.courses ?? []);
+  const doneTasks = new Set(options.done?.tasks ?? []);
+  const allowed = (course: Course) => !doneCourses.has(course.id) && (profile.budget === "low" || course.cost === "free");
+  const general = generalSkillIds(dataset);
+  // A skill from a finished course still short of the role's level is practised in the project, not studied again.
+  const studied = new Set(dataset.courses.filter((course) => doneCourses.has(course.id)).flatMap((course) => course.skills));
+  const practised = (skillId: string) => general.has(skillId) || studied.has(skillId);
+  const focus = match.gaps.filter((gap) => !practised(gap.skillId)).slice(0, maxGaps);
+  const practise = match.gaps.filter((gap) => practised(gap.skillId)).map((gap) => gap.skillId);
   const open = new Map(focus.map((gap) => [gap.skillId, gap]));
   const chosen: { course: Course; covers: string[] }[] = [];
   let hours = 0;
@@ -429,17 +440,20 @@ export function buildPathway(
     });
   }
 
-  // Finish with a portfolio project built around the role's most AI-assisted task.
-  const assisted = [...match.outlook.tasks].sort(
-    (a, b) => b.exposure * (1 - b.automation) - a.exposure * (1 - a.automation),
-  )[0];
-  if (assisted) {
+  // Finish with a portfolio project built around the role's most AI-assisted task not yet done. Once one
+  // project is done, another is suggested only while skills are left to practise.
+  const assisted = [...match.outlook.tasks]
+    .sort((a, b) => b.exposure * (1 - b.automation) - a.exposure * (1 - a.automation))
+    .find((task) => !doneTasks.has(task.taskId));
+  const projectSkills = [...new Set([...chosen.flatMap((c) => c.covers), ...practise])];
+  const projectDone = match.outlook.tasks.some((task) => doneTasks.has(task.taskId));
+  if (assisted && (projectSkills.length || !projectDone)) {
     const startWeek = Math.floor(elapsed / perWeek) + 1;
     elapsed += PROJECT_HOURS;
     steps.push({
       kind: "project",
       task: { id: assisted.taskId, statement: assisted.statement },
-      skillIds: [...new Set([...chosen.flatMap((c) => c.covers), ...practise])],
+      skillIds: projectSkills,
       hours: PROJECT_HOURS,
       startWeek,
       endWeek: Math.ceil(elapsed / perWeek),

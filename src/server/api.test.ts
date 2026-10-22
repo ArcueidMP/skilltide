@@ -55,6 +55,7 @@ const matchesRequest = (profile = kavin, scenario: ScenarioId = "moderate"): Mat
   weights: WEIGHTS,
   profile: toApiProfile(profile),
   targetRoleId: null,
+  done: { courses: [], tasks: [] },
 });
 
 beforeAll(() => {

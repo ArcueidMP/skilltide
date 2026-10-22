@@ -4,13 +4,15 @@
 import type { ApiProfile, CompareRequest, GuideRequest, MatchesRequest } from "@/lib/api-types";
 import { dataset } from "@/lib/data";
 import { LOCALES, type Locale } from "@/lib/i18n";
-import type { MatchWeights, ScenarioId, SkillLevel } from "@/lib/types";
+import type { MatchWeights, PathwayDone, ScenarioId, SkillLevel } from "@/lib/types";
 import { ApiError } from "./http";
 
 const SKILLS = new Set(dataset.skills.map((skill) => skill.id));
 const ROLES = new Set(dataset.roles.map((role) => role.id));
 const SNAPSHOTS = new Set(dataset.snapshots.map((snapshot) => snapshot.id));
 const SCENARIOS = new Set<string>(dataset.scenarios.map((scenario) => scenario.id));
+const COURSES = new Set(dataset.courses.map((course) => course.id));
+const TASKS = new Set(dataset.roles.flatMap((role) => role.tasks.map((task) => task.id)));
 const LOCALE_CODES = new Set<string>(LOCALES.map((locale) => locale.value));
 
 export const MAX_QUESTION_CHARS = 500;
@@ -93,6 +95,25 @@ class Checker {
     return { skills, sdgGoals, hoursPerWeek: this.number(fields?.hoursPerWeek, "profile.hoursPerWeek", 1, 60), budget: budget ?? "free" };
   }
 
+  ids(value: unknown, path: string, known: Set<string>): string[] {
+    const ids: string[] = [];
+    if (!Array.isArray(value) || value.length > known.size) {
+      this.fail(path, `must be a list of at most ${known.size} ids`);
+      return ids;
+    }
+    value.forEach((id: unknown, index: number) => {
+      if (typeof id !== "string" || !known.has(id)) return this.fail(`${path}[${index}]`, "is not a SkillTide id");
+      if (!ids.includes(id)) ids.push(id);
+    });
+    return ids;
+  }
+
+  pathwayDone(value: unknown): PathwayDone {
+    if (value === undefined) return { courses: [], tasks: [] };
+    const fields = this.record(value, "done");
+    return { courses: this.ids(fields?.courses, "done.courses", COURSES), tasks: this.ids(fields?.tasks, "done.tasks", TASKS) };
+  }
+
   locale(value: unknown): Locale {
     return value === undefined ? "en" : this.oneOf<Locale>(value, "locale", LOCALE_CODES, "en");
   }
@@ -129,6 +150,7 @@ export function parseMatchesRequest(body: unknown): MatchesRequest {
     weights: check.weights(fields?.weights),
     profile: check.profile(fields?.profile),
     targetRoleId: check.roleId(fields?.targetRoleId),
+    done: check.pathwayDone(fields?.done),
   });
 }
 
@@ -159,6 +181,7 @@ export function parseGuideRequest(body: unknown): GuideRequest {
     weights: check.weights(fields?.weights),
     profile: fields?.profile === null ? null : check.profile(fields?.profile),
     targetRoleId: check.roleId(fields?.targetRoleId),
+    done: check.pathwayDone(fields?.done),
     locale: check.locale(fields?.locale),
   });
 }

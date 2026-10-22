@@ -6,6 +6,7 @@ import { skilltideApi } from "./api";
 import { toApiProfile, type CompareRequest, type MatchesRequest } from "./api-types";
 import { scenarioById, snapshotById } from "./data";
 import type { RoleMatch, RoleOutlook, SkillTrend } from "./engine";
+import { pathwayDone } from "./progress";
 import { resource, useResource } from "./remote";
 import { useStore } from "./store";
 import type { MatchWeights, Profile, ScenarioId, Snapshot } from "./types";
@@ -57,7 +58,7 @@ export function useOutlooks(scope: string, snapshotId?: string, scenarioId?: Sce
  * API computes it; the browser runs the same engine when the API cannot be reached.
  */
 export function useAnalysis() {
-  const { profile, scenario: scenarioId, snapshotId, weights, targetRoleId } = useStore();
+  const { profile, scenario: scenarioId, snapshotId, weights, targetRoleId, progress } = useStore();
   const snapshot = snapshotById(snapshotId);
   const scenario = scenarioById(scenarioId);
   const outlookView = useOutlooks("analysis", snapshot?.id, scenario?.id);
@@ -65,9 +66,16 @@ export function useAnalysis() {
   const request = useMemo<MatchesRequest | null>(
     () =>
       profile && snapshot && scenario
-        ? { snapshot: snapshot.id, scenario: scenario.id, weights, profile: toApiProfile(profile), targetRoleId }
+        ? {
+            snapshot: snapshot.id,
+            scenario: scenario.id,
+            weights,
+            profile: toApiProfile(profile),
+            targetRoleId,
+            done: pathwayDone(progress),
+          }
         : null,
-    [profile, snapshot, scenario, weights, targetRoleId],
+    [profile, snapshot, scenario, weights, targetRoleId, progress],
   );
   const matchView = useResource(
     "analysis:matches",

@@ -27,6 +27,26 @@ export interface Profile {
   budget: "free" | "low";
 }
 
+/** Pathway steps already done: their courses are not suggested again and their projects are not repeated. */
+export interface PathwayDone {
+  courses: string[];
+  /** O*NET task ids of finished portfolio projects. */
+  tasks: string[];
+}
+
+/** A pathway step the student marked done. Kept only in this browser. */
+export interface ProgressRecord {
+  kind: "course" | "project";
+  /** The course id, or the O*NET task id the project practised. */
+  id: string;
+  /** The role the pathway led to when the step was done. */
+  roleId: string;
+  /** Skill levels the step raised, with the level before, so the step can be undone. */
+  raised: { skillId: string; from: 0 | SkillLevel; to: SkillLevel }[];
+  /** yyyy-mm-dd */
+  date: string;
+}
+
 export interface MatchWeights {
   skills: number;
   outlook: number;

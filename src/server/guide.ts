@@ -62,8 +62,8 @@ export interface Fact {
 
 export function guideContext(request: GuideRequest): AgentContext {
   const { outlooks, trends } = outlooksFor(request.snapshot, request.scenario);
-  const { snapshot, scenario, weights, profile, targetRoleId } = request;
-  const analysis = profile ? computeMatches({ snapshot, scenario, weights, profile, targetRoleId }, outlooks) : null;
+  const { snapshot, scenario, weights, profile, targetRoleId, done } = request;
+  const analysis = profile ? computeMatches({ snapshot, scenario, weights, profile, targetRoleId, done }, outlooks) : null;
   return {
     pathname: request.page,
     locale: request.locale,

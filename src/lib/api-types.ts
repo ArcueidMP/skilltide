@@ -4,7 +4,7 @@ import type { CohortSummary } from "./cohort";
 import type { ScenarioComparisonSummary } from "./comparison";
 import type { FairnessResult, Pathway, RoleMatch, RoleOutlook, SkillTrend } from "./engine";
 import type { Locale } from "./i18n";
-import type { Citation, MatchWeights, Profile, ScenarioId, SkillLevel } from "./types";
+import type { Citation, MatchWeights, PathwayDone, Profile, ScenarioId, SkillLevel } from "./types";
 
 export const API_PREFIX = "/api/v1";
 
@@ -78,6 +78,8 @@ export interface MatchesRequest {
   weights: MatchWeights;
   profile: ApiProfile;
   targetRoleId: string | null;
+  /** Pathway steps the student has marked done. Optional on the wire; the server reads a missing list as empty. */
+  done: PathwayDone;
 }
 
 /** A match without its role outlook; the browser already holds outlooks from GET /outlooks. */
@@ -117,6 +119,7 @@ export interface GuideRequest {
   weights: MatchWeights;
   profile: ApiProfile | null;
   targetRoleId: string | null;
+  done: PathwayDone;
   /** The language to answer in. Optional on the wire; English when missing. */
   locale: Locale;
 }

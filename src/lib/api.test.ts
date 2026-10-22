@@ -22,6 +22,7 @@ const request: MatchesRequest = {
   weights: { skills: 40, outlook: 40, sdg: 20 },
   profile: toApiProfile({ ...persona.profile, skills: extractSkills(persona.cv, dataset.skills) }),
   targetRoleId: null,
+  done: { courses: [], tasks: [] },
 };
 
 beforeAll(() => {

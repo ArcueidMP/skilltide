@@ -29,7 +29,7 @@ export const PROFILE = defineMessages({
       readingPage: (file: string, page: number, total: number) => `Reading ${file} — page ${page} of ${total}…`,
     },
     notes: {
-      reset: "Demo reset. Your profile, CV text and saved preferences have been cleared from this browser. The language stays as you chose.",
+      reset: "Demo reset. Your profile, CV text, pathway progress and saved preferences have been cleared from this browser. The language stays as you chose.",
       /** `result` is the `found` or `none` sentence. */
       imported: (file: string, pages: number | undefined, result: string) =>
         `Imported ${file}${pages ? ` (${pages} ${pages === 1 ? "page" : "pages"})` : ""}. ${result}`,
@@ -118,7 +118,7 @@ export const PROFILE = defineMessages({
       readingPage: (file, page, total) => `Membaca ${file} — halaman ${page} daripada ${total}…`,
     },
     notes: {
-      reset: "Demo telah ditetapkan semula. Profil, teks CV dan keutamaan yang disimpan telah dipadam daripada pelayar ini. Bahasa kekal seperti yang anda pilih.",
+      reset: "Demo telah ditetapkan semula. Profil, teks CV, kemajuan laluan dan keutamaan yang disimpan telah dipadam daripada pelayar ini. Bahasa kekal seperti yang anda pilih.",
       imported: (file, pages, result) => `${file} telah diimport${pages ? ` (${pages} halaman)` : ""}. ${result}`,
       found: (count) =>
         `${count} kemahiran ditemui. Letakkan kursor pada kemahiran untuk melihat frasa asalnya, dan betulkan tahap yang kelihatan salah.`,
@@ -203,7 +203,7 @@ export const PROFILE = defineMessages({
       readingPage: (file, page, total) => `正在读取 ${file}：第 ${page} 页，共 ${total} 页…`,
     },
     notes: {
-      reset: "演示已重置。你的个人档案、简历文本和已保存的偏好设置已从此浏览器中清除。界面语言保持你的选择。",
+      reset: "演示已重置。你的个人档案、简历文本、学习路径进度和已保存的偏好设置已从此浏览器中清除。界面语言保持你的选择。",
       imported: (file, pages, result) => `已导入 ${file}${pages ? `（${pages} 页）` : ""}。${result}`,
       found: (count) => `找到 ${count} 项技能。将鼠标悬停在技能上，可以查看它出自哪句话；如有掌握程度不对，请修改。`,
       none: "没有找到 SkillTide 技能列表中的技能。请改用“选择技能”标签页。",

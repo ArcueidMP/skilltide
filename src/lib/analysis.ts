@@ -45,12 +45,13 @@ export function computeMatches(request: MatchesRequest, outlooks: Map<string, Ro
   const profile = fromApiProfile(request.profile);
   const matches = rankRoles(profile, dataset, snapshot, outlooks, request.weights);
   const target = matches.find((match) => match.roleId === request.targetRoleId) ?? matches[0];
+  const pathway = target ? buildPathway(profile, target, dataset, { done: request.done }) : null;
   return {
     snapshot: request.snapshot,
     scenario: request.scenario,
     matches,
     targetRoleId: target?.roleId ?? null,
-    pathway: target ? buildPathway(profile, target, dataset) : null,
+    pathway,
     fairness: fairnessCheck(profile, dataset, snapshot, outlooks, request.weights),
   };
 }

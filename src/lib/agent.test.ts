@@ -18,7 +18,7 @@ const PAGES = ["/profile", "/radar", "/match", "/pathway", "/career-centre", "/m
 function context(locale: Locale, options: { profile?: boolean; scenario?: ScenarioId } = {}): AgentContext {
   const scenario = options.scenario ?? "moderate";
   const { outlooks, trends } = computeOutlooks("latest", scenario);
-  const request = { snapshot: "latest", scenario, weights: WEIGHTS, profile: toApiProfile(kavin), targetRoleId: null };
+  const request = { snapshot: "latest", scenario, weights: WEIGHTS, profile: toApiProfile(kavin), targetRoleId: null, done: { courses: [], tasks: [] } };
   const analysis = options.profile === false ? null : computeMatches(request, outlooks);
   return {
     pathname: "/match",
@@ -182,9 +182,9 @@ describe("guide answers", () => {
   });
 
   it("keep every claim of the privacy answer", () => {
-    expect(respond("Is my CV stored anywhere?", context("en")).text).toContain("weekly study hours and budget, and the interface language");
-    expect(GUIDE.ms.privacy).toContain("jam belajar mingguan dan bajet serta bahasa antara muka");
-    expect(GUIDE.zh.privacy).toContain("每周学习时长和预算以及界面语言");
+    expect(respond("Is my CV stored anywhere?", context("en")).text).toContain("the ids of the pathway steps you marked done (course ids and O*NET task ids) and the interface language");
+    expect(GUIDE.ms.privacy).toContain("ID langkah laluan yang anda tandakan selesai (ID kursus dan ID tugas O*NET) serta bahasa antara muka");
+    expect(GUIDE.zh.privacy).toContain("你标记为已完成的路径步骤的 ID（课程 ID 和 O*NET 任务 ID）以及界面语言");
     for (const text of [GUIDE.ms.privacy, GUIDE.zh.privacy]) expect(text).toContain("OpenAI");
   });
 

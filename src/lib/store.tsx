@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useMemo, useSyncExternalStore, type ReactNode } from "react";
 import { isLocale, type Locale } from "./i18n";
-import type { MatchWeights, Profile, ScenarioId } from "./types";
+import type { MatchWeights, Profile, ProgressRecord, ScenarioId } from "./types";
 
 interface PersistedState {
   scenario: ScenarioId;
@@ -14,6 +14,8 @@ interface PersistedState {
   /** Let OpenAI word the guide's answers from SkillTide's facts. Off unless the user turns it on. */
   aiWording: boolean;
   locale: Locale;
+  /** Pathway steps marked done, oldest first. */
+  progress: ProgressRecord[];
 }
 
 const DEFAULT_STATE: PersistedState = {
@@ -25,6 +27,7 @@ const DEFAULT_STATE: PersistedState = {
   agentOpen: true,
   aiWording: false,
   locale: "en",
+  progress: [],
 };
 
 const STORAGE_KEY = "skilltide:v1";
@@ -47,6 +50,7 @@ function load() {
         ...DEFAULT_STATE,
         ...saved,
         locale: isLocale(saved.locale) ? saved.locale : DEFAULT_STATE.locale,
+        progress: Array.isArray(saved.progress) ? saved.progress : [],
       };
     }
   } catch {
