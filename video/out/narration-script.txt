@@ -1,0 +1,34 @@
+[00:06] AI is changing the tasks inside entry-level technical jobs, faster than degree programmes and career advice can follow.
+[00:16] This is SkillTide: a chart of that change, for students about to graduate into it.
+[00:23] In Malaysia, 56% of working professionals already use AI tools at work. Only 26% have been trained to use them.
+[00:33] TalentCorp expects about 697,000 workers to be significantly affected by AI, digitalisation and the green economy within three to five years.
+[00:45] For a final-year student, that leaves three gaps: no live view of the change, no evidence behind the advice, and no plan that fits final year.
+[00:57] SkillTide turns dated public signals into an AI-exposure estimate for every task in a job, then rolls tasks up into roles and skills.
+[01:07] A student moves through four steps, with a guide that explains every answer.
+[01:16] Meet Kavin, a synthetic final-year mechatronics student in Johor.
+[01:20] His CV is read right in the browser. Nothing is uploaded.
+[01:25] SkillTide finds twelve skills and grades each by where it appears: PLC, SCADA and maintenance from his internship; robotics, vision and Python from projects; control and sensors from coursework.
+[01:42] The Skills Radar marks 57 skills and 30 roles as rising, steady, transforming or under pressure.
+[01:49] Each estimate is built task by task: how people already use AI on it, how far AI could go, and how hiring is moving.
+[02:00] Matches rank 30 roles with a visible formula: skills fit, AI outlook and SDG fit, weighted the way Kavin chooses.
+[02:09] With no goals set, Mechatronics Engineer comes first.
+[02:14] Kavin cares about industry and innovation, and about less waste, so he picks SDG 9 and SDG 12.
+[02:24] Manufacturing Engineer now leads with 56, and each SDG link names the real task behind it.
+[02:33] Every signal is dated, so the forecast can be replayed.
+[02:37] With March 2025 data, the same profile pointed to Electro-Mechanical & Mechatronics Technician. With today's data, it's Manufacturing Engineer.
+[02:49] The Guide notices, re-plans, and says what replaced what. Replays use today's catalogue, so they are not a backtest.
+[02:59] Nobody knows how fast AI will spread, so SkillTide runs two scenarios side by side, changing only the adoption assumption.
+[03:09] Manufacturing Engineer leads in both, but under fast adoption its outlook drops from 73 to 67.
+[03:19] Kavin leaves with a plan: 45 hours over six weeks, at eight hours a week.
+[03:25] Two free courses, then a 20-hour portfolio project built on a real task of the role.
+[03:31] Every course links to where its hours and cost were read, and a gap with no verified course is named, not filled.
+[03:41] Career centres run the same engine across a synthetic cohort, to see which rising skills few students have.
+[03:48] Scoring never uses names or backgrounds, and every ranking is re-run for eight profile variants. It must stay identical.
+[03:58] Under the hood, one Python script rebuilds the dataset from 13 public sources.
+[04:04] Every Monday, GitHub Actions refreshes it, runs the tests, and redeploys only if they pass.
+[04:11] No language model runs in SkillTide, so it cannot invent a job, a course or a number.
+[04:17] Twelve synthetic test cases check coverage, budgets and fairness. They are design checks, not proof of job outcomes.
+[04:27] Each layer reads only the one above it, so every new source flows through to every screen.
+[04:33] Next: more Malaysian signals, from the critical occupations list and national job-market data.
+[04:39] Testing with final-year volunteers, Bahasa Malaysia and Chinese, and a low-bandwidth mode.
+[04:48] SkillTide. Chart your course before you graduate.

@@ -1,0 +1,259 @@
+1
+00:00:06,500 --> 00:00:10,493
+AI is changing the tasks inside entry-level technical jobs,
+
+2
+00:00:10,494 --> 00:00:14,936
+faster than degree programmes and career advice can follow.
+
+3
+00:00:15,986 --> 00:00:21,182
+This is SkillTide: a chart of that change, for students about to graduate into it.
+
+4
+00:00:23,300 --> 00:00:29,001
+In Malaysia, 56% of working professionals already use AI tools at work.
+
+5
+00:00:29,002 --> 00:00:32,583
+Only 26% have been trained to use them.
+
+6
+00:00:33,433 --> 00:00:39,393
+TalentCorp expects about 697,000 workers to be significantly affected by AI,
+
+7
+00:00:39,394 --> 00:00:44,862
+digitalisation and the green economy within three to five years.
+
+8
+00:00:45,712 --> 00:00:48,833
+For a final-year student, that leaves three gaps:
+
+9
+00:00:48,834 --> 00:00:52,528
+no live view of the change, no evidence behind the advice,
+
+10
+00:00:52,529 --> 00:00:55,080
+and no plan that fits final year.
+
+11
+00:00:57,050 --> 00:01:03,601
+SkillTide turns dated public signals into an AI-exposure estimate for every task in a job,
+
+12
+00:01:03,602 --> 00:01:07,108
+then rolls tasks up into roles and skills.
+
+13
+00:01:07,558 --> 00:01:12,231
+A student moves through four steps, with a guide that explains every answer.
+
+14
+00:01:16,200 --> 00:01:20,594
+Meet Kavin, a synthetic final-year mechatronics student in Johor.
+
+15
+00:01:20,744 --> 00:01:23,047
+His CV is read right in the browser.
+
+16
+00:01:23,048 --> 00:01:24,777
+Nothing is uploaded.
+
+17
+00:01:25,127 --> 00:01:30,004
+SkillTide finds twelve skills and grades each by where it appears:
+
+18
+00:01:30,005 --> 00:01:33,477
+PLC, SCADA and maintenance from his internship;
+
+19
+00:01:33,478 --> 00:01:36,580
+robotics, vision and Python from projects;
+
+20
+00:01:36,581 --> 00:01:39,690
+control and sensors from coursework.
+
+21
+00:01:42,150 --> 00:01:46,665
+The Skills Radar marks 57 skills and 30 roles as rising, steady,
+
+22
+00:01:46,666 --> 00:01:49,302
+transforming or under pressure.
+
+23
+00:01:49,752 --> 00:01:52,273
+Each estimate is built task by task:
+
+24
+00:01:52,274 --> 00:01:58,256
+how people already use AI on it, how far AI could go, and how hiring is moving.
+
+25
+00:02:00,800 --> 00:02:04,110
+Matches rank 30 roles with a visible formula:
+
+26
+00:02:04,111 --> 00:02:09,487
+skills fit, AI outlook and SDG fit, weighted the way Kavin chooses.
+
+27
+00:02:09,737 --> 00:02:13,271
+With no goals set, Mechatronics Engineer comes first.
+
+28
+00:02:14,621 --> 00:02:19,590
+Kavin cares about industry and innovation, and about less waste,
+
+29
+00:02:19,591 --> 00:02:22,291
+so he picks SDG 9 and SDG 12.
+
+30
+00:02:24,041 --> 00:02:27,168
+Manufacturing Engineer now leads with 56,
+
+31
+00:02:27,169 --> 00:02:31,279
+and each SDG link names the real task behind it.
+
+32
+00:02:33,400 --> 00:02:36,982
+Every signal is dated, so the forecast can be replayed.
+
+33
+00:02:37,532 --> 00:02:39,038
+With March 2025 data,
+
+34
+00:02:39,039 --> 00:02:44,273
+the same profile pointed to Electro-Mechanical & Mechatronics Technician.
+
+35
+00:02:44,274 --> 00:02:48,094
+With today's data, it's Manufacturing Engineer.
+
+36
+00:02:49,044 --> 00:02:52,642
+The Guide notices, re-plans, and says what replaced what.
+
+37
+00:02:52,643 --> 00:02:56,753
+Replays use today's catalogue, so they are not a backtest.
+
+38
+00:02:59,650 --> 00:03:05,360
+Nobody knows how fast AI will spread, so SkillTide runs two scenarios side by side,
+
+39
+00:03:05,361 --> 00:03:08,424
+changing only the adoption assumption.
+
+40
+00:03:09,074 --> 00:03:12,061
+Manufacturing Engineer leads in both,
+
+41
+00:03:12,062 --> 00:03:17,032
+but under fast adoption its outlook drops from 73 to 67.
+
+42
+00:03:19,650 --> 00:03:21,336
+Kavin leaves with a plan:
+
+43
+00:03:21,337 --> 00:03:24,955
+45 hours over six weeks, at eight hours a week.
+
+44
+00:03:25,205 --> 00:03:31,415
+Two free courses, then a 20-hour portfolio project built on a real task of the role.
+
+45
+00:03:31,765 --> 00:03:35,138
+Every course links to where its hours and cost were read,
+
+46
+00:03:35,139 --> 00:03:38,843
+and a gap with no verified course is named, not filled.
+
+47
+00:03:40,900 --> 00:03:44,567
+Career centres run the same engine across a synthetic cohort,
+
+48
+00:03:44,568 --> 00:03:47,722
+to see which rising skills few students have.
+
+49
+00:03:48,272 --> 00:03:50,885
+Scoring never uses names or backgrounds,
+
+50
+00:03:50,886 --> 00:03:54,477
+and every ranking is re-run for eight profile variants.
+
+51
+00:03:54,478 --> 00:03:56,429
+It must stay identical.
+
+52
+00:03:58,400 --> 00:04:03,986
+Under the hood, one Python script rebuilds the dataset from 13 public sources.
+
+53
+00:04:04,336 --> 00:04:08,105
+Every Monday, GitHub Actions refreshes it, runs the tests,
+
+54
+00:04:08,106 --> 00:04:10,634
+and redeploys only if they pass.
+
+55
+00:04:10,984 --> 00:04:15,158
+No language model runs in SkillTide, so it cannot invent a job,
+
+56
+00:04:15,159 --> 00:04:16,999
+a course or a number.
+
+57
+00:04:17,449 --> 00:04:21,424
+Twelve synthetic test cases check coverage, budgets and fairness.
+
+58
+00:04:21,425 --> 00:04:24,932
+They are design checks, not proof of job outcomes.
+
+59
+00:04:27,150 --> 00:04:29,309
+Each layer reads only the one above it,
+
+60
+00:04:29,310 --> 00:04:32,526
+so every new source flows through to every screen.
+
+61
+00:04:32,976 --> 00:04:34,784
+Next: more Malaysian signals,
+
+62
+00:04:34,785 --> 00:04:39,225
+from the critical occupations list and national job-market data.
+
+63
+00:04:39,675 --> 00:04:43,867
+Testing with final-year volunteers, Bahasa Malaysia and Chinese,
+
+64
+00:04:43,868 --> 00:04:45,955
+and a low-bandwidth mode.
+
+65
+00:04:48,600 --> 00:04:51,860
+SkillTide. Chart your course before you graduate.

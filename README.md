@@ -80,6 +80,7 @@ The repository includes validation and weekly/manual data-refresh workflows. Ref
 
 - The proposal is submitted separately; an [earlier working draft](docs/archive/proposal-draft-v1.md) is archived for reference.
 - [Three-minute demo script and fallback](docs/demo-script.md)
+- [Five-minute demo film](video/README.md): built from the real app and dataset, with its [subtitles](video/out/skilltide-demo.srt) and [narration script](video/out/narration-script.txt)
 - [Judge Q&A and requirement evidence](docs/judges-qa.md)
 - [Synthetic evaluation report](docs/evaluation-report.md) and [machine-readable results](docs/evaluation-results.json)
 

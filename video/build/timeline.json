@@ -1,0 +1,2748 @@
+{
+ "fps": 60,
+ "bpm": 96,
+ "beat": 0.625,
+ "duration": 300,
+ "frames": 18000,
+ "scenes": [
+  {
+   "id": "open",
+   "title": "The tide",
+   "start": 0,
+   "end": 22.5,
+   "dur": 22.5
+  },
+  {
+   "id": "problem",
+   "title": "The problem",
+   "start": 22.5,
+   "end": 56.25,
+   "dur": 33.75
+  },
+  {
+   "id": "approach",
+   "title": "The approach",
+   "start": 56.25,
+   "end": 75,
+   "dur": 18.75
+  },
+  {
+   "id": "profile",
+   "title": "1 · Profile",
+   "start": 75,
+   "end": 101.25,
+   "dur": 26.25
+  },
+  {
+   "id": "radar",
+   "title": "2 · Skills Radar",
+   "start": 101.25,
+   "end": 120,
+   "dur": 18.75
+  },
+  {
+   "id": "match",
+   "title": "3 · Matches",
+   "start": 120,
+   "end": 152.5,
+   "dur": 32.5
+  },
+  {
+   "id": "replay",
+   "title": "Replay the data",
+   "start": 152.5,
+   "end": 178.75,
+   "dur": 26.25
+  },
+  {
+   "id": "scenario",
+   "title": "Two futures",
+   "start": 178.75,
+   "end": 198.75,
+   "dur": 20
+  },
+  {
+   "id": "pathway",
+   "title": "4 · Pathway",
+   "start": 198.75,
+   "end": 220,
+   "dur": 21.25
+  },
+  {
+   "id": "cohort",
+   "title": "Career centres & fairness",
+   "start": 220,
+   "end": 237.5,
+   "dur": 17.5
+  },
+  {
+   "id": "engine",
+   "title": "Under the hood",
+   "start": 237.5,
+   "end": 266.25,
+   "dur": 28.75
+  },
+  {
+   "id": "future",
+   "title": "Next",
+   "start": 266.25,
+   "end": 287.5,
+   "dur": 21.25
+  },
+  {
+   "id": "close",
+   "title": "SkillTide",
+   "start": 287.5,
+   "end": 300,
+   "dur": 12.5
+  }
+ ],
+ "lines": [
+  {
+   "id": "L01",
+   "scene": "open",
+   "start": 6.6,
+   "end": 14.586,
+   "sub": "AI is changing the tasks inside entry-level technical jobs, faster than degree programmes and career advice can follow.",
+   "words": [
+    {
+     "w": "AI",
+     "t": 6.6
+    },
+    {
+     "w": "is",
+     "t": 7.013
+    },
+    {
+     "w": "changing",
+     "t": 7.243
+    },
+    {
+     "w": "the",
+     "t": 7.702
+    },
+    {
+     "w": "tasks",
+     "t": 7.931
+    },
+    {
+     "w": "inside",
+     "t": 8.16
+    },
+    {
+     "w": "entry-level",
+     "t": 8.619
+    },
+    {
+     "w": "technical",
+     "t": 9.537
+    },
+    {
+     "w": "jobs",
+     "t": 10.226
+    },
+    {
+     "w": "faster",
+     "t": 10.685
+    },
+    {
+     "w": "than",
+     "t": 11.144
+    },
+    {
+     "w": "degree",
+     "t": 11.373
+    },
+    {
+     "w": "programmes",
+     "t": 11.603
+    },
+    {
+     "w": "and",
+     "t": 12.521
+    },
+    {
+     "w": "career",
+     "t": 12.75
+    },
+    {
+     "w": "advice",
+     "t": 13.209
+    },
+    {
+     "w": "can",
+     "t": 13.898
+    },
+    {
+     "w": "follow",
+     "t": 14.127
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "scene": "open",
+   "start": 16.086,
+   "end": 20.832,
+   "sub": "This is SkillTide: a chart of that change, for students about to graduate into it.",
+   "words": [
+    {
+     "w": "This",
+     "t": 16.086
+    },
+    {
+     "w": "is",
+     "t": 16.291
+    },
+    {
+     "w": "SkillTide",
+     "t": 16.497
+    },
+    {
+     "w": "a",
+     "t": 17.339
+    },
+    {
+     "w": "chart",
+     "t": 17.545
+    },
+    {
+     "w": "of",
+     "t": 17.75
+    },
+    {
+     "w": "that",
+     "t": 17.956
+    },
+    {
+     "w": "change",
+     "t": 18.161
+    },
+    {
+     "w": "for",
+     "t": 18.572
+    },
+    {
+     "w": "students",
+     "t": 18.777
+    },
+    {
+     "w": "about",
+     "t": 19.188
+    },
+    {
+     "w": "to",
+     "t": 19.599
+    },
+    {
+     "w": "graduate",
+     "t": 19.805
+    },
+    {
+     "w": "into",
+     "t": 20.216
+    },
+    {
+     "w": "it",
+     "t": 20.627
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "scene": "problem",
+   "start": 23.4,
+   "end": 32.233,
+   "sub": "In Malaysia, 56% of working professionals already use AI tools at work. Only 26% have been trained to use them.",
+   "words": [
+    {
+     "w": "In",
+     "t": 23.4
+    },
+    {
+     "w": "Malaysia",
+     "t": 23.601
+    },
+    {
+     "w": "fifty-six",
+     "t": 24.406
+    },
+    {
+     "w": "percent",
+     "t": 25.01
+    },
+    {
+     "w": "of",
+     "t": 25.412
+    },
+    {
+     "w": "working",
+     "t": 25.613
+    },
+    {
+     "w": "professionals",
+     "t": 26.016
+    },
+    {
+     "w": "already",
+     "t": 26.821
+    },
+    {
+     "w": "use",
+     "t": 27.424
+    },
+    {
+     "w": "AI",
+     "t": 27.827
+    },
+    {
+     "w": "tools",
+     "t": 28.189
+    },
+    {
+     "w": "at",
+     "t": 28.39
+    },
+    {
+     "w": "work",
+     "t": 28.591
+    },
+    {
+     "w": "Only",
+     "t": 29.215
+    },
+    {
+     "w": "twenty-six",
+     "t": 29.617
+    },
+    {
+     "w": "percent",
+     "t": 30.221
+    },
+    {
+     "w": "have",
+     "t": 30.623
+    },
+    {
+     "w": "been",
+     "t": 30.825
+    },
+    {
+     "w": "trained",
+     "t": 31.026
+    },
+    {
+     "w": "to",
+     "t": 31.428
+    },
+    {
+     "w": "use",
+     "t": 31.629
+    },
+    {
+     "w": "them",
+     "t": 32.032
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "scene": "problem",
+   "start": 33.533,
+   "end": 44.512,
+   "sub": "TalentCorp expects about 697,000 workers to be significantly affected by AI, digitalisation and the green economy within three to five years.",
+   "words": [
+    {
+     "w": "Talent",
+     "t": 33.533
+    },
+    {
+     "w": "Corp",
+     "t": 33.941
+    },
+    {
+     "w": "expects",
+     "t": 34.145
+    },
+    {
+     "w": "about",
+     "t": 34.553
+    },
+    {
+     "w": "six",
+     "t": 34.961
+    },
+    {
+     "w": "hundred",
+     "t": 35.166
+    },
+    {
+     "w": "and",
+     "t": 35.574
+    },
+    {
+     "w": "ninety-seven",
+     "t": 35.778
+    },
+    {
+     "w": "thousand",
+     "t": 36.798
+    },
+    {
+     "w": "workers",
+     "t": 37.206
+    },
+    {
+     "w": "to",
+     "t": 37.614
+    },
+    {
+     "w": "be",
+     "t": 37.818
+    },
+    {
+     "w": "significantly",
+     "t": 38.023
+    },
+    {
+     "w": "affected",
+     "t": 39.043
+    },
+    {
+     "w": "by",
+     "t": 39.655
+    },
+    {
+     "w": "AI",
+     "t": 39.859
+    },
+    {
+     "w": "digitalisation",
+     "t": 40.431
+    },
+    {
+     "w": "and",
+     "t": 41.655
+    },
+    {
+     "w": "the",
+     "t": 41.859
+    },
+    {
+     "w": "green",
+     "t": 42.063
+    },
+    {
+     "w": "economy",
+     "t": 42.267
+    },
+    {
+     "w": "within",
+     "t": 43.288
+    },
+    {
+     "w": "three",
+     "t": 43.696
+    },
+    {
+     "w": "to",
+     "t": 43.9
+    },
+    {
+     "w": "five",
+     "t": 44.104
+    },
+    {
+     "w": "years",
+     "t": 44.308
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "scene": "problem",
+   "start": 45.812,
+   "end": 54.73,
+   "sub": "For a final-year student, that leaves three gaps: no live view of the change, no evidence behind the advice, and no plan that fits final year.",
+   "words": [
+    {
+     "w": "For",
+     "t": 45.812
+    },
+    {
+     "w": "a",
+     "t": 46.023
+    },
+    {
+     "w": "final-year",
+     "t": 46.234
+    },
+    {
+     "w": "student",
+     "t": 46.866
+    },
+    {
+     "w": "that",
+     "t": 47.499
+    },
+    {
+     "w": "leaves",
+     "t": 47.709
+    },
+    {
+     "w": "three",
+     "t": 48.131
+    },
+    {
+     "w": "gaps",
+     "t": 48.342
+    },
+    {
+     "w": "No",
+     "t": 48.995
+    },
+    {
+     "w": "live",
+     "t": 49.206
+    },
+    {
+     "w": "view",
+     "t": 49.417
+    },
+    {
+     "w": "of",
+     "t": 49.628
+    },
+    {
+     "w": "the",
+     "t": 49.839
+    },
+    {
+     "w": "change",
+     "t": 50.05
+    },
+    {
+     "w": "No",
+     "t": 50.703
+    },
+    {
+     "w": "evidence",
+     "t": 50.914
+    },
+    {
+     "w": "behind",
+     "t": 51.547
+    },
+    {
+     "w": "the",
+     "t": 51.968
+    },
+    {
+     "w": "advice",
+     "t": 52.179
+    },
+    {
+     "w": "And",
+     "t": 53.043
+    },
+    {
+     "w": "no",
+     "t": 53.254
+    },
+    {
+     "w": "plan",
+     "t": 53.465
+    },
+    {
+     "w": "that",
+     "t": 53.676
+    },
+    {
+     "w": "fits",
+     "t": 53.887
+    },
+    {
+     "w": "final",
+     "t": 54.098
+    },
+    {
+     "w": "year",
+     "t": 54.519
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "scene": "approach",
+   "start": 57.15,
+   "end": 66.758,
+   "sub": "SkillTide turns dated public signals into an AI-exposure estimate for every task in a job, then rolls tasks up into roles and skills.",
+   "words": [
+    {
+     "w": "SkillTide",
+     "t": 57.15
+    },
+    {
+     "w": "turns",
+     "t": 57.643
+    },
+    {
+     "w": "dated",
+     "t": 57.889
+    },
+    {
+     "w": "public",
+     "t": 58.382
+    },
+    {
+     "w": "signals",
+     "t": 58.875
+    },
+    {
+     "w": "into",
+     "t": 59.367
+    },
+    {
+     "w": "an",
+     "t": 59.86
+    },
+    {
+     "w": "AI-exposure",
+     "t": 60.106
+    },
+    {
+     "w": "estimate",
+     "t": 61.092
+    },
+    {
+     "w": "for",
+     "t": 61.831
+    },
+    {
+     "w": "every",
+     "t": 62.077
+    },
+    {
+     "w": "task",
+     "t": 62.816
+    },
+    {
+     "w": "in",
+     "t": 63.063
+    },
+    {
+     "w": "a",
+     "t": 63.309
+    },
+    {
+     "w": "job",
+     "t": 63.555
+    },
+    {
+     "w": "then",
+     "t": 64.048
+    },
+    {
+     "w": "rolls",
+     "t": 64.294
+    },
+    {
+     "w": "those",
+     "t": 64.541
+    },
+    {
+     "w": "tasks",
+     "t": 64.787
+    },
+    {
+     "w": "up",
+     "t": 65.033
+    },
+    {
+     "w": "into",
+     "t": 65.28
+    },
+    {
+     "w": "roles",
+     "t": 65.773
+    },
+    {
+     "w": "and",
+     "t": 66.265
+    },
+    {
+     "w": "skills",
+     "t": 66.512
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "scene": "approach",
+   "start": 67.658,
+   "end": 71.881,
+   "sub": "A student moves through four steps, with a guide that explains every answer.",
+   "words": [
+    {
+     "w": "A",
+     "t": 67.658
+    },
+    {
+     "w": "student",
+     "t": 67.869
+    },
+    {
+     "w": "moves",
+     "t": 68.291
+    },
+    {
+     "w": "through",
+     "t": 68.714
+    },
+    {
+     "w": "four",
+     "t": 68.925
+    },
+    {
+     "w": "steps",
+     "t": 69.136
+    },
+    {
+     "w": "with",
+     "t": 69.558
+    },
+    {
+     "w": "a",
+     "t": 69.77
+    },
+    {
+     "w": "guide",
+     "t": 69.981
+    },
+    {
+     "w": "that",
+     "t": 70.192
+    },
+    {
+     "w": "explains",
+     "t": 70.403
+    },
+    {
+     "w": "every",
+     "t": 70.825
+    },
+    {
+     "w": "answer",
+     "t": 71.459
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "scene": "profile",
+   "start": 76.3,
+   "end": 80.244,
+   "sub": "Meet Kavin, a synthetic final-year mechatronics student in Johor.",
+   "words": [
+    {
+     "w": "Meet",
+     "t": 76.3
+    },
+    {
+     "w": "Kavin",
+     "t": 76.497
+    },
+    {
+     "w": "a",
+     "t": 77.089
+    },
+    {
+     "w": "synthetic",
+     "t": 77.286
+    },
+    {
+     "w": "final-year",
+     "t": 77.878
+    },
+    {
+     "w": "mechatronics",
+     "t": 78.469
+    },
+    {
+     "w": "student",
+     "t": 79.258
+    },
+    {
+     "w": "in",
+     "t": 79.652
+    },
+    {
+     "w": "Johor",
+     "t": 79.85
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "scene": "profile",
+   "start": 80.844,
+   "end": 84.427,
+   "sub": "His CV is read right in the browser. Nothing is uploaded.",
+   "words": [
+    {
+     "w": "His",
+     "t": 80.844
+    },
+    {
+     "w": "CV",
+     "t": 81.044
+    },
+    {
+     "w": "is",
+     "t": 81.404
+    },
+    {
+     "w": "read",
+     "t": 81.605
+    },
+    {
+     "w": "right",
+     "t": 81.805
+    },
+    {
+     "w": "in",
+     "t": 82.005
+    },
+    {
+     "w": "the",
+     "t": 82.205
+    },
+    {
+     "w": "browser",
+     "t": 82.405
+    },
+    {
+     "w": "Nothing",
+     "t": 83.226
+    },
+    {
+     "w": "is",
+     "t": 83.626
+    },
+    {
+     "w": "uploaded",
+     "t": 83.826
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "scene": "profile",
+   "start": 85.227,
+   "end": 99.34,
+   "sub": "SkillTide finds twelve skills and grades each by where it appears: PLC, SCADA and maintenance from his internship; robotics, vision and Python from projects; control and sensors from coursework.",
+   "words": [
+    {
+     "w": "SkillTide",
+     "t": 85.227
+    },
+    {
+     "w": "finds",
+     "t": 85.682
+    },
+    {
+     "w": "twelve",
+     "t": 85.91
+    },
+    {
+     "w": "skills",
+     "t": 86.138
+    },
+    {
+     "w": "and",
+     "t": 86.593
+    },
+    {
+     "w": "grades",
+     "t": 86.82
+    },
+    {
+     "w": "each",
+     "t": 87.276
+    },
+    {
+     "w": "one",
+     "t": 87.503
+    },
+    {
+     "w": "by",
+     "t": 87.959
+    },
+    {
+     "w": "where",
+     "t": 88.186
+    },
+    {
+     "w": "it",
+     "t": 88.414
+    },
+    {
+     "w": "appears",
+     "t": 88.641
+    },
+    {
+     "w": "PLC",
+     "t": 89.575
+    },
+    {
+     "w": "Scada",
+     "t": 90.417
+    },
+    {
+     "w": "and",
+     "t": 90.872
+    },
+    {
+     "w": "maintenance",
+     "t": 91.1
+    },
+    {
+     "w": "from",
+     "t": 91.783
+    },
+    {
+     "w": "his",
+     "t": 92.01
+    },
+    {
+     "w": "internship",
+     "t": 92.238
+    },
+    {
+     "w": "Robotics",
+     "t": 93.399
+    },
+    {
+     "w": "vision",
+     "t": 94.309
+    },
+    {
+     "w": "and",
+     "t": 94.765
+    },
+    {
+     "w": "Python",
+     "t": 94.992
+    },
+    {
+     "w": "from",
+     "t": 95.448
+    },
+    {
+     "w": "his",
+     "t": 95.675
+    },
+    {
+     "w": "projects",
+     "t": 95.903
+    },
+    {
+     "w": "Control",
+     "t": 96.836
+    },
+    {
+     "w": "systems",
+     "t": 97.291
+    },
+    {
+     "w": "and",
+     "t": 97.747
+    },
+    {
+     "w": "sensors",
+     "t": 97.974
+    },
+    {
+     "w": "from",
+     "t": 98.429
+    },
+    {
+     "w": "coursework",
+     "t": 98.657
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "scene": "radar",
+   "start": 102.25,
+   "end": 108.952,
+   "sub": "The Skills Radar marks 57 skills and 30 roles as rising, steady, transforming or under pressure.",
+   "words": [
+    {
+     "w": "The",
+     "t": 102.25
+    },
+    {
+     "w": "Skills",
+     "t": 102.466
+    },
+    {
+     "w": "Radar",
+     "t": 102.682
+    },
+    {
+     "w": "marks",
+     "t": 103.115
+    },
+    {
+     "w": "fifty-seven",
+     "t": 103.331
+    },
+    {
+     "w": "skills",
+     "t": 104.196
+    },
+    {
+     "w": "and",
+     "t": 104.412
+    },
+    {
+     "w": "thirty",
+     "t": 104.628
+    },
+    {
+     "w": "roles",
+     "t": 105.061
+    },
+    {
+     "w": "as",
+     "t": 105.493
+    },
+    {
+     "w": "rising",
+     "t": 105.709
+    },
+    {
+     "w": "steady",
+     "t": 106.358
+    },
+    {
+     "w": "transforming",
+     "t": 107.006
+    },
+    {
+     "w": "or",
+     "t": 107.871
+    },
+    {
+     "w": "under",
+     "t": 108.087
+    },
+    {
+     "w": "pressure",
+     "t": 108.52
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "scene": "radar",
+   "start": 109.852,
+   "end": 117.906,
+   "sub": "Each estimate is built task by task: how people already use AI on it, how far AI could go, and how hiring is moving.",
+   "words": [
+    {
+     "w": "Each",
+     "t": 109.852
+    },
+    {
+     "w": "estimate",
+     "t": 110.071
+    },
+    {
+     "w": "is",
+     "t": 110.73
+    },
+    {
+     "w": "built",
+     "t": 110.949
+    },
+    {
+     "w": "task",
+     "t": 111.169
+    },
+    {
+     "w": "by",
+     "t": 111.388
+    },
+    {
+     "w": "task",
+     "t": 111.608
+    },
+    {
+     "w": "how",
+     "t": 112.288
+    },
+    {
+     "w": "people",
+     "t": 112.507
+    },
+    {
+     "w": "already",
+     "t": 112.727
+    },
+    {
+     "w": "use",
+     "t": 113.385
+    },
+    {
+     "w": "AI",
+     "t": 113.824
+    },
+    {
+     "w": "on",
+     "t": 114.219
+    },
+    {
+     "w": "it",
+     "t": 114.439
+    },
+    {
+     "w": "how",
+     "t": 114.878
+    },
+    {
+     "w": "far",
+     "t": 115.097
+    },
+    {
+     "w": "AI",
+     "t": 115.316
+    },
+    {
+     "w": "could",
+     "t": 115.711
+    },
+    {
+     "w": "go",
+     "t": 115.931
+    },
+    {
+     "w": "and",
+     "t": 116.37
+    },
+    {
+     "w": "how",
+     "t": 116.589
+    },
+    {
+     "w": "hiring",
+     "t": 116.809
+    },
+    {
+     "w": "is",
+     "t": 117.248
+    },
+    {
+     "w": "moving",
+     "t": 117.467
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "scene": "match",
+   "start": 120.9,
+   "end": 129.137,
+   "sub": "Matches rank 30 roles with a visible formula: skills fit, AI outlook and SDG fit, weighted the way Kavin chooses.",
+   "words": [
+    {
+     "w": "Matches",
+     "t": 120.9
+    },
+    {
+     "w": "rank",
+     "t": 121.338
+    },
+    {
+     "w": "thirty",
+     "t": 121.557
+    },
+    {
+     "w": "roles",
+     "t": 121.995
+    },
+    {
+     "w": "with",
+     "t": 122.433
+    },
+    {
+     "w": "a",
+     "t": 122.653
+    },
+    {
+     "w": "visible",
+     "t": 122.872
+    },
+    {
+     "w": "formula",
+     "t": 123.31
+    },
+    {
+     "w": "skills",
+     "t": 124.427
+    },
+    {
+     "w": "fit",
+     "t": 124.646
+    },
+    {
+     "w": "AI",
+     "t": 125.084
+    },
+    {
+     "w": "outlook",
+     "t": 125.479
+    },
+    {
+     "w": "and",
+     "t": 126.136
+    },
+    {
+     "w": "SDG",
+     "t": 126.355
+    },
+    {
+     "w": "fit",
+     "t": 126.946
+    },
+    {
+     "w": "weighted",
+     "t": 127.384
+    },
+    {
+     "w": "the",
+     "t": 127.823
+    },
+    {
+     "w": "way",
+     "t": 128.042
+    },
+    {
+     "w": "Kavin",
+     "t": 128.261
+    },
+    {
+     "w": "chooses",
+     "t": 128.699
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "scene": "match",
+   "start": 129.837,
+   "end": 132.921,
+   "sub": "With no goals set, Mechatronics Engineer comes first.",
+   "words": [
+    {
+     "w": "With",
+     "t": 129.837
+    },
+    {
+     "w": "no",
+     "t": 130.043
+    },
+    {
+     "w": "goals",
+     "t": 130.248
+    },
+    {
+     "w": "set",
+     "t": 130.454
+    },
+    {
+     "w": "Mechatronics",
+     "t": 130.865
+    },
+    {
+     "w": "Engineer",
+     "t": 131.687
+    },
+    {
+     "w": "comes",
+     "t": 132.304
+    },
+    {
+     "w": "first",
+     "t": 132.715
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "scene": "match",
+   "start": 134.721,
+   "end": 141.941,
+   "sub": "Kavin cares about industry and innovation, and about less waste, so he picks SDG 9 and SDG 12.",
+   "words": [
+    {
+     "w": "Kavin",
+     "t": 134.721
+    },
+    {
+     "w": "cares",
+     "t": 135.153
+    },
+    {
+     "w": "about",
+     "t": 135.586
+    },
+    {
+     "w": "industry",
+     "t": 136.018
+    },
+    {
+     "w": "and",
+     "t": 136.667
+    },
+    {
+     "w": "innovation",
+     "t": 136.883
+    },
+    {
+     "w": "and",
+     "t": 137.964
+    },
+    {
+     "w": "about",
+     "t": 138.18
+    },
+    {
+     "w": "less",
+     "t": 138.612
+    },
+    {
+     "w": "waste",
+     "t": 138.828
+    },
+    {
+     "w": "so",
+     "t": 139.261
+    },
+    {
+     "w": "he",
+     "t": 139.477
+    },
+    {
+     "w": "picks",
+     "t": 139.693
+    },
+    {
+     "w": "SDG",
+     "t": 139.909
+    },
+    {
+     "w": "nine",
+     "t": 140.493
+    },
+    {
+     "w": "and",
+     "t": 140.925
+    },
+    {
+     "w": "SDG",
+     "t": 141.141
+    },
+    {
+     "w": "twelve",
+     "t": 141.725
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "scene": "match",
+   "start": 144.141,
+   "end": 150.929,
+   "sub": "Manufacturing Engineer now leads with 56, and each SDG link names the real task behind it.",
+   "words": [
+    {
+     "w": "Manufacturing",
+     "t": 144.141
+    },
+    {
+     "w": "Engineer",
+     "t": 145.243
+    },
+    {
+     "w": "now",
+     "t": 145.904
+    },
+    {
+     "w": "leads",
+     "t": 146.125
+    },
+    {
+     "w": "with",
+     "t": 146.565
+    },
+    {
+     "w": "fifty-six",
+     "t": 146.786
+    },
+    {
+     "w": "And",
+     "t": 147.91
+    },
+    {
+     "w": "each",
+     "t": 148.13
+    },
+    {
+     "w": "SDG",
+     "t": 148.35
+    },
+    {
+     "w": "link",
+     "t": 148.945
+    },
+    {
+     "w": "names",
+     "t": 149.166
+    },
+    {
+     "w": "the",
+     "t": 149.607
+    },
+    {
+     "w": "real",
+     "t": 149.827
+    },
+    {
+     "w": "task",
+     "t": 150.047
+    },
+    {
+     "w": "behind",
+     "t": 150.268
+    },
+    {
+     "w": "it",
+     "t": 150.709
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "scene": "replay",
+   "start": 153.5,
+   "end": 156.632,
+   "sub": "Every signal is dated, so the forecast can be replayed.",
+   "words": [
+    {
+     "w": "Every",
+     "t": 153.5
+    },
+    {
+     "w": "signal",
+     "t": 154.022
+    },
+    {
+     "w": "is",
+     "t": 154.37
+    },
+    {
+     "w": "dated",
+     "t": 154.544
+    },
+    {
+     "w": "so",
+     "t": 155.066
+    },
+    {
+     "w": "the",
+     "t": 155.24
+    },
+    {
+     "w": "forecast",
+     "t": 155.414
+    },
+    {
+     "w": "can",
+     "t": 155.936
+    },
+    {
+     "w": "be",
+     "t": 156.11
+    },
+    {
+     "w": "replayed",
+     "t": 156.284
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "scene": "replay",
+   "start": 157.632,
+   "end": 167.744,
+   "sub": "With March 2025 data, the same profile pointed to Electro-Mechanical & Mechatronics Technician. With today's data, it's Manufacturing Engineer.",
+   "words": [
+    {
+     "w": "With",
+     "t": 157.632
+    },
+    {
+     "w": "March",
+     "t": 157.838
+    },
+    {
+     "w": "twenty",
+     "t": 158.044
+    },
+    {
+     "w": "twenty-five",
+     "t": 158.456
+    },
+    {
+     "w": "data",
+     "t": 159.074
+    },
+    {
+     "w": "the",
+     "t": 159.691
+    },
+    {
+     "w": "same",
+     "t": 159.897
+    },
+    {
+     "w": "profile",
+     "t": 160.103
+    },
+    {
+     "w": "pointed",
+     "t": 160.515
+    },
+    {
+     "w": "to",
+     "t": 160.927
+    },
+    {
+     "w": "Electro-Mechanical",
+     "t": 161.133
+    },
+    {
+     "w": "and",
+     "t": 162.575
+    },
+    {
+     "w": "Mechatronics",
+     "t": 162.781
+    },
+    {
+     "w": "Technician",
+     "t": 163.604
+    },
+    {
+     "w": "With",
+     "t": 164.655
+    },
+    {
+     "w": "today's",
+     "t": 164.861
+    },
+    {
+     "w": "data",
+     "t": 165.273
+    },
+    {
+     "w": "it's",
+     "t": 165.89
+    },
+    {
+     "w": "Manufacturing",
+     "t": 166.096
+    },
+    {
+     "w": "Engineer",
+     "t": 167.126
+    }
+   ]
+  },
+  {
+   "id": "L19",
+   "scene": "replay",
+   "start": 169.144,
+   "end": 176.403,
+   "sub": "The Guide notices, re-plans, and says what replaced what. Replays use today's catalogue, so they are not a backtest.",
+   "words": [
+    {
+     "w": "The",
+     "t": 169.144
+    },
+    {
+     "w": "Guide",
+     "t": 169.345
+    },
+    {
+     "w": "notices",
+     "t": 169.546
+    },
+    {
+     "w": "re-plans",
+     "t": 170.35
+    },
+    {
+     "w": "and",
+     "t": 170.954
+    },
+    {
+     "w": "says",
+     "t": 171.155
+    },
+    {
+     "w": "what",
+     "t": 171.356
+    },
+    {
+     "w": "replaced",
+     "t": 171.557
+    },
+    {
+     "w": "what",
+     "t": 172.16
+    },
+    {
+     "w": "Replays",
+     "t": 172.784
+    },
+    {
+     "w": "use",
+     "t": 173.186
+    },
+    {
+     "w": "today's",
+     "t": 173.588
+    },
+    {
+     "w": "catalogue",
+     "t": 173.99
+    },
+    {
+     "w": "so",
+     "t": 174.794
+    },
+    {
+     "w": "they",
+     "t": 174.995
+    },
+    {
+     "w": "are",
+     "t": 175.197
+    },
+    {
+     "w": "not",
+     "t": 175.599
+    },
+    {
+     "w": "a",
+     "t": 175.8
+    },
+    {
+     "w": "back-test",
+     "t": 176.001
+    }
+   ]
+  },
+  {
+   "id": "L20",
+   "scene": "scenario",
+   "start": 179.75,
+   "end": 188.074,
+   "sub": "Nobody knows how fast AI will spread, so SkillTide runs two scenarios side by side, changing only the adoption assumption.",
+   "words": [
+    {
+     "w": "Nobody",
+     "t": 179.75
+    },
+    {
+     "w": "knows",
+     "t": 180.489
+    },
+    {
+     "w": "how",
+     "t": 180.735
+    },
+    {
+     "w": "fast",
+     "t": 180.981
+    },
+    {
+     "w": "AI",
+     "t": 181.228
+    },
+    {
+     "w": "will",
+     "t": 181.671
+    },
+    {
+     "w": "spread",
+     "t": 181.917
+    },
+    {
+     "w": "so",
+     "t": 182.41
+    },
+    {
+     "w": "SkillTide",
+     "t": 182.656
+    },
+    {
+     "w": "runs",
+     "t": 183.149
+    },
+    {
+     "w": "two",
+     "t": 183.395
+    },
+    {
+     "w": "scenarios",
+     "t": 183.641
+    },
+    {
+     "w": "side",
+     "t": 184.38
+    },
+    {
+     "w": "by",
+     "t": 184.626
+    },
+    {
+     "w": "side",
+     "t": 184.872
+    },
+    {
+     "w": "changing",
+     "t": 185.365
+    },
+    {
+     "w": "only",
+     "t": 185.858
+    },
+    {
+     "w": "the",
+     "t": 186.35
+    },
+    {
+     "w": "adoption",
+     "t": 186.596
+    },
+    {
+     "w": "assumption",
+     "t": 187.335
+    }
+   ]
+  },
+  {
+   "id": "L21",
+   "scene": "scenario",
+   "start": 189.174,
+   "end": 196.682,
+   "sub": "Manufacturing Engineer leads in both, but under fast adoption its outlook drops from 73 to 67.",
+   "words": [
+    {
+     "w": "Manufacturing",
+     "t": 189.174
+    },
+    {
+     "w": "Engineer",
+     "t": 190.244
+    },
+    {
+     "w": "leads",
+     "t": 190.885
+    },
+    {
+     "w": "in",
+     "t": 191.099
+    },
+    {
+     "w": "both",
+     "t": 191.313
+    },
+    {
+     "w": "But",
+     "t": 191.976
+    },
+    {
+     "w": "under",
+     "t": 192.19
+    },
+    {
+     "w": "fast",
+     "t": 192.618
+    },
+    {
+     "w": "adoption",
+     "t": 192.832
+    },
+    {
+     "w": "its",
+     "t": 193.687
+    },
+    {
+     "w": "outlook",
+     "t": 193.901
+    },
+    {
+     "w": "drops",
+     "t": 194.329
+    },
+    {
+     "w": "from",
+     "t": 194.543
+    },
+    {
+     "w": "seventy-three",
+     "t": 194.757
+    },
+    {
+     "w": "to",
+     "t": 195.612
+    },
+    {
+     "w": "sixty-seven",
+     "t": 195.826
+    }
+   ]
+  },
+  {
+   "id": "L22",
+   "scene": "pathway",
+   "start": 199.75,
+   "end": 204.605,
+   "sub": "Kavin leaves with a plan: 45 hours over six weeks, at eight hours a week.",
+   "words": [
+    {
+     "w": "Kavin",
+     "t": 199.75
+    },
+    {
+     "w": "leaves",
+     "t": 200.17
+    },
+    {
+     "w": "with",
+     "t": 200.591
+    },
+    {
+     "w": "a",
+     "t": 200.801
+    },
+    {
+     "w": "plan",
+     "t": 201.011
+    },
+    {
+     "w": "forty-five",
+     "t": 201.663
+    },
+    {
+     "w": "hours",
+     "t": 202.293
+    },
+    {
+     "w": "over",
+     "t": 202.503
+    },
+    {
+     "w": "six",
+     "t": 202.924
+    },
+    {
+     "w": "weeks",
+     "t": 203.134
+    },
+    {
+     "w": "at",
+     "t": 203.554
+    },
+    {
+     "w": "eight",
+     "t": 203.764
+    },
+    {
+     "w": "hours",
+     "t": 203.974
+    },
+    {
+     "w": "a",
+     "t": 204.185
+    },
+    {
+     "w": "week",
+     "t": 204.395
+    }
+   ]
+  },
+  {
+   "id": "L23",
+   "scene": "pathway",
+   "start": 205.305,
+   "end": 211.065,
+   "sub": "Two free courses, then a 20-hour portfolio project built on a real task of the role.",
+   "words": [
+    {
+     "w": "Two",
+     "t": 205.305
+    },
+    {
+     "w": "free",
+     "t": 205.545
+    },
+    {
+     "w": "courses",
+     "t": 205.785
+    },
+    {
+     "w": "then",
+     "t": 206.505
+    },
+    {
+     "w": "a",
+     "t": 206.745
+    },
+    {
+     "w": "twenty-hour",
+     "t": 206.985
+    },
+    {
+     "w": "portfolio",
+     "t": 207.705
+    },
+    {
+     "w": "project",
+     "t": 208.425
+    },
+    {
+     "w": "built",
+     "t": 209.145
+    },
+    {
+     "w": "on",
+     "t": 209.385
+    },
+    {
+     "w": "a",
+     "t": 209.625
+    },
+    {
+     "w": "real",
+     "t": 209.865
+    },
+    {
+     "w": "task",
+     "t": 210.105
+    },
+    {
+     "w": "of",
+     "t": 210.345
+    },
+    {
+     "w": "the",
+     "t": 210.585
+    },
+    {
+     "w": "role",
+     "t": 210.825
+    }
+   ]
+  },
+  {
+   "id": "L24",
+   "scene": "pathway",
+   "start": 211.865,
+   "end": 218.493,
+   "sub": "Every course links to where its hours and cost were read, and a gap with no verified course is named, not filled.",
+   "words": [
+    {
+     "w": "Every",
+     "t": 211.865
+    },
+    {
+     "w": "course",
+     "t": 212.504
+    },
+    {
+     "w": "links",
+     "t": 212.717
+    },
+    {
+     "w": "to",
+     "t": 212.931
+    },
+    {
+     "w": "where",
+     "t": 213.144
+    },
+    {
+     "w": "its",
+     "t": 213.357
+    },
+    {
+     "w": "hours",
+     "t": 213.57
+    },
+    {
+     "w": "and",
+     "t": 213.783
+    },
+    {
+     "w": "cost",
+     "t": 213.996
+    },
+    {
+     "w": "were",
+     "t": 214.209
+    },
+    {
+     "w": "read",
+     "t": 214.422
+    },
+    {
+     "w": "And",
+     "t": 215.083
+    },
+    {
+     "w": "a",
+     "t": 215.296
+    },
+    {
+     "w": "gap",
+     "t": 215.509
+    },
+    {
+     "w": "with",
+     "t": 215.722
+    },
+    {
+     "w": "no",
+     "t": 215.936
+    },
+    {
+     "w": "verified",
+     "t": 216.149
+    },
+    {
+     "w": "course",
+     "t": 216.788
+    },
+    {
+     "w": "is",
+     "t": 217.001
+    },
+    {
+     "w": "named",
+     "t": 217.214
+    },
+    {
+     "w": "not",
+     "t": 217.854
+    },
+    {
+     "w": "filled",
+     "t": 218.067
+    }
+   ]
+  },
+  {
+   "id": "L25",
+   "scene": "cohort",
+   "start": 221,
+   "end": 227.372,
+   "sub": "Career centres run the same engine across a synthetic cohort, to see which rising skills few students have.",
+   "words": [
+    {
+     "w": "Career",
+     "t": 221
+    },
+    {
+     "w": "centres",
+     "t": 221.455
+    },
+    {
+     "w": "run",
+     "t": 221.91
+    },
+    {
+     "w": "the",
+     "t": 222.138
+    },
+    {
+     "w": "same",
+     "t": 222.365
+    },
+    {
+     "w": "engine",
+     "t": 222.593
+    },
+    {
+     "w": "across",
+     "t": 223.048
+    },
+    {
+     "w": "a",
+     "t": 223.503
+    },
+    {
+     "w": "synthetic",
+     "t": 223.731
+    },
+    {
+     "w": "cohort",
+     "t": 224.414
+    },
+    {
+     "w": "to",
+     "t": 225.096
+    },
+    {
+     "w": "see",
+     "t": 225.324
+    },
+    {
+     "w": "which",
+     "t": 225.551
+    },
+    {
+     "w": "rising",
+     "t": 225.779
+    },
+    {
+     "w": "skills",
+     "t": 226.234
+    },
+    {
+     "w": "few",
+     "t": 226.462
+    },
+    {
+     "w": "students",
+     "t": 226.689
+    },
+    {
+     "w": "have",
+     "t": 227.144
+    }
+   ]
+  },
+  {
+   "id": "L26",
+   "scene": "cohort",
+   "start": 228.372,
+   "end": 236.079,
+   "sub": "Scoring never uses names or backgrounds, and every ranking is re-run for eight profile variants. It must stay identical.",
+   "words": [
+    {
+     "w": "Scoring",
+     "t": 228.372
+    },
+    {
+     "w": "never",
+     "t": 228.799
+    },
+    {
+     "w": "uses",
+     "t": 229.226
+    },
+    {
+     "w": "names",
+     "t": 229.653
+    },
+    {
+     "w": "or",
+     "t": 230.08
+    },
+    {
+     "w": "backgrounds",
+     "t": 230.293
+    },
+    {
+     "w": "and",
+     "t": 230.934
+    },
+    {
+     "w": "every",
+     "t": 231.147
+    },
+    {
+     "w": "ranking",
+     "t": 231.788
+    },
+    {
+     "w": "is",
+     "t": 232.215
+    },
+    {
+     "w": "re-run",
+     "t": 232.428
+    },
+    {
+     "w": "for",
+     "t": 232.855
+    },
+    {
+     "w": "eight",
+     "t": 233.069
+    },
+    {
+     "w": "profile",
+     "t": 233.282
+    },
+    {
+     "w": "variants",
+     "t": 233.709
+    },
+    {
+     "w": "It",
+     "t": 234.585
+    },
+    {
+     "w": "must",
+     "t": 234.798
+    },
+    {
+     "w": "stay",
+     "t": 235.012
+    },
+    {
+     "w": "identical",
+     "t": 235.225
+    }
+   ]
+  },
+  {
+   "id": "L27",
+   "scene": "engine",
+   "start": 238.5,
+   "end": 243.636,
+   "sub": "Under the hood, one Python script rebuilds the dataset from 13 public sources.",
+   "words": [
+    {
+     "w": "Under",
+     "t": 238.5
+    },
+    {
+     "w": "the",
+     "t": 238.947
+    },
+    {
+     "w": "hood",
+     "t": 239.17
+    },
+    {
+     "w": "one",
+     "t": 239.617
+    },
+    {
+     "w": "Python",
+     "t": 240.063
+    },
+    {
+     "w": "script",
+     "t": 240.51
+    },
+    {
+     "w": "rebuilds",
+     "t": 240.733
+    },
+    {
+     "w": "the",
+     "t": 241.18
+    },
+    {
+     "w": "dataset",
+     "t": 241.403
+    },
+    {
+     "w": "from",
+     "t": 242.073
+    },
+    {
+     "w": "thirteen",
+     "t": 242.296
+    },
+    {
+     "w": "public",
+     "t": 242.743
+    },
+    {
+     "w": "sources",
+     "t": 243.189
+    }
+   ]
+  },
+  {
+   "id": "L28",
+   "scene": "engine",
+   "start": 244.436,
+   "end": 250.284,
+   "sub": "Every Monday, GitHub Actions refreshes it, runs the tests, and redeploys only if they pass.",
+   "words": [
+    {
+     "w": "Every",
+     "t": 244.436
+    },
+    {
+     "w": "Monday",
+     "t": 245.063
+    },
+    {
+     "w": "GitHub",
+     "t": 245.689
+    },
+    {
+     "w": "Actions",
+     "t": 246.107
+    },
+    {
+     "w": "refreshes",
+     "t": 246.525
+    },
+    {
+     "w": "it",
+     "t": 247.151
+    },
+    {
+     "w": "runs",
+     "t": 247.569
+    },
+    {
+     "w": "the",
+     "t": 247.778
+    },
+    {
+     "w": "tests",
+     "t": 247.987
+    },
+    {
+     "w": "and",
+     "t": 248.404
+    },
+    {
+     "w": "redeploys",
+     "t": 248.613
+    },
+    {
+     "w": "only",
+     "t": 249.24
+    },
+    {
+     "w": "if",
+     "t": 249.657
+    },
+    {
+     "w": "they",
+     "t": 249.866
+    },
+    {
+     "w": "pass",
+     "t": 250.075
+    }
+   ]
+  },
+  {
+   "id": "L29",
+   "scene": "engine",
+   "start": 251.084,
+   "end": 256.649,
+   "sub": "No language model runs in SkillTide, so it cannot invent a job, a course or a number.",
+   "words": [
+    {
+     "w": "No",
+     "t": 251.084
+    },
+    {
+     "w": "language",
+     "t": 251.298
+    },
+    {
+     "w": "model",
+     "t": 251.726
+    },
+    {
+     "w": "runs",
+     "t": 252.154
+    },
+    {
+     "w": "in",
+     "t": 252.368
+    },
+    {
+     "w": "SkillTide",
+     "t": 252.582
+    },
+    {
+     "w": "so",
+     "t": 253.224
+    },
+    {
+     "w": "it",
+     "t": 253.438
+    },
+    {
+     "w": "cannot",
+     "t": 253.652
+    },
+    {
+     "w": "invent",
+     "t": 254.081
+    },
+    {
+     "w": "a",
+     "t": 254.509
+    },
+    {
+     "w": "job",
+     "t": 254.723
+    },
+    {
+     "w": "a",
+     "t": 255.151
+    },
+    {
+     "w": "course",
+     "t": 255.365
+    },
+    {
+     "w": "or",
+     "t": 255.793
+    },
+    {
+     "w": "a",
+     "t": 256.007
+    },
+    {
+     "w": "number",
+     "t": 256.221
+    }
+   ]
+  },
+  {
+   "id": "L30",
+   "scene": "engine",
+   "start": 257.549,
+   "end": 264.582,
+   "sub": "Twelve synthetic test cases check coverage, budgets and fairness. They are design checks, not proof of job outcomes.",
+   "words": [
+    {
+     "w": "Twelve",
+     "t": 257.549
+    },
+    {
+     "w": "synthetic",
+     "t": 257.761
+    },
+    {
+     "w": "test",
+     "t": 258.399
+    },
+    {
+     "w": "cases",
+     "t": 258.611
+    },
+    {
+     "w": "check",
+     "t": 259.036
+    },
+    {
+     "w": "coverage",
+     "t": 259.249
+    },
+    {
+     "w": "budgets",
+     "t": 260.099
+    },
+    {
+     "w": "and",
+     "t": 260.524
+    },
+    {
+     "w": "fairness",
+     "t": 260.736
+    },
+    {
+     "w": "They",
+     "t": 261.607
+    },
+    {
+     "w": "are",
+     "t": 261.82
+    },
+    {
+     "w": "design",
+     "t": 262.245
+    },
+    {
+     "w": "checks",
+     "t": 262.67
+    },
+    {
+     "w": "not",
+     "t": 263.095
+    },
+    {
+     "w": "proof",
+     "t": 263.307
+    },
+    {
+     "w": "of",
+     "t": 263.52
+    },
+    {
+     "w": "job",
+     "t": 263.732
+    },
+    {
+     "w": "outcomes",
+     "t": 263.945
+    }
+   ]
+  },
+  {
+   "id": "L31",
+   "scene": "future",
+   "start": 267.25,
+   "end": 272.176,
+   "sub": "Each layer reads only the one above it, so every new source flows through to every screen.",
+   "words": [
+    {
+     "w": "Each",
+     "t": 267.25
+    },
+    {
+     "w": "layer",
+     "t": 267.447
+    },
+    {
+     "w": "reads",
+     "t": 267.644
+    },
+    {
+     "w": "only",
+     "t": 267.841
+    },
+    {
+     "w": "the",
+     "t": 268.235
+    },
+    {
+     "w": "one",
+     "t": 268.432
+    },
+    {
+     "w": "above",
+     "t": 268.826
+    },
+    {
+     "w": "it",
+     "t": 269.22
+    },
+    {
+     "w": "so",
+     "t": 269.614
+    },
+    {
+     "w": "every",
+     "t": 269.812
+    },
+    {
+     "w": "new",
+     "t": 270.403
+    },
+    {
+     "w": "source",
+     "t": 270.6
+    },
+    {
+     "w": "flows",
+     "t": 270.797
+    },
+    {
+     "w": "through",
+     "t": 270.994
+    },
+    {
+     "w": "to",
+     "t": 271.191
+    },
+    {
+     "w": "every",
+     "t": 271.388
+    },
+    {
+     "w": "screen",
+     "t": 271.979
+    }
+   ]
+  },
+  {
+   "id": "L32",
+   "scene": "future",
+   "start": 273.076,
+   "end": 278.875,
+   "sub": "Next: more Malaysian signals, from the critical occupations list and national job-market data.",
+   "words": [
+    {
+     "w": "Next",
+     "t": 273.076
+    },
+    {
+     "w": "more",
+     "t": 273.461
+    },
+    {
+     "w": "Malaysian",
+     "t": 273.654
+    },
+    {
+     "w": "signals",
+     "t": 274.232
+    },
+    {
+     "w": "from",
+     "t": 275.022
+    },
+    {
+     "w": "the",
+     "t": 275.215
+    },
+    {
+     "w": "critical",
+     "t": 275.407
+    },
+    {
+     "w": "occupations",
+     "t": 275.985
+    },
+    {
+     "w": "list",
+     "t": 276.756
+    },
+    {
+     "w": "and",
+     "t": 277.141
+    },
+    {
+     "w": "national",
+     "t": 277.334
+    },
+    {
+     "w": "job-market",
+     "t": 277.912
+    },
+    {
+     "w": "data",
+     "t": 278.49
+    }
+   ]
+  },
+  {
+   "id": "L33",
+   "scene": "future",
+   "start": 279.775,
+   "end": 285.605,
+   "sub": "Testing with final-year volunteers, Bahasa Malaysia and Chinese, and a low-bandwidth mode.",
+   "words": [
+    {
+     "w": "Testing",
+     "t": 279.775
+    },
+    {
+     "w": "with",
+     "t": 280.188
+    },
+    {
+     "w": "final-year",
+     "t": 280.395
+    },
+    {
+     "w": "volunteers",
+     "t": 281.015
+    },
+    {
+     "w": "Bahasa",
+     "t": 282.07
+    },
+    {
+     "w": "Malaysia",
+     "t": 282.69
+    },
+    {
+     "w": "and",
+     "t": 283.31
+    },
+    {
+     "w": "Chinese",
+     "t": 283.517
+    },
+    {
+     "w": "And",
+     "t": 284.365
+    },
+    {
+     "w": "a",
+     "t": 284.571
+    },
+    {
+     "w": "low-bandwidth",
+     "t": 284.778
+    },
+    {
+     "w": "mode",
+     "t": 285.398
+    }
+   ]
+  },
+  {
+   "id": "L34",
+   "scene": "close",
+   "start": 288.7,
+   "end": 291.51,
+   "sub": "SkillTide. Chart your course before you graduate.",
+   "words": [
+    {
+     "w": "SkillTide",
+     "t": 288.7
+    },
+    {
+     "w": "Chart",
+     "t": 289.579
+    },
+    {
+     "w": "your",
+     "t": 289.794
+    },
+    {
+     "w": "course",
+     "t": 290.008
+    },
+    {
+     "w": "before",
+     "t": 290.437
+    },
+    {
+     "w": "you",
+     "t": 290.866
+    },
+    {
+     "w": "graduate",
+     "t": 291.081
+    }
+   ]
+  }
+ ]
+}
