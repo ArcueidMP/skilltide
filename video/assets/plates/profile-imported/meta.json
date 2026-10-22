@@ -1,0 +1,331 @@
+{
+ "name": "profile-imported",
+ "url": "/profile",
+ "viewport": {
+  "w": 1440,
+  "h": 900
+ },
+ "dpr": 2,
+ "header": {
+  "x": 0,
+  "y": 0,
+  "width": 1440,
+  "height": 64.5
+ },
+ "main": {
+  "x": 24,
+  "y": 88.5,
+  "width": 988,
+  "height": 985
+ },
+ "guide": {
+  "x": 1036,
+  "y": 88.5,
+  "width": 380,
+  "height": 792
+ },
+ "rects": {
+  "steps": [
+   {
+    "frame": "header",
+    "x": 165.9,
+    "y": 18.8,
+    "w": 82.9,
+    "h": 32,
+    "text": "1\nProfile",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 280.8,
+    "y": 18.8,
+    "w": 114.5,
+    "h": 32,
+    "text": "2\nSkills Radar",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 427.3,
+    "y": 18.8,
+    "w": 94.2,
+    "h": 32,
+    "text": "3\nMatches",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 553.5,
+    "y": 18.8,
+    "w": 95.3,
+    "h": 32,
+    "text": "4\nPathway",
+    "title": null
+   }
+  ],
+  "scenario": [
+   {
+    "frame": "header",
+    "x": 908.9,
+    "y": 22.8,
+    "w": 88.1,
+    "h": 24,
+    "text": "Moderate AI",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 996.9,
+    "y": 22.8,
+    "w": 58.9,
+    "h": 24,
+    "text": "Fast AI",
+    "title": null
+   }
+  ],
+  "guideButton": [],
+  "messages": [
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 78.5,
+    "w": 346,
+    "h": 108.5,
+    "text": "I explain why SkillTide ranks things the way it does, and every answer points to its source. I don't invent jobs, courses or numbers — if the data doesn't cover something, I'll say so.",
+    "title": null
+   }
+  ],
+  "guidePanel": [
+   {
+    "frame": "guide",
+    "x": 0,
+    "y": 0,
+    "w": 380,
+    "h": 792,
+    "text": "SkillTide Guide\n\nAnswers only from SkillTide data\n\nRule-based\nI explain why SkillTide ranks things the way it does, and every answer points to its source. I don't invent jobs, courses or numbers — if the data doesn't cover something, I'll s",
+    "title": null
+   }
+  ],
+  "textarea": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 491.3,
+    "w": 602,
+    "h": 277.8,
+    "text": "",
+    "title": null
+   }
+  ],
+  "upload": [
+   {
+    "frame": "main",
+    "x": 174,
+    "y": 787,
+    "w": 178.3,
+    "h": 40,
+    "text": "Upload PDF or text",
+    "title": null
+   }
+  ],
+  "local": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 835,
+    "w": 341.9,
+    "h": 16,
+    "text": "Scanned in your browser with fixed rules — nothing is uploaded.",
+    "title": null
+   }
+  ],
+  "scanNote": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 907,
+    "w": 602,
+    "h": 57,
+    "text": "Imported kavin-raj-synthetic-cv.pdf (1 page). Found 12 skills. Hover a chip to see the phrase it came from, and fix any level that looks wrong.",
+    "title": null
+   }
+  ],
+  "skillsCard": [
+   {
+    "frame": "main",
+    "x": 668,
+    "y": 145.8,
+    "w": 320,
+    "h": 574.5,
+    "text": "Your skills\n\n12 recognised\n\nPLC programming\nSCADA & HMI\nEquipment maintenance & troubleshooting\nComputer vision\nPython\nC / C++\nEmbedded systems & microcontrollers\nRobotics (ROS, robot programming)\nCAD (AutoCAD / SolidWorks)\nControl systems\n",
+    "title": null
+   }
+  ],
+  "chips": [
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 236.3,
+    "w": 195.4,
+    "h": 29.5,
+    "text": "PLC programming",
+    "title": "Found in: “Edited PLC ladder logic for a conveyor sorting sta”"
+   },
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 273.8,
+    "w": 173,
+    "h": 29.5,
+    "text": "SCADA & HMI",
+    "title": "Found in: “Monitored the line on a SCADA dashboard and logged downtime”"
+   },
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 311.3,
+    "w": 278,
+    "h": 49,
+    "text": "Equipment maintenance & troubleshooting",
+    "title": "Found in: “Helped with preventive maintenance of pneumatic actuators”"
+   },
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 368.3,
+    "w": 187,
+    "h": 29.5,
+    "text": "Computer vision",
+    "title": "Found in: “guided pick-and-place arm using ROS and OpenCV in Python”"
+   },
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 405.8,
+    "w": 133,
+    "h": 29.5,
+    "text": "Python",
+    "title": "Found in: “k-and-place arm using ROS and OpenCV in Python”"
+   },
+   {
+    "frame": "main",
+    "x": 830,
+    "y": 405.8,
+    "w": 134.9,
+    "h": 29.5,
+    "text": "C / C++",
+    "title": "Found in: “e-following robot on Arduino written in C++”"
+   },
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 443.3,
+    "w": 278,
+    "h": 49,
+    "text": "Embedded systems & microcontrollers",
+    "title": "Found in: “Line-following robot on Arduino written in C++”"
+   },
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 500.3,
+    "w": 278,
+    "h": 49,
+    "text": "Robotics (ROS, robot programming)",
+    "title": "Found in: “vision-guided pick-and-place arm using ROS and OpenCV in Python”"
+   },
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 557.3,
+    "w": 258.3,
+    "h": 29.5,
+    "text": "CAD (AutoCAD / SolidWorks)",
+    "title": "Found in: “Designed fixtures in SolidWorks”"
+   },
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 594.8,
+    "w": 186,
+    "h": 29.5,
+    "text": "Control systems",
+    "title": "Found in: “Control systems, robotics, sensors and actuators, embed”"
+   },
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 632.3,
+    "w": 230.8,
+    "h": 29.5,
+    "text": "Sensors & industrial IoT",
+    "title": "Found in: “Control systems, robotics, sensors and actuators, embedded systems, CAD”"
+   },
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 669.8,
+    "w": 241.3,
+    "h": 29.5,
+    "text": "Teamwork & coordination",
+    "title": "Found in: “AD, troubleshooting, Malay and English, working in shifts”"
+   }
+  ],
+  "sdgCard": [
+   {
+    "frame": "main",
+    "x": 668,
+    "y": 736.3,
+    "w": 320,
+    "h": 115.5,
+    "text": "SDG goals\n\n0/3 chosen\n\nOptional. Pick goals under Quick questions to let them shape your matches.",
+    "title": null
+   }
+  ],
+  "next": [],
+  "tabs": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 426.8,
+    "w": 158.3,
+    "h": 31.5,
+    "text": "Paste or upload CV",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 183.3,
+    "y": 426.8,
+    "w": 105.2,
+    "h": 31.5,
+    "text": "Pick skills",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 292.5,
+    "y": 426.8,
+    "w": 141.3,
+    "h": 31.5,
+    "text": "Quick questions",
+    "title": null
+   }
+  ],
+  "skillsCount": [
+   {
+    "frame": "main",
+    "x": 689,
+    "y": 196.3,
+    "w": 89.1,
+    "h": 20,
+    "text": "12 recognised",
+    "title": null
+   }
+  ]
+ },
+ "mainSize": {
+  "w": 988,
+  "h": 985
+ }
+}

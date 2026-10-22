@@ -1,0 +1,40 @@
+{
+ "name": "landing",
+ "url": "/",
+ "viewport": {
+  "w": 1440,
+  "h": 900
+ },
+ "dpr": 2,
+ "header": {
+  "x": 0,
+  "y": 0,
+  "width": 1440,
+  "height": 63
+ },
+ "main": {
+  "x": 24,
+  "y": 87,
+  "width": 1392,
+  "height": 1488.25
+ },
+ "guide": null,
+ "rects": {
+  "hero": [
+   {
+    "frame": "main",
+    "x": 120,
+    "y": 92.5,
+    "w": 634.8,
+    "h": 189,
+    "text": "See where AI is taking your career before you graduate.",
+    "title": null
+   }
+  ],
+  "cta": []
+ },
+ "mainSize": {
+  "w": 1392,
+  "h": 1488.25
+ }
+}

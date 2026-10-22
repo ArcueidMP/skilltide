@@ -1,0 +1,180 @@
+{
+ "name": "profile-empty",
+ "url": "/profile",
+ "viewport": {
+  "w": 1440,
+  "h": 900
+ },
+ "dpr": 2,
+ "header": {
+  "x": 0,
+  "y": 0,
+  "width": 1440,
+  "height": 64.5
+ },
+ "main": {
+  "x": 24,
+  "y": 88.5,
+  "width": 988,
+  "height": 928
+ },
+ "guide": {
+  "x": 1036,
+  "y": 88.5,
+  "width": 380,
+  "height": 792
+ },
+ "rects": {
+  "steps": [
+   {
+    "frame": "header",
+    "x": 165.9,
+    "y": 18.8,
+    "w": 82.9,
+    "h": 32,
+    "text": "1\nProfile",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 280.8,
+    "y": 18.8,
+    "w": 114.5,
+    "h": 32,
+    "text": "2\nSkills Radar",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 427.3,
+    "y": 18.8,
+    "w": 94.2,
+    "h": 32,
+    "text": "3\nMatches",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 553.5,
+    "y": 18.8,
+    "w": 95.3,
+    "h": 32,
+    "text": "4\nPathway",
+    "title": null
+   }
+  ],
+  "scenario": [
+   {
+    "frame": "header",
+    "x": 908.9,
+    "y": 22.8,
+    "w": 88.1,
+    "h": 24,
+    "text": "Moderate AI",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 996.9,
+    "y": 22.8,
+    "w": 58.9,
+    "h": 24,
+    "text": "Fast AI",
+    "title": null
+   }
+  ],
+  "guideButton": [],
+  "messages": [
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 78.5,
+    "w": 346,
+    "h": 108.5,
+    "text": "I explain why SkillTide ranks things the way it does, and every answer points to its source. I don't invent jobs, courses or numbers — if the data doesn't cover something, I'll say so.",
+    "title": null
+   }
+  ],
+  "guidePanel": [
+   {
+    "frame": "guide",
+    "x": 0,
+    "y": 0,
+    "w": 380,
+    "h": 792,
+    "text": "SkillTide Guide\n\nAnswers only from SkillTide data\n\nRule-based\nI explain why SkillTide ranks things the way it does, and every answer points to its source. I don't invent jobs, courses or numbers — if the data doesn't cover something, I'll s",
+    "title": null
+   }
+  ],
+  "textarea": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 491.3,
+    "w": 602,
+    "h": 277.8,
+    "text": "",
+    "title": null
+   }
+  ],
+  "upload": [
+   {
+    "frame": "main",
+    "x": 174,
+    "y": 787,
+    "w": 178.3,
+    "h": 40,
+    "text": "Upload PDF or text",
+    "title": null
+   }
+  ],
+  "local": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 835,
+    "w": 341.9,
+    "h": 16,
+    "text": "Scanned in your browser with fixed rules — nothing is uploaded.",
+    "title": null
+   }
+  ],
+  "skillsCard": [
+   {
+    "frame": "main",
+    "x": 668,
+    "y": 145.8,
+    "w": 320,
+    "h": 131,
+    "text": "Your skills\n\nNothing added yet\n\nScan a CV, pick skills, or load a sample student.",
+    "title": null
+   }
+  ],
+  "samples": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 145.8,
+    "w": 644,
+    "h": 244,
+    "text": "Try a synthetic sample student\n\nReset demo\nAina Sofea· Electrical & electronic, Penang test-floor intern\nLim Wei Jie· Computer science, Kuala Lumpur web intern\nKavin a/l Raj· Mechatronics, Johor factory automation intern\nNurul Izzah· Comput",
+    "title": null
+   }
+  ],
+  "sampleLink": [
+   {
+    "frame": "main",
+    "x": 156.3,
+    "y": 879,
+    "w": 91.9,
+    "h": 15,
+    "text": "sample CV (PDF)",
+    "title": null
+   }
+  ]
+ },
+ "mainSize": {
+  "w": 988,
+  "h": 928
+ }
+}

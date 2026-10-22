@@ -1,0 +1,5370 @@
+{
+ "generatedAt": "2026-10-21",
+ "horizonYears": 3,
+ "scenarios": [
+  {
+   "id": "moderate",
+   "label": "Moderate AI",
+   "adoptionRate": 0.15,
+   "automationDrift": 0
+  },
+  {
+   "id": "fast",
+   "label": "Fast AI",
+   "adoptionRate": 0.35,
+   "automationDrift": 0.0472
+  }
+ ],
+ "snapshots": [
+  {
+   "id": "2025-03",
+   "label": "Mar 2025",
+   "asOf": "2025-03-27",
+   "aiUsePeriod": "Feb–Mar 2025"
+  },
+  {
+   "id": "2025-09",
+   "label": "Sep 2025",
+   "asOf": "2025-09-15",
+   "aiUsePeriod": "4–11 Aug 2025"
+  },
+  {
+   "id": "2026-01",
+   "label": "Jan 2026",
+   "asOf": "2026-01-15",
+   "aiUsePeriod": "13–20 Nov 2025"
+  },
+  {
+   "id": "2026-03",
+   "label": "Mar 2026",
+   "asOf": "2026-03-24",
+   "aiUsePeriod": "5–12 Feb 2026"
+  },
+  {
+   "id": "2026-06",
+   "label": "Jun 2026",
+   "asOf": "2026-06-26",
+   "aiUsePeriod": "May 2026"
+  },
+  {
+   "id": "latest",
+   "label": "Latest (16 Oct 2026)",
+   "asOf": "2026-10-16",
+   "aiUsePeriod": "May 2026"
+  }
+ ],
+ "roles": [
+  {
+   "id": "software-developer",
+   "title": "Software Developer",
+   "family": "software",
+   "mycol": true,
+   "sdg": [
+    "9.1",
+    "4.4"
+   ],
+   "tasks": 17
+  },
+  {
+   "id": "web-developer",
+   "title": "Web Developer",
+   "family": "software",
+   "mycol": false,
+   "sdg": [
+    "9.1",
+    "9.5",
+    "8.2"
+   ],
+   "tasks": 29
+  },
+  {
+   "id": "software-qa",
+   "title": "Software QA Analyst & Tester",
+   "family": "software",
+   "mycol": true,
+   "sdg": [
+    "8.2",
+    "9.c"
+   ],
+   "tasks": 30
+  },
+  {
+   "id": "computer-programmer",
+   "title": "Computer Programmer",
+   "family": "software",
+   "mycol": true,
+   "sdg": [
+    "9.c",
+    "4.4",
+    "9.5"
+   ],
+   "tasks": 17
+  },
+  {
+   "id": "ui-designer",
+   "title": "Web & Digital Interface Designer",
+   "family": "software",
+   "mycol": true,
+   "sdg": [
+    "9.5",
+    "8.2",
+    "9.c"
+   ],
+   "tasks": 30
+  },
+  {
+   "id": "systems-engineer",
+   "title": "Computer Systems Engineer / Architect",
+   "family": "software",
+   "mycol": false,
+   "sdg": [
+    "9.1",
+    "9.c",
+    "9.5"
+   ],
+   "tasks": 28
+  },
+  {
+   "id": "systems-analyst",
+   "title": "Computer Systems Analyst",
+   "family": "software",
+   "mycol": true,
+   "sdg": [
+    "9.c",
+    "4.4"
+   ],
+   "tasks": 22
+  },
+  {
+   "id": "network-admin",
+   "title": "Network & Computer Systems Administrator",
+   "family": "software",
+   "mycol": true,
+   "sdg": [
+    "9.c",
+    "9.1",
+    "9.5"
+   ],
+   "tasks": 20
+  },
+  {
+   "id": "it-support",
+   "title": "Computer User Support Specialist",
+   "family": "software",
+   "mycol": false,
+   "sdg": [
+    "4.4",
+    "8.2"
+   ],
+   "tasks": 16
+  },
+  {
+   "id": "security-analyst",
+   "title": "Information Security Analyst",
+   "family": "software",
+   "mycol": true,
+   "sdg": [
+    "9.1",
+    "9.c",
+    "4.4"
+   ],
+   "tasks": 11
+  },
+  {
+   "id": "penetration-tester",
+   "title": "Penetration Tester",
+   "family": "software",
+   "mycol": true,
+   "sdg": [
+    "9.1",
+    "9.c"
+   ],
+   "tasks": 22
+  },
+  {
+   "id": "data-scientist",
+   "title": "Data Scientist",
+   "family": "data-ai",
+   "mycol": true,
+   "sdg": [
+    "9.5"
+   ],
+   "tasks": 16
+  },
+  {
+   "id": "bi-analyst",
+   "title": "Business Intelligence Analyst",
+   "family": "data-ai",
+   "mycol": true,
+   "sdg": [
+    "8.2"
+   ],
+   "tasks": 17
+  },
+  {
+   "id": "data-warehousing",
+   "title": "Data Warehousing Specialist",
+   "family": "data-ai",
+   "mycol": false,
+   "sdg": [
+    "8.2"
+   ],
+   "tasks": 18
+  },
+  {
+   "id": "research-scientist",
+   "title": "Computer & Information Research Scientist",
+   "family": "data-ai",
+   "mycol": false,
+   "sdg": [
+    "9.5",
+    "9.c",
+    "9.1"
+   ],
+   "tasks": 15
+  },
+  {
+   "id": "electrical-engineer",
+   "title": "Electrical Engineer",
+   "family": "electronics",
+   "mycol": true,
+   "sdg": [
+    "9.2",
+    "7.1",
+    "7.2"
+   ],
+   "tasks": 22
+  },
+  {
+   "id": "electronics-engineer",
+   "title": "Electronics Engineer",
+   "family": "electronics",
+   "mycol": true,
+   "sdg": [
+    "7.3",
+    "9.2",
+    "4.4"
+   ],
+   "tasks": 20
+  },
+  {
+   "id": "hardware-engineer",
+   "title": "Computer Hardware Engineer",
+   "family": "electronics",
+   "mycol": true,
+   "sdg": [
+    "9.5",
+    "9.1"
+   ],
+   "tasks": 18
+  },
+  {
+   "id": "microsystems-engineer",
+   "title": "Microsystems Engineer",
+   "family": "electronics",
+   "mycol": false,
+   "sdg": [
+    "9.5",
+    "9.2",
+    "9.4"
+   ],
+   "tasks": 31
+  },
+  {
+   "id": "telecom-engineer",
+   "title": "Telecommunications Engineering Specialist",
+   "family": "electronics",
+   "mycol": false,
+   "sdg": [
+    "9.c",
+    "9.1",
+    "4.4"
+   ],
+   "tasks": 26
+  },
+  {
+   "id": "ee-technician",
+   "title": "Electrical & Electronic Engineering Technician",
+   "family": "electronics",
+   "mycol": true,
+   "sdg": [
+    "9.5",
+    "8.2",
+    "9.c"
+   ],
+   "tasks": 28
+  },
+  {
+   "id": "electronics-drafter",
+   "title": "Electrical & Electronics Drafter",
+   "family": "electronics",
+   "mycol": false,
+   "sdg": [
+    "9.2"
+   ],
+   "tasks": 30
+  },
+  {
+   "id": "mechatronics-engineer",
+   "title": "Mechatronics Engineer",
+   "family": "automation",
+   "mycol": false,
+   "sdg": [
+    "8.2",
+    "9.5",
+    "9.2"
+   ],
+   "tasks": 23
+  },
+  {
+   "id": "robotics-engineer",
+   "title": "Robotics Engineer",
+   "family": "automation",
+   "mycol": false,
+   "sdg": [
+    "9.5",
+    "8.2",
+    "9.2"
+   ],
+   "tasks": 24
+  },
+  {
+   "id": "robotics-technician",
+   "title": "Robotics Technician",
+   "family": "automation",
+   "mycol": true,
+   "sdg": [
+    "8.2",
+    "9.1",
+    "8.8"
+   ],
+   "tasks": 22
+  },
+  {
+   "id": "mechatronics-technician",
+   "title": "Electro-Mechanical & Mechatronics Technician",
+   "family": "automation",
+   "mycol": false,
+   "sdg": [
+    "9.4",
+    "9.2",
+    "12.5"
+   ],
+   "tasks": 28
+  },
+  {
+   "id": "manufacturing-engineer",
+   "title": "Manufacturing Engineer",
+   "family": "automation",
+   "mycol": true,
+   "sdg": [
+    "9.2",
+    "9.4",
+    "12.5"
+   ],
+   "tasks": 24
+  },
+  {
+   "id": "industrial-engineer",
+   "title": "Industrial Engineer",
+   "family": "automation",
+   "mycol": true,
+   "sdg": [
+    "9.2",
+    "9.1"
+   ],
+   "tasks": 20
+  },
+  {
+   "id": "solar-engineer",
+   "title": "Solar Energy Systems Engineer",
+   "family": "energy",
+   "mycol": false,
+   "sdg": [
+    "7.2",
+    "7.1",
+    "8.2"
+   ],
+   "tasks": 13
+  },
+  {
+   "id": "energy-engineer",
+   "title": "Energy Engineer",
+   "family": "energy",
+   "mycol": false,
+   "sdg": [
+    "7.3",
+    "9.4",
+    "7.2"
+   ],
+   "tasks": 21
+  }
+ ],
+ "counts": {
+  "roles": 30,
+  "skills": 57,
+  "courses": 72,
+  "freeCourses": 68,
+  "sources": 13,
+  "snapshots": 6,
+  "emerging": 20,
+  "tasks": 658,
+  "refreshInputs": 61,
+  "refreshRun": "https://github.com/ArcueidMP/skilltide/actions/runs/39643199831"
+ },
+ "sources": [
+  {
+   "id": "onet",
+   "name": "O*NET 31.0 Database",
+   "publisher": "U.S. Department of Labor, Employment and Training Administration",
+   "licence": "CC BY 4.0",
+   "published": "2026-08"
+  },
+  {
+   "id": "eloundou",
+   "name": "GPTs are GPTs task exposure labels (β)",
+   "publisher": "Eloundou, Manning, Mishkin & Rock — OpenAI / OpenResearch / UPenn",
+   "licence": "MIT",
+   "published": "2024"
+  },
+  {
+   "id": "aei",
+   "name": "Anthropic Economic Index",
+   "publisher": "Anthropic",
+   "licence": "CC BY (data)",
+   "published": "2026-06-26"
+  },
+  {
+   "id": "aei-method",
+   "name": "Anthropic — Labor market impacts (observed exposure method)",
+   "publisher": "Anthropic (Massenkoff & McCrory)",
+   "licence": "Cited",
+   "published": "2026-03-05"
+  },
+  {
+   "id": "aei-robots",
+   "name": "Anthropic — What work can robots do? (robot exposure index)",
+   "publisher": "Anthropic",
+   "licence": "CC BY (data)",
+   "published": "2026-09-30"
+  },
+  {
+   "id": "indeed-ai",
+   "name": "Indeed Hiring Lab — AI Tracker (share of postings mentioning AI)",
+   "publisher": "Indeed Hiring Lab",
+   "licence": "CC BY 4.0",
+   "published": "2026-09-30"
+  },
+  {
+   "id": "indeed",
+   "name": "Indeed Hiring Lab — Job Postings Index by sector",
+   "publisher": "Indeed Hiring Lab",
+   "licence": "CC BY 4.0",
+   "published": "2026-10-16"
+  },
+  {
+   "id": "hn",
+   "name": "Hacker News “Who is hiring?” threads (via Algolia HN API)",
+   "publisher": "Y Combinator / Algolia",
+   "licence": "Counts only; text not stored",
+   "published": "2026-10-01"
+  },
+  {
+   "id": "un-sdg",
+   "name": "UN SDG Global Database — goals and targets",
+   "publisher": "United Nations Statistics Division",
+   "licence": "Cited",
+   "published": null
+  },
+  {
+   "id": "mslearn",
+   "name": "Microsoft Learn Catalog API",
+   "publisher": "Microsoft",
+   "licence": "Microsoft APIs Terms of Use (links and metadata only)",
+   "published": null
+  },
+  {
+   "id": "course-checks",
+   "name": "SkillTide course checks",
+   "publisher": "SkillTide team",
+   "licence": "CC BY 4.0",
+   "published": "2026-10-21"
+  },
+  {
+   "id": "mycol",
+   "name": "MyMahir Malaysia Critical Occupations List (MyCOL) 2024/2025 - 8th edition, 66 critical occupations across 18 sectors",
+   "publisher": "TalentCorp Malaysia",
+   "licence": "Cited",
+   "published": "2025"
+  },
+  {
+   "id": "emerging",
+   "name": "New-occupation lists and studies (MOHRSS China, TalentCorp, WEF)",
+   "publisher": "Various; each item links to its own source",
+   "licence": "Cited",
+   "published": "2026-10-21"
+  }
+ ],
+ "outlooks": {
+  "2025-03": {
+   "moderate": {
+    "software-developer": {
+     "score": 64.5,
+     "trend": "rising",
+     "demand": 0.21,
+     "assist": 0.341,
+     "automate": 0.152
+    },
+    "web-developer": {
+     "score": 57.2,
+     "trend": "rising",
+     "demand": 0.21,
+     "assist": 0.365,
+     "automate": 0.212
+    },
+    "software-qa": {
+     "score": 53.9,
+     "trend": "transforming",
+     "demand": 0.21,
+     "assist": 0.245,
+     "automate": 0.275
+    },
+    "computer-programmer": {
+     "score": 60.1,
+     "trend": "rising",
+     "demand": 0.21,
+     "assist": 0.398,
+     "automate": 0.273
+    },
+    "ui-designer": {
+     "score": 58.9,
+     "trend": "rising",
+     "demand": 0.21,
+     "assist": 0.279,
+     "automate": 0.21
+    },
+    "systems-engineer": {
+     "score": 55,
+     "trend": "transforming",
+     "demand": 0.11,
+     "assist": 0.295,
+     "automate": 0.163
+    },
+    "systems-analyst": {
+     "score": 61.7,
+     "trend": "rising",
+     "demand": 0.11,
+     "assist": 0.337,
+     "automate": 0.163
+    },
+    "network-admin": {
+     "score": 59.2,
+     "trend": "rising",
+     "demand": 0.06,
+     "assist": 0.272,
+     "automate": 0.143
+    },
+    "it-support": {
+     "score": 52.5,
+     "trend": "stable",
+     "demand": 0.06,
+     "assist": 0.175,
+     "automate": 0.104
+    },
+    "security-analyst": {
+     "score": 62.8,
+     "trend": "rising",
+     "demand": 0.11,
+     "assist": 0.289,
+     "automate": 0.108
+    },
+    "penetration-tester": {
+     "score": 59,
+     "trend": "rising",
+     "demand": 0.11,
+     "assist": 0.2,
+     "automate": 0.111
+    },
+    "data-scientist": {
+     "score": 55.2,
+     "trend": "stable",
+     "demand": -0.08,
+     "assist": 0.183,
+     "automate": 0.101
+    },
+    "bi-analyst": {
+     "score": 53.8,
+     "trend": "stable",
+     "demand": -0.08,
+     "assist": 0.231,
+     "automate": 0.162
+    },
+    "data-warehousing": {
+     "score": 52.6,
+     "trend": "transforming",
+     "demand": -0.08,
+     "assist": 0.377,
+     "automate": 0.199
+    },
+    "research-scientist": {
+     "score": 38.6,
+     "trend": "declining",
+     "demand": -0.83,
+     "assist": 0.28,
+     "automate": 0.106
+    },
+    "electrical-engineer": {
+     "score": 56.6,
+     "trend": "rising",
+     "demand": -0.21,
+     "assist": 0.206,
+     "automate": 0.045
+    },
+    "electronics-engineer": {
+     "score": 50.1,
+     "trend": "stable",
+     "demand": -0.21,
+     "assist": 0.144,
+     "automate": 0.118
+    },
+    "hardware-engineer": {
+     "score": 55,
+     "trend": "stable",
+     "demand": -0.21,
+     "assist": 0.243,
+     "automate": 0.101
+    },
+    "microsystems-engineer": {
+     "score": 48.9,
+     "trend": "declining",
+     "demand": -0.21,
+     "assist": 0.153,
+     "automate": 0.056
+    },
+    "telecom-engineer": {
+     "score": 52.3,
+     "trend": "stable",
+     "demand": -0.21,
+     "assist": 0.238,
+     "automate": 0.057
+    },
+    "ee-technician": {
+     "score": 57.3,
+     "trend": "rising",
+     "demand": -0.09,
+     "assist": 0.147,
+     "automate": 0.033
+    },
+    "electronics-drafter": {
+     "score": 46.1,
+     "trend": "declining",
+     "demand": -0.21,
+     "assist": 0.141,
+     "automate": 0.098
+    },
+    "mechatronics-engineer": {
+     "score": 49.9,
+     "trend": "stable",
+     "demand": -0.2,
+     "assist": 0.177,
+     "automate": 0.057
+    },
+    "robotics-engineer": {
+     "score": 42,
+     "trend": "declining",
+     "demand": -0.2,
+     "assist": 0.123,
+     "automate": 0.159
+    },
+    "robotics-technician": {
+     "score": 47.6,
+     "trend": "declining",
+     "demand": -0.09,
+     "assist": 0.054,
+     "automate": 0.142
+    },
+    "mechatronics-technician": {
+     "score": 46.6,
+     "trend": "declining",
+     "demand": -0.09,
+     "assist": 0.067,
+     "automate": 0.079
+    },
+    "manufacturing-engineer": {
+     "score": 46.7,
+     "trend": "declining",
+     "demand": -0.35,
+     "assist": 0.098,
+     "automate": 0.096
+    },
+    "industrial-engineer": {
+     "score": 48.6,
+     "trend": "declining",
+     "demand": -0.35,
+     "assist": 0.127,
+     "automate": 0.082
+    },
+    "solar-engineer": {
+     "score": 46.9,
+     "trend": "declining",
+     "demand": -0.21,
+     "assist": 0.115,
+     "automate": 0.064
+    },
+    "energy-engineer": {
+     "score": 47.9,
+     "trend": "declining",
+     "demand": -0.28,
+     "assist": 0.174,
+     "automate": 0.064
+    }
+   },
+   "fast": {
+    "software-developer": {
+     "score": 57.3,
+     "trend": "rising",
+     "demand": 0.21,
+     "assist": 0.395,
+     "automate": 0.322
+    },
+    "web-developer": {
+     "score": 48,
+     "trend": "transforming",
+     "demand": 0.21,
+     "assist": 0.381,
+     "automate": 0.391
+    },
+    "software-qa": {
+     "score": 41.9,
+     "trend": "declining",
+     "demand": 0.21,
+     "assist": 0.234,
+     "automate": 0.486
+    },
+    "computer-programmer": {
+     "score": 50.9,
+     "trend": "rising",
+     "demand": 0.21,
+     "assist": 0.39,
+     "automate": 0.435
+    },
+    "ui-designer": {
+     "score": 49.7,
+     "trend": "transforming",
+     "demand": 0.21,
+     "assist": 0.292,
+     "automate": 0.387
+    },
+    "systems-engineer": {
+     "score": 47.9,
+     "trend": "transforming",
+     "demand": 0.11,
+     "assist": 0.32,
+     "automate": 0.309
+    },
+    "systems-analyst": {
+     "score": 54.5,
+     "trend": "rising",
+     "demand": 0.11,
+     "assist": 0.343,
+     "automate": 0.298
+    },
+    "network-admin": {
+     "score": 53.7,
+     "trend": "rising",
+     "demand": 0.06,
+     "assist": 0.311,
+     "automate": 0.272
+    },
+    "it-support": {
+     "score": 47.4,
+     "trend": "transforming",
+     "demand": 0.06,
+     "assist": 0.22,
+     "automate": 0.23
+    },
+    "security-analyst": {
+     "score": 58,
+     "trend": "rising",
+     "demand": 0.11,
+     "assist": 0.33,
+     "automate": 0.224
+    },
+    "penetration-tester": {
+     "score": 52.9,
+     "trend": "rising",
+     "demand": 0.11,
+     "assist": 0.293,
+     "automate": 0.291
+    },
+    "data-scientist": {
+     "score": 49.5,
+     "trend": "transforming",
+     "demand": -0.08,
+     "assist": 0.268,
+     "automate": 0.266
+    },
+    "bi-analyst": {
+     "score": 46.6,
+     "trend": "transforming",
+     "demand": -0.08,
+     "assist": 0.255,
+     "automate": 0.311
+    },
+    "data-warehousing": {
+     "score": 44.4,
+     "trend": "transforming",
+     "demand": -0.08,
+     "assist": 0.407,
+     "automate": 0.37
+    },
+    "research-scientist": {
+     "score": 33.6,
+     "trend": "declining",
+     "demand": -0.83,
+     "assist": 0.3,
+     "automate": 0.212
+    },
+    "electrical-engineer": {
+     "score": 54.9,
+     "trend": "rising",
+     "demand": -0.21,
+     "assist": 0.284,
+     "automate": 0.132
+    },
+    "electronics-engineer": {
+     "score": 44.9,
+     "trend": "stable",
+     "demand": -0.21,
+     "assist": 0.186,
+     "automate": 0.243
+    },
+    "hardware-engineer": {
+     "score": 50.3,
+     "trend": "transforming",
+     "demand": -0.21,
+     "assist": 0.311,
+     "automate": 0.237
+    },
+    "microsystems-engineer": {
+     "score": 46.4,
+     "trend": "stable",
+     "demand": -0.21,
+     "assist": 0.213,
+     "automate": 0.145
+    },
+    "telecom-engineer": {
+     "score": 50.4,
+     "trend": "transforming",
+     "demand": -0.21,
+     "assist": 0.321,
+     "automate": 0.151
+    },
+    "ee-technician": {
+     "score": 56.1,
+     "trend": "rising",
+     "demand": -0.09,
+     "assist": 0.212,
+     "automate": 0.102
+    },
+    "electronics-drafter": {
+     "score": 40.4,
+     "trend": "declining",
+     "demand": -0.21,
+     "assist": 0.191,
+     "automate": 0.237
+    },
+    "mechatronics-engineer": {
+     "score": 47.4,
+     "trend": "stable",
+     "demand": -0.2,
+     "assist": 0.249,
+     "automate": 0.154
+    },
+    "robotics-engineer": {
+     "score": 34,
+     "trend": "declining",
+     "demand": -0.2,
+     "assist": 0.135,
+     "automate": 0.314
+    },
+    "robotics-technician": {
+     "score": 39.4,
+     "trend": "declining",
+     "demand": -0.09,
+     "assist": 0.052,
+     "automate": 0.29
+    },
+    "mechatronics-technician": {
+     "score": 42.3,
+     "trend": "declining",
+     "demand": -0.09,
+     "assist": 0.089,
+     "automate": 0.174
+    },
+    "manufacturing-engineer": {
+     "score": 41,
+     "trend": "declining",
+     "demand": -0.35,
+     "assist": 0.13,
+     "automate": 0.223
+    },
+    "industrial-engineer": {
+     "score": 44,
+     "trend": "stable",
+     "demand": -0.35,
+     "assist": 0.179,
+     "automate": 0.204
+    },
+    "solar-engineer": {
+     "score": 43.4,
+     "trend": "declining",
+     "demand": -0.21,
+     "assist": 0.168,
+     "automate": 0.167
+    },
+    "energy-engineer": {
+     "score": 45.1,
+     "trend": "stable",
+     "demand": -0.28,
+     "assist": 0.244,
+     "automate": 0.165
+    }
+   }
+  },
+  "2025-09": {
+   "moderate": {
+    "software-developer": {
+     "score": 69,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.259,
+     "automate": 0.205
+    },
+    "web-developer": {
+     "score": 65.6,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.308,
+     "automate": 0.21
+    },
+    "software-qa": {
+     "score": 62,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.207,
+     "automate": 0.295
+    },
+    "computer-programmer": {
+     "score": 64.4,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.33,
+     "automate": 0.34
+    },
+    "ui-designer": {
+     "score": 65.7,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.214,
+     "automate": 0.232
+    },
+    "systems-engineer": {
+     "score": 52.7,
+     "trend": "stable",
+     "demand": 0.24,
+     "assist": 0.233,
+     "automate": 0.208
+    },
+    "systems-analyst": {
+     "score": 57.2,
+     "trend": "transforming",
+     "demand": 0.24,
+     "assist": 0.275,
+     "automate": 0.247
+    },
+    "network-admin": {
+     "score": 55.6,
+     "trend": "stable",
+     "demand": 0.16,
+     "assist": 0.18,
+     "automate": 0.178
+    },
+    "it-support": {
+     "score": 49.9,
+     "trend": "declining",
+     "demand": 0.16,
+     "assist": 0.139,
+     "automate": 0.16
+    },
+    "security-analyst": {
+     "score": 61,
+     "trend": "rising",
+     "demand": 0.24,
+     "assist": 0.208,
+     "automate": 0.129
+    },
+    "penetration-tester": {
+     "score": 57.5,
+     "trend": "stable",
+     "demand": 0.24,
+     "assist": 0.156,
+     "automate": 0.155
+    },
+    "data-scientist": {
+     "score": 56,
+     "trend": "stable",
+     "demand": 0.15,
+     "assist": 0.143,
+     "automate": 0.141
+    },
+    "bi-analyst": {
+     "score": 54.2,
+     "trend": "stable",
+     "demand": 0.15,
+     "assist": 0.176,
+     "automate": 0.198
+    },
+    "data-warehousing": {
+     "score": 50,
+     "trend": "declining",
+     "demand": 0.15,
+     "assist": 0.274,
+     "automate": 0.254
+    },
+    "research-scientist": {
+     "score": 47.8,
+     "trend": "declining",
+     "demand": -0.35,
+     "assist": 0.251,
+     "automate": 0.097
+    },
+    "electrical-engineer": {
+     "score": 61.8,
+     "trend": "rising",
+     "demand": 0.13,
+     "assist": 0.178,
+     "automate": 0.053
+    },
+    "electronics-engineer": {
+     "score": 53.4,
+     "trend": "stable",
+     "demand": 0.13,
+     "assist": 0.093,
+     "automate": 0.146
+    },
+    "hardware-engineer": {
+     "score": 55.1,
+     "trend": "stable",
+     "demand": 0.13,
+     "assist": 0.183,
+     "automate": 0.18
+    },
+    "microsystems-engineer": {
+     "score": 53.8,
+     "trend": "stable",
+     "demand": 0.13,
+     "assist": 0.129,
+     "automate": 0.072
+    },
+    "telecom-engineer": {
+     "score": 47.8,
+     "trend": "declining",
+     "demand": 0.13,
+     "assist": 0.106,
+     "automate": 0.166
+    },
+    "ee-technician": {
+     "score": 53.9,
+     "trend": "stable",
+     "demand": -0.05,
+     "assist": 0.101,
+     "automate": 0.075
+    },
+    "electronics-drafter": {
+     "score": 42.3,
+     "trend": "declining",
+     "demand": 0.13,
+     "assist": 0.032,
+     "automate": 0.211
+    },
+    "mechatronics-engineer": {
+     "score": 49.2,
+     "trend": "declining",
+     "demand": 0.04,
+     "assist": 0.114,
+     "automate": 0.113
+    },
+    "robotics-engineer": {
+     "score": 45.7,
+     "trend": "declining",
+     "demand": 0.04,
+     "assist": 0.101,
+     "automate": 0.167
+    },
+    "robotics-technician": {
+     "score": 56.9,
+     "trend": "stable",
+     "demand": -0.05,
+     "assist": 0.136,
+     "automate": 0.045
+    },
+    "mechatronics-technician": {
+     "score": 46.5,
+     "trend": "declining",
+     "demand": -0.05,
+     "assist": 0.064,
+     "automate": 0.092
+    },
+    "manufacturing-engineer": {
+     "score": 61.9,
+     "trend": "rising",
+     "demand": 0.41,
+     "assist": 0.098,
+     "automate": 0.096
+    },
+    "industrial-engineer": {
+     "score": 61.7,
+     "trend": "rising",
+     "demand": 0.41,
+     "assist": 0.103,
+     "automate": 0.103
+    },
+    "solar-engineer": {
+     "score": 51.3,
+     "trend": "declining",
+     "demand": 0.13,
+     "assist": 0.09,
+     "automate": 0.089
+    },
+    "energy-engineer": {
+     "score": 53.4,
+     "trend": "stable",
+     "demand": 0.27,
+     "assist": 0.109,
+     "automate": 0.116
+    }
+   },
+   "fast": {
+    "software-developer": {
+     "score": 59.4,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.297,
+     "automate": 0.406
+    },
+    "web-developer": {
+     "score": 56.6,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.345,
+     "automate": 0.401
+    },
+    "software-qa": {
+     "score": 48.6,
+     "trend": "transforming",
+     "demand": 0.74,
+     "assist": 0.189,
+     "automate": 0.523
+    },
+    "computer-programmer": {
+     "score": 52.7,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.297,
+     "automate": 0.528
+    },
+    "ui-designer": {
+     "score": 55.3,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.228,
+     "automate": 0.431
+    },
+    "systems-engineer": {
+     "score": 43.7,
+     "trend": "transforming",
+     "demand": 0.24,
+     "assist": 0.243,
+     "automate": 0.379
+    },
+    "systems-analyst": {
+     "score": 47.8,
+     "trend": "transforming",
+     "demand": 0.24,
+     "assist": 0.25,
+     "automate": 0.4
+    },
+    "network-admin": {
+     "score": 47.4,
+     "trend": "transforming",
+     "demand": 0.16,
+     "assist": 0.209,
+     "automate": 0.348
+    },
+    "it-support": {
+     "score": 42.1,
+     "trend": "declining",
+     "demand": 0.16,
+     "assist": 0.15,
+     "automate": 0.309
+    },
+    "security-analyst": {
+     "score": 55.1,
+     "trend": "rising",
+     "demand": 0.24,
+     "assist": 0.255,
+     "automate": 0.272
+    },
+    "penetration-tester": {
+     "score": 47.7,
+     "trend": "transforming",
+     "demand": 0.24,
+     "assist": 0.21,
+     "automate": 0.373
+    },
+    "data-scientist": {
+     "score": 47,
+     "trend": "transforming",
+     "demand": 0.15,
+     "assist": 0.192,
+     "automate": 0.341
+    },
+    "bi-analyst": {
+     "score": 45.6,
+     "trend": "transforming",
+     "demand": 0.15,
+     "assist": 0.191,
+     "automate": 0.366
+    },
+    "data-warehousing": {
+     "score": 39.1,
+     "trend": "declining",
+     "demand": 0.15,
+     "assist": 0.291,
+     "automate": 0.465
+    },
+    "research-scientist": {
+     "score": 43.6,
+     "trend": "declining",
+     "demand": -0.35,
+     "assist": 0.292,
+     "automate": 0.203
+    },
+    "electrical-engineer": {
+     "score": 59.7,
+     "trend": "rising",
+     "demand": 0.13,
+     "assist": 0.257,
+     "automate": 0.15
+    },
+    "electronics-engineer": {
+     "score": 44.7,
+     "trend": "stable",
+     "demand": 0.13,
+     "assist": 0.107,
+     "automate": 0.312
+    },
+    "hardware-engineer": {
+     "score": 46.6,
+     "trend": "transforming",
+     "demand": 0.13,
+     "assist": 0.207,
+     "automate": 0.35
+    },
+    "microsystems-engineer": {
+     "score": 50.4,
+     "trend": "stable",
+     "demand": 0.13,
+     "assist": 0.181,
+     "automate": 0.173
+    },
+    "telecom-engineer": {
+     "score": 38.5,
+     "trend": "declining",
+     "demand": 0.13,
+     "assist": 0.118,
+     "automate": 0.344
+    },
+    "ee-technician": {
+     "score": 49.7,
+     "trend": "stable",
+     "demand": -0.05,
+     "assist": 0.136,
+     "automate": 0.176
+    },
+    "electronics-drafter": {
+     "score": 31.4,
+     "trend": "declining",
+     "demand": 0.13,
+     "assist": 0.026,
+     "automate": 0.405
+    },
+    "mechatronics-engineer": {
+     "score": 42.5,
+     "trend": "declining",
+     "demand": 0.04,
+     "assist": 0.144,
+     "automate": 0.256
+    },
+    "robotics-engineer": {
+     "score": 36.5,
+     "trend": "declining",
+     "demand": 0.04,
+     "assist": 0.105,
+     "automate": 0.337
+    },
+    "robotics-technician": {
+     "score": 54.9,
+     "trend": "rising",
+     "demand": -0.05,
+     "assist": 0.204,
+     "automate": 0.132
+    },
+    "mechatronics-technician": {
+     "score": 41.4,
+     "trend": "declining",
+     "demand": -0.05,
+     "assist": 0.075,
+     "automate": 0.192
+    },
+    "manufacturing-engineer": {
+     "score": 56.3,
+     "trend": "rising",
+     "demand": 0.41,
+     "assist": 0.13,
+     "automate": 0.222
+    },
+    "industrial-engineer": {
+     "score": 55.3,
+     "trend": "rising",
+     "demand": 0.41,
+     "assist": 0.137,
+     "automate": 0.245
+    },
+    "solar-engineer": {
+     "score": 45.7,
+     "trend": "stable",
+     "demand": 0.13,
+     "assist": 0.121,
+     "automate": 0.215
+    },
+    "energy-engineer": {
+     "score": 46.4,
+     "trend": "stable",
+     "demand": 0.27,
+     "assist": 0.138,
+     "automate": 0.265
+    }
+   }
+  },
+  "2026-01": {
+   "moderate": {
+    "software-developer": {
+     "score": 77.1,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.3,
+     "automate": 0.18
+    },
+    "web-developer": {
+     "score": 70.1,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.314,
+     "automate": 0.227
+    },
+    "software-qa": {
+     "score": 68.9,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.227,
+     "automate": 0.276
+    },
+    "computer-programmer": {
+     "score": 73.9,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.373,
+     "automate": 0.291
+    },
+    "ui-designer": {
+     "score": 70,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.224,
+     "automate": 0.254
+    },
+    "systems-engineer": {
+     "score": 54.5,
+     "trend": "declining",
+     "demand": 0.27,
+     "assist": 0.249,
+     "automate": 0.198
+    },
+    "systems-analyst": {
+     "score": 64,
+     "trend": "transforming",
+     "demand": 0.27,
+     "assist": 0.335,
+     "automate": 0.178
+    },
+    "network-admin": {
+     "score": 59.6,
+     "trend": "stable",
+     "demand": 0.03,
+     "assist": 0.266,
+     "automate": 0.12
+    },
+    "it-support": {
+     "score": 50.8,
+     "trend": "declining",
+     "demand": 0.03,
+     "assist": 0.178,
+     "automate": 0.126
+    },
+    "security-analyst": {
+     "score": 66.4,
+     "trend": "rising",
+     "demand": 0.27,
+     "assist": 0.299,
+     "automate": 0.109
+    },
+    "penetration-tester": {
+     "score": 60.6,
+     "trend": "stable",
+     "demand": 0.27,
+     "assist": 0.181,
+     "automate": 0.129
+    },
+    "data-scientist": {
+     "score": 59.3,
+     "trend": "stable",
+     "demand": 0.21,
+     "assist": 0.166,
+     "automate": 0.118
+    },
+    "bi-analyst": {
+     "score": 58.5,
+     "trend": "stable",
+     "demand": 0.21,
+     "assist": 0.211,
+     "automate": 0.165
+    },
+    "data-warehousing": {
+     "score": 53.5,
+     "trend": "declining",
+     "demand": 0.21,
+     "assist": 0.308,
+     "automate": 0.235
+    },
+    "research-scientist": {
+     "score": 55.1,
+     "trend": "declining",
+     "demand": 0.14,
+     "assist": 0.218,
+     "automate": 0.118
+    },
+    "electrical-engineer": {
+     "score": 61.9,
+     "trend": "stable",
+     "demand": 0.29,
+     "assist": 0.147,
+     "automate": 0.09
+    },
+    "electronics-engineer": {
+     "score": 62.6,
+     "trend": "stable",
+     "demand": 0.29,
+     "assist": 0.165,
+     "automate": 0.088
+    },
+    "hardware-engineer": {
+     "score": 64.7,
+     "trend": "stable",
+     "demand": 0.29,
+     "assist": 0.252,
+     "automate": 0.115
+    },
+    "microsystems-engineer": {
+     "score": 62.6,
+     "trend": "stable",
+     "demand": 0.29,
+     "assist": 0.185,
+     "automate": 0.014
+    },
+    "telecom-engineer": {
+     "score": 54.3,
+     "trend": "declining",
+     "demand": 0.29,
+     "assist": 0.151,
+     "automate": 0.138
+    },
+    "ee-technician": {
+     "score": 56.9,
+     "trend": "stable",
+     "demand": -0.16,
+     "assist": 0.155,
+     "automate": 0.019
+    },
+    "electronics-drafter": {
+     "score": 54.1,
+     "trend": "declining",
+     "demand": 0.29,
+     "assist": 0.122,
+     "automate": 0.121
+    },
+    "mechatronics-engineer": {
+     "score": 64.8,
+     "trend": "stable",
+     "demand": 0.31,
+     "assist": 0.217,
+     "automate": 0
+    },
+    "robotics-engineer": {
+     "score": 54.4,
+     "trend": "declining",
+     "demand": 0.31,
+     "assist": 0.154,
+     "automate": 0.145
+    },
+    "robotics-technician": {
+     "score": 48.3,
+     "trend": "declining",
+     "demand": -0.16,
+     "assist": 0.076,
+     "automate": 0.117
+    },
+    "mechatronics-technician": {
+     "score": 48.1,
+     "trend": "declining",
+     "demand": -0.16,
+     "assist": 0.099,
+     "automate": 0.047
+    },
+    "manufacturing-engineer": {
+     "score": 69.6,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.109,
+     "automate": 0.084
+    },
+    "industrial-engineer": {
+     "score": 70,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.124,
+     "automate": 0.088
+    },
+    "solar-engineer": {
+     "score": 56,
+     "trend": "declining",
+     "demand": 0.29,
+     "assist": 0.104,
+     "automate": 0.074
+    },
+    "energy-engineer": {
+     "score": 64.2,
+     "trend": "stable",
+     "demand": 0.52,
+     "assist": 0.179,
+     "automate": 0.06
+    }
+   },
+   "fast": {
+    "software-developer": {
+     "score": 68.9,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.347,
+     "automate": 0.363
+    },
+    "web-developer": {
+     "score": 60.6,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.339,
+     "automate": 0.417
+    },
+    "software-qa": {
+     "score": 56,
+     "trend": "transforming",
+     "demand": 1,
+     "assist": 0.213,
+     "automate": 0.5
+    },
+    "computer-programmer": {
+     "score": 64.2,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.362,
+     "automate": 0.46
+    },
+    "ui-designer": {
+     "score": 59.2,
+     "trend": "transforming",
+     "demand": 1,
+     "assist": 0.224,
+     "automate": 0.45
+    },
+    "systems-engineer": {
+     "score": 46.3,
+     "trend": "declining",
+     "demand": 0.27,
+     "assist": 0.265,
+     "automate": 0.359
+    },
+    "systems-analyst": {
+     "score": 57.9,
+     "trend": "transforming",
+     "demand": 0.27,
+     "assist": 0.347,
+     "automate": 0.299
+    },
+    "network-admin": {
+     "score": 55.5,
+     "trend": "transforming",
+     "demand": 0.03,
+     "assist": 0.329,
+     "automate": 0.241
+    },
+    "it-support": {
+     "score": 45.1,
+     "trend": "declining",
+     "demand": 0.03,
+     "assist": 0.209,
+     "automate": 0.252
+    },
+    "security-analyst": {
+     "score": 62.4,
+     "trend": "rising",
+     "demand": 0.27,
+     "assist": 0.344,
+     "automate": 0.215
+    },
+    "penetration-tester": {
+     "score": 52.9,
+     "trend": "transforming",
+     "demand": 0.27,
+     "assist": 0.258,
+     "automate": 0.325
+    },
+    "data-scientist": {
+     "score": 52.2,
+     "trend": "transforming",
+     "demand": 0.21,
+     "assist": 0.236,
+     "automate": 0.297
+    },
+    "bi-analyst": {
+     "score": 52,
+     "trend": "transforming",
+     "demand": 0.21,
+     "assist": 0.248,
+     "automate": 0.31
+    },
+    "data-warehousing": {
+     "score": 43.6,
+     "trend": "declining",
+     "demand": 0.21,
+     "assist": 0.33,
+     "automate": 0.432
+    },
+    "research-scientist": {
+     "score": 49.5,
+     "trend": "declining",
+     "demand": 0.14,
+     "assist": 0.249,
+     "automate": 0.242
+    },
+    "electrical-engineer": {
+     "score": 57.3,
+     "trend": "stable",
+     "demand": 0.29,
+     "assist": 0.199,
+     "automate": 0.211
+    },
+    "electronics-engineer": {
+     "score": 58.2,
+     "trend": "stable",
+     "demand": 0.29,
+     "assist": 0.218,
+     "automate": 0.207
+    },
+    "hardware-engineer": {
+     "score": 60.1,
+     "trend": "rising",
+     "demand": 0.29,
+     "assist": 0.315,
+     "automate": 0.244
+    },
+    "microsystems-engineer": {
+     "score": 63,
+     "trend": "rising",
+     "demand": 0.29,
+     "assist": 0.279,
+     "automate": 0.074
+    },
+    "telecom-engineer": {
+     "score": 46.9,
+     "trend": "declining",
+     "demand": 0.29,
+     "assist": 0.177,
+     "automate": 0.292
+    },
+    "ee-technician": {
+     "score": 56.7,
+     "trend": "stable",
+     "demand": -0.16,
+     "assist": 0.232,
+     "automate": 0.079
+    },
+    "electronics-drafter": {
+     "score": 47.2,
+     "trend": "declining",
+     "demand": 0.29,
+     "assist": 0.157,
+     "automate": 0.273
+    },
+    "mechatronics-engineer": {
+     "score": 66.7,
+     "trend": "rising",
+     "demand": 0.31,
+     "assist": 0.34,
+     "automate": 0.056
+    },
+    "robotics-engineer": {
+     "score": 47.5,
+     "trend": "declining",
+     "demand": 0.31,
+     "assist": 0.173,
+     "automate": 0.283
+    },
+    "robotics-technician": {
+     "score": 41,
+     "trend": "declining",
+     "demand": -0.16,
+     "assist": 0.084,
+     "automate": 0.257
+    },
+    "mechatronics-technician": {
+     "score": 45.5,
+     "trend": "declining",
+     "demand": -0.16,
+     "assist": 0.14,
+     "automate": 0.123
+    },
+    "manufacturing-engineer": {
+     "score": 64.7,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.149,
+     "automate": 0.203
+    },
+    "industrial-engineer": {
+     "score": 64.9,
+     "trend": "rising",
+     "demand": 0.74,
+     "assist": 0.17,
+     "automate": 0.214
+    },
+    "solar-engineer": {
+     "score": 51.6,
+     "trend": "stable",
+     "demand": 0.29,
+     "assist": 0.149,
+     "automate": 0.187
+    },
+    "energy-engineer": {
+     "score": 61.6,
+     "trend": "rising",
+     "demand": 0.52,
+     "assist": 0.25,
+     "automate": 0.16
+    }
+   }
+  },
+  "2026-03": {
+   "moderate": {
+    "software-developer": {
+     "score": 75.8,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.288,
+     "automate": 0.195
+    },
+    "web-developer": {
+     "score": 65.8,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.269,
+     "automate": 0.272
+    },
+    "software-qa": {
+     "score": 67.8,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.215,
+     "automate": 0.287
+    },
+    "computer-programmer": {
+     "score": 71.6,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.348,
+     "automate": 0.316
+    },
+    "ui-designer": {
+     "score": 69.1,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.214,
+     "automate": 0.263
+    },
+    "systems-engineer": {
+     "score": 55.2,
+     "trend": "transforming",
+     "demand": 0.37,
+     "assist": 0.241,
+     "automate": 0.214
+    },
+    "systems-analyst": {
+     "score": 62.3,
+     "trend": "transforming",
+     "demand": 0.37,
+     "assist": 0.296,
+     "automate": 0.216
+    },
+    "network-admin": {
+     "score": 45,
+     "trend": "declining",
+     "demand": -0.35,
+     "assist": 0.187,
+     "automate": 0.191
+    },
+    "it-support": {
+     "score": 40.7,
+     "trend": "declining",
+     "demand": -0.35,
+     "assist": 0.15,
+     "automate": 0.152
+    },
+    "security-analyst": {
+     "score": 65.4,
+     "trend": "rising",
+     "demand": 0.37,
+     "assist": 0.267,
+     "automate": 0.138
+    },
+    "penetration-tester": {
+     "score": 62,
+     "trend": "stable",
+     "demand": 0.37,
+     "assist": 0.176,
+     "automate": 0.134
+    },
+    "data-scientist": {
+     "score": 62.6,
+     "trend": "stable",
+     "demand": 0.4,
+     "assist": 0.161,
+     "automate": 0.123
+    },
+    "bi-analyst": {
+     "score": 59.1,
+     "trend": "stable",
+     "demand": 0.4,
+     "assist": 0.195,
+     "automate": 0.21
+    },
+    "data-warehousing": {
+     "score": 55.6,
+     "trend": "transforming",
+     "demand": 0.4,
+     "assist": 0.289,
+     "automate": 0.251
+    },
+    "research-scientist": {
+     "score": 53.1,
+     "trend": "declining",
+     "demand": 0.03,
+     "assist": 0.216,
+     "automate": 0.111
+    },
+    "electrical-engineer": {
+     "score": 62.4,
+     "trend": "stable",
+     "demand": 0.16,
+     "assist": 0.184,
+     "automate": 0.055
+    },
+    "electronics-engineer": {
+     "score": 56.4,
+     "trend": "stable",
+     "demand": 0.16,
+     "assist": 0.126,
+     "automate": 0.123
+    },
+    "hardware-engineer": {
+     "score": 60,
+     "trend": "stable",
+     "demand": 0.16,
+     "assist": 0.23,
+     "automate": 0.133
+    },
+    "microsystems-engineer": {
+     "score": 57.4,
+     "trend": "stable",
+     "demand": 0.16,
+     "assist": 0.16,
+     "automate": 0.039
+    },
+    "telecom-engineer": {
+     "score": 50.3,
+     "trend": "declining",
+     "demand": 0.16,
+     "assist": 0.136,
+     "automate": 0.15
+    },
+    "ee-technician": {
+     "score": 57.3,
+     "trend": "stable",
+     "demand": -0.08,
+     "assist": 0.142,
+     "automate": 0.032
+    },
+    "electronics-drafter": {
+     "score": 44.6,
+     "trend": "declining",
+     "demand": 0.16,
+     "assist": 0.05,
+     "automate": 0.191
+    },
+    "mechatronics-engineer": {
+     "score": 57.4,
+     "trend": "stable",
+     "demand": 0.31,
+     "assist": 0.141,
+     "automate": 0.081
+    },
+    "robotics-engineer": {
+     "score": 57.3,
+     "trend": "stable",
+     "demand": 0.31,
+     "assist": 0.172,
+     "automate": 0.104
+    },
+    "robotics-technician": {
+     "score": 57.6,
+     "trend": "stable",
+     "demand": -0.08,
+     "assist": 0.153,
+     "automate": 0.034
+    },
+    "mechatronics-technician": {
+     "score": 54.3,
+     "trend": "declining",
+     "demand": -0.08,
+     "assist": 0.147,
+     "automate": 0
+    },
+    "manufacturing-engineer": {
+     "score": 75.9,
+     "trend": "rising",
+     "demand": 0.85,
+     "assist": 0.152,
+     "automate": 0.041
+    },
+    "industrial-engineer": {
+     "score": 64.7,
+     "trend": "rising",
+     "demand": 0.85,
+     "assist": 0.047,
+     "automate": 0.168
+    },
+    "solar-engineer": {
+     "score": 52.9,
+     "trend": "declining",
+     "demand": 0.16,
+     "assist": 0.101,
+     "automate": 0.077
+    },
+    "energy-engineer": {
+     "score": 63.8,
+     "trend": "stable",
+     "demand": 0.5,
+     "assist": 0.175,
+     "automate": 0.06
+    }
+   },
+   "fast": {
+    "software-developer": {
+     "score": 66.8,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.326,
+     "automate": 0.386
+    },
+    "web-developer": {
+     "score": 53.8,
+     "trend": "transforming",
+     "demand": 1,
+     "assist": 0.267,
+     "automate": 0.489
+    },
+    "software-qa": {
+     "score": 54.6,
+     "trend": "transforming",
+     "demand": 1,
+     "assist": 0.197,
+     "automate": 0.515
+    },
+    "computer-programmer": {
+     "score": 60.8,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.327,
+     "automate": 0.495
+    },
+    "ui-designer": {
+     "score": 57.8,
+     "trend": "transforming",
+     "demand": 1,
+     "assist": 0.209,
+     "automate": 0.464
+    },
+    "systems-engineer": {
+     "score": 46.1,
+     "trend": "declining",
+     "demand": 0.37,
+     "assist": 0.246,
+     "automate": 0.383
+    },
+    "systems-analyst": {
+     "score": 54.3,
+     "trend": "transforming",
+     "demand": 0.37,
+     "assist": 0.289,
+     "automate": 0.357
+    },
+    "network-admin": {
+     "score": 36.5,
+     "trend": "declining",
+     "demand": -0.35,
+     "assist": 0.206,
+     "automate": 0.36
+    },
+    "it-support": {
+     "score": 33.3,
+     "trend": "declining",
+     "demand": -0.35,
+     "assist": 0.164,
+     "automate": 0.296
+    },
+    "security-analyst": {
+     "score": 59.7,
+     "trend": "rising",
+     "demand": 0.37,
+     "assist": 0.295,
+     "automate": 0.263
+    },
+    "penetration-tester": {
+     "score": 53.9,
+     "trend": "transforming",
+     "demand": 0.37,
+     "assist": 0.249,
+     "automate": 0.335
+    },
+    "data-scientist": {
+     "score": 55.2,
+     "trend": "transforming",
+     "demand": 0.4,
+     "assist": 0.228,
+     "automate": 0.306
+    },
+    "bi-analyst": {
+     "score": 50,
+     "trend": "transforming",
+     "demand": 0.4,
+     "assist": 0.195,
+     "automate": 0.376
+    },
+    "data-warehousing": {
+     "score": 45,
+     "trend": "declining",
+     "demand": 0.4,
+     "assist": 0.305,
+     "automate": 0.456
+    },
+    "research-scientist": {
+     "score": 47.8,
+     "trend": "transforming",
+     "demand": 0.03,
+     "assist": 0.253,
+     "automate": 0.233
+    },
+    "electrical-engineer": {
+     "score": 60.2,
+     "trend": "rising",
+     "demand": 0.16,
+     "assist": 0.259,
+     "automate": 0.151
+    },
+    "electronics-engineer": {
+     "score": 49.8,
+     "trend": "stable",
+     "demand": 0.16,
+     "assist": 0.158,
+     "automate": 0.266
+    },
+    "hardware-engineer": {
+     "score": 54.4,
+     "trend": "transforming",
+     "demand": 0.16,
+     "assist": 0.283,
+     "automate": 0.274
+    },
+    "microsystems-engineer": {
+     "score": 56,
+     "trend": "stable",
+     "demand": 0.16,
+     "assist": 0.235,
+     "automate": 0.119
+    },
+    "telecom-engineer": {
+     "score": 42.8,
+     "trend": "declining",
+     "demand": 0.16,
+     "assist": 0.162,
+     "automate": 0.306
+    },
+    "ee-technician": {
+     "score": 56.1,
+     "trend": "stable",
+     "demand": -0.08,
+     "assist": 0.209,
+     "automate": 0.103
+    },
+    "electronics-drafter": {
+     "score": 32.7,
+     "trend": "declining",
+     "demand": 0.16,
+     "assist": 0.034,
+     "automate": 0.396
+    },
+    "mechatronics-engineer": {
+     "score": 53.7,
+     "trend": "stable",
+     "demand": 0.31,
+     "assist": 0.204,
+     "automate": 0.194
+    },
+    "robotics-engineer": {
+     "score": 52.4,
+     "trend": "stable",
+     "demand": 0.31,
+     "assist": 0.218,
+     "automate": 0.228
+    },
+    "robotics-technician": {
+     "score": 56.5,
+     "trend": "stable",
+     "demand": -0.08,
+     "assist": 0.229,
+     "automate": 0.11
+    },
+    "mechatronics-technician": {
+     "score": 55.4,
+     "trend": "stable",
+     "demand": -0.08,
+     "assist": 0.226,
+     "automate": 0.037
+    },
+    "manufacturing-engineer": {
+     "score": 74.3,
+     "trend": "rising",
+     "demand": 0.85,
+     "assist": 0.227,
+     "automate": 0.125
+    },
+    "industrial-engineer": {
+     "score": 53.9,
+     "trend": "stable",
+     "demand": 0.85,
+     "assist": 0.033,
+     "automate": 0.353
+    },
+    "solar-engineer": {
+     "score": 48.3,
+     "trend": "stable",
+     "demand": 0.16,
+     "assist": 0.143,
+     "automate": 0.193
+    },
+    "energy-engineer": {
+     "score": 61.1,
+     "trend": "rising",
+     "demand": 0.5,
+     "assist": 0.246,
+     "automate": 0.161
+    }
+   }
+  },
+  "2026-06": {
+   "moderate": {
+    "software-developer": {
+     "score": 65.5,
+     "trend": "rising",
+     "demand": 0.85,
+     "assist": 0.211,
+     "automate": 0.272
+    },
+    "web-developer": {
+     "score": 58,
+     "trend": "transforming",
+     "demand": 0.85,
+     "assist": 0.237,
+     "automate": 0.336
+    },
+    "software-qa": {
+     "score": 60.9,
+     "trend": "transforming",
+     "demand": 0.85,
+     "assist": 0.157,
+     "automate": 0.315
+    },
+    "computer-programmer": {
+     "score": 56.9,
+     "trend": "transforming",
+     "demand": 0.85,
+     "assist": 0.203,
+     "automate": 0.421
+    },
+    "ui-designer": {
+     "score": 64.6,
+     "trend": "rising",
+     "demand": 0.85,
+     "assist": 0.239,
+     "automate": 0.308
+    },
+    "systems-engineer": {
+     "score": 51.4,
+     "trend": "declining",
+     "demand": 0.4,
+     "assist": 0.205,
+     "automate": 0.269
+    },
+    "systems-analyst": {
+     "score": 51.7,
+     "trend": "declining",
+     "demand": 0.4,
+     "assist": 0.161,
+     "automate": 0.322
+    },
+    "network-admin": {
+     "score": 43.1,
+     "trend": "declining",
+     "demand": -0.07,
+     "assist": 0.094,
+     "automate": 0.259
+    },
+    "it-support": {
+     "score": 40,
+     "trend": "declining",
+     "demand": -0.07,
+     "assist": 0.119,
+     "automate": 0.241
+    },
+    "security-analyst": {
+     "score": 50.8,
+     "trend": "declining",
+     "demand": 0.4,
+     "assist": 0.043,
+     "automate": 0.253
+    },
+    "penetration-tester": {
+     "score": 52.5,
+     "trend": "stable",
+     "demand": 0.4,
+     "assist": 0.087,
+     "automate": 0.253
+    },
+    "data-scientist": {
+     "score": 54.4,
+     "trend": "stable",
+     "demand": 0.15,
+     "assist": 0.206,
+     "automate": 0.217
+    },
+    "bi-analyst": {
+     "score": 50.7,
+     "trend": "declining",
+     "demand": 0.15,
+     "assist": 0.171,
+     "automate": 0.259
+    },
+    "data-warehousing": {
+     "score": 43.7,
+     "trend": "declining",
+     "demand": 0.15,
+     "assist": 0.19,
+     "automate": 0.309
+    },
+    "research-scientist": {
+     "score": 55.8,
+     "trend": "stable",
+     "demand": 0.45,
+     "assist": 0.151,
+     "automate": 0.169
+    },
+    "electrical-engineer": {
+     "score": 66.9,
+     "trend": "rising",
+     "demand": 0.73,
+     "assist": 0.107,
+     "automate": 0.126
+    },
+    "electronics-engineer": {
+     "score": 70,
+     "trend": "rising",
+     "demand": 0.73,
+     "assist": 0.166,
+     "automate": 0.114
+    },
+    "hardware-engineer": {
+     "score": 68.1,
+     "trend": "rising",
+     "demand": 0.73,
+     "assist": 0.177,
+     "automate": 0.157
+    },
+    "microsystems-engineer": {
+     "score": 63.8,
+     "trend": "rising",
+     "demand": 0.73,
+     "assist": 0.106,
+     "automate": 0.091
+    },
+    "telecom-engineer": {
+     "score": 56,
+     "trend": "stable",
+     "demand": 0.73,
+     "assist": 0.071,
+     "automate": 0.208
+    },
+    "ee-technician": {
+     "score": 48,
+     "trend": "declining",
+     "demand": -0.28,
+     "assist": 0.093,
+     "automate": 0.093
+    },
+    "electronics-drafter": {
+     "score": 60.5,
+     "trend": "stable",
+     "demand": 0.73,
+     "assist": 0.098,
+     "automate": 0.145
+    },
+    "mechatronics-engineer": {
+     "score": 67.3,
+     "trend": "rising",
+     "demand": 0.98,
+     "assist": 0.12,
+     "automate": 0.129
+    },
+    "robotics-engineer": {
+     "score": 68.9,
+     "trend": "rising",
+     "demand": 0.98,
+     "assist": 0.132,
+     "automate": 0.108
+    },
+    "robotics-technician": {
+     "score": 46.6,
+     "trend": "declining",
+     "demand": -0.28,
+     "assist": 0.078,
+     "automate": 0.107
+    },
+    "mechatronics-technician": {
+     "score": 42.2,
+     "trend": "declining",
+     "demand": -0.28,
+     "assist": 0.062,
+     "automate": 0.084
+    },
+    "manufacturing-engineer": {
+     "score": 73.3,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.114,
+     "automate": 0.114
+    },
+    "industrial-engineer": {
+     "score": 74.6,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.123,
+     "automate": 0.098
+    },
+    "solar-engineer": {
+     "score": 62.9,
+     "trend": "stable",
+     "demand": 0.73,
+     "assist": 0.088,
+     "automate": 0.095
+    },
+    "energy-engineer": {
+     "score": 68.7,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.117,
+     "automate": 0.108
+    }
+   },
+   "fast": {
+    "software-developer": {
+     "score": 53.6,
+     "trend": "transforming",
+     "demand": 0.85,
+     "assist": 0.219,
+     "automate": 0.493
+    },
+    "web-developer": {
+     "score": 44.9,
+     "trend": "transforming",
+     "demand": 0.85,
+     "assist": 0.213,
+     "automate": 0.557
+    },
+    "software-qa": {
+     "score": 47.4,
+     "trend": "transforming",
+     "demand": 0.85,
+     "assist": 0.146,
+     "automate": 0.553
+    },
+    "computer-programmer": {
+     "score": 42.6,
+     "trend": "transforming",
+     "demand": 0.85,
+     "assist": 0.157,
+     "automate": 0.648
+    },
+    "ui-designer": {
+     "score": 53.6,
+     "trend": "transforming",
+     "demand": 0.85,
+     "assist": 0.214,
+     "automate": 0.49
+    },
+    "systems-engineer": {
+     "score": 41.3,
+     "trend": "declining",
+     "demand": 0.4,
+     "assist": 0.193,
+     "automate": 0.443
+    },
+    "systems-analyst": {
+     "score": 41.3,
+     "trend": "declining",
+     "demand": 0.4,
+     "assist": 0.138,
+     "automate": 0.495
+    },
+    "network-admin": {
+     "score": 31,
+     "trend": "declining",
+     "demand": -0.07,
+     "assist": 0.084,
+     "automate": 0.471
+    },
+    "it-support": {
+     "score": 30.7,
+     "trend": "declining",
+     "demand": -0.07,
+     "assist": 0.094,
+     "automate": 0.392
+    },
+    "security-analyst": {
+     "score": 37.5,
+     "trend": "declining",
+     "demand": 0.4,
+     "assist": 0.027,
+     "automate": 0.483
+    },
+    "penetration-tester": {
+     "score": 37,
+     "trend": "declining",
+     "demand": 0.4,
+     "assist": 0.072,
+     "automate": 0.524
+    },
+    "data-scientist": {
+     "score": 45,
+     "trend": "transforming",
+     "demand": 0.15,
+     "assist": 0.207,
+     "automate": 0.389
+    },
+    "bi-analyst": {
+     "score": 41.7,
+     "trend": "declining",
+     "demand": 0.15,
+     "assist": 0.165,
+     "automate": 0.418
+    },
+    "data-warehousing": {
+     "score": 28.7,
+     "trend": "declining",
+     "demand": 0.15,
+     "assist": 0.174,
+     "automate": 0.569
+    },
+    "research-scientist": {
+     "score": 48.6,
+     "trend": "transforming",
+     "demand": 0.45,
+     "assist": 0.17,
+     "automate": 0.313
+    },
+    "electrical-engineer": {
+     "score": 59.8,
+     "trend": "rising",
+     "demand": 0.73,
+     "assist": 0.134,
+     "automate": 0.275
+    },
+    "electronics-engineer": {
+     "score": 64.2,
+     "trend": "rising",
+     "demand": 0.73,
+     "assist": 0.197,
+     "automate": 0.24
+    },
+    "hardware-engineer": {
+     "score": 59.8,
+     "trend": "rising",
+     "demand": 0.73,
+     "assist": 0.211,
+     "automate": 0.332
+    },
+    "microsystems-engineer": {
+     "score": 58.5,
+     "trend": "rising",
+     "demand": 0.73,
+     "assist": 0.14,
+     "automate": 0.212
+    },
+    "telecom-engineer": {
+     "score": 45.1,
+     "trend": "transforming",
+     "demand": 0.73,
+     "assist": 0.064,
+     "automate": 0.401
+    },
+    "ee-technician": {
+     "score": 43.1,
+     "trend": "stable",
+     "demand": -0.28,
+     "assist": 0.118,
+     "automate": 0.199
+    },
+    "electronics-drafter": {
+     "score": 51.8,
+     "trend": "stable",
+     "demand": 0.73,
+     "assist": 0.115,
+     "automate": 0.316
+    },
+    "mechatronics-engineer": {
+     "score": 60,
+     "trend": "rising",
+     "demand": 0.98,
+     "assist": 0.136,
+     "automate": 0.274
+    },
+    "robotics-engineer": {
+     "score": 62.6,
+     "trend": "rising",
+     "demand": 0.98,
+     "assist": 0.176,
+     "automate": 0.254
+    },
+    "robotics-technician": {
+     "score": 39.8,
+     "trend": "declining",
+     "demand": -0.28,
+     "assist": 0.094,
+     "automate": 0.243
+    },
+    "mechatronics-technician": {
+     "score": 37,
+     "trend": "declining",
+     "demand": -0.28,
+     "assist": 0.075,
+     "automate": 0.188
+    },
+    "manufacturing-engineer": {
+     "score": 67.4,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.133,
+     "automate": 0.235
+    },
+    "industrial-engineer": {
+     "score": 69,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.162,
+     "automate": 0.227
+    },
+    "solar-engineer": {
+     "score": 56.8,
+     "trend": "rising",
+     "demand": 0.73,
+     "assist": 0.114,
+     "automate": 0.224
+    },
+    "energy-engineer": {
+     "score": 62.3,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.153,
+     "automate": 0.251
+    }
+   }
+  },
+  "latest": {
+   "moderate": {
+    "software-developer": {
+     "score": 60.9,
+     "trend": "transforming",
+     "demand": 0.62,
+     "assist": 0.211,
+     "automate": 0.272
+    },
+    "web-developer": {
+     "score": 53.4,
+     "trend": "transforming",
+     "demand": 0.62,
+     "assist": 0.237,
+     "automate": 0.336
+    },
+    "software-qa": {
+     "score": 56.4,
+     "trend": "transforming",
+     "demand": 0.62,
+     "assist": 0.157,
+     "automate": 0.315
+    },
+    "computer-programmer": {
+     "score": 52.4,
+     "trend": "transforming",
+     "demand": 0.62,
+     "assist": 0.203,
+     "automate": 0.421
+    },
+    "ui-designer": {
+     "score": 60,
+     "trend": "transforming",
+     "demand": 0.62,
+     "assist": 0.239,
+     "automate": 0.308
+    },
+    "systems-engineer": {
+     "score": 49.4,
+     "trend": "declining",
+     "demand": 0.3,
+     "assist": 0.205,
+     "automate": 0.269
+    },
+    "systems-analyst": {
+     "score": 49.8,
+     "trend": "declining",
+     "demand": 0.3,
+     "assist": 0.161,
+     "automate": 0.322
+    },
+    "network-admin": {
+     "score": 45.4,
+     "trend": "declining",
+     "demand": 0.04,
+     "assist": 0.094,
+     "automate": 0.259
+    },
+    "it-support": {
+     "score": 42.3,
+     "trend": "declining",
+     "demand": 0.04,
+     "assist": 0.119,
+     "automate": 0.241
+    },
+    "security-analyst": {
+     "score": 48.8,
+     "trend": "declining",
+     "demand": 0.3,
+     "assist": 0.043,
+     "automate": 0.253
+    },
+    "penetration-tester": {
+     "score": 50.6,
+     "trend": "declining",
+     "demand": 0.3,
+     "assist": 0.087,
+     "automate": 0.253
+    },
+    "data-scientist": {
+     "score": 50.7,
+     "trend": "declining",
+     "demand": -0.03,
+     "assist": 0.206,
+     "automate": 0.217
+    },
+    "bi-analyst": {
+     "score": 47,
+     "trend": "declining",
+     "demand": -0.03,
+     "assist": 0.171,
+     "automate": 0.259
+    },
+    "data-warehousing": {
+     "score": 40,
+     "trend": "declining",
+     "demand": -0.03,
+     "assist": 0.19,
+     "automate": 0.309
+    },
+    "research-scientist": {
+     "score": 59.5,
+     "trend": "stable",
+     "demand": 0.64,
+     "assist": 0.151,
+     "automate": 0.169
+    },
+    "electrical-engineer": {
+     "score": 72.3,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.107,
+     "automate": 0.126
+    },
+    "electronics-engineer": {
+     "score": 75.4,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.166,
+     "automate": 0.114
+    },
+    "hardware-engineer": {
+     "score": 73.5,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.177,
+     "automate": 0.157
+    },
+    "microsystems-engineer": {
+     "score": 69.3,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.106,
+     "automate": 0.091
+    },
+    "telecom-engineer": {
+     "score": 61.4,
+     "trend": "stable",
+     "demand": 1,
+     "assist": 0.071,
+     "automate": 0.208
+    },
+    "ee-technician": {
+     "score": 49.5,
+     "trend": "declining",
+     "demand": -0.21,
+     "assist": 0.093,
+     "automate": 0.093
+    },
+    "electronics-drafter": {
+     "score": 65.9,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.098,
+     "automate": 0.145
+    },
+    "mechatronics-engineer": {
+     "score": 67.7,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.12,
+     "automate": 0.129
+    },
+    "robotics-engineer": {
+     "score": 69.3,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.132,
+     "automate": 0.108
+    },
+    "robotics-technician": {
+     "score": 48.1,
+     "trend": "declining",
+     "demand": -0.21,
+     "assist": 0.078,
+     "automate": 0.107
+    },
+    "mechatronics-technician": {
+     "score": 43.7,
+     "trend": "declining",
+     "demand": -0.21,
+     "assist": 0.062,
+     "automate": 0.084
+    },
+    "manufacturing-engineer": {
+     "score": 73.3,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.114,
+     "automate": 0.114
+    },
+    "industrial-engineer": {
+     "score": 74.6,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.123,
+     "automate": 0.098
+    },
+    "solar-engineer": {
+     "score": 68.3,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.088,
+     "automate": 0.095
+    },
+    "energy-engineer": {
+     "score": 68.7,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.117,
+     "automate": 0.108
+    }
+   },
+   "fast": {
+    "software-developer": {
+     "score": 49.1,
+     "trend": "transforming",
+     "demand": 0.62,
+     "assist": 0.219,
+     "automate": 0.493
+    },
+    "web-developer": {
+     "score": 40.3,
+     "trend": "declining",
+     "demand": 0.62,
+     "assist": 0.213,
+     "automate": 0.557
+    },
+    "software-qa": {
+     "score": 42.9,
+     "trend": "transforming",
+     "demand": 0.62,
+     "assist": 0.146,
+     "automate": 0.553
+    },
+    "computer-programmer": {
+     "score": 38.1,
+     "trend": "declining",
+     "demand": 0.62,
+     "assist": 0.157,
+     "automate": 0.648
+    },
+    "ui-designer": {
+     "score": 49,
+     "trend": "transforming",
+     "demand": 0.62,
+     "assist": 0.214,
+     "automate": 0.49
+    },
+    "systems-engineer": {
+     "score": 39.3,
+     "trend": "declining",
+     "demand": 0.3,
+     "assist": 0.193,
+     "automate": 0.443
+    },
+    "systems-analyst": {
+     "score": 39.3,
+     "trend": "declining",
+     "demand": 0.3,
+     "assist": 0.138,
+     "automate": 0.495
+    },
+    "network-admin": {
+     "score": 33.3,
+     "trend": "declining",
+     "demand": 0.04,
+     "assist": 0.084,
+     "automate": 0.471
+    },
+    "it-support": {
+     "score": 33,
+     "trend": "declining",
+     "demand": 0.04,
+     "assist": 0.094,
+     "automate": 0.392
+    },
+    "security-analyst": {
+     "score": 35.5,
+     "trend": "declining",
+     "demand": 0.3,
+     "assist": 0.027,
+     "automate": 0.483
+    },
+    "penetration-tester": {
+     "score": 35.1,
+     "trend": "declining",
+     "demand": 0.3,
+     "assist": 0.072,
+     "automate": 0.524
+    },
+    "data-scientist": {
+     "score": 41.3,
+     "trend": "declining",
+     "demand": -0.03,
+     "assist": 0.207,
+     "automate": 0.389
+    },
+    "bi-analyst": {
+     "score": 38,
+     "trend": "declining",
+     "demand": -0.03,
+     "assist": 0.165,
+     "automate": 0.418
+    },
+    "data-warehousing": {
+     "score": 25.1,
+     "trend": "declining",
+     "demand": -0.03,
+     "assist": 0.174,
+     "automate": 0.569
+    },
+    "research-scientist": {
+     "score": 52.3,
+     "trend": "transforming",
+     "demand": 0.64,
+     "assist": 0.17,
+     "automate": 0.313
+    },
+    "electrical-engineer": {
+     "score": 65.2,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.134,
+     "automate": 0.275
+    },
+    "electronics-engineer": {
+     "score": 69.7,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.197,
+     "automate": 0.24
+    },
+    "hardware-engineer": {
+     "score": 65.2,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.211,
+     "automate": 0.332
+    },
+    "microsystems-engineer": {
+     "score": 63.9,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.14,
+     "automate": 0.212
+    },
+    "telecom-engineer": {
+     "score": 50.5,
+     "trend": "transforming",
+     "demand": 1,
+     "assist": 0.064,
+     "automate": 0.401
+    },
+    "ee-technician": {
+     "score": 44.6,
+     "trend": "stable",
+     "demand": -0.21,
+     "assist": 0.118,
+     "automate": 0.199
+    },
+    "electronics-drafter": {
+     "score": 57.2,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.115,
+     "automate": 0.316
+    },
+    "mechatronics-engineer": {
+     "score": 60.4,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.136,
+     "automate": 0.274
+    },
+    "robotics-engineer": {
+     "score": 63,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.176,
+     "automate": 0.254
+    },
+    "robotics-technician": {
+     "score": 41.3,
+     "trend": "declining",
+     "demand": -0.21,
+     "assist": 0.094,
+     "automate": 0.243
+    },
+    "mechatronics-technician": {
+     "score": 38.5,
+     "trend": "declining",
+     "demand": -0.21,
+     "assist": 0.075,
+     "automate": 0.188
+    },
+    "manufacturing-engineer": {
+     "score": 67.4,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.133,
+     "automate": 0.235
+    },
+    "industrial-engineer": {
+     "score": 69,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.162,
+     "automate": 0.227
+    },
+    "solar-engineer": {
+     "score": 62.2,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.114,
+     "automate": 0.224
+    },
+    "energy-engineer": {
+     "score": 62.3,
+     "trend": "rising",
+     "demand": 1,
+     "assist": 0.153,
+     "automate": 0.251
+    }
+   }
+  }
+ },
+ "kavin": {
+  "skills": [
+   {
+    "id": "computer-vision",
+    "name": "Computer vision",
+    "level": 2,
+    "evidence": "guided pick-and-place arm using ROS and OpenCV in Python"
+   },
+   {
+    "id": "python",
+    "name": "Python",
+    "level": 2,
+    "evidence": "k-and-place arm using ROS and OpenCV in Python"
+   },
+   {
+    "id": "c-cpp",
+    "name": "C / C++",
+    "level": 2,
+    "evidence": "e-following robot on Arduino written in C++"
+   },
+   {
+    "id": "embedded",
+    "name": "Embedded systems & microcontrollers",
+    "level": 2,
+    "evidence": "Line-following robot on Arduino written in C++"
+   },
+   {
+    "id": "plc",
+    "name": "PLC programming",
+    "level": 3,
+    "evidence": "Edited PLC ladder logic for a conveyor sorting sta"
+   },
+   {
+    "id": "scada",
+    "name": "SCADA & HMI",
+    "level": 3,
+    "evidence": "Monitored the line on a SCADA dashboard and logged downtime"
+   },
+   {
+    "id": "control-systems",
+    "name": "Control systems",
+    "level": 1,
+    "evidence": "Control systems, robotics, sensors and actuators, embed"
+   },
+   {
+    "id": "robotics",
+    "name": "Robotics (ROS, robot programming)",
+    "level": 2,
+    "evidence": "vision-guided pick-and-place arm using ROS and OpenCV in Python"
+   },
+   {
+    "id": "cad",
+    "name": "CAD (AutoCAD / SolidWorks)",
+    "level": 2,
+    "evidence": "Designed fixtures in SolidWorks"
+   },
+   {
+    "id": "sensors-iot",
+    "name": "Sensors & industrial IoT",
+    "level": 1,
+    "evidence": "Control systems, robotics, sensors and actuators, embedded systems, CAD"
+   },
+   {
+    "id": "maintenance",
+    "name": "Equipment maintenance & troubleshooting",
+    "level": 3,
+    "evidence": "Helped with preventive maintenance of pneumatic actuators"
+   },
+   {
+    "id": "teamwork",
+    "name": "Teamwork & coordination",
+    "level": 1,
+    "evidence": "AD, troubleshooting, Malay and English, working in shifts"
+   }
+  ],
+  "matches": {
+   "2025-03|moderate|noGoals": [
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 49.3,
+     "components": {
+      "skills": 50.3,
+      "outlook": 47.6,
+      "sdg": 0
+     },
+     "outlook": 47.6,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 47.6,
+     "components": {
+      "skills": 46.3,
+      "outlook": 49.9,
+      "sdg": 0
+     },
+     "outlook": 49.9,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 43.2,
+     "components": {
+      "skills": 35.1,
+      "outlook": 56.6,
+      "sdg": 0
+     },
+     "outlook": 56.6,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 42,
+     "components": {
+      "skills": 38.4,
+      "outlook": 47.9,
+      "sdg": 0
+     },
+     "outlook": 47.9,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 41.6,
+     "components": {
+      "skills": 33.5,
+      "outlook": 55,
+      "sdg": 0
+     },
+     "outlook": 55,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "ee-technician",
+     "title": "Electrical & Electronic Engineering Technician",
+     "score": 41.1,
+     "components": {
+      "skills": 31.4,
+      "outlook": 57.3,
+      "sdg": 0
+     },
+     "outlook": 57.3,
+     "sharedGoals": []
+    }
+   ],
+   "2025-03|moderate|goals": [
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 52.6,
+     "components": {
+      "skills": 37.3,
+      "outlook": 46.6,
+      "sdg": 100
+     },
+     "outlook": 46.6,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 49.4,
+     "components": {
+      "skills": 50.3,
+      "outlook": 47.6,
+      "sdg": 50
+     },
+     "outlook": 47.6,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 48.1,
+     "components": {
+      "skills": 46.3,
+      "outlook": 49.9,
+      "sdg": 50
+     },
+     "outlook": 49.9,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 47.7,
+     "components": {
+      "skills": 27.4,
+      "outlook": 46.7,
+      "sdg": 100
+     },
+     "outlook": 46.7,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 44.6,
+     "components": {
+      "skills": 35.1,
+      "outlook": 56.6,
+      "sdg": 50
+     },
+     "outlook": 56.6,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 43.6,
+     "components": {
+      "skills": 38.4,
+      "outlook": 47.9,
+      "sdg": 50
+     },
+     "outlook": 47.9,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "2025-03|fast|noGoals": [
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 46.7,
+     "components": {
+      "skills": 46.3,
+      "outlook": 47.4,
+      "sdg": 0
+     },
+     "outlook": 47.4,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 46.2,
+     "components": {
+      "skills": 50.3,
+      "outlook": 39.4,
+      "sdg": 0
+     },
+     "outlook": 39.4,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 42.5,
+     "components": {
+      "skills": 35.1,
+      "outlook": 54.9,
+      "sdg": 0
+     },
+     "outlook": 54.9,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 40.9,
+     "components": {
+      "skills": 38.4,
+      "outlook": 45.1,
+      "sdg": 0
+     },
+     "outlook": 45.1,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "ee-technician",
+     "title": "Electrical & Electronic Engineering Technician",
+     "score": 40.7,
+     "components": {
+      "skills": 31.4,
+      "outlook": 56.1,
+      "sdg": 0
+     },
+     "outlook": 56.1,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 39.8,
+     "components": {
+      "skills": 33.5,
+      "outlook": 50.3,
+      "sdg": 0
+     },
+     "outlook": 50.3,
+     "sharedGoals": []
+    }
+   ],
+   "2025-03|fast|goals": [
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 51.3,
+     "components": {
+      "skills": 37.3,
+      "outlook": 42.3,
+      "sdg": 100
+     },
+     "outlook": 42.3,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 47.4,
+     "components": {
+      "skills": 46.3,
+      "outlook": 47.4,
+      "sdg": 50
+     },
+     "outlook": 47.4,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 47,
+     "components": {
+      "skills": 50.3,
+      "outlook": 39.4,
+      "sdg": 50
+     },
+     "outlook": 39.4,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 46,
+     "components": {
+      "skills": 27.4,
+      "outlook": 41,
+      "sdg": 100
+     },
+     "outlook": 41,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 44,
+     "components": {
+      "skills": 35.1,
+      "outlook": 54.9,
+      "sdg": 50
+     },
+     "outlook": 54.9,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 42.7,
+     "components": {
+      "skills": 38.4,
+      "outlook": 45.1,
+      "sdg": 50
+     },
+     "outlook": 45.1,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "2025-09|moderate|noGoals": [
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 52.8,
+     "components": {
+      "skills": 50.3,
+      "outlook": 56.9,
+      "sdg": 0
+     },
+     "outlook": 56.9,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 47.4,
+     "components": {
+      "skills": 46.3,
+      "outlook": 49.2,
+      "sdg": 0
+     },
+     "outlook": 49.2,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 45.1,
+     "components": {
+      "skills": 35.1,
+      "outlook": 61.8,
+      "sdg": 0
+     },
+     "outlook": 61.8,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 44,
+     "components": {
+      "skills": 38.4,
+      "outlook": 53.4,
+      "sdg": 0
+     },
+     "outlook": 53.4,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 41.6,
+     "components": {
+      "skills": 33.5,
+      "outlook": 55.1,
+      "sdg": 0
+     },
+     "outlook": 55.1,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 41.3,
+     "components": {
+      "skills": 38.6,
+      "outlook": 45.7,
+      "sdg": 0
+     },
+     "outlook": 45.7,
+     "sharedGoals": []
+    }
+   ],
+   "2025-09|moderate|goals": [
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 52.6,
+     "components": {
+      "skills": 37.3,
+      "outlook": 46.5,
+      "sdg": 100
+     },
+     "outlook": 46.5,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 52.3,
+     "components": {
+      "skills": 27.4,
+      "outlook": 61.9,
+      "sdg": 100
+     },
+     "outlook": 61.9,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 52.2,
+     "components": {
+      "skills": 50.3,
+      "outlook": 56.9,
+      "sdg": 50
+     },
+     "outlook": 56.9,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 47.9,
+     "components": {
+      "skills": 46.3,
+      "outlook": 49.2,
+      "sdg": 50
+     },
+     "outlook": 49.2,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 46.1,
+     "components": {
+      "skills": 35.1,
+      "outlook": 61.8,
+      "sdg": 50
+     },
+     "outlook": 61.8,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 45.2,
+     "components": {
+      "skills": 38.4,
+      "outlook": 53.4,
+      "sdg": 50
+     },
+     "outlook": 53.4,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "2025-09|fast|noGoals": [
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 52,
+     "components": {
+      "skills": 50.3,
+      "outlook": 54.9,
+      "sdg": 0
+     },
+     "outlook": 54.9,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 44.9,
+     "components": {
+      "skills": 46.3,
+      "outlook": 42.5,
+      "sdg": 0
+     },
+     "outlook": 42.5,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 44.3,
+     "components": {
+      "skills": 35.1,
+      "outlook": 59.7,
+      "sdg": 0
+     },
+     "outlook": 59.7,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 41.4,
+     "components": {
+      "skills": 38.4,
+      "outlook": 46.4,
+      "sdg": 0
+     },
+     "outlook": 46.4,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 38.8,
+     "components": {
+      "skills": 37.3,
+      "outlook": 41.4,
+      "sdg": 0
+     },
+     "outlook": 41.4,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 38.4,
+     "components": {
+      "skills": 33.5,
+      "outlook": 46.6,
+      "sdg": 0
+     },
+     "outlook": 46.6,
+     "sharedGoals": []
+    }
+   ],
+   "2025-09|fast|goals": [
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 51.6,
+     "components": {
+      "skills": 50.3,
+      "outlook": 54.9,
+      "sdg": 50
+     },
+     "outlook": 54.9,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 51,
+     "components": {
+      "skills": 37.3,
+      "outlook": 41.4,
+      "sdg": 100
+     },
+     "outlook": 41.4,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 50.6,
+     "components": {
+      "skills": 27.4,
+      "outlook": 56.3,
+      "sdg": 100
+     },
+     "outlook": 56.3,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 45.9,
+     "components": {
+      "skills": 46.3,
+      "outlook": 42.5,
+      "sdg": 50
+     },
+     "outlook": 42.5,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 45.5,
+     "components": {
+      "skills": 35.1,
+      "outlook": 59.7,
+      "sdg": 50
+     },
+     "outlook": 59.7,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 43.1,
+     "components": {
+      "skills": 38.4,
+      "outlook": 46.4,
+      "sdg": 50
+     },
+     "outlook": 46.4,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "2026-01|moderate|noGoals": [
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 53.2,
+     "components": {
+      "skills": 46.3,
+      "outlook": 64.8,
+      "sdg": 0
+     },
+     "outlook": 64.8,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 49.6,
+     "components": {
+      "skills": 50.3,
+      "outlook": 48.3,
+      "sdg": 0
+     },
+     "outlook": 48.3,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 48.1,
+     "components": {
+      "skills": 38.4,
+      "outlook": 64.2,
+      "sdg": 0
+     },
+     "outlook": 64.2,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 45.2,
+     "components": {
+      "skills": 33.5,
+      "outlook": 64.7,
+      "sdg": 0
+     },
+     "outlook": 64.7,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 45.2,
+     "components": {
+      "skills": 35.1,
+      "outlook": 61.9,
+      "sdg": 0
+     },
+     "outlook": 61.9,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 44.5,
+     "components": {
+      "skills": 38.6,
+      "outlook": 54.4,
+      "sdg": 0
+     },
+     "outlook": 54.4,
+     "sharedGoals": []
+    }
+   ],
+   "2026-01|moderate|goals": [
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 54.6,
+     "components": {
+      "skills": 27.4,
+      "outlook": 69.6,
+      "sdg": 100
+     },
+     "outlook": 69.6,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 53.1,
+     "components": {
+      "skills": 37.3,
+      "outlook": 48.1,
+      "sdg": 100
+     },
+     "outlook": 48.1,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 52.6,
+     "components": {
+      "skills": 46.3,
+      "outlook": 64.8,
+      "sdg": 50
+     },
+     "outlook": 64.8,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 49.6,
+     "components": {
+      "skills": 50.3,
+      "outlook": 48.3,
+      "sdg": 50
+     },
+     "outlook": 48.3,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 48.5,
+     "components": {
+      "skills": 38.4,
+      "outlook": 64.2,
+      "sdg": 50
+     },
+     "outlook": 64.2,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 46.2,
+     "components": {
+      "skills": 33.5,
+      "outlook": 64.7,
+      "sdg": 50
+     },
+     "outlook": 64.7,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "2026-01|fast|noGoals": [
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 53.9,
+     "components": {
+      "skills": 46.3,
+      "outlook": 66.7,
+      "sdg": 0
+     },
+     "outlook": 66.7,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 47.1,
+     "components": {
+      "skills": 38.4,
+      "outlook": 61.6,
+      "sdg": 0
+     },
+     "outlook": 61.6,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 46.8,
+     "components": {
+      "skills": 50.3,
+      "outlook": 41,
+      "sdg": 0
+     },
+     "outlook": 41,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 43.5,
+     "components": {
+      "skills": 33.5,
+      "outlook": 60.1,
+      "sdg": 0
+     },
+     "outlook": 60.1,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 43.4,
+     "components": {
+      "skills": 35.1,
+      "outlook": 57.3,
+      "sdg": 0
+     },
+     "outlook": 57.3,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 42,
+     "components": {
+      "skills": 38.6,
+      "outlook": 47.5,
+      "sdg": 0
+     },
+     "outlook": 47.5,
+     "sharedGoals": []
+    }
+   ],
+   "2026-01|fast|goals": [
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 53.1,
+     "components": {
+      "skills": 46.3,
+      "outlook": 66.7,
+      "sdg": 50
+     },
+     "outlook": 66.7,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 53.1,
+     "components": {
+      "skills": 27.4,
+      "outlook": 64.7,
+      "sdg": 100
+     },
+     "outlook": 64.7,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 52.3,
+     "components": {
+      "skills": 37.3,
+      "outlook": 45.5,
+      "sdg": 100
+     },
+     "outlook": 45.5,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 47.7,
+     "components": {
+      "skills": 38.4,
+      "outlook": 61.6,
+      "sdg": 50
+     },
+     "outlook": 61.6,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 47.4,
+     "components": {
+      "skills": 50.3,
+      "outlook": 41,
+      "sdg": 50
+     },
+     "outlook": 41,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 44.8,
+     "components": {
+      "skills": 33.5,
+      "outlook": 60.1,
+      "sdg": 50
+     },
+     "outlook": 60.1,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "2026-03|moderate|noGoals": [
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 53,
+     "components": {
+      "skills": 50.3,
+      "outlook": 57.6,
+      "sdg": 0
+     },
+     "outlook": 57.6,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 50.5,
+     "components": {
+      "skills": 46.3,
+      "outlook": 57.4,
+      "sdg": 0
+     },
+     "outlook": 57.4,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 47.9,
+     "components": {
+      "skills": 38.4,
+      "outlook": 63.8,
+      "sdg": 0
+     },
+     "outlook": 63.8,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 45.6,
+     "components": {
+      "skills": 38.6,
+      "outlook": 57.3,
+      "sdg": 0
+     },
+     "outlook": 57.3,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 45.5,
+     "components": {
+      "skills": 27.4,
+      "outlook": 75.9,
+      "sdg": 0
+     },
+     "outlook": 75.9,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 45.4,
+     "components": {
+      "skills": 35.1,
+      "outlook": 62.4,
+      "sdg": 0
+     },
+     "outlook": 62.4,
+     "sharedGoals": []
+    }
+   ],
+   "2026-03|moderate|goals": [
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 56.4,
+     "components": {
+      "skills": 27.4,
+      "outlook": 75.9,
+      "sdg": 100
+     },
+     "outlook": 75.9,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 54.9,
+     "components": {
+      "skills": 37.3,
+      "outlook": 54.3,
+      "sdg": 100
+     },
+     "outlook": 54.3,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 52.4,
+     "components": {
+      "skills": 50.3,
+      "outlook": 57.6,
+      "sdg": 50
+     },
+     "outlook": 57.6,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 50.4,
+     "components": {
+      "skills": 46.3,
+      "outlook": 57.4,
+      "sdg": 50
+     },
+     "outlook": 57.4,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 48.3,
+     "components": {
+      "skills": 38.4,
+      "outlook": 63.8,
+      "sdg": 50
+     },
+     "outlook": 63.8,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 46.5,
+     "components": {
+      "skills": 38.6,
+      "outlook": 57.3,
+      "sdg": 50
+     },
+     "outlook": 57.3,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "2026-03|fast|noGoals": [
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 52.6,
+     "components": {
+      "skills": 50.3,
+      "outlook": 56.5,
+      "sdg": 0
+     },
+     "outlook": 56.5,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 49,
+     "components": {
+      "skills": 46.3,
+      "outlook": 53.7,
+      "sdg": 0
+     },
+     "outlook": 53.7,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 46.9,
+     "components": {
+      "skills": 38.4,
+      "outlook": 61.1,
+      "sdg": 0
+     },
+     "outlook": 61.1,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 44.9,
+     "components": {
+      "skills": 27.4,
+      "outlook": 74.3,
+      "sdg": 0
+     },
+     "outlook": 74.3,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 44.5,
+     "components": {
+      "skills": 35.1,
+      "outlook": 60.2,
+      "sdg": 0
+     },
+     "outlook": 60.2,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 44.1,
+     "components": {
+      "skills": 37.3,
+      "outlook": 55.4,
+      "sdg": 0
+     },
+     "outlook": 55.4,
+     "sharedGoals": []
+    }
+   ],
+   "2026-03|fast|goals": [
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 56,
+     "components": {
+      "skills": 27.4,
+      "outlook": 74.3,
+      "sdg": 100
+     },
+     "outlook": 74.3,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 55.2,
+     "components": {
+      "skills": 37.3,
+      "outlook": 55.4,
+      "sdg": 100
+     },
+     "outlook": 55.4,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 52.1,
+     "components": {
+      "skills": 50.3,
+      "outlook": 56.5,
+      "sdg": 50
+     },
+     "outlook": 56.5,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 49.2,
+     "components": {
+      "skills": 46.3,
+      "outlook": 53.7,
+      "sdg": 50
+     },
+     "outlook": 53.7,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 47.5,
+     "components": {
+      "skills": 38.4,
+      "outlook": 61.1,
+      "sdg": 50
+     },
+     "outlook": 61.1,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 45.6,
+     "components": {
+      "skills": 35.1,
+      "outlook": 60.2,
+      "sdg": 50
+     },
+     "outlook": 60.2,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "2026-06|moderate|noGoals": [
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 54.2,
+     "components": {
+      "skills": 46.3,
+      "outlook": 67.3,
+      "sdg": 0
+     },
+     "outlook": 67.3,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 50,
+     "components": {
+      "skills": 38.6,
+      "outlook": 68.9,
+      "sdg": 0
+     },
+     "outlook": 68.9,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 49.8,
+     "components": {
+      "skills": 38.4,
+      "outlook": 68.7,
+      "sdg": 0
+     },
+     "outlook": 68.7,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 48.9,
+     "components": {
+      "skills": 50.3,
+      "outlook": 46.6,
+      "sdg": 0
+     },
+     "outlook": 46.6,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 47.1,
+     "components": {
+      "skills": 35.1,
+      "outlook": 66.9,
+      "sdg": 0
+     },
+     "outlook": 66.9,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 46.5,
+     "components": {
+      "skills": 33.5,
+      "outlook": 68.1,
+      "sdg": 0
+     },
+     "outlook": 68.1,
+     "sharedGoals": []
+    }
+   ],
+   "2026-06|moderate|goals": [
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 55.7,
+     "components": {
+      "skills": 27.4,
+      "outlook": 73.3,
+      "sdg": 100
+     },
+     "outlook": 73.3,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 53.3,
+     "components": {
+      "skills": 46.3,
+      "outlook": 67.3,
+      "sdg": 50
+     },
+     "outlook": 67.3,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 51.3,
+     "components": {
+      "skills": 37.3,
+      "outlook": 42.2,
+      "sdg": 100
+     },
+     "outlook": 42.2,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 50,
+     "components": {
+      "skills": 38.6,
+      "outlook": 68.9,
+      "sdg": 50
+     },
+     "outlook": 68.9,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 49.8,
+     "components": {
+      "skills": 38.4,
+      "outlook": 68.7,
+      "sdg": 50
+     },
+     "outlook": 68.7,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 49.1,
+     "components": {
+      "skills": 50.3,
+      "outlook": 46.6,
+      "sdg": 50
+     },
+     "outlook": 46.6,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "2026-06|fast|noGoals": [
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 51.4,
+     "components": {
+      "skills": 46.3,
+      "outlook": 60,
+      "sdg": 0
+     },
+     "outlook": 60,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 47.6,
+     "components": {
+      "skills": 38.6,
+      "outlook": 62.6,
+      "sdg": 0
+     },
+     "outlook": 62.6,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 47.4,
+     "components": {
+      "skills": 38.4,
+      "outlook": 62.3,
+      "sdg": 0
+     },
+     "outlook": 62.3,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 46.3,
+     "components": {
+      "skills": 50.3,
+      "outlook": 39.8,
+      "sdg": 0
+     },
+     "outlook": 39.8,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 44.4,
+     "components": {
+      "skills": 35.1,
+      "outlook": 59.8,
+      "sdg": 0
+     },
+     "outlook": 59.8,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 43.3,
+     "components": {
+      "skills": 33.5,
+      "outlook": 59.8,
+      "sdg": 0
+     },
+     "outlook": 59.8,
+     "sharedGoals": []
+    }
+   ],
+   "2026-06|fast|goals": [
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 53.9,
+     "components": {
+      "skills": 27.4,
+      "outlook": 67.4,
+      "sdg": 100
+     },
+     "outlook": 67.4,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 51.1,
+     "components": {
+      "skills": 46.3,
+      "outlook": 60,
+      "sdg": 50
+     },
+     "outlook": 60,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 49.7,
+     "components": {
+      "skills": 37.3,
+      "outlook": 37,
+      "sdg": 100
+     },
+     "outlook": 37,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 48.1,
+     "components": {
+      "skills": 38.6,
+      "outlook": 62.6,
+      "sdg": 50
+     },
+     "outlook": 62.6,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 47.9,
+     "components": {
+      "skills": 38.4,
+      "outlook": 62.3,
+      "sdg": 50
+     },
+     "outlook": 62.3,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 47.1,
+     "components": {
+      "skills": 50.3,
+      "outlook": 39.8,
+      "sdg": 50
+     },
+     "outlook": 39.8,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "latest|moderate|noGoals": [
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 54.3,
+     "components": {
+      "skills": 46.3,
+      "outlook": 67.7,
+      "sdg": 0
+     },
+     "outlook": 67.7,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 50.1,
+     "components": {
+      "skills": 38.6,
+      "outlook": 69.3,
+      "sdg": 0
+     },
+     "outlook": 69.3,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 49.8,
+     "components": {
+      "skills": 38.4,
+      "outlook": 68.7,
+      "sdg": 0
+     },
+     "outlook": 68.7,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 49.5,
+     "components": {
+      "skills": 50.3,
+      "outlook": 48.1,
+      "sdg": 0
+     },
+     "outlook": 48.1,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 49.1,
+     "components": {
+      "skills": 35.1,
+      "outlook": 72.3,
+      "sdg": 0
+     },
+     "outlook": 72.3,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 48.5,
+     "components": {
+      "skills": 33.5,
+      "outlook": 73.5,
+      "sdg": 0
+     },
+     "outlook": 73.5,
+     "sharedGoals": []
+    }
+   ],
+   "latest|moderate|goals": [
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 55.7,
+     "components": {
+      "skills": 27.4,
+      "outlook": 73.3,
+      "sdg": 100
+     },
+     "outlook": 73.3,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 53.5,
+     "components": {
+      "skills": 46.3,
+      "outlook": 67.7,
+      "sdg": 50
+     },
+     "outlook": 67.7,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 51.7,
+     "components": {
+      "skills": 37.3,
+      "outlook": 43.7,
+      "sdg": 100
+     },
+     "outlook": 43.7,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 50.1,
+     "components": {
+      "skills": 38.6,
+      "outlook": 69.3,
+      "sdg": 50
+     },
+     "outlook": 69.3,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 49.8,
+     "components": {
+      "skills": 38.4,
+      "outlook": 68.7,
+      "sdg": 50
+     },
+     "outlook": 68.7,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 49.6,
+     "components": {
+      "skills": 50.3,
+      "outlook": 48.1,
+      "sdg": 50
+     },
+     "outlook": 48.1,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ],
+   "latest|fast|noGoals": [
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 51.6,
+     "components": {
+      "skills": 46.3,
+      "outlook": 60.4,
+      "sdg": 0
+     },
+     "outlook": 60.4,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 47.8,
+     "components": {
+      "skills": 38.6,
+      "outlook": 63,
+      "sdg": 0
+     },
+     "outlook": 63,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 47.4,
+     "components": {
+      "skills": 38.4,
+      "outlook": 62.3,
+      "sdg": 0
+     },
+     "outlook": 62.3,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 46.9,
+     "components": {
+      "skills": 50.3,
+      "outlook": 41.3,
+      "sdg": 0
+     },
+     "outlook": 41.3,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "electrical-engineer",
+     "title": "Electrical Engineer",
+     "score": 46.4,
+     "components": {
+      "skills": 35.1,
+      "outlook": 65.2,
+      "sdg": 0
+     },
+     "outlook": 65.2,
+     "sharedGoals": []
+    },
+    {
+     "roleId": "hardware-engineer",
+     "title": "Computer Hardware Engineer",
+     "score": 45.4,
+     "components": {
+      "skills": 33.5,
+      "outlook": 65.2,
+      "sdg": 0
+     },
+     "outlook": 65.2,
+     "sharedGoals": []
+    }
+   ],
+   "latest|fast|goals": [
+    {
+     "roleId": "manufacturing-engineer",
+     "title": "Manufacturing Engineer",
+     "score": 53.9,
+     "components": {
+      "skills": 27.4,
+      "outlook": 67.4,
+      "sdg": 100
+     },
+     "outlook": 67.4,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "mechatronics-engineer",
+     "title": "Mechatronics Engineer",
+     "score": 51.3,
+     "components": {
+      "skills": 46.3,
+      "outlook": 60.4,
+      "sdg": 50
+     },
+     "outlook": 60.4,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "mechatronics-technician",
+     "title": "Electro-Mechanical & Mechatronics Technician",
+     "score": 50.2,
+     "components": {
+      "skills": 37.3,
+      "outlook": 38.5,
+      "sdg": 100
+     },
+     "outlook": 38.5,
+     "sharedGoals": [
+      9,
+      12
+     ]
+    },
+    {
+     "roleId": "robotics-engineer",
+     "title": "Robotics Engineer",
+     "score": 48.2,
+     "components": {
+      "skills": 38.6,
+      "outlook": 63,
+      "sdg": 50
+     },
+     "outlook": 63,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "energy-engineer",
+     "title": "Energy Engineer",
+     "score": 47.9,
+     "components": {
+      "skills": 38.4,
+      "outlook": 62.3,
+      "sdg": 50
+     },
+     "outlook": 62.3,
+     "sharedGoals": [
+      9
+     ]
+    },
+    {
+     "roleId": "robotics-technician",
+     "title": "Robotics Technician",
+     "score": 47.5,
+     "components": {
+      "skills": 50.3,
+      "outlook": 41.3,
+      "sdg": 50
+     },
+     "outlook": 41.3,
+     "sharedGoals": [
+      9
+     ]
+    }
+   ]
+  },
+  "fairness": {
+   "variants": 8,
+   "identical": true
+  },
+  "fairnessVariants": [
+   {
+    "name": "Nur Aisyah binti Ahmad",
+    "graduation": "2026"
+   },
+   {
+    "name": "Muhammad Hafiz bin Ismail",
+    "graduation": "2027"
+   },
+   {
+    "name": "Tan Mei Ling",
+    "graduation": "2026"
+   },
+   {
+    "name": "Lim Wei Jie",
+    "graduation": "2028"
+   },
+   {
+    "name": "Priya a/p Subramaniam",
+    "graduation": "2027"
+   },
+   {
+    "name": "Arun a/l Krishnan",
+    "graduation": "2026"
+   },
+   {
+    "name": "Jessica Anak Jimbun",
+    "graduation": "2027"
+   },
+   {
+    "name": "Alex Chen",
+    "graduation": "2030"
+   }
+  ],
+  "focusRoles": [
+   {
+    "roleId": "manufacturing-engineer",
+    "title": "Manufacturing Engineer",
+    "moderate": {
+     "score": 73.3,
+     "assist": 0.114,
+     "automate": 0.114,
+     "demand": 1,
+     "coverage": 1
+    },
+    "fast": {
+     "score": 67.4,
+     "assist": 0.133,
+     "automate": 0.235
+    },
+    "tasks": [
+     {
+      "statement": "Prepare documentation for new manufacturing processes or engineering procedures.",
+      "weight": 3.83,
+      "exposure": 0.509,
+      "automation": 0.496,
+      "fastExposure": 0.78,
+      "fastAutomation": 0.637,
+      "current": 0.2,
+      "ceiling": 1
+     },
+     {
+      "statement": "Troubleshoot new or existing product problems involving designs, materials, or processes.",
+      "weight": 4.35,
+      "exposure": 0.398,
+      "automation": 0.669,
+      "fastExposure": 0.454,
+      "fastAutomation": 0.81,
+      "current": 0.333,
+      "ceiling": 0.5
+     },
+     {
+      "statement": "Investigate or resolve operational problems, such as material use variances or bottlenecks.",
+      "weight": 4.27,
+      "exposure": 0.295,
+      "automation": 0.595,
+      "fastExposure": 0.408,
+      "fastAutomation": 0.737,
+      "current": 0.167,
+      "ceiling": 0.5
+     },
+     {
+      "statement": "Provide technical expertise or support related to manufacturing.",
+      "weight": 4.04,
+      "exposure": 0.295,
+      "automation": 0.327,
+      "fastExposure": 0.408,
+      "fastAutomation": 0.468,
+      "current": 0.167,
+      "ceiling": 0.5
+     },
+     {
+      "statement": "Review product designs for manufacturability or completeness.",
+      "weight": 3.92,
+      "exposure": 0.254,
+      "automation": 0.301,
+      "fastExposure": 0.39,
+      "fastAutomation": 0.443,
+      "current": 0.1,
+      "ceiling": 0.5
+     },
+     {
+      "statement": "Determine root causes of failures or recommend changes in designs, tolerances, or processing methods, using statistical procedures.",
+      "weight": 3.92,
+      "exposure": 0.254,
+      "automation": 0.619,
+      "fastExposure": 0.39,
+      "fastAutomation": 0.76,
+      "current": 0.1,
+      "ceiling": 0.5
+     },
+     {
+      "statement": "Prepare reports summarizing information or trends related to manufacturing performance.",
+      "weight": 3.87,
+      "exposure": 0.254,
+      "automation": 0.742,
+      "fastExposure": 0.39,
+      "fastAutomation": 0.883,
+      "current": 0.1,
+      "ceiling": 0.5
+     },
+     {
+      "statement": "Evaluate manufactured products according to specifications and quality standards.",
+      "weight": 3.62,
+      "exposure": 0.254,
+      "automation": 0.459,
+      "fastExposure": 0.39,
+      "fastAutomation": 0.601,
+      "current": 0.1,
+      "ceiling": 0.5
+     }
+    ]
+   },
+   {
+    "roleId": "mechatronics-engineer",
+    "title": "Mechatronics Engineer",
+    "moderate": {
+     "score": 67.7,
+     "assist": 0.12,
+     "automate": 0.129,
+     "demand": 1,
+     "coverage": 1
+    },
+    "fast": {
+     "score": 60.4,
+     "assist": 0.136,
+     "automate": 0.274
+    },
+    "tasks": [
+     {
+      "statement": "Create embedded software design programs.",
+      "weight": 3.46,
+      "exposure": 0.693,
+      "automation": 0.541,
+      "fastExposure": 0.863,
+      "fastAutomation": 0.683,
+      "current": 0.5,
+      "ceiling": 1
+     },
+     {
+      "statement": "Maintain technical project files.",
+      "weight": 3.76,
+      "exposure": 0.509,
+      "automation": 0.791,
+      "fastExposure": 0.78,
+      "fastAutomation": 0.932,
+      "current": 0.2,
+      "ceiling": 1
+     },
+     {
+      "statement": "Analyze existing development or manufacturing procedures and suggest improvements.",
+      "weight": 3.51,
+      "exposure": 0.5,
+      "automation": 0.365,
+      "fastExposure": 0.5,
+      "fastAutomation": 0.507,
+      "current": 0.5,
+      "ceiling": 0.5
+     },
+     {
+      "statement": "Provide consultation or training on topics such as mechatronics or automated control.",
+      "weight": 3.6,
+      "exposure": 0.398,
+      "automation": 0.282,
+      "fastExposure": 0.454,
+      "fastAutomation": 0.424,
+      "current": 0.333,
+      "ceiling": 0.5
+     },
+     {
+      "statement": "Publish engineering reports documenting design details or qualification test results.",
+      "weight": 3.57,
+      "exposure": 0.386,
+      "automation": 0.52,
+      "fastExposure": 0.725,
+      "fastAutomation": 0.661,
+      "current": 0,
+      "ceiling": 1
+     },
+     {
+      "statement": "Design advanced electronic control systems for mechanical systems.",
+      "weight": 3.45,
+      "exposure": 0.386,
+      "automation": 0.52,
+      "fastExposure": 0.725,
+      "fastAutomation": 0.661,
+      "current": 0,
+      "ceiling": 1
+     },
+     {
+      "statement": "Design, develop, or implement control circuits or algorithms for electromechanical or pneumatic devices or systems.",
+      "weight": 3.37,
+      "exposure": 0.386,
+      "automation": 0.52,
+      "fastExposure": 0.725,
+      "fastAutomation": 0.661,
+      "current": 0,
+      "ceiling": 1
+     },
+     {
+      "statement": "Create mechanical design documents for parts, assemblies, or finished products.",
+      "weight": 4.22,
+      "exposure": 0.193,
+      "automation": 0.52,
+      "fastExposure": 0.363,
+      "fastAutomation": 0.661,
+      "current": 0,
+      "ceiling": 0.5
+     }
+    ]
+   }
+  ],
+  "pathway": {
+   "roleId": "manufacturing-engineer",
+   "totalHours": 45,
+   "totalWeeks": 6,
+   "steps": [
+    {
+     "kind": "course",
+     "title": "MA121: Introduction to Statistics",
+     "task": null,
+     "provider": "Saylor University (Saylor Academy)",
+     "hours": 15,
+     "cost": "free",
+     "weeks": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "course",
+     "title": "Energy in buildings",
+     "task": null,
+     "provider": "The Open University (OpenLearn)",
+     "hours": 10,
+     "cost": "free",
+     "weeks": [
+      2,
+      4
+     ]
+    },
+    {
+     "kind": "project",
+     "title": null,
+     "task": "Prepare documentation for new manufacturing processes or engineering procedures.",
+     "provider": null,
+     "hours": 20,
+     "cost": null,
+     "weeks": [
+      4,
+      6
+     ]
+    }
+   ],
+   "uncovered": [
+    "lean-quality"
+   ]
+  }
+ }
+}

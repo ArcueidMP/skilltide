@@ -1,0 +1,133 @@
+{
+ "width": 1784.87988,
+ "height": 2525.75994,
+ "scale": 3,
+ "items": [
+  {
+   "str": "KAVIN A/L RAJ",
+   "x": 152.999993625,
+   "y": 138.0149942493748,
+   "w": 582.0143103368027,
+   "h": 68.984997125625
+  },
+  {
+   "str": "Bachelor of Mechatronics Engineering (Hons), final year",
+   "x": 152.999993625,
+   "y": 246.01499019937515,
+   "w": 804.0569624224297,
+   "h": 32.984998175625016
+  },
+  {
+   "str": "kavin.raj@example.com · Johor, Malaysia · Available from July 2026",
+   "x": 152.999993625,
+   "y": 304.51498776187486,
+   "w": 836.5511887886212,
+   "h": 28.484998363125015
+  },
+  {
+   "str": "Synthetic sample CV for the SkillTide demo. Not a real person.",
+   "x": 152.999993625,
+   "y": 363.7574850684377,
+   "w": 695.6155643556373,
+   "h": 25.49249871281251
+  },
+  {
+   "str": "R E L E VA N T C O U R S E W O R K",
+   "x": 152.999993625,
+   "y": 475.51498063687495,
+   "w": 407.0093301175606,
+   "h": 28.484998363125015
+  },
+  {
+   "str": "Control systems, robotics, sensors and actuators, embedded systems, CAD",
+   "x": 152.999993625,
+   "y": 542.2499774062499,
+   "w": 1029.0717381670092,
+   "h": 31.499998687499996
+  },
+  {
+   "str": "P R O J E C T S",
+   "x": 152.999993625,
+   "y": 633.0149740743752,
+   "w": 159.35475180977238,
+   "h": 28.484998363125015
+  },
+  {
+   "str": "Final-year project: vision-guided pick-and-place arm using ROS and OpenCV in Python",
+   "x": 194.97655437597655,
+   "y": 699.7499708437501,
+   "w": 1202.9523435519836,
+   "h": 31.499998687499996
+  },
+  {
+   "str": "Line-following robot on Arduino written in C++",
+   "x": 194.97655437597655,
+   "y": 751.4999686875001,
+   "w": 659.8696021204321,
+   "h": 31.499998687499996
+  },
+  {
+   "str": "Designed fixtures in SolidWorks",
+   "x": 194.97655437597655,
+   "y": 805.4999664375,
+   "w": 439.15427650690435,
+   "h": 31.499998687499996
+  },
+  {
+   "str": "I N D U S T R I A L T R A I N I N G",
+   "x": 152.999993625,
+   "y": 896.2649631056252,
+   "w": 376.0486315738847,
+   "h": 28.484998363125015
+  },
+  {
+   "str": "Automation intern, electronics manufacturing plant, Johor",
+   "x": 152.999993625,
+   "y": 962.9999598750001,
+   "w": 830.5817536324251,
+   "h": 31.499998687499996
+  },
+  {
+   "str": "Jun to Aug 2025",
+   "x": 1428.644482973144,
+   "y": 963.7649602931251,
+   "w": 204.84703068462935,
+   "h": 28.484998363125015
+  },
+  {
+   "str": "Edited PLC ladder logic for a conveyor sorting station",
+   "x": 194.97655437597655,
+   "y": 1019.24995753125,
+   "w": 737.1737989844237,
+   "h": 31.499998687499996
+  },
+  {
+   "str": "Monitored the line on a SCADA dashboard and logged downtime",
+   "x": 194.97655437597655,
+   "y": 1070.999955375,
+   "w": 908.3781480559094,
+   "h": 31.499998687499996
+  },
+  {
+   "str": "Helped with preventive maintenance of pneumatic actuators",
+   "x": 194.97655437597655,
+   "y": 1124.999953125,
+   "w": 837.8569001792947,
+   "h": 31.499998687499996
+  },
+  {
+   "str": "S K I L L S",
+   "x": 152.999993625,
+   "y": 1215.764949793125,
+   "w": 105.67030237162444,
+   "h": 28.484998363125015
+  },
+  {
+   "str": "AutoCAD, troubleshooting, Malay and English, working in shifts",
+   "x": 152.999993625,
+   "y": 1282.4999465624999,
+   "w": 877.770229106239,
+   "h": 31.499998687499996
+  }
+ ]
+}

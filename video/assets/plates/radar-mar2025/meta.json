@@ -1,0 +1,937 @@
+{
+ "name": "radar-mar2025",
+ "url": "/radar",
+ "viewport": {
+  "w": 1440,
+  "h": 900
+ },
+ "dpr": 2,
+ "header": {
+  "x": 0,
+  "y": 0,
+  "width": 1440,
+  "height": 64.5
+ },
+ "main": {
+  "x": 24,
+  "y": 88.5,
+  "width": 988,
+  "height": 3096.375
+ },
+ "guide": {
+  "x": 1036,
+  "y": 88.5,
+  "width": 380,
+  "height": 792
+ },
+ "rects": {
+  "steps": [
+   {
+    "frame": "header",
+    "x": 165.9,
+    "y": 18.8,
+    "w": 82.9,
+    "h": 32,
+    "text": "1\nProfile",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 280.8,
+    "y": 18.8,
+    "w": 114.5,
+    "h": 32,
+    "text": "2\nSkills Radar",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 427.3,
+    "y": 18.8,
+    "w": 94.2,
+    "h": 32,
+    "text": "3\nMatches",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 553.5,
+    "y": 18.8,
+    "w": 95.3,
+    "h": 32,
+    "text": "4\nPathway",
+    "title": null
+   }
+  ],
+  "scenario": [
+   {
+    "frame": "header",
+    "x": 908.9,
+    "y": 22.8,
+    "w": 88.1,
+    "h": 24,
+    "text": "Moderate AI",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 996.9,
+    "y": 22.8,
+    "w": 58.9,
+    "h": 24,
+    "text": "Fast AI",
+    "title": null
+   }
+  ],
+  "guideButton": [],
+  "messages": [
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 78.5,
+    "w": 346,
+    "h": 200.8,
+    "text": "Re-planned for Moderate AI, data Mar 2025: your top role is now Electro-Mechanical & Mechatronics Technician (53), replacing Manufacturing Engineer. Your pathway has been rebuilt.\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are GPTs task ex",
+    "title": null
+   }
+  ],
+  "guidePanel": [
+   {
+    "frame": "guide",
+    "x": 0,
+    "y": 0,
+    "w": 380,
+    "h": 792,
+    "text": "SkillTide Guide\n\nAnswers only from SkillTide data\n\nRule-based\n\nRe-planned for Moderate AI, data Mar 2025: your top role is now Electro-Mechanical & Mechatronics Technician (53), replacing Manufacturing Engineer. Your pathway has been rebuil",
+    "title": null
+   }
+  ],
+  "pageTitle": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 22.5,
+    "w": 672,
+    "h": 42.5,
+    "text": "Future Skills Radar",
+    "title": null
+   }
+  ],
+  "radar": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 189.1,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 17,
+    "y": 320.5,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 101.2,
+    "y": 478.5,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 234.8,
+    "y": 478.5,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 25,
+    "y": 669.6,
+    "w": 554,
+    "h": 554,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 266.8,
+    "y": 1248.5,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 316.7,
+    "y": 1280.3,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 418,
+    "y": 1312,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 518.8,
+    "y": 1343.8,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 474.7,
+    "y": 1375.5,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 216.4,
+    "y": 1407.3,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 902.1,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1206.9,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 2226.9,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 262.8,
+    "y": 2456.3,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 358.3,
+    "y": 2226.9,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 600.1,
+    "y": 2569.8,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 695.7,
+    "y": 2226.9,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 948,
+    "y": 3064.4,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   }
+  ],
+  "timeline": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 223.1,
+    "w": 80,
+    "h": 35.8,
+    "text": "Mar 2025",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 194.2,
+    "y": 223.1,
+    "w": 80,
+    "h": 35.8,
+    "text": "Sep 2025",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 367.4,
+    "y": 223.1,
+    "w": 80,
+    "h": 35.8,
+    "text": "Jan 2026",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 540.6,
+    "y": 223.1,
+    "w": 80,
+    "h": 35.8,
+    "text": "Mar 2026",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 713.8,
+    "y": 223.1,
+    "w": 80,
+    "h": 35.8,
+    "text": "Jun 2026",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 887,
+    "y": 223.1,
+    "w": 80,
+    "h": 35.8,
+    "text": "Latest",
+    "title": null
+   }
+  ],
+  "timelinePanel": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 170.1,
+    "w": 988,
+    "h": 105.8,
+    "text": "Data snapshot\n\nAI use: Feb–Mar 2025 · job demand as of 2025-03-27\n\nReplay historical signals with the current catalogue and assumptions.\n\nMar 2025\nSep 2025\nJan 2026\nMar 2026\nJun 2026\nLatest",
+    "title": null
+   }
+  ],
+  "rising": [
+   {
+    "frame": "main",
+    "x": 628,
+    "y": 883.1,
+    "w": 360,
+    "h": 288.8,
+    "text": "Rising fastest\nComplex problem solving\n74\n±0\nAgile & Scrum\n73\n±0\nComputer networking\n68\n±0\nTeamwork & coordination\nyou\n68\n±0\nFront-end (React, HTML/CSS)\n67\n±0\nBack-end & APIs (Node.js, REST)\n64\n±0",
+    "title": null
+   }
+  ],
+  "cooling": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 532.6,
+    "w": 604,
+    "h": 947.8,
+    "text": "Skills on the radar\n\nCloser to the centre = rising faster. Ringed dots are skills you have. Dashed trails show the move since the previous snapshot.\n\nRising\nSteady\nCooling\nSurging\nRising\nSteady\nCooling\nAI & data\nSoftware\nCloud & security\nEl",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 628,
+    "y": 1187.9,
+    "w": 360,
+    "h": 292.5,
+    "text": "Cooling\nSignal processing\n23\n±0\nRobotics (ROS, robot programming)\nyou\n29\n±0\nMobile apps (Android / iOS)\n30\n±0\nStatistics & forecasting\n30\n±0\nEmbedded systems & microcontrollers\nyou\n31\n±0\nGenerative AI & LLM apps\n31\n±0",
+    "title": null
+   }
+  ],
+  "rolesRise": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 1504.4,
+    "w": 482,
+    "h": 675.5,
+    "text": "Roles on the rise\n\nHighest outlook under the moderate ai scenario over 3 years: hiring demand plus how AI touches the work\n\nSoftware DeveloperMyCOL\n\nAI assists 34% · automates 15% · postings −10% y/y\n\nRising\n65\n±0\n\nInformation Security Anal",
+    "title": null
+   }
+  ],
+  "rolesPressure": [
+   {
+    "frame": "main",
+    "x": 506,
+    "y": 1504.4,
+    "w": 482,
+    "h": 675.5,
+    "text": "Roles under most pressure\n\nLowest outlook: much of the work is exposed to automation, or hiring is slowing\n\nComputer & Information Research Scientist\n\nAI assists 28% · automates 11% · postings −26% y/y\n\nUnder pressure\n39\n±0\n\nRobotics Engine",
+    "title": null
+   }
+  ],
+  "freshness": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 299.9,
+    "w": 988,
+    "h": 208.8,
+    "text": "Data updates\nRecent validated refresh\n\nLast validated refresh\n2026-10-21 17:26 UTC\n\nCurrent dataset build\n2026-10-21 17:26 UTC\n\nSubstantive data changed in this build. Build dates are not source publication dates. Fixed AI releases are cura",
+    "title": null
+   }
+  ],
+  "roleCards": [
+   {
+    "frame": "main",
+    "x": 25,
+    "y": 1239.6,
+    "w": 260.8,
+    "h": 25.8,
+    "text": "Anthropic Economic Index\n· 2026-06-26",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 25,
+    "y": 1271.4,
+    "w": 310.7,
+    "h": 25.8,
+    "text": "GPTs are GPTs task exposure labels (β)\n· 2024",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 25,
+    "y": 1303.1,
+    "w": 412,
+    "h": 25.8,
+    "text": "Indeed Hiring Lab — Job Postings Index by sector\n· 2026-10-16",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 25,
+    "y": 1334.9,
+    "w": 512.8,
+    "h": 25.8,
+    "text": "Indeed Hiring Lab — AI Tracker (share of postings mentioning AI)\n· 2026-09-30",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 25,
+    "y": 1366.6,
+    "w": 468.7,
+    "h": 25.8,
+    "text": "Hacker News “Who is hiring?” threads (via Algolia HN API)\n· 2026-10-01",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 25,
+    "y": 1398.4,
+    "w": 210.4,
+    "h": 25.8,
+    "text": "O*NET 31.0 Database\n· 2026-08",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 674.6,
+    "w": 326,
+    "h": 19.5,
+    "text": "Software Developer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 696.1,
+    "w": 326,
+    "h": 19.5,
+    "text": "Web Developer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 717.6,
+    "w": 326,
+    "h": 19.5,
+    "text": "Computer Programmer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 739.1,
+    "w": 326,
+    "h": 19.5,
+    "text": "Web & Digital Interface Designer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 932.1,
+    "w": 326,
+    "h": 31.5,
+    "text": "Complex problem solving\n74\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 969.6,
+    "w": 326,
+    "h": 31.5,
+    "text": "Agile & Scrum\n73\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1007.1,
+    "w": 326,
+    "h": 31.5,
+    "text": "Computer networking\n68\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1044.6,
+    "w": 326,
+    "h": 35.3,
+    "text": "Teamwork & coordination\nyou\n68\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1085.9,
+    "w": 326,
+    "h": 31.5,
+    "text": "Front-end (React, HTML/CSS)\n67\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1123.4,
+    "w": 326,
+    "h": 31.5,
+    "text": "Back-end & APIs (Node.js, REST)\n64\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1236.9,
+    "w": 326,
+    "h": 31.5,
+    "text": "Signal processing\n23\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1274.4,
+    "w": 326,
+    "h": 35.3,
+    "text": "Robotics (ROS, robot programming)\nyou\n29\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1315.6,
+    "w": 326,
+    "h": 31.5,
+    "text": "Mobile apps (Android / iOS)\n30\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1353.1,
+    "w": 326,
+    "h": 31.5,
+    "text": "Statistics & forecasting\n30\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1390.6,
+    "w": 326,
+    "h": 35.3,
+    "text": "Embedded systems & microcontrollers\nyou\n31\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 645,
+    "y": 1431.9,
+    "w": 326,
+    "h": 31.5,
+    "text": "Generative AI & LLM apps\n31\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 13,
+    "y": 1606.9,
+    "w": 456,
+    "h": 90,
+    "text": "Software DeveloperMyCOL\n\nAI assists 34% · automates 15% · postings −10% y/y\n\nRising\n65\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 13,
+    "y": 1700.9,
+    "w": 456,
+    "h": 90,
+    "text": "Information Security AnalystMyCOL\n\nAI assists 29% · automates 11% · postings −11% y/y\n\nRising\n63\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 13,
+    "y": 1794.9,
+    "w": 456,
+    "h": 90,
+    "text": "Computer Systems AnalystMyCOL\n\nAI assists 34% · automates 16% · postings −11% y/y\n\nRising\n62\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 13,
+    "y": 1888.9,
+    "w": 456,
+    "h": 90,
+    "text": "Computer ProgrammerMyCOL\n\nAI assists 40% · automates 27% · postings −10% y/y\n\nRising\n60\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 13,
+    "y": 1982.9,
+    "w": 456,
+    "h": 90,
+    "text": "Network & Computer Systems AdministratorMyCOL\n\nAI assists 27% · automates 14% · postings −12% y/y\n\nRising\n59\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 13,
+    "y": 2076.9,
+    "w": 456,
+    "h": 90,
+    "text": "Penetration TesterMyCOL\n\nAI assists 20% · automates 11% · postings −11% y/y\n\nRising\n59\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 519,
+    "y": 1606.9,
+    "w": 456,
+    "h": 90,
+    "text": "Computer & Information Research Scientist\n\nAI assists 28% · automates 11% · postings −26% y/y\n\nUnder pressure\n39\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 519,
+    "y": 1700.9,
+    "w": 456,
+    "h": 90,
+    "text": "Robotics Engineer\n\nAI assists 12% · automates 16% · postings −16% y/y\n\nUnder pressure\n42\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 519,
+    "y": 1794.9,
+    "w": 456,
+    "h": 90,
+    "text": "Electrical & Electronics Drafter\n\nAI assists 14% · automates 10% · postings −16% y/y\n\nUnder pressure\n46\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 519,
+    "y": 1888.9,
+    "w": 456,
+    "h": 90,
+    "text": "Electro-Mechanical & Mechatronics Technician\n\nAI assists 7% · automates 8% · postings −14% y/y\n\nUnder pressure\n47\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 519,
+    "y": 1982.9,
+    "w": 456,
+    "h": 90,
+    "text": "Manufacturing EngineerMyCOL\n\nAI assists 10% · automates 10% · postings −18% y/y\n\nUnder pressure\n47\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 519,
+    "y": 2076.9,
+    "w": 456,
+    "h": 90,
+    "text": "Solar Energy Systems Engineer\n\nAI assists 11% · automates 6% · postings −16% y/y\n\nUnder pressure\n47\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 2447.4,
+    "w": 260.8,
+    "h": 25.8,
+    "text": "Anthropic Economic Index\n· 2026-06-26",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 358.3,
+    "y": 2307.9,
+    "w": 271.3,
+    "h": 75,
+    "text": "56% use AI tools at work; 26% have received training to use them Hays Asia Salary Guide 2025 - AI use among Malaysian professionals (Hays Malaysia press release) source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 358.3,
+    "y": 2390.9,
+    "w": 271.3,
+    "h": 75,
+    "text": "More than 600,000 workers need reskilling within 3-5 years MOSTI Minister Chang Lih Kang at the MBOT Professional Development Certification launch, Putrajaya source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 358.3,
+    "y": 2473.9,
+    "w": 271.3,
+    "h": 75,
+    "text": "About 600,000 workers need reskilling over the next 3-5 years Origin of the ~600k figure - HR Minister Steven Sim on the KESUMA/TalentCorp Phase 1 study source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 358.3,
+    "y": 2560.9,
+    "w": 260.8,
+    "h": 25.8,
+    "text": "Anthropic Economic Index\n· 2026-06-26",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 695.7,
+    "y": 2256.9,
+    "w": 271.3,
+    "h": 154.5,
+    "text": "MalaysiaArtificial Intelligence Engineer (telecommunications)\n\nTalentCorp & MCMC - Impact Study on AI, Digital and the Green Economy on the Malaysian Workforce for the Communications and Multimedia Sector (AI engineers were also cited as em",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 695.7,
+    "y": 2421.4,
+    "w": 271.3,
+    "h": 117,
+    "text": "ChinaGenerative AI System Application Specialist生成式人工智能系统应用员\n\nChina MOHRSS with SAMR & NBS - new occupation 4-04-05-13 (digital occupation), notice 人社厅发〔2024〕36号 · 2024-07-31 · source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 695.7,
+    "y": 2548.4,
+    "w": 271.3,
+    "h": 79.5,
+    "text": "GlobalBig Data Specialists\n\nWorld Economic Forum - Future of Jobs Report 2025 (employer outlook 2025-2030) · 2025-01 · source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 695.7,
+    "y": 2637.9,
+    "w": 271.3,
+    "h": 117,
+    "text": "MalaysiaEdge Computing Specialist (telecommunications)\n\nTalentCorp & MCMC - Impact Study on AI, Digital and the Green Economy on the Malaysian Workforce for the Communications and Multimedia Sector · 2026-10-05 · source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 695.7,
+    "y": 2764.9,
+    "w": 271.3,
+    "h": 117,
+    "text": "ChinaCybersecurity Classified-Protection (MLPS) Assessor网络安全等级保护测评师\n\nChina MOHRSS with SAMR & NBS - new occupation 4-04-04-07 (digital occupation), notice 人社厅发〔2024〕36号 · 2024-07-31 · source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 695.7,
+    "y": 2891.9,
+    "w": 271.3,
+    "h": 79.5,
+    "text": "GlobalFinTech Engineers\n\nWorld Economic Forum - Future of Jobs Report 2025 (employer outlook 2025-2030) · 2025-01 · source",
+    "title": null
+   }
+  ],
+  "cards": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 170.1,
+    "w": 988,
+    "h": 105.8,
+    "text": "Data snapshot\n\nAI use: Feb–Mar 2025 · job demand as of 2025-03-27\n\nReplay historical signals with the current catalogue and assumptions.\n\nMar 2025\nSep 2025\nJan 2026\nMar 2026\nJun 2026\nLatest",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 299.9,
+    "w": 988,
+    "h": 208.8,
+    "text": "Data updates\nRecent validated refresh\n\nLast validated refresh\n2026-10-21 17:26 UTC\n\nCurrent dataset build\n2026-10-21 17:26 UTC\n\nSubstantive data changed in this build. Build dates are not source publication dates. Fixed AI releases are cura",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 532.6,
+    "w": 604,
+    "h": 947.8,
+    "text": "Skills on the radar\n\nCloser to the centre = rising faster. Ringed dots are skills you have. Dashed trails show the move since the previous snapshot.\n\nRising\nSteady\nCooling\nSurging\nRising\nSteady\nCooling\nAI & data\nSoftware\nCloud & security\nEl",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 628,
+    "y": 532.6,
+    "w": 360,
+    "h": 334.5,
+    "text": "HUMAN SKILLS\n\nComplex problem solving\nRising\nTrend score\n74\nHiring-post mentions\n+49%\n\nNeeded by\n\nSoftware Developer\nWeb Developer\nComputer Programmer\nWeb & Digital Interface Designer\n4.4\nQuality education\n9.1\nIndustry, innovation and infra",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 628,
+    "y": 883.1,
+    "w": 360,
+    "h": 288.8,
+    "text": "Rising fastest\nComplex problem solving\n74\n±0\nAgile & Scrum\n73\n±0\nComputer networking\n68\n±0\nTeamwork & coordination\nyou\n68\n±0\nFront-end (React, HTML/CSS)\n67\n±0\nBack-end & APIs (Node.js, REST)\n64\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 628,
+    "y": 1187.9,
+    "w": 360,
+    "h": 292.5,
+    "text": "Cooling\nSignal processing\n23\n±0\nRobotics (ROS, robot programming)\nyou\n29\n±0\nMobile apps (Android / iOS)\n30\n±0\nStatistics & forecasting\n30\n±0\nEmbedded systems & microcontrollers\nyou\n31\n±0\nGenerative AI & LLM apps\n31\n±0",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 1504.4,
+    "w": 482,
+    "h": 675.5,
+    "text": "Roles on the rise\n\nHighest outlook under the moderate ai scenario over 3 years: hiring demand plus how AI touches the work\n\nSoftware DeveloperMyCOL\n\nAI assists 34% · automates 15% · postings −10% y/y\n\nRising\n65\n±0\n\nInformation Security Anal",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 506,
+    "y": 1504.4,
+    "w": 482,
+    "h": 675.5,
+    "text": "Roles under most pressure\n\nLowest outlook: much of the work is exposed to automation, or hiring is slowing\n\nComputer & Information Research Scientist\n\nAI assists 28% · automates 11% · postings −26% y/y\n\nUnder pressure\n39\n±0\n\nRobotics Engine",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 2203.9,
+    "w": 313.3,
+    "h": 820.5,
+    "text": "How people use AI is shifting\n\nShare of Claude conversations that hand work over (automation) rather than work alongside (augmentation).\n\n43%\nFeb–Mar 2025\n52%\n4–11 Aug 2025\n47%\n13–20 Nov 2025\n46%\n5–12 Feb 2026\n49%\nMay 2026\nAnthropic Economi",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 337.3,
+    "y": 2203.9,
+    "w": 313.3,
+    "h": 820.5,
+    "text": "Malaysia in the picture\n\nThis snapshot's data release has no Malaysia usage index; pick another date to see it.\n\n56% use AI tools at work; 26% have received training to use them Hays Asia Salary Guide 2025 - AI use among Malaysian professio",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 674.7,
+    "y": 2203.9,
+    "w": 313.3,
+    "h": 820.5,
+    "text": "Newly recognised roles\n\nMalaysiaArtificial Intelligence Engineer (telecommunications)\n\nTalentCorp & MCMC - Impact Study on AI, Digital and the Green Economy on the Malaysian Workforce for the Communications and Multimedia Sector (AI enginee",
+    "title": null
+   }
+  ]
+ },
+ "mainSize": {
+  "w": 988,
+  "h": 3096.375
+ }
+}
