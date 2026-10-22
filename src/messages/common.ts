@@ -7,6 +7,8 @@ import type { Snapshot } from "@/lib/types";
 export interface CommonText {
   /** Goes between a bold lead-in such as "Outlook 62:" and the text after it, or between two sentences shown in parts. Chinese needs none after full-width punctuation. */
   gap: string;
+  /** Ends a lead-in label such as "Start with" before its value; full-width in Chinese. */
+  colon: string;
   /** Accessible name of a list of source links. */
   sources: string;
   /** The data names its newest snapshot "Latest (16 Oct 2026)"; `date` stays as published. */
@@ -19,6 +21,7 @@ export interface CommonText {
 export const COMMON = defineMessages<CommonText>({
   en: {
     gap: " ",
+    colon: ":",
     sources: "Sources",
     latestSnapshot: (date) => `Latest (${date})`,
     apiStatus: {
@@ -30,6 +33,7 @@ export const COMMON = defineMessages<CommonText>({
   },
   ms: {
     gap: " ",
+    colon: ":",
     sources: "Sumber",
     latestSnapshot: (date) => `Terkini (${date})`,
     apiStatus: {
@@ -43,6 +47,7 @@ export const COMMON = defineMessages<CommonText>({
   },
   zh: {
     gap: "",
+    colon: "：",
     sources: "来源",
     latestSnapshot: (date) => `最新（${date}）`,
     apiStatus: {

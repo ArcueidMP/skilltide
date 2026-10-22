@@ -142,7 +142,11 @@ export function CareerCentreView() {
                   <p className="mt-2 text-[12.5px] text-ink-soft">
                     {course ? (
                       <>
-                        <span className="text-muted">{t.starter}:</span>{" "}
+                        <span className="text-muted">
+                          {t.starter}
+                          {common.colon}
+                        </span>
+                        {common.gap}
                         <a href={course.url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-brand-strong">
                           {course.title}
                         </a>{" "}

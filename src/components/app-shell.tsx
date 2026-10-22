@@ -11,6 +11,7 @@ import { scenarioNote } from "@/lib/scenarios";
 import { useStore } from "@/lib/store";
 import type { ScenarioId } from "@/lib/types";
 import { useMessages } from "@/lib/use-messages";
+import { COMMON } from "@/messages/common";
 import { LABELS } from "@/messages/labels";
 import { SHELL } from "@/messages/shell";
 import { Segmented } from "./ui";
@@ -207,6 +208,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 function ScenarioAssumptions() {
   const t = useMessages(SHELL);
   const labels = useMessages(LABELS);
+  const common = useMessages(COMMON);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -245,7 +247,12 @@ function ScenarioAssumptions() {
         >
           {dataset.scenarios.map((scenario) => (
             <p key={scenario.id}>
-              <span className="font-medium text-ink">{labels.scenario[scenario.id]}:</span> {scenarioNote(labels, scenario)}
+              <span className="font-medium text-ink">
+                {labels.scenario[scenario.id]}
+                {common.colon}
+              </span>
+              {common.gap}
+              {scenarioNote(labels, scenario)}
             </p>
           ))}
           <Link href="/methodology" onClick={() => setOpen(false)} className="inline-block text-brand-strong underline underline-offset-2">

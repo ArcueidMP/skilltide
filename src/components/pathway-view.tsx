@@ -30,6 +30,7 @@ import { useStore } from "@/lib/store";
 import type { ProgressRecord } from "@/lib/types";
 import { useAnalysis } from "@/lib/use-analysis";
 import { useMessages } from "@/lib/use-messages";
+import { COMMON } from "@/messages/common";
 import { LABELS } from "@/messages/labels";
 import { PATHWAY } from "@/messages/pathway";
 import { CitationList } from "./citations";
@@ -228,6 +229,7 @@ function Stat({ icon: Icon, label, value }: { icon: typeof Clock; label: string;
 function StepCard({ step, index, onDone }: { step: PathwayStep; index: number; onDone: () => void }) {
   const t = useMessages(PATHWAY);
   const labels = useMessages(LABELS);
+  const common = useMessages(COMMON);
   const isProject = step.kind === "project";
   return (
     <li className="relative animate-rise-in" style={{ animationDelay: `${index * 70}ms` }}>
@@ -280,7 +282,10 @@ function StepCard({ step, index, onDone }: { step: PathwayStep; index: number; o
         ) : null}
 
         <div className="mt-3 flex flex-wrap items-center gap-1.5">
-          <span className="text-[12px] text-muted">{isProject ? t.practises : t.addresses}:</span>
+          <span className="text-[12px] text-muted">
+            {isProject ? t.practises : t.addresses}
+            {common.colon}
+          </span>
           {step.skillIds.map((id) => (
             <Badge key={id} tone="brand">
               {skillById(id)?.name}
