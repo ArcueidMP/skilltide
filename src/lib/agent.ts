@@ -4,8 +4,7 @@
 import { cite, dataset, roleById, scenarioById, skillById } from "./data";
 import { allOutlooks, OUTLOOK_MODEL, rankRoles, type Pathway, type RoleMatch, type RoleOutlook, type SkillTrend } from "./engine";
 import { pct, signedPct, SKILL_TREND_LABEL, TREND_LABEL } from "./format";
-import type { StoreValue } from "./store";
-import type { Citation, ScenarioSpec, Snapshot } from "./types";
+import type { Citation, MatchWeights, Profile, ScenarioSpec, Snapshot } from "./types";
 
 export interface AgentMessage {
   id: string;
@@ -13,11 +12,19 @@ export interface AgentMessage {
   text: string;
   citations?: Citation[];
   kind?: "answer" | "replan" | "info";
+  /** Set while the API is answering. */
+  pending?: boolean;
+  /** "ai" when a language model worded the answer from SkillTide's facts. */
+  engine?: "ai" | "rules";
+  model?: string;
+  /** Why an AI request was answered by the rules instead, in words. */
+  note?: string;
 }
 
 export interface AgentContext {
   pathname: string;
-  store: StoreValue;
+  profile: Profile | null;
+  weights: MatchWeights;
   snapshot?: Snapshot;
   scenario?: ScenarioSpec;
   matches: RoleMatch[];
@@ -37,7 +44,8 @@ const SUGGESTIONS: Record<string, string[]> = {
 };
 
 export function suggestionsFor(pathname: string): string[] {
-  return SUGGESTIONS[pathname] ?? ["Where does this data come from?", "How sure is this?"];
+  // The static export serves pages with a trailing slash, e.g. "/match/".
+  return SUGGESTIONS[pathname.replace(/(.)\/$/, "$1")] ?? ["Where does this data come from?", "How sure is this?"];
 }
 
 const answer = (text: string, citations?: Citation[]): Answer => ({ role: "agent", kind: "answer", text, citations });
@@ -97,7 +105,7 @@ function pressureNote(match: RoleMatch, ctx: AgentContext): string {
 }
 
 function compareScenario(ctx: AgentContext): Answer {
-  const profile = ctx.store.profile;
+  const profile = ctx.profile;
   const other = scenarioById(ctx.scenario?.id === "fast" ? "moderate" : "fast");
   if (!ctx.snapshot || !other) return answer("I need a data snapshot to compare scenarios.");
   const otherOutlooks = allOutlooks(dataset, ctx.snapshot, other);
@@ -111,7 +119,7 @@ function compareScenario(ctx: AgentContext): Answer {
       cite(["aei", "eloundou"]),
     );
   }
-  const otherMatches = rankRoles(profile, dataset, ctx.snapshot, otherOutlooks, ctx.store.weights);
+  const otherMatches = rankRoles(profile, dataset, ctx.snapshot, otherOutlooks, ctx.weights);
   const nowTop = ctx.matches[0];
   const thenTop = otherMatches[0];
   const rankOf = (list: RoleMatch[], id: string) => list.findIndex((m) => m.roleId === id) + 1;
@@ -137,11 +145,11 @@ function compareScenario(ctx: AgentContext): Answer {
 
 export function respond(question: string, ctx: AgentContext): Answer {
   const q = question.toLowerCase();
-  const profile = ctx.store.profile;
+  const profile = ctx.profile;
 
   if (/stored|privacy|private|my cv|upload/.test(q)) {
     return answer(
-      "Your profile and skill evidence stay in this browser's local storage. PDF and text CVs are scanned locally with fixed rules; the original file and full CV text are not saved. Use Reset demo on Profile to clear your profile, CV text and preferences. This guide makes no language-model calls.",
+      "Your profile and skill evidence stay in this browser's local storage. PDF and text CVs are scanned in your browser with fixed rules; the file and full CV text are never uploaded or saved. To rank roles, SkillTide's API receives only your skills and levels, chosen goals, weekly study hours and budget, and keeps none of them. AI wording is off unless you turn it on; then your question and SkillTide's computed facts are sent to OpenAI to phrase the answer. Use Reset demo on Profile to clear your profile, CV text and preferences.",
     );
   }
 

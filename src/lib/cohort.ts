@@ -1,7 +1,8 @@
 // A synthetic cohort for the career-centre view. No real student data: each student is drawn
 // from programme-typical skill mixes with a fixed seed, so every visit shows the same cohort.
 
-import type { Profile, Programme, SkillLevel } from "./types";
+import { rankRoles, type RoleOutlook, type SkillTrend, type Trend } from "./engine";
+import type { Dataset, MatchWeights, Profile, Programme, SkillLevel, Snapshot } from "./types";
 
 /** Chance that a student in the programme lists the skill at all. SkillTide's assumptions, for the demo only. */
 const PROGRAMME_MIX: Record<Exclude<Programme, "other">, Record<string, number>> = {
@@ -85,4 +86,79 @@ export function syntheticCohort(): CohortStudent[] {
     }
   }
   return students;
+}
+
+/** Fixed weights for the cohort view, so a career centre sees every student ranked the same way. */
+export const COHORT_WEIGHTS: MatchWeights = { skills: 50, outlook: 30, sdg: 20 };
+
+type CohortProgramme = CohortStudent["programme"];
+
+export interface CohortSummary {
+  students: number;
+  /** The 16 technical skills with the strongest outlook, and each programme's share holding them at project level or above. */
+  heatRows: { skillId: string; trend: SkillTrend["trend"]; coverage: Record<CohortProgramme, number> }[];
+  /** Rising skills the fewest students hold at project level. */
+  gaps: { skillId: string; score: number; coverage: number }[];
+  /** Roles students are most often top-matched to, and the share already covering 60% of each role's weighted skills. */
+  readiness: { roleId: string; ready: number; topCount: number; trend: Trend | null }[];
+  /** SDG targets linked to each student's top-matched role. */
+  targets: { targetId: string; count: number }[];
+}
+
+/** Aggregates for the career-centre view. Ranking every student is too slow for one Worker request, so the API serves these precomputed. */
+export function cohortSummary(
+  dataset: Dataset,
+  snapshot: Snapshot,
+  outlooks: Map<string, RoleOutlook>,
+  trends: SkillTrend[],
+  cohort: CohortStudent[] = syntheticCohort(),
+): CohortSummary {
+  const results = cohort.map((student) => rankRoles(student.profile, dataset, snapshot, outlooks, COHORT_WEIGHTS));
+  const programmes = Object.keys(PROGRAMME_MIX) as CohortProgramme[];
+
+  // Share of the cohort, or of one programme, holding a skill at project level (2+).
+  const coverage = (skillId: string, programme?: CohortProgramme) => {
+    const group = cohort.filter((s) => !programme || s.programme === programme);
+    const holding = group.filter((s) => s.profile.skills.some((c) => c.skillId === skillId && c.level >= 2));
+    return holding.length / (group.length || 1);
+  };
+
+  const cluster = new Map(dataset.skills.map((skill) => [skill.id, skill.cluster]));
+  const technical = trends.filter((t) => cluster.get(t.skillId) !== "human").sort((a, b) => b.score - a.score);
+
+  const heatRows = technical.slice(0, 16).map((t) => ({
+    skillId: t.skillId,
+    trend: t.trend,
+    coverage: Object.fromEntries(programmes.map((p) => [p, coverage(t.skillId, p)])) as Record<CohortProgramme, number>,
+  }));
+
+  const gaps = technical
+    .filter((t) => t.trend === "rising")
+    .map((t) => ({ skillId: t.skillId, score: t.score, coverage: coverage(t.skillId) }))
+    .sort((a, b) => a.coverage - b.coverage)
+    .slice(0, 4);
+
+  const roleIds = [...new Set(results.map((matches) => matches[0].roleId))];
+  const readiness = roleIds
+    .map((roleId) => {
+      const fits = results.map((matches) => matches.find((m) => m.roleId === roleId)!.components.skills);
+      const topCount = results.filter((matches) => matches[0].roleId === roleId).length;
+      return { roleId, ready: fits.filter((f) => f >= 60).length / fits.length, topCount, trend: outlooks.get(roleId)?.trend ?? null };
+    })
+    .sort((a, b) => b.topCount - a.topCount)
+    .slice(0, 6);
+
+  const roles = new Map(dataset.roles.map((role) => [role.id, role]));
+  const targetCounts = new Map<string, number>();
+  for (const matches of results) {
+    for (const link of roles.get(matches[0].roleId)?.sdg ?? []) {
+      targetCounts.set(link.targetId, (targetCounts.get(link.targetId) ?? 0) + 1);
+    }
+  }
+  const targets = [...targetCounts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 6)
+    .map(([targetId, count]) => ({ targetId, count }));
+
+  return { students: cohort.length, heatRows, gaps, readiness, targets };
 }

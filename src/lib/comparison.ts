@@ -1,4 +1,4 @@
-import { allOutlooks, buildPathway, rankRoles, type Pathway, type RoleMatch } from "./engine";
+import { allOutlooks, buildPathway, rankRoles, type Pathway, type RoleMatch, type RoleOutlook } from "./engine";
 import type { Dataset, MatchWeights, Profile, ScenarioId, Snapshot } from "./types";
 
 export interface ScenarioResult {
@@ -70,4 +70,37 @@ export function compareScenarios(
     sameLeadingRole: moderate.leadingMatch.roleId === fast.leadingMatch.roleId,
     sameCoursePlan: JSON.stringify(courseIds(moderate.pathway)) === JSON.stringify(courseIds(fast.pathway)),
   };
+}
+
+/** A role outlook without its per-task breakdown. */
+export type OutlookSummary = Omit<RoleOutlook, "tasks">;
+
+export interface ScenarioSummary {
+  scenarioId: ScenarioId;
+  label: string;
+  leadingMatch: Omit<RoleMatch, "outlook"> & { outlook: OutlookSummary };
+  pathway: Pathway;
+}
+
+/** What the comparison view shows; the two full rankings stay where they were computed. */
+export interface ScenarioComparisonSummary {
+  moderate: ScenarioSummary;
+  fast: ScenarioSummary;
+  rows: ComparisonRow[];
+  sameLeadingRole: boolean;
+  sameCoursePlan: boolean;
+}
+
+export function summarizeComparison(comparison: ScenarioComparison): ScenarioComparisonSummary {
+  const brief = ({ scenarioId, label, leadingMatch, pathway }: ScenarioResult): ScenarioSummary => {
+    const { roleId, score, trend, displacement, augmentation, demand, coverage } = leadingMatch.outlook;
+    return {
+      scenarioId,
+      label,
+      leadingMatch: { ...leadingMatch, outlook: { roleId, score, trend, displacement, augmentation, demand, coverage } },
+      pathway,
+    };
+  };
+  const { rows, sameLeadingRole, sameCoursePlan } = comparison;
+  return { moderate: brief(comparison.moderate), fast: brief(comparison.fast), rows, sameLeadingRole, sameCoursePlan };
 }

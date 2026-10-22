@@ -6,6 +6,9 @@ export const dataset = raw as unknown as Dataset;
 
 export const hasData = dataset.roles.length > 0 && dataset.snapshots.length > 0;
 
+/** Short id of this dataset build. The browser and the API compare it to detect a version mismatch after a deploy. */
+export const datasetVersion = (dataset.refresh?.contentHash ?? dataset.generatedAt).slice(0, 12);
+
 const skillIndex = new Map(dataset.skills.map((skill) => [skill.id, skill]));
 const roleIndex = new Map(dataset.roles.map((role) => [role.id, role]));
 
