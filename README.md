@@ -80,6 +80,8 @@ npm run deploy:cloudflare             # build a static export, then deploy the s
 npx wrangler secret put OPENAI_API_KEY  # once, to enable AI wording; without it the Guide uses its rules
 ```
 
+SkillTide also runs on **Replit** as one Node server (`src/server/node.ts`), serving the same static export through the same API handler as the Worker. `.replit` builds with `npm ci && npm run build:static` and starts `npm run start:node`. To enable AI wording there, add `OPENAI_API_KEY` under Replit Secrets.
+
 The repository includes validation and weekly/manual data-refresh workflows. Refreshes are scheduled for Monday at 10:00 SGT. Check actual Actions runs and the Cloudflare build integration before claiming automation is active. See [deployment instructions](docs/deployment.md).
 
 ## Competition materials

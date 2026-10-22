@@ -1,0 +1,13 @@
+# Replit runs SkillTide as one Node server (src/server/node.ts): the static export in out/ plus the
+# same API the Cloudflare Worker serves. For AI wording, add OPENAI_API_KEY under Secrets.
+modules = ["nodejs-22"]
+run = "npm ci && npm run build:static && npm run start:node"
+
+[deployment]
+deploymentTarget = "cloudrun"
+build = ["sh", "-c", "npm ci && npm run build:static"]
+run = ["sh", "-c", "npm run start:node"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80

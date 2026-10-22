@@ -9,6 +9,7 @@
     "prebuild": "node scripts/prepare-pdf-assets.mjs && tsx scripts/materialize-cohort.mts",
     "build": "next build",
     "start": "next start",
+    "start:node": "tsx src/server/node.ts",
     "lint": "eslint",
     "test": "vitest run",
     "build:static": "node scripts/build-static.mjs",

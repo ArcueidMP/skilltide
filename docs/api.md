@@ -169,6 +169,8 @@ npm run dev:api    # the Worker on port 8787 (wrangler dev); serves out/ too aft
 
 For AI wording locally, copy `.dev.vars.example` to `.dev.vars` and add a key; `.dev.vars` is git-ignored. To use an existing `.env` file elsewhere, pass it through instead, for example `npm run dev:api -- --env-file ../.env`. Without the API running, `npm run dev` still works: pages compute in the browser.
 
+`npm run start:node` runs the pages and the same API as one Node server, as Replit does; run it after `npm run build:static`.
+
 Production uses the existing Workers Builds setup. `wrangler.jsonc` now names the Worker script, so the same `npx wrangler deploy` uploads the API with the site. After a release, open `https://xmumhkt.arcueidmp.com/api/v1/health`.
 
 ## Files

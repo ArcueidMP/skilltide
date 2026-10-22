@@ -20,6 +20,10 @@ The static build prepares versioned PDF.js assets and normalises Next.js segment
 
 AI wording needs an OpenAI API key, stored as a Worker secret with `npx wrangler secret put OPENAI_API_KEY` or in the Cloudflare dashboard (Worker → Settings → Variables and Secrets). Deployments keep it. Never put it in `wrangler.jsonc`, the repository or CI logs. Set a monthly budget in OpenAI's dashboard as the hard spending limit; the Worker's own rate limits only cap bursts. `OPENAI_MODEL` and `OPENAI_REASONING_EFFORT` are plain variables in `wrangler.jsonc`. For local development, put the key in `.dev.vars` (git-ignored).
 
+## Replit
+
+Replit Deployments run the same build as one Node server, `src/server/node.ts`. It serves `out/` with the same trailing-slash and 404 behaviour as the Cloudflare assets config, and passes `/api/*` to the same handler as the Worker. Worded Guide answers are cached in memory instead of in Cloudflare's cache. `.replit` sets the build (`npm ci && npm run build:static`), the start command (`npm run start:node`) and port 3000. Store `OPENAI_API_KEY` under Replit Secrets; the model and reasoning effort default to the values in `wrangler.jsonc`. To run it locally: `npm run build:static`, then `npm run start:node -- --port 3100`.
+
 ## Data refresh
 
 ```bash
