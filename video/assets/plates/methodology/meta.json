@@ -1,0 +1,318 @@
+{
+ "name": "methodology",
+ "url": "/methodology",
+ "viewport": {
+  "w": 1440,
+  "h": 900
+ },
+ "dpr": 2,
+ "header": {
+  "x": 0,
+  "y": 0,
+  "width": 1440,
+  "height": 64.5
+ },
+ "main": {
+  "x": 24,
+  "y": 88.5,
+  "width": 988,
+  "height": 4154.0625
+ },
+ "guide": {
+  "x": 1036,
+  "y": 88.5,
+  "width": 380,
+  "height": 792
+ },
+ "rects": {
+  "steps": [
+   {
+    "frame": "header",
+    "x": 165.9,
+    "y": 18.8,
+    "w": 82.9,
+    "h": 32,
+    "text": "1\nProfile",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 280.8,
+    "y": 18.8,
+    "w": 114.5,
+    "h": 32,
+    "text": "2\nSkills Radar",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 427.3,
+    "y": 18.8,
+    "w": 94.2,
+    "h": 32,
+    "text": "3\nMatches",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 553.5,
+    "y": 18.8,
+    "w": 95.3,
+    "h": 32,
+    "text": "4\nPathway",
+    "title": null
+   }
+  ],
+  "scenario": [
+   {
+    "frame": "header",
+    "x": 908.9,
+    "y": 22.8,
+    "w": 88.1,
+    "h": 24,
+    "text": "Moderate AI",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 996.9,
+    "y": 22.8,
+    "w": 58.9,
+    "h": 24,
+    "text": "Fast AI",
+    "title": null
+   }
+  ],
+  "guideButton": [],
+  "messages": [
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": -55.5,
+    "w": 346,
+    "h": 200.8,
+    "text": "Re-planned for Moderate AI, data Mar 2025: your top role is now Electro-Mechanical & Mechatronics Technician (53), replacing Manufacturing Engineer. Your pathway has been rebuilt.\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are GPTs task ex",
+    "title": null
+   },
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 157.3,
+    "w": 346,
+    "h": 200.8,
+    "text": "Re-planned for Moderate AI, data Latest (16 Oct 2026): your top role is now Manufacturing Engineer (56), replacing Electro-Mechanical & Mechatronics Technician. Your pathway has been rebuilt.\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are ",
+    "title": null
+   },
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 370.1,
+    "w": 346,
+    "h": 137.4,
+    "text": "Re-planned for Fast AI, data Latest (16 Oct 2026): Manufacturing Engineer is still your top role (54).\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are GPTs task exposure labels (β)\n· 2024",
+    "title": null
+   },
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 519.6,
+    "w": 346,
+    "h": 158.6,
+    "text": "Re-planned for Moderate AI, data Latest (16 Oct 2026): Manufacturing Engineer is still your top role (56).\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are GPTs task exposure labels (β)\n· 2024",
+    "title": null
+   }
+  ],
+  "guidePanel": [
+   {
+    "frame": "guide",
+    "x": 0,
+    "y": 0,
+    "w": 380,
+    "h": 792,
+    "text": "SkillTide Guide\n\nAnswers only from SkillTide data\n\nRule-based\n\nRe-planned for Moderate AI, data Mar 2025: your top role is now Electro-Mechanical & Mechatronics Technician (53), replacing Manufacturing Engineer. Your pathway has been rebuil",
+    "title": null
+   }
+  ],
+  "pageTitle": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 6,
+    "w": 672,
+    "h": 42.5,
+    "text": "Data & method",
+    "title": null
+   }
+  ],
+  "cards": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 129.3,
+    "w": 988,
+    "h": 208.8,
+    "text": "Data updates\nRecent validated refresh\n\nLast validated refresh\n2026-10-21 17:26 UTC\n\nCurrent dataset build\n2026-10-21 17:26 UTC\n\nSubstantive data changed in this build. Build dates are not source publication dates. Fixed AI releases are cura",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 362,
+    "w": 988,
+    "h": 299.1,
+    "text": "How it fits together\n\nDataset generated 2026-10-21 by pipeline/build_dataset.py; the web app only reads that file.\n\n01\n\nCollect\n\nDownload dated public data: O*NET 31.0, Anthropic Economic Index releases, Indeed postings, Hacker News hiring ",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 685.1,
+    "w": 988,
+    "h": 274.6,
+    "text": "1. AI exposure of each task\n\nFollowing Anthropic's idea of combining what models could do with what people actually use them for\n\nceiling c   = β from Eloundou et al. (1: an LLM alone could halve the task's time, 0.5: with extra tools, 0: n",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 983.8,
+    "w": 988,
+    "h": 332.1,
+    "text": "2. Role outlook\n\nTasks weighted by O*NET importance, projected 3 years ahead\n\noutlook = 50 + 20 × demand + 40 × assisted share − 55 × automated share + 5 if on MyCOL     (0–100)\ndemand  = (sector postings year-on-year − all postings year-on",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 1339.9,
+    "w": 988,
+    "h": 396.1,
+    "text": "3. Skill trends, matching and pathways\nskill score = 50 + 25 × momentum + 30 × role signal\n  momentum    = change in the share of Hacker News hiring posts mentioning the skill (last 6 months vs the 6 before; ±50% → ±1)\n                AI sk",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 1759.9,
+    "w": 988,
+    "h": 410,
+    "text": "4. Scenarios\n\nTwo futures instead of one prediction\n\nModerate AI r = 0.15/yr\n\nEach year AI use closes 15% of the gap between how much it is used on a task today and what current models could do, and the split between automating and assistin",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 2193.9,
+    "w": 988,
+    "h": 1314.1,
+    "text": "5. Sources\n\nEvery chip in the app links back to one of these\n\nSource\tUsed for\tLicence\tPublished / data as of\tLatest recorded download\nO*NET 31.0 Database \n\nU.S. Department of Labor, Employment and Training Administration\n\n\tRoles, their task",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 3532.1,
+    "w": 988,
+    "h": 303,
+    "text": "6. Limits we know about\nO*NET describes US occupations. Malaysian roles of the same name are similar but not identical.\nThe Anthropic Economic Index covers people who use Claude, not all AI use. Releases differ in sample and method, so part",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 3859.1,
+    "w": 988,
+    "h": 295,
+    "text": "7. Responsible AI\nSkillTide supports your decisions; it does not make them, and it is not a hiring tool.\nScoring never uses name, age, gender, ethnicity or background. Every match is re-checked against profile variants with different names ",
+    "title": null
+   }
+  ],
+  "headings": [
+   {
+    "frame": "main",
+    "x": 17,
+    "y": 147.9,
+    "w": 109.4,
+    "h": 20,
+    "text": "Data updates",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 383,
+    "w": 587.5,
+    "h": 25.5,
+    "text": "How it fits together",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 706.1,
+    "w": 637.5,
+    "h": 25.5,
+    "text": "1. AI exposure of each task",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 1004.8,
+    "w": 393.3,
+    "h": 25.5,
+    "text": "2. Role outlook",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 1360.9,
+    "w": 305.9,
+    "h": 25.5,
+    "text": "3. Skill trends, matching and pathways",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 1780.9,
+    "w": 233.3,
+    "h": 25.5,
+    "text": "4. Scenarios",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 2214.9,
+    "w": 293.1,
+    "h": 25.5,
+    "text": "5. Sources",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 3553.1,
+    "w": 192.9,
+    "h": 25.5,
+    "text": "6. Limits we know about",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 3880.1,
+    "w": 137,
+    "h": 25.5,
+    "text": "7. Responsible AI",
+    "title": null
+   }
+  ]
+ },
+ "mainSize": {
+  "w": 988,
+  "h": 4154.0625
+ }
+}

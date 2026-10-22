@@ -1,0 +1,859 @@
+{
+ "name": "match-compare",
+ "url": "/match",
+ "viewport": {
+  "w": 1440,
+  "h": 900
+ },
+ "dpr": 2,
+ "header": {
+  "x": 0,
+  "y": 0,
+  "width": 1440,
+  "height": 64.5
+ },
+ "main": {
+  "x": 24,
+  "y": 88.5,
+  "width": 988,
+  "height": 4681.375
+ },
+ "guide": {
+  "x": 1036,
+  "y": 88.5,
+  "width": 380,
+  "height": 792
+ },
+ "rects": {
+  "steps": [
+   {
+    "frame": "header",
+    "x": 165.9,
+    "y": 18.8,
+    "w": 82.9,
+    "h": 32,
+    "text": "1\nProfile",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 280.8,
+    "y": 18.8,
+    "w": 114.5,
+    "h": 32,
+    "text": "2\nSkills Radar",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 427.3,
+    "y": 18.8,
+    "w": 94.2,
+    "h": 32,
+    "text": "3\nMatches",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 553.5,
+    "y": 18.8,
+    "w": 95.3,
+    "h": 32,
+    "text": "4\nPathway",
+    "title": null
+   }
+  ],
+  "scenario": [
+   {
+    "frame": "header",
+    "x": 908.9,
+    "y": 22.8,
+    "w": 88.1,
+    "h": 24,
+    "text": "Moderate AI",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 996.9,
+    "y": 22.8,
+    "w": 58.9,
+    "h": 24,
+    "text": "Fast AI",
+    "title": null
+   }
+  ],
+  "guideButton": [],
+  "messages": [
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 78.5,
+    "w": 346,
+    "h": 200.8,
+    "text": "Re-planned for Moderate AI, data Mar 2025: your top role is now Electro-Mechanical & Mechatronics Technician (53), replacing Manufacturing Engineer. Your pathway has been rebuilt.\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are GPTs task ex",
+    "title": null
+   },
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 291.3,
+    "w": 346,
+    "h": 200.8,
+    "text": "Re-planned for Moderate AI, data Latest (16 Oct 2026): your top role is now Manufacturing Engineer (56), replacing Electro-Mechanical & Mechatronics Technician. Your pathway has been rebuilt.\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are ",
+    "title": null
+   }
+  ],
+  "guidePanel": [
+   {
+    "frame": "guide",
+    "x": 0,
+    "y": 0,
+    "w": 380,
+    "h": 792,
+    "text": "SkillTide Guide\n\nAnswers only from SkillTide data\n\nRule-based\n\nRe-planned for Moderate AI, data Mar 2025: your top role is now Electro-Mechanical & Mechatronics Technician (53), replacing Manufacturing Engineer. Your pathway has been rebuil",
+    "title": null
+   }
+  ],
+  "pageTitle": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 22.5,
+    "w": 672,
+    "h": 42.5,
+    "text": "Your best-fit future roles",
+    "title": null
+   }
+  ],
+  "rows": [
+   {
+    "frame": "main",
+    "x": 41,
+    "y": 1361.4,
+    "w": 424,
+    "h": 19.5,
+    "text": "MA121: Introduction to Statistics · 15 h",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 41,
+    "y": 1386.9,
+    "w": 424,
+    "h": 19.5,
+    "text": "Energy in buildings · 10 h",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 543,
+    "y": 1361.4,
+    "w": 424,
+    "h": 19.5,
+    "text": "MA121: Introduction to Statistics · 15 h",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 543,
+    "y": 1386.9,
+    "w": 424,
+    "h": 19.5,
+    "text": "Energy in buildings · 10 h",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 1558.4,
+    "w": 988,
+    "h": 344.9,
+    "text": "01\n56\nMATCH\nManufacturing Engineer\nRising\nCritical in Malaysia\n\nAutomation & manufacturing · also advertised as Facility Engineer, Manufacturing Engineer, Plant Engineer\n\nSkills fit\n27\n\nweight 50%\n\nOutlook\n73\n\nweight 30%\n\nSDG fit\n100\n\nweigh",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 1915.3,
+    "w": 988,
+    "h": 399.9,
+    "text": "02\n53\nMATCH\nMechatronics Engineer\nRising\n\nAutomation & manufacturing · also advertised as Automation Designer, Automation Engineer, Control Systems Engineer\n\nSkills fit\n46\n\nweight 50%\n\nOutlook\n68\n\nweight 30%\n\nSDG fit\n50\n\nweight 20%\n\nPlan pa",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 2327.1,
+    "w": 988,
+    "h": 435.4,
+    "text": "03\n52\nMATCH\nElectro-Mechanical & Mechatronics Technician\nUnder pressure\n\nAutomation & manufacturing · also advertised as Automation Technician (Automation Tech), Electro-Mechanic, Electromechanical Assembler (EM Assembler)\n\nSkills fit\n37\n\nw",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 2774.5,
+    "w": 988,
+    "h": 364.4,
+    "text": "04\n50\nMATCH\nRobotics Engineer\nRising\n\nAutomation & manufacturing · also advertised as Automation Engineer, Autonomous Vehicle Design Engineer, Design Engineer\n\nSkills fit\n39\n\nweight 50%\n\nOutlook\n69\n\nweight 30%\n\nSDG fit\n50\n\nweight 20%\n\nPlan ",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 3150.9,
+    "w": 988,
+    "h": 344.9,
+    "text": "05\n50\nMATCH\nEnergy Engineer\nRising\n\nEnergy · also advertised as Energy Efficiency Engineer, Energy Engineer, Industrial Energy Engineer\n\nSkills fit\n38\n\nweight 50%\n\nOutlook\n69\n\nweight 30%\n\nSDG fit\n50\n\nweight 20%\n\nPlan pathway\nWhy this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 3507.8,
+    "w": 988,
+    "h": 399.9,
+    "text": "06\n50\nMATCH\nRobotics Technician\nUnder pressure\nCritical in Malaysia\n\nAutomation & manufacturing · also advertised as Automation Technician, Electrical and Instrumentation Technician (E and I Technician), Instrument and Automation Technician",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 3919.6,
+    "w": 988,
+    "h": 344.9,
+    "text": "07\n49\nMATCH\nElectrical Engineer\nRising\nCritical in Malaysia\n\nElectronics & electrical · also advertised as Circuits Engineer, Design Engineer, Electrical Controls Engineer\n\nSkills fit\n35\n\nweight 50%\n\nOutlook\n72\n\nweight 30%\n\nSDG fit\n50\n\nweig",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 4276.5,
+    "w": 988,
+    "h": 344.9,
+    "text": "08\n49\nMATCH\nComputer Hardware Engineer\nRising\nCritical in Malaysia\n\nElectronics & electrical · also advertised as Design Engineer, Engineer, Field Service Engineer\n\nSkills fit\n34\n\nweight 50%\n\nOutlook\n73\n\nweight 30%\n\nSDG fit\n50\n\nweight 20%\n\n",
+    "title": null
+   }
+  ],
+  "rowTitles": [
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 1579.4,
+    "w": 204.9,
+    "h": 28,
+    "text": "Manufacturing Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 1936.3,
+    "w": 193.6,
+    "h": 28,
+    "text": "Mechatronics Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 2348.1,
+    "w": 392.6,
+    "h": 28,
+    "text": "Electro-Mechanical & Mechatronics Technician",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 2795.5,
+    "w": 152.5,
+    "h": 28,
+    "text": "Robotics Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 3171.9,
+    "w": 139.4,
+    "h": 28,
+    "text": "Energy Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 3528.8,
+    "w": 168.4,
+    "h": 28,
+    "text": "Robotics Technician",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 3940.6,
+    "w": 159.8,
+    "h": 28,
+    "text": "Electrical Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 4297.5,
+    "w": 250.3,
+    "h": 28,
+    "text": "Computer Hardware Engineer",
+    "title": null
+   }
+  ],
+  "fairness": [
+   {
+    "frame": "main",
+    "x": 647,
+    "y": 166.8,
+    "w": 320,
+    "h": 82.3,
+    "text": "Fairness check passed. The ranking is identical for 8 variants of your profile with different names and graduation years.",
+    "title": null
+   }
+  ],
+  "weights": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 145.8,
+    "w": 988,
+    "h": 218.5,
+    "text": "What matters to you\n\nYour match score blends three parts. Move the sliders and the ranking updates instantly.\n\nSkills you already have\n50\nRole outlook with AI\n30\nYour SDG goals\n20\nFairness check passed. The ranking is identical for 8 varian",
+    "title": null
+   }
+  ],
+  "compare": [],
+  "why": [
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 1640.3,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 2006.9,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 2418.8,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 2866.1,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3232.8,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3599.4,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 4001.5,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 4358.4,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   }
+  ],
+  "plan": [
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 1592.3,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 1958.9,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 2370.8,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 2818.1,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3184.8,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3551.4,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3953.5,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 4310.4,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   }
+  ],
+  "rings": [
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 1600.3,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 1604.3,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 1648.3,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 1966.9,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 1970.9,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 2014.9,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 2378.8,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 2382.8,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 2426.8,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 2826.1,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 2830.1,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 2874.1,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 3192.8,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 3196.8,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 3240.8,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 3559.4,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 3563.4,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 3607.4,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 3961.5,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 3965.5,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 4009.5,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 4318.4,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 4322.4,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 4366.4,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   }
+  ],
+  "comparison": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 444.3,
+    "w": 988,
+    "h": 1094.1,
+    "text": "Two futures, the same starting point\n\nSame profile, weights and data (Latest (16 Oct 2026)). Only the AI adoption assumptions change.\n\nYour leading role is the same in both scenarios. Compare its score and outlook below. These are condition",
+    "title": null
+   }
+  ],
+  "comparisonCards": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 444.3,
+    "w": 988,
+    "h": 640.6,
+    "text": "Two futures, the same starting point\n\nSame profile, weights and data (Latest (16 Oct 2026)). Only the AI adoption assumptions change.\n\nYour leading role is the same in both scenarios. Compare its score and outlook below. These are condition",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 1100.9,
+    "w": 486,
+    "h": 382.5,
+    "text": "MODERATE AI\n\nManufacturing Engineer\n\nMatch 55.7 · Outlook 73.3\n\nAI assists / automates\n11% / 11%\nSuggested study\n45 h · 6 weeks\n\nPriority skill gaps\n\nQuality & lean (SPC, Six Sigma)\nComplex problem solving\nPresenting & communication\nEnginee",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 502,
+    "y": 1100.9,
+    "w": 486,
+    "h": 382.5,
+    "text": "FAST AI\n\nManufacturing Engineer\n\nMatch 53.9 · Outlook 67.4\n\nAI assists / automates\n13% / 23%\nSuggested study\n45 h · 6 weeks\n\nPriority skill gaps\n\nQuality & lean (SPC, Six Sigma)\nComplex problem solving\nPresenting & communication\nEngineering",
+    "title": null
+   }
+  ],
+  "comparisonRows": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 974.6,
+    "w": 260.8,
+    "h": 25.8,
+    "text": "Anthropic Economic Index\n· 2026-06-26",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 287.8,
+    "y": 974.6,
+    "w": 310.7,
+    "h": 25.8,
+    "text": "GPTs are GPTs task exposure labels (β)\n· 2024",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 1006.4,
+    "w": 412,
+    "h": 25.8,
+    "text": "Indeed Hiring Lab — Job Postings Index by sector\n· 2026-10-16",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 439,
+    "y": 1006.4,
+    "w": 512.8,
+    "h": 25.8,
+    "text": "Indeed Hiring Lab — AI Tracker (share of postings mentioning AI)\n· 2026-09-30",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 1038.1,
+    "w": 468.7,
+    "h": 25.8,
+    "text": "Hacker News “Who is hiring?” threads (via Algolia HN API)\n· 2026-10-01",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 495.7,
+    "y": 1038.1,
+    "w": 210.4,
+    "h": 25.8,
+    "text": "O*NET 31.0 Database\n· 2026-08",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 41,
+    "y": 1361.4,
+    "w": 424,
+    "h": 19.5,
+    "text": "MA121: Introduction to Statistics · 15 h",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 41,
+    "y": 1386.9,
+    "w": 424,
+    "h": 19.5,
+    "text": "Energy in buildings · 10 h",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 543,
+    "y": 1361.4,
+    "w": 424,
+    "h": 19.5,
+    "text": "MA121: Introduction to Statistics · 15 h",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 543,
+    "y": 1386.9,
+    "w": 424,
+    "h": 19.5,
+    "text": "Energy in buildings · 10 h",
+    "title": null
+   }
+  ],
+  "usePlan": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 1422.4,
+    "w": 444,
+    "h": 40,
+    "text": "Use Moderate plan",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 523,
+    "y": 1422.4,
+    "w": 444,
+    "h": 40,
+    "text": "Use Fast plan",
+    "title": null
+   }
+  ]
+ },
+ "mainSize": {
+  "w": 988,
+  "h": 4681.375
+ }
+}

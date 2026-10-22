@@ -1,0 +1,766 @@
+{
+ "name": "match-goals-why",
+ "url": "/match",
+ "viewport": {
+  "w": 1440,
+  "h": 900
+ },
+ "dpr": 2,
+ "header": {
+  "x": 0,
+  "y": 0,
+  "width": 1440,
+  "height": 64.5
+ },
+ "main": {
+  "x": 24,
+  "y": 88.5,
+  "width": 988,
+  "height": 4134.625
+ },
+ "guide": {
+  "x": 1036,
+  "y": 88.5,
+  "width": 380,
+  "height": 792
+ },
+ "rects": {
+  "steps": [
+   {
+    "frame": "header",
+    "x": 165.9,
+    "y": 18.8,
+    "w": 82.9,
+    "h": 32,
+    "text": "1\nProfile",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 280.8,
+    "y": 18.8,
+    "w": 114.5,
+    "h": 32,
+    "text": "2\nSkills Radar",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 427.3,
+    "y": 18.8,
+    "w": 94.2,
+    "h": 32,
+    "text": "3\nMatches",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 553.5,
+    "y": 18.8,
+    "w": 95.3,
+    "h": 32,
+    "text": "4\nPathway",
+    "title": null
+   }
+  ],
+  "scenario": [
+   {
+    "frame": "header",
+    "x": 908.9,
+    "y": 22.8,
+    "w": 88.1,
+    "h": 24,
+    "text": "Moderate AI",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 996.9,
+    "y": 22.8,
+    "w": 58.9,
+    "h": 24,
+    "text": "Fast AI",
+    "title": null
+   }
+  ],
+  "guideButton": [],
+  "messages": [
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 78.5,
+    "w": 346,
+    "h": 108.5,
+    "text": "I explain why SkillTide ranks things the way it does, and every answer points to its source. I don't invent jobs, courses or numbers — if the data doesn't cover something, I'll say so.",
+    "title": null
+   }
+  ],
+  "guidePanel": [
+   {
+    "frame": "guide",
+    "x": 0,
+    "y": 0,
+    "w": 380,
+    "h": 792,
+    "text": "SkillTide Guide\n\nAnswers only from SkillTide data\n\nRule-based\nI explain why SkillTide ranks things the way it does, and every answer points to its source. I don't invent jobs, courses or numbers — if the data doesn't cover something, I'll s",
+    "title": null
+   }
+  ],
+  "pageTitle": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 22.5,
+    "w": 672,
+    "h": 42.5,
+    "text": "Your best-fit future roles",
+    "title": null
+   }
+  ],
+  "rows": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 444.3,
+    "w": 988,
+    "h": 912.3,
+    "text": "01\n56\nMATCH\nManufacturing Engineer\nRising\nCritical in Malaysia\n\nAutomation & manufacturing · also advertised as Facility Engineer, Manufacturing Engineer, Plant Engineer\n\nSkills fit\n27\n\nweight 50%\n\nOutlook\n73\n\nweight 30%\n\nSDG fit\n100\n\nweigh",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 1368.5,
+    "w": 988,
+    "h": 399.9,
+    "text": "02\n53\nMATCH\nMechatronics Engineer\nRising\n\nAutomation & manufacturing · also advertised as Automation Designer, Automation Engineer, Control Systems Engineer\n\nSkills fit\n46\n\nweight 50%\n\nOutlook\n68\n\nweight 30%\n\nSDG fit\n50\n\nweight 20%\n\nPlan pa",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 1780.4,
+    "w": 988,
+    "h": 435.4,
+    "text": "03\n52\nMATCH\nElectro-Mechanical & Mechatronics Technician\nUnder pressure\n\nAutomation & manufacturing · also advertised as Automation Technician (Automation Tech), Electro-Mechanic, Electromechanical Assembler (EM Assembler)\n\nSkills fit\n37\n\nw",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 2227.8,
+    "w": 988,
+    "h": 364.4,
+    "text": "04\n50\nMATCH\nRobotics Engineer\nRising\n\nAutomation & manufacturing · also advertised as Automation Engineer, Autonomous Vehicle Design Engineer, Design Engineer\n\nSkills fit\n39\n\nweight 50%\n\nOutlook\n69\n\nweight 30%\n\nSDG fit\n50\n\nweight 20%\n\nPlan ",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 2604.1,
+    "w": 988,
+    "h": 344.9,
+    "text": "05\n50\nMATCH\nEnergy Engineer\nRising\n\nEnergy · also advertised as Energy Efficiency Engineer, Energy Engineer, Industrial Energy Engineer\n\nSkills fit\n38\n\nweight 50%\n\nOutlook\n69\n\nweight 30%\n\nSDG fit\n50\n\nweight 20%\n\nPlan pathway\nWhy this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 2961,
+    "w": 988,
+    "h": 399.9,
+    "text": "06\n50\nMATCH\nRobotics Technician\nUnder pressure\nCritical in Malaysia\n\nAutomation & manufacturing · also advertised as Automation Technician, Electrical and Instrumentation Technician (E and I Technician), Instrument and Automation Technician",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 3372.9,
+    "w": 988,
+    "h": 344.9,
+    "text": "07\n49\nMATCH\nElectrical Engineer\nRising\nCritical in Malaysia\n\nElectronics & electrical · also advertised as Circuits Engineer, Design Engineer, Electrical Controls Engineer\n\nSkills fit\n35\n\nweight 50%\n\nOutlook\n72\n\nweight 30%\n\nSDG fit\n50\n\nweig",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 3729.8,
+    "w": 988,
+    "h": 344.9,
+    "text": "08\n49\nMATCH\nComputer Hardware Engineer\nRising\nCritical in Malaysia\n\nElectronics & electrical · also advertised as Design Engineer, Engineer, Field Service Engineer\n\nSkills fit\n34\n\nweight 50%\n\nOutlook\n73\n\nweight 30%\n\nSDG fit\n50\n\nweight 20%\n\n",
+    "title": null
+   }
+  ],
+  "rowTitles": [
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 465.3,
+    "w": 204.9,
+    "h": 28,
+    "text": "Manufacturing Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 1389.5,
+    "w": 193.6,
+    "h": 28,
+    "text": "Mechatronics Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 1801.4,
+    "w": 392.6,
+    "h": 28,
+    "text": "Electro-Mechanical & Mechatronics Technician",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 2248.8,
+    "w": 152.5,
+    "h": 28,
+    "text": "Robotics Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 2625.1,
+    "w": 139.4,
+    "h": 28,
+    "text": "Energy Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 2982,
+    "w": 168.4,
+    "h": 28,
+    "text": "Robotics Technician",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 3393.9,
+    "w": 159.8,
+    "h": 28,
+    "text": "Electrical Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 153.8,
+    "y": 3750.8,
+    "w": 250.3,
+    "h": 28,
+    "text": "Computer Hardware Engineer",
+    "title": null
+   }
+  ],
+  "fairness": [
+   {
+    "frame": "main",
+    "x": 647,
+    "y": 166.8,
+    "w": 320,
+    "h": 82.3,
+    "text": "Fairness check passed. The ranking is identical for 8 variants of your profile with different names and graduation years.",
+    "title": null
+   }
+  ],
+  "weights": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 145.8,
+    "w": 988,
+    "h": 218.5,
+    "text": "What matters to you\n\nYour match score blends three parts. Move the sliders and the ranking updates instantly.\n\nSkills you already have\n50\nRole outlook with AI\n30\nYour SDG goals\n20\nFairness check passed. The ranking is identical for 8 varian",
+    "title": null
+   }
+  ],
+  "compare": [
+   {
+    "frame": "main",
+    "x": 831.2,
+    "y": 384.3,
+    "w": 156.8,
+    "h": 40,
+    "text": "Compare scenarios",
+    "title": null
+   }
+  ],
+  "why": [
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 526.1,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 1460.1,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 1872,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 2319.4,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 2686,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3052.6,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3454.8,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3811.6,
+    "w": 142.8,
+    "h": 32,
+    "text": "Why this score?",
+    "title": null
+   }
+  ],
+  "plan": [
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 478.1,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 1412.1,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 1824,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 2271.4,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 2638,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3004.6,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3406.8,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 824.2,
+    "y": 3763.6,
+    "w": 142.8,
+    "h": 40,
+    "text": "Plan pathway",
+    "title": null
+   }
+  ],
+  "rings": [
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 486.1,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 490.1,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 534.1,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 212.4,
+    "y": 1138.5,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 262.8,
+    "y": 1167.6,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 312.7,
+    "y": 1196.7,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 414,
+    "y": 1225.7,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 465,
+    "y": 1263.3,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 798.3,
+    "y": 1309.4,
+    "w": 12,
+    "h": 12,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 1420.1,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 1424.1,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 1468.1,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 1832,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 1836,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 1880,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 2279.4,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 2283.4,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 2327.4,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 2646,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 2650,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 2694,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 3012.6,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 3016.6,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 3060.6,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 3414.8,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 3418.8,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 3462.8,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 69.8,
+    "y": 3771.6,
+    "w": 64,
+    "h": 64,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 840.2,
+    "y": 3775.6,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 938.2,
+    "y": 3819.6,
+    "w": 16,
+    "h": 16,
+    "text": "",
+    "title": null
+   }
+  ],
+  "sdgTargets": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 753.6,
+    "w": 239.6,
+    "h": 22.5,
+    "text": "9.2\nIndustry, innovation and infrastructure",
+    "title": "SDG 9.2: Promote inclusive and sustainable industrialization and, by 2030, significantly raise industry's share of employment and gross domestic product, in line with national circumstances, and double its share in least developed countries"
+   },
+   {
+    "frame": "main",
+    "x": 266.6,
+    "y": 753.6,
+    "w": 239.6,
+    "h": 22.5,
+    "text": "9.4\nIndustry, innovation and infrastructure",
+    "title": "SDG 9.4: By 2030, upgrade infrastructure and retrofit industries to make them sustainable, with increased resource-use efficiency and greater adoption of clean and environmentally sound technologies and industrial processes, with all countries taking action in accordance with their respective capabilities"
+   },
+   {
+    "frame": "main",
+    "x": 512.3,
+    "y": 753.6,
+    "w": 260.1,
+    "h": 22.5,
+    "text": "12.5\nResponsible consumption and production",
+    "title": "SDG 12.5: By 2030, substantially reduce waste generation through prevention, reduction, recycling and reuse"
+   }
+  ],
+  "expanded": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 444.3,
+    "w": 988,
+    "h": 912.3,
+    "text": "01\n56\nMATCH\nManufacturing Engineer\nRising\nCritical in Malaysia\n\nAutomation & manufacturing · also advertised as Facility Engineer, Manufacturing Engineer, Plant Engineer\n\nSkills fit\n27\n\nweight 50%\n\nOutlook\n73\n\nweight 30%\n\nSDG fit\n100\n\nweigh",
+    "title": null
+   }
+  ]
+ },
+ "mainSize": {
+  "w": 988,
+  "h": 4134.625
+ }
+}

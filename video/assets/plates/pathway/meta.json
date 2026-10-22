@@ -1,0 +1,450 @@
+{
+ "name": "pathway",
+ "url": "/pathway",
+ "viewport": {
+  "w": 1440,
+  "h": 900
+ },
+ "dpr": 2,
+ "header": {
+  "x": 0,
+  "y": 0,
+  "width": 1440,
+  "height": 64.5
+ },
+ "main": {
+  "x": 24,
+  "y": 88.5,
+  "width": 988,
+  "height": 1851.875
+ },
+ "guide": {
+  "x": 1036,
+  "y": 88.5,
+  "width": 380,
+  "height": 792
+ },
+ "rects": {
+  "steps": [
+   {
+    "frame": "main",
+    "x": 32,
+    "y": 359.5,
+    "w": 592,
+    "h": 288.5,
+    "text": "1\n\nWeek 1–2 · 15 h\n\nMA121: Introduction to Statistics \n\nSaylor University (Saylor Academy) · intro\n\nFree\nAddresses:\nStatistics & forecasting\n\nWhy here: addresses priority gaps for the study time available.\n\nfree; free certificate\n\n“Time: 15",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 32,
+    "y": 664,
+    "w": 592,
+    "h": 288.5,
+    "text": "2\n\nWeek 2–4 · 10 h\n\nEnergy in buildings \n\nThe Open University (OpenLearn) · advanced\n\nFree\nAddresses:\nEnergy efficiency & audits\n\nWhy here: addresses priority gaps for the study time available.\n\nfree (OpenLearn account optional); includes a",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 32,
+    "y": 968.5,
+    "w": 592,
+    "h": 292.6,
+    "text": "3\n\nWeek 4–6 · 20 h\n\nPortfolio project\n~20 h suggested\n\nShow you can do a real task from this role — one AI assists rather than replaces: “Prepare documentation for new manufacturing processes or engineering procedures.” Build it with the sk",
+    "title": null
+   }
+  ],
+  "scenario": [
+   {
+    "frame": "header",
+    "x": 908.9,
+    "y": 22.8,
+    "w": 88.1,
+    "h": 24,
+    "text": "Moderate AI",
+    "title": null
+   },
+   {
+    "frame": "header",
+    "x": 996.9,
+    "y": 22.8,
+    "w": 58.9,
+    "h": 24,
+    "text": "Fast AI",
+    "title": null
+   }
+  ],
+  "guideButton": [],
+  "messages": [
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": -55.5,
+    "w": 346,
+    "h": 200.8,
+    "text": "Re-planned for Moderate AI, data Mar 2025: your top role is now Electro-Mechanical & Mechatronics Technician (53), replacing Manufacturing Engineer. Your pathway has been rebuilt.\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are GPTs task ex",
+    "title": null
+   },
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 157.3,
+    "w": 346,
+    "h": 200.8,
+    "text": "Re-planned for Moderate AI, data Latest (16 Oct 2026): your top role is now Manufacturing Engineer (56), replacing Electro-Mechanical & Mechatronics Technician. Your pathway has been rebuilt.\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are ",
+    "title": null
+   },
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 370.1,
+    "w": 346,
+    "h": 137.4,
+    "text": "Re-planned for Fast AI, data Latest (16 Oct 2026): Manufacturing Engineer is still your top role (54).\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are GPTs task exposure labels (β)\n· 2024",
+    "title": null
+   },
+   {
+    "frame": "guide",
+    "x": 17,
+    "y": 519.6,
+    "w": 346,
+    "h": 158.6,
+    "text": "Re-planned for Moderate AI, data Latest (16 Oct 2026): Manufacturing Engineer is still your top role (56).\n\nAnthropic Economic Index\n· 2026-06-26\nGPTs are GPTs task exposure labels (β)\n· 2024",
+    "title": null
+   }
+  ],
+  "guidePanel": [
+   {
+    "frame": "guide",
+    "x": 0,
+    "y": 0,
+    "w": 380,
+    "h": 792,
+    "text": "SkillTide Guide\n\nAnswers only from SkillTide data\n\nRule-based\n\nRe-planned for Moderate AI, data Mar 2025: your top role is now Electro-Mechanical & Mechatronics Technician (53), replacing Manufacturing Engineer. Your pathway has been rebuil",
+    "title": null
+   }
+  ],
+  "pageTitle": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 22.5,
+    "w": 672,
+    "h": 42.5,
+    "text": "Your reskilling pathway",
+    "title": null
+   }
+  ],
+  "roleTitle": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 187.3,
+    "w": 265.2,
+    "h": 32,
+    "text": "Manufacturing Engineer",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 669,
+    "y": 380.5,
+    "w": 298,
+    "h": 25.5,
+    "text": "What this path contributes to",
+    "title": null
+   }
+  ],
+  "cards": [
+   {
+    "frame": "main",
+    "x": 0,
+    "y": 145.8,
+    "w": 988,
+    "h": 189.8,
+    "text": "PATHWAY TOWARDS\n\nManufacturing Engineer\nSwitch role\nManufacturing Engineer · match 56\nMechatronics Engineer · match 53\nElectro-Mechanical & Mechatronics Technician · match 52\nRobotics Engineer · match 50\nEnergy Engineer · match 50\nRobotics ",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 32,
+    "y": 359.5,
+    "w": 592,
+    "h": 288.5,
+    "text": "Week 1–2 · 15 h\n\nMA121: Introduction to Statistics \n\nSaylor University (Saylor Academy) · intro\n\nFree\nAddresses:\nStatistics & forecasting\n\nWhy here: addresses priority gaps for the study time available.\n\nfree; free certificate\n\n“Time: 15 ho",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 32,
+    "y": 664,
+    "w": 592,
+    "h": 288.5,
+    "text": "Week 2–4 · 10 h\n\nEnergy in buildings \n\nThe Open University (OpenLearn) · advanced\n\nFree\nAddresses:\nEnergy efficiency & audits\n\nWhy here: addresses priority gaps for the study time available.\n\nfree (OpenLearn account optional); includes a ho",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 32,
+    "y": 968.5,
+    "w": 592,
+    "h": 292.6,
+    "text": "Week 4–6 · 20 h\n\nPortfolio project\n~20 h suggested\n\nShow you can do a real task from this role — one AI assists rather than replaces: “Prepare documentation for new manufacturing processes or engineering procedures.” Build it with the skill",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 648,
+    "y": 359.5,
+    "w": 340,
+    "h": 1115.6,
+    "text": "What this path contributes to\n\nSpecific UN SDG targets, with the evidence behind each link\n\n9.2\nPromote inclusive and sustainable industrialization and, by 2030, significantly raise industry's share of employment and gross domestic product,",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 648,
+    "y": 1491.1,
+    "w": 340,
+    "h": 151.5,
+    "text": "Gaps without a verified course yet\n\nSkillTide only recommends courses whose length and cost it could check. For these, ask your lecturers or look for projects and internships that use them.\n\nQuality & lean (SPC, Six Sigma)",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 648,
+    "y": 1658.6,
+    "w": 340,
+    "h": 193.3,
+    "text": "Funding in Malaysia\nHRD Corp Graduate MADANI Scheme (SGM - Skim Graduan MADANI): HRD Corp-registered employers can use up to 50% of their levy balance to fund 12-month structured workplace training for Malaysian graduates (incl. SKM Level 4",
+    "title": null
+   }
+  ],
+  "links": [
+   {
+    "frame": "main",
+    "x": 53,
+    "y": 402,
+    "w": 265,
+    "h": 22,
+    "text": "MA121: Introduction to Statistics",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 144.6,
+    "y": 555.8,
+    "w": 34.8,
+    "h": 15,
+    "text": "source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 145.5,
+    "y": 577,
+    "w": 34.8,
+    "h": 15,
+    "text": "source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 53,
+    "y": 605.3,
+    "w": 254.5,
+    "h": 21.8,
+    "text": "SkillTide course checks\n· 2026-10-21",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 53,
+    "y": 706.5,
+    "w": 166.2,
+    "h": 22,
+    "text": "Energy in buildings",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 144.2,
+    "y": 860.3,
+    "w": 34.8,
+    "h": 15,
+    "text": "source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 126.9,
+    "y": 881.5,
+    "w": 34.8,
+    "h": 15,
+    "text": "source",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 53,
+    "y": 909.8,
+    "w": 254.5,
+    "h": 21.8,
+    "text": "SkillTide course checks\n· 2026-10-21",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 53,
+    "y": 1218.3,
+    "w": 317.5,
+    "h": 21.8,
+    "text": "O*NET 31.0 Database — task statement\n· 2026-08",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 669,
+    "y": 1384.9,
+    "w": 405.7,
+    "h": 37.5,
+    "text": "UN SDG Global Database — goals and targets\n· 2026-10-21T17:26:25+00:00",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 669,
+    "y": 1432.4,
+    "w": 210.4,
+    "h": 21.8,
+    "text": "O*NET 31.0 Database\n· 2026-08",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 863.4,
+    "y": 1817.1,
+    "w": 37.8,
+    "h": 16,
+    "text": "source",
+    "title": null
+   }
+  ],
+  "sdgTargets": [
+   {
+    "frame": "main",
+    "x": 682,
+    "y": 478.6,
+    "w": 272,
+    "h": 22.5,
+    "text": "9.2\nPromote inclusive and sustainable industrialization and, by 2030, significantly raise industry's share of employment and gross domestic product, in line with national circumstances, and double its share in least developed countries",
+    "title": "SDG 9.2: Promote inclusive and sustainable industrialization and, by 2030, significantly raise industry's share of employment and gross domestic product, in line with national circumstances, and double its share in least developed countries"
+   },
+   {
+    "frame": "main",
+    "x": 682,
+    "y": 740.3,
+    "w": 272,
+    "h": 22.5,
+    "text": "9.4\nBy 2030, upgrade infrastructure and retrofit industries to make them sustainable, with increased resource-use efficiency and greater adoption of clean and environmentally sound technologies and industrial processes, with all countries t",
+    "title": "SDG 9.4: By 2030, upgrade infrastructure and retrofit industries to make them sustainable, with increased resource-use efficiency and greater adoption of clean and environmentally sound technologies and industrial processes, with all countries taking action in accordance with their respective capabilities"
+   },
+   {
+    "frame": "main",
+    "x": 682,
+    "y": 929.9,
+    "w": 272,
+    "h": 22.5,
+    "text": "12.5\nBy 2030, substantially reduce waste generation through prevention, reduction, recycling and reuse",
+    "title": "SDG 12.5: By 2030, substantially reduce waste generation through prevention, reduction, recycling and reuse"
+   },
+   {
+    "frame": "main",
+    "x": 682,
+    "y": 1215.4,
+    "w": 133.6,
+    "h": 22.5,
+    "text": "4.4\nQuality education",
+    "title": "SDG 4.4: By 2030, substantially increase the number of youth and adults who have relevant skills, including technical and vocational skills, for employment, decent jobs and entrepreneurship"
+   },
+   {
+    "frame": "main",
+    "x": 682,
+    "y": 1243.9,
+    "w": 239.6,
+    "h": 22.5,
+    "text": "9.5\nIndustry, innovation and infrastructure",
+    "title": "SDG 9.5: Enhance scientific research, upgrade the technological capabilities of industrial sectors in all countries, in particular developing countries, including, by 2030, encouraging innovation and substantially increasing the number of research and development workers per 1 million people and public and private research and development spending"
+   },
+   {
+    "frame": "main",
+    "x": 682,
+    "y": 1272.4,
+    "w": 239.6,
+    "h": 22.5,
+    "text": "9.c\nIndustry, innovation and infrastructure",
+    "title": "SDG 9.c: Significantly increase access to information and communications technology and strive to provide universal and affordable access to the Internet in least developed countries by 2020"
+   },
+   {
+    "frame": "main",
+    "x": 682,
+    "y": 1300.9,
+    "w": 186.5,
+    "h": 22.5,
+    "text": "7.3\nAffordable and clean energy",
+    "title": "SDG 7.3: By 2030, double the global rate of improvement in energy efficiency"
+   },
+   {
+    "frame": "main",
+    "x": 682,
+    "y": 1329.4,
+    "w": 239.6,
+    "h": 22.5,
+    "text": "9.4\nIndustry, innovation and infrastructure",
+    "title": "SDG 9.4: By 2030, upgrade infrastructure and retrofit industries to make them sustainable, with increased resource-use efficiency and greater adoption of clean and environmentally sound technologies and industrial processes, with all countries taking action in accordance with their respective capabilities"
+   }
+  ],
+  "stats": [
+   {
+    "frame": "main",
+    "x": 21,
+    "y": 239.3,
+    "w": 224.5,
+    "h": 75.3,
+    "text": "Study time\n45 h",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 261.5,
+    "y": 239.3,
+    "w": 224.5,
+    "h": 75.3,
+    "text": "At 8 h a week\n6 weeks",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 502,
+    "y": 239.3,
+    "w": 224.5,
+    "h": 75.3,
+    "text": "Cost\nFree",
+    "title": null
+   },
+   {
+    "frame": "main",
+    "x": 742.5,
+    "y": 239.3,
+    "w": 224.5,
+    "h": 75.3,
+    "text": "Priority gaps addressed\n2 of 3",
+    "title": null
+   }
+  ]
+ },
+ "mainSize": {
+  "w": 988,
+  "h": 1851.875
+ }
+}
