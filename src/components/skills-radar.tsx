@@ -5,7 +5,10 @@ import { cn } from "@/lib/cn";
 import { dataset } from "@/lib/data";
 import type { SkillTrend } from "@/lib/engine";
 import { signed } from "@/lib/format";
-import { CLUSTER_LABELS, CLUSTER_ORDER } from "@/lib/labels";
+import { CLUSTER_ORDER } from "@/lib/labels";
+import { useMessages } from "@/lib/use-messages";
+import { LABELS } from "@/messages/labels";
+import { SKILL_CLUSTERS, SKILLS_RADAR } from "@/messages/radar";
 
 const SIZE = 600;
 const CENTER = SIZE / 2;
@@ -31,11 +34,11 @@ function radiusFor(score: number) {
 }
 
 const RINGS = [
-  { score: 64, label: "Surging" },
-  { score: 56, label: "Rising" },
-  { score: 46, label: "Steady" },
-  { score: 34, label: "Cooling" },
-];
+  { score: 64, key: "surging" },
+  { score: 56, key: "rising" },
+  { score: 46, key: "steady" },
+  { score: 34, key: "cooling" },
+] as const;
 
 export function SkillsRadar({
   trends,
@@ -50,8 +53,11 @@ export function SkillsRadar({
   selected: string | null;
   onSelect: (skillId: string) => void;
 }) {
+  const t = useMessages(SKILLS_RADAR);
+  const clusters = useMessages(SKILL_CLUSTERS);
+  const labels = useMessages(LABELS);
   const [hover, setHover] = useState<string | null>(null);
-  const byId = useMemo(() => new Map(trends.map((t) => [t.skillId, t])), [trends]);
+  const byId = useMemo(() => new Map(trends.map((trend) => [trend.skillId, trend])), [trends]);
 
   const sectors = CLUSTER_ORDER.filter((cluster) => dataset.skills.some((s) => s.cluster === cluster));
   const width = (2 * Math.PI) / sectors.length;
@@ -83,7 +89,7 @@ export function SkillsRadar({
 
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[660px]">
-      <svg viewBox={`${-PAD} ${-PAD} ${VIEW} ${VIEW}`} className="relative h-full w-full" role="img" aria-label="Future skills radar">
+      <svg viewBox={`${-PAD} ${-PAD} ${VIEW} ${VIEW}`} className="relative h-full w-full" role="img" aria-label={t.label}>
         <defs>
           <radialGradient id="radar-core">
             <stop offset="0%" stopColor="rgba(29,92,138,0.14)" />
@@ -93,7 +99,7 @@ export function SkillsRadar({
         <circle cx={CENTER} cy={CENTER} r={RADIUS} fill="#fbfaf5" stroke="#12263a" strokeOpacity={0.55} />
         <circle cx={CENTER} cy={CENTER} r={RADIUS * 0.3} fill="url(#radar-core)" />
         {RINGS.map((ring) => (
-          <g key={ring.label}>
+          <g key={ring.key}>
             <circle
               cx={CENTER}
               cy={CENTER}
@@ -108,7 +114,7 @@ export function SkillsRadar({
               y={r2(CENTER - radiusFor(ring.score) + 13)}
               className="fill-brand font-display text-[12px] italic"
             >
-              {ring.label}
+              {t.rings[ring.key]}
             </text>
           </g>
         ))}
@@ -134,7 +140,7 @@ export function SkillsRadar({
                 dominantBaseline="middle"
                 className="fill-ink text-[11.5px] font-semibold"
               >
-                {CLUSTER_LABELS[cluster]}
+                {clusters[cluster]}
               </text>
             </g>
           );
@@ -165,7 +171,7 @@ export function SkillsRadar({
               key={b.skill.id}
               tabIndex={0}
               role="button"
-              aria-label={`${b.skill.name}: ${b.trend.trend}, score ${Math.round(b.trend.score)}${isOwned ? ", you have this skill" : ""}`}
+              aria-label={t.blip(b.skill.name, labels.skillTrend[b.trend.trend], Math.round(b.trend.score), isOwned)}
               onMouseEnter={() => setHover(b.skill.id)}
               onMouseLeave={() => setHover(null)}
               onFocus={() => setHover(b.skill.id)}
@@ -213,11 +219,10 @@ export function SkillsRadar({
         >
           <p className="font-semibold text-ink">{active.skill.name}</p>
           <p className="mt-0.5 font-mono text-muted">
-            score {Math.round(active.trend.score)}
-            {previous ? ` · ${signed(active.delta, 1)} since last snapshot` : ""}
+            {t.score(Math.round(active.trend.score), previous ? signed(active.delta, 1) : undefined)}
           </p>
           <p className="mt-0.5 text-muted">
-            needed by {active.trend.roleIds.length} roles · click for details
+            {t.needed(active.trend.roleIds.length)}
           </p>
         </div>
       ) : null}

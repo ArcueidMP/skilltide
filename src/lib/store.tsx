@@ -91,7 +91,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const update = useCallback<StoreValue["update"]>((patch) => {
     write({ ...current, ...(typeof patch === "function" ? patch(current) : patch) });
   }, []);
-  const reset = useCallback(() => write(DEFAULT_STATE), []);
+  // Resetting the demo keeps the interface language.
+  const reset = useCallback(() => write({ ...DEFAULT_STATE, locale: current.locale }), []);
 
   const value = useMemo(() => ({ ...state, hydrated, update, reset }), [state, hydrated, update, reset]);
 

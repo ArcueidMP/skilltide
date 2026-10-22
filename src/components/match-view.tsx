@@ -8,10 +8,13 @@ import { ArrowRight, ChevronDown, Info, Route, ShieldCheck, SlidersHorizontal } 
 import { cn } from "@/lib/cn";
 import { cite, dataset, roleById, skillById } from "@/lib/data";
 import { OUTLOOK_MODEL, type RoleMatch } from "@/lib/engine";
-import { JOB_ZONE_LABEL, pct, signedPct, TREND_LABEL, TREND_TONE } from "@/lib/format";
-import { FAMILY_LABELS } from "@/lib/labels";
+import { pct, signedPct, TREND_TONE } from "@/lib/format";
 import { useStore } from "@/lib/store";
 import { useAnalysis } from "@/lib/use-analysis";
+import { useMessages } from "@/lib/use-messages";
+import { COMMON, snapshotName } from "@/messages/common";
+import { LABELS } from "@/messages/labels";
+import { MATCH } from "@/messages/match";
 import { CitationList } from "./citations";
 import { SdgTag } from "./sdg";
 import { SkillChip } from "./skill-chip";
@@ -21,6 +24,9 @@ import { Badge, Button, Card, Loading, Meter, ScoreRing, buttonClasses } from ".
 export function MatchView() {
   const { profile, weights, update } = useStore();
   const { matches, scenario, snapshot, fairness, loading, pending } = useAnalysis();
+  const t = useMessages(MATCH);
+  const common = useMessages(COMMON);
+  const labels = useMessages(LABELS);
   const [showAll, setShowAll] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
   const [comparing, setComparing] = useState(false);
@@ -28,16 +34,16 @@ export function MatchView() {
   if (!profile || profile.skills.length === 0) {
     return (
       <Card className="flex flex-col items-center px-6 py-14 text-center">
-        <h2 className="font-display text-lg font-semibold">Add your skills first</h2>
-        <p className="mt-2 max-w-md text-sm text-muted">Matches are built from your skills, so start with your profile.</p>
+        <h2 className="font-display text-lg font-semibold">{t.emptyTitle}</h2>
+        <p className="mt-2 max-w-md text-sm text-muted">{t.emptyBody}</p>
         <Link href="/profile" className={cn(buttonClasses("primary"), "mt-5")}>
-          Go to my profile <ArrowRight className="h-4 w-4" aria-hidden />
+          {t.goToProfile} <ArrowRight className="h-4 w-4" aria-hidden />
         </Link>
       </Card>
     );
   }
 
-  if (loading) return <Loading label={`Ranking ${dataset.roles.length} roles against your skills…`} />;
+  if (loading) return <Loading label={t.ranking(dataset.roles.length)} />;
 
   const visible = showAll ? matches : matches.slice(0, 8);
 
@@ -48,16 +54,14 @@ export function MatchView() {
           <div className="min-w-[260px] flex-1">
             <div className="flex items-center gap-2">
               <SlidersHorizontal className="h-4 w-4 text-brand" aria-hidden />
-              <h2 className="font-display text-sm font-semibold">What matters to you</h2>
+              <h2 className="font-display text-sm font-semibold">{t.weightsTitle}</h2>
             </div>
-            <p className="mt-1 text-[13px] text-muted">
-              Your match score blends three parts. Move the sliders and the ranking updates.
-            </p>
+            <p className="mt-1 text-[13px] text-muted">{t.weightsIntro}</p>
             <div className="mt-4 grid gap-4 sm:grid-cols-3">
-              <WeightSlider label="Skills you already have" value={weights.skills} onChange={(skills) => update({ weights: { ...weights, skills } })} />
-              <WeightSlider label="Role outlook with AI" value={weights.outlook} onChange={(outlook) => update({ weights: { ...weights, outlook } })} />
+              <WeightSlider label={t.weightSkills} value={weights.skills} onChange={(skills) => update({ weights: { ...weights, skills } })} />
+              <WeightSlider label={t.weightOutlook} value={weights.outlook} onChange={(outlook) => update({ weights: { ...weights, outlook } })} />
               <WeightSlider
-                label={profile.sdgGoals.length ? "Your SDG goals" : "Your SDG goals (pick some first)"}
+                label={profile.sdgGoals.length ? t.weightSdg : t.weightSdgOff}
                 value={weights.sdg}
                 disabled={!profile.sdgGoals.length}
                 onChange={(sdg) => update({ weights: { ...weights, sdg } })}
@@ -74,18 +78,16 @@ export function MatchView() {
               >
                 <ShieldCheck className={cn("mt-0.5 h-4 w-4 shrink-0", fairness.identical ? "text-rise" : "text-fall")} aria-hidden />
                 <span>
-                  <span className="font-medium text-ink">
-                    Fairness check {fairness.identical ? "passed" : "failed"}.
-                  </span>{" "}
-                  The ranking is {fairness.identical ? "identical" : "not identical"} for {fairness.variants} variants of your
-                  profile with different names and graduation years.
+                  <span className="font-medium text-ink">{fairness.identical ? t.fairnessPassed : t.fairnessFailed}</span>
+                  {common.gap}
+                  {t.fairnessDetail(fairness.identical, fairness.variants)}
                 </span>
               </div>
             ) : null}
             <div className="flex items-start gap-2 rounded-md border border-border bg-surface-muted p-3 text-[12.5px] text-ink-soft">
               <Info className="mt-0.5 h-4 w-4 shrink-0 text-muted" aria-hidden />
               <span>
-                {scenario?.label} scenario, data as of {snapshot?.label}. These are estimates to help you think — you decide.
+                {t.basis(scenario ? labels.scenario[scenario.id] : "", snapshot ? snapshotName(common, snapshot) : "")}
               </span>
             </div>
           </div>
@@ -93,9 +95,9 @@ export function MatchView() {
       </Card>
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-[13px] text-muted">Explore how your choices depend on AI adoption.</p>
+        <p className="text-[13px] text-muted">{t.compareIntro}</p>
         <Button variant="secondary" aria-expanded={comparing} aria-controls="scenario-comparison" onClick={() => setComparing(!comparing)}>
-          {comparing ? "Hide scenario comparison" : "Compare scenarios"}
+          {comparing ? t.hideCompare : t.compare}
         </Button>
       </div>
       {comparing && snapshot ? <ScenarioComparisonView snapshot={snapshot} /> : null}
@@ -122,7 +124,7 @@ export function MatchView() {
       {matches.length > 8 ? (
         <div className="flex justify-center">
           <Button variant="secondary" onClick={() => setShowAll(!showAll)}>
-            {showAll ? "Show top 8" : `Show all ${matches.length} roles`}
+            {showAll ? t.showTop(8) : t.showAll(matches.length)}
           </Button>
         </div>
       ) : null}
@@ -175,6 +177,9 @@ function MatchCard({
   const router = useRouter();
   const { profile, update, scenario: scenarioId } = useStore();
   const { snapshot, scenario } = useAnalysis();
+  const t = useMessages(MATCH);
+  const common = useMessages(COMMON);
+  const labels = useMessages(LABELS);
   const role = roleById(match.roleId);
   if (!role || !snapshot || !scenario) return null;
   const demand = snapshot.roles[role.id];
@@ -189,65 +194,61 @@ function MatchCard({
     <Card className={cn("overflow-hidden", rank === 1 && "border-l-[3px] border-l-accent")}>
       <div className="flex flex-wrap items-center gap-5 p-5">
         <span className="font-mono text-2xl font-semibold text-muted/70">{String(rank).padStart(2, "0")}</span>
-        <ScoreRing value={match.score} label="match" />
+        <ScoreRing value={match.score} label={t.card.ring} />
         <div className="min-w-[220px] flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="font-display text-lg font-semibold">{role.title}</h3>
-            <Badge tone={TREND_TONE[match.outlook.trend]}>{TREND_LABEL[match.outlook.trend]}</Badge>
-            {role.jobZone === 5 ? <Badge tone="shift">Usually postgraduate</Badge> : null}
+            <Badge tone={TREND_TONE[match.outlook.trend]}>{labels.trend[match.outlook.trend]}</Badge>
+            {role.jobZone === 5 ? <Badge tone="shift">{t.card.postgraduate}</Badge> : null}
             {role.mycol ? (
-              <Badge tone="accent" title={`Listed as “${role.mycol.listedTitle}” on Malaysia's Critical Occupations List`}>
-                Critical in Malaysia
+              <Badge tone="accent" title={t.card.criticalTitle(role.mycol.listedTitle)}>
+                {t.card.critical}
               </Badge>
             ) : null}
           </div>
           <p className="mt-0.5 text-[13px] text-muted">
-            {FAMILY_LABELS[role.family]} · also advertised as {role.reportedTitles.slice(0, 3).join(", ")}
+            {t.family[role.family]} · {t.card.alsoAdvertised(role.reportedTitles.slice(0, 3))}
           </p>
           <div className="mt-3 grid max-w-xl grid-cols-3 gap-3">
-            <Component label="Skills fit" value={match.components.skills} weight={match.appliedWeights.skills / weightsSum} tone="brand" />
-            <Component label="Outlook" value={match.components.outlook} weight={match.appliedWeights.outlook / weightsSum} tone="accent" />
-            <Component label="SDG fit" value={match.components.sdg} weight={match.appliedWeights.sdg / weightsSum} tone="rise" />
+            <Component label={t.card.skillsFit} value={match.components.skills} weight={match.appliedWeights.skills / weightsSum} tone="brand" />
+            <Component label={t.card.outlook} value={match.components.outlook} weight={match.appliedWeights.outlook / weightsSum} tone="accent" />
+            <Component label={t.card.sdgFit} value={match.components.sdg} weight={match.appliedWeights.sdg / weightsSum} tone="rise" />
           </div>
         </div>
         <div className="flex flex-col gap-2">
           <Button onClick={plan}>
-            <Route className="h-4 w-4" aria-hidden /> Plan pathway
+            <Route className="h-4 w-4" aria-hidden /> {t.card.plan}
           </Button>
           <Button variant="ghost" size="sm" onClick={onToggle} aria-expanded={expanded}>
-            Why this score? <ChevronDown className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")} aria-hidden />
+            {t.card.why} <ChevronDown className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")} aria-hidden />
           </Button>
         </div>
       </div>
 
       <div className="flex flex-wrap gap-x-8 gap-y-3 border-t border-border px-5 py-3">
         <div className="min-w-0">
-          <p className="mb-1.5 chart-label text-[10px] text-muted">You have</p>
+          <p className="mb-1.5 chart-label text-[10px] text-muted">{t.card.have}</p>
           <div className="flex flex-wrap gap-1.5">
             {match.strengths.length ? (
               match.strengths.slice(0, 5).map((s) => (
                 <SkillChip key={s.skillId} name={skillById(s.skillId)?.name ?? s.skillId} level={s.level} tone="have" />
               ))
             ) : (
-              <span className="text-[12.5px] text-muted">None of the core skills yet</span>
+              <span className="text-[12.5px] text-muted">{t.card.noStrengths}</span>
             )}
           </div>
         </div>
         <div className="min-w-0">
-          <p className="mb-1.5 chart-label text-[10px] text-muted">Top gaps</p>
+          <p className="mb-1.5 chart-label text-[10px] text-muted">{t.card.gaps}</p>
           <div className="flex flex-wrap gap-1.5">
-            {match.gaps.slice(0, 4).map((g) => (
-              <SkillChip
-                key={g.skillId}
-                name={(skillById(g.skillId)?.name ?? g.skillId) + (g.transferable ? " (you know a similar language)" : "")}
-                level={g.current}
-                tone="gap"
-              />
-            ))}
+            {match.gaps.slice(0, 4).map((g) => {
+              const name = skillById(g.skillId)?.name ?? g.skillId;
+              return <SkillChip key={g.skillId} name={g.transferable ? t.card.transferable(name) : name} level={g.current} tone="gap" />;
+            })}
           </div>
         </div>
         <div className="min-w-0">
-          <p className="mb-1.5 chart-label text-[10px] text-muted">SDG targets</p>
+          <p className="mb-1.5 chart-label text-[10px] text-muted">{t.card.sdgTargets}</p>
           <div className="flex flex-wrap gap-1.5">
             {role.sdg.map((link) => (
               <span
@@ -270,46 +271,44 @@ function MatchCard({
               {Math.round(match.components.sdg)}) ÷ {weightsSum}
             </p>
             <p>
-              <span className="font-medium text-ink">Skills fit {Math.round(match.components.skills)}:</span> you cover the
-              importance-weighted share of the {role.skills.length} skills O*NET data says this role relies on.
+              <span className="font-medium text-ink">{t.why.skillsHead(Math.round(match.components.skills))}</span>
+              {common.gap}
+              {t.why.skills(role.skills.length)}
             </p>
             <p>
-              <span className="font-medium text-ink">Outlook {Math.round(match.outlook.score)}:</span> over{" "}
-              {dataset.horizonYears} years in the {scenario.label} scenario, AI is projected to assist{" "}
-              {pct(match.outlook.augmentation)} and automate {pct(match.outlook.displacement)} of this role&apos;s work
-              (task-weighted). Job postings in its sector are {signedPct(demand?.postingsYoY ?? 0)} on a year earlier in the US,
-              UK and Australia (Indeed Hiring Lab); Malaysian postings are not in this data. AI-signal data covers{" "}
-              {pct(match.outlook.coverage)} of its tasks.
+              <span className="font-medium text-ink">{t.why.outlookHead(Math.round(match.outlook.score))}</span>
+              {common.gap}
+              {t.why.outlook({
+                years: dataset.horizonYears,
+                scenario: labels.scenario[scenario.id],
+                assist: pct(match.outlook.augmentation),
+                automate: pct(match.outlook.displacement),
+                postings: signedPct(demand?.postingsYoY ?? 0),
+                coverage: pct(match.outlook.coverage),
+              })}
             </p>
             <p>
-              <span className="font-medium text-ink">Malaysia:</span>{" "}
-              {role.mycol ? (
-                <>
-                  listed as &ldquo;{role.mycol.listedTitle}&rdquo; on the Critical Occupations List (MyCOL), SkillTide&apos;s
-                  local demand signal, which adds {OUTLOOK_MODEL.malaysia} points to the outlook.
-                </>
-              ) : (
-                <>not on the Critical Occupations List (MyCOL), SkillTide&apos;s local demand signal, so no local bonus applies.</>
-              )}
+              <span className="font-medium text-ink">{t.why.malaysiaHead}</span>
+              {common.gap}
+              {role.mycol ? t.why.mycolListed(role.mycol.listedTitle, OUTLOOK_MODEL.malaysia) : t.why.mycolNotListed}
             </p>
             <p>
-              <span className="font-medium text-ink">SDG fit {Math.round(match.components.sdg)}:</span>{" "}
-              {profile?.sdgGoals.length
-                ? `this role links to ${match.sharedGoals.length} of the ${profile.sdgGoals.length} goals you picked.`
-                : "you have not picked SDG goals, so this part is switched off."}
+              <span className="font-medium text-ink">{t.why.sdgHead(Math.round(match.components.sdg))}</span>
+              {common.gap}
+              {profile?.sdgGoals.length ? t.why.sdgLinked(match.sharedGoals.length, profile.sdgGoals.length) : t.why.sdgOff}
             </p>
             {role.robotExposure !== null && role.robotExposure !== undefined ? (
               <p>
-                <span className="font-medium text-ink">Robot exposure {role.robotExposure.toFixed(2)}:</span> Anthropic&apos;s
-                index of how much of this occupation&apos;s physical work robots could take on (0–1). Shown for context; not
-                part of the score.
+                <span className="font-medium text-ink">{t.why.robotHead(role.robotExposure.toFixed(2))}</span>
+                {common.gap}
+                {t.why.robot}
               </p>
             ) : null}
             <CitationList citations={cite(["onet", "aei", "eloundou", "indeed", "aei-robots", ...(role.mycol ? ["mycol"] : [])])} />
           </div>
           <div className="space-y-4">
             <div>
-              <p className="mb-2 chart-label text-[10px] text-muted">Most AI-exposed tasks</p>
+              <p className="mb-2 chart-label text-[10px] text-muted">{t.why.exposedTasks}</p>
               <ul className="space-y-2">
                 {match.outlook.tasks.slice(0, 4).map((task) => (
                   <li key={task.taskId} className="text-[12.5px]">
@@ -317,7 +316,7 @@ function MatchCard({
                     <div className="mt-1 flex items-center gap-2">
                       <Meter value={task.exposure * 100} tone={task.automation > 0.5 ? "fall" : "accent"} className="max-w-48" />
                       <span className="font-mono text-[11px] text-muted">
-                        {pct(task.exposure)} exposed · {task.automation > 0.5 ? "mostly automated" : "mostly assisted"}
+                        {t.why.exposed(pct(task.exposure))} · {task.automation > 0.5 ? t.why.mostlyAutomated : t.why.mostlyAssisted}
                       </span>
                     </div>
                   </li>
@@ -326,9 +325,7 @@ function MatchCard({
             </div>
             {role.newTasks.length ? (
               <div>
-                <p className="mb-2 chart-label text-[10px] text-muted">
-                  New tasks O*NET added ({role.newTasks[0].date})
-                </p>
+                <p className="mb-2 chart-label text-[10px] text-muted">{t.why.newTasks(role.newTasks[0].date)}</p>
                 <ul className="list-disc space-y-1 pl-4 text-[12.5px] text-ink-soft">
                   {role.newTasks.map((task) => (
                     <li key={task.statement}>{task.statement}</li>
@@ -337,12 +334,12 @@ function MatchCard({
               </div>
             ) : null}
             {role.jobZone ? (
-              <p className="text-[12.5px] text-muted">Typical preparation: {JOB_ZONE_LABEL[role.jobZone]} (O*NET job zone {role.jobZone}).</p>
+              <p className="text-[12.5px] text-muted">{t.why.preparation(labels.jobZone[role.jobZone], role.jobZone)}</p>
             ) : null}
           </div>
         </div>
       ) : null}
-      <span className="sr-only">Scenario {scenarioId}</span>
+      <span className="sr-only">{t.card.scenario(labels.scenario[scenarioId])}</span>
     </Card>
   );
 }
@@ -358,6 +355,7 @@ function Component({
   weight: number;
   tone: "brand" | "accent" | "rise";
 }) {
+  const t = useMessages(MATCH);
   return (
     <div>
       <p className="flex items-center justify-between text-[11.5px] text-muted">
@@ -365,7 +363,7 @@ function Component({
         <span className="font-mono text-ink-soft">{Math.round(value)}</span>
       </p>
       <Meter value={value} tone={tone} className="mt-1" />
-      <p className="mt-0.5 font-mono text-[10px] text-muted">weight {pct(weight)}</p>
+      <p className="mt-0.5 font-mono text-[10px] text-muted">{t.card.weight(pct(weight))}</p>
     </div>
   );
 }

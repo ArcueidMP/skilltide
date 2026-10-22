@@ -461,12 +461,24 @@ export function buildPathway(
 // ---------------------------------------------------------------------------
 // 6. Skill extraction from free text (rule-based; no AI call)
 
-// Patterns are matched with spaces removed, so letter-spaced headings that PDF
-// extraction returns as "P R O J E C T S" are recognised too.
+// Patterns are matched lower-cased with spaces removed, so letter-spaced headings that PDF
+// extraction returns as "P R O J E C T S" are recognised too. English, Malay and Chinese headings.
 const SECTION_LEVELS: { pattern: RegExp; level: SkillLevel }[] = [
-  { pattern: /^(work)?experience|^employment|^internships?|^industrialtraining/, level: 3 },
-  { pattern: /^projects?|^final-?yearproject|^portfolio|^competitions?|^hackathons?/, level: 2 },
-  { pattern: /^skills?|^technicalskills|^education|^coursework|^relevantcoursework|^certifications?/, level: 1 },
+  {
+    pattern:
+      /^(work)?experience|^employment|^internships?|^industrialtraining|^pengalaman(?!projek)|^latihan(industri|praktikal)|^pekerjaan|^(工作|实习)(经历|经验)/,
+    level: 3,
+  },
+  {
+    pattern:
+      /^projects?|^final-?yearproject|^portfolio|^competitions?|^hackathons?|^pengalamanprojek|^projek|^pertandingan|^(项目|竞赛|比赛)(经历|经验)?|^作品集/,
+    level: 2,
+  },
+  {
+    pattern:
+      /^skills?|^technicalskills|^education|^coursework|^relevantcoursework|^certifications?|^kemahiran|^pendidikan|^kerjakursus|^(pen)?sijil|^(专业)?技能|^教育(背景|经历)|^(主修|相关)?课程|^证书/,
+    level: 1,
+  },
 ];
 
 function escapeRegExp(text: string) {
@@ -478,7 +490,7 @@ export function extractSkills(text: string, skills: Skill[]): SkillClaim[] {
   const lines = text.split(/\r?\n/);
   let level: SkillLevel = 1;
   const leveled = lines.map((line) => {
-    const heading = line.toLowerCase().replace(/[:#*\s]/g, "");
+    const heading = line.toLowerCase().replace(/[:：#*\s]/g, "");
     const section = heading.length < 32 ? SECTION_LEVELS.find((s) => s.pattern.test(heading)) : undefined;
     if (section) level = section.level;
     return { line, level };

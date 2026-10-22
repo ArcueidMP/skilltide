@@ -4,10 +4,13 @@ import { History } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { dataset, snapshotById } from "@/lib/data";
 import { useStore } from "@/lib/store";
+import { useMessages } from "@/lib/use-messages";
+import { SNAPSHOT_TIMELINE } from "@/messages/radar";
 
 /** Replay dated signals using today's role catalogue and scenario assumptions. */
 export function SnapshotTimeline() {
   const { snapshotId, update } = useStore();
+  const t = useMessages(SNAPSHOT_TIMELINE);
   const current = snapshotById(snapshotId);
   const snapshots = dataset.snapshots;
 
@@ -16,14 +19,12 @@ export function SnapshotTimeline() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <History className="h-4 w-4 text-brand" aria-hidden />
-          <p className="text-sm font-medium">Data snapshot</p>
-          <span className="font-mono text-xs text-muted">
-            AI use: {current?.aiUsePeriod} · job demand as of {current?.asOf}
-          </span>
+          <p className="text-sm font-medium">{t.title}</p>
+          <span className="font-mono text-xs text-muted">{t.basis(current?.aiUsePeriod ?? "", current?.asOf ?? "")}</span>
         </div>
-        <p className="text-xs text-muted">Replay historical signals with the current catalogue and assumptions.</p>
+        <p className="text-xs text-muted">{t.replay}</p>
       </div>
-      <div role="radiogroup" aria-label="Data snapshot" className="relative mt-4">
+      <div role="radiogroup" aria-label={t.title} className="relative mt-4">
         <div className="absolute left-10 right-10 top-[7px] border-t border-dashed border-ink/35" />
         <div className="relative flex justify-between">
           {snapshots.map((snapshot) => {
@@ -50,7 +51,7 @@ export function SnapshotTimeline() {
                     active ? "font-semibold text-ink" : "text-muted group-hover:text-ink",
                   )}
                 >
-                  {snapshot.id === "latest" ? "Latest" : snapshot.label}
+                  {snapshot.id === "latest" ? t.latest : snapshot.label}
                 </span>
               </button>
             );

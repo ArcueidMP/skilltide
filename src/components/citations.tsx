@@ -1,6 +1,10 @@
+"use client";
+
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/cn";
 import type { Citation } from "@/lib/types";
+import { useMessages } from "@/lib/use-messages";
+import { COMMON } from "@/messages/common";
 
 export function CitationList({
   citations,
@@ -9,9 +13,10 @@ export function CitationList({
   citations: Citation[];
   className?: string;
 }) {
+  const t = useMessages(COMMON);
   // Capping each item lets a long source name truncate instead of pushing the page past a phone screen.
   return (
-    <ul className={cn("flex flex-wrap gap-1.5", className)} aria-label="Sources">
+    <ul className={cn("flex flex-wrap gap-1.5", className)} aria-label={t.sources}>
       {citations.map((citation, index) => (
         <li key={`${citation.label}-${index}`} className="max-w-full">
           <CitationChip citation={citation} />

@@ -3,12 +3,9 @@
 import { X } from "lucide-react";
 import { cn } from "@/lib/cn";
 import type { SkillLevel } from "@/lib/types";
-
-export const LEVEL_LABELS: Record<SkillLevel, string> = {
-  1: "Aware — coursework",
-  2: "Applied — projects",
-  3: "Confident — used at work",
-};
+import { useMessages } from "@/lib/use-messages";
+import { LABELS } from "@/messages/labels";
+import { SKILL_CHIP } from "@/messages/skill-chip";
 
 /** Three dots showing a skill level; clickable when `onChange` is given. */
 export function LevelDots({
@@ -20,6 +17,7 @@ export function LevelDots({
   onChange?: (level: SkillLevel) => void;
   label: string;
 }) {
+  const labels = useMessages(LABELS);
   return (
     <span className="inline-flex items-center gap-0.5" role={onChange ? "radiogroup" : undefined} aria-label={label}>
       {([1, 2, 3] as SkillLevel[]).map((dot) => {
@@ -34,8 +32,8 @@ export function LevelDots({
             type="button"
             role="radio"
             aria-checked={dot === level}
-            aria-label={LEVEL_LABELS[dot]}
-            title={LEVEL_LABELS[dot]}
+            aria-label={labels.level[dot]}
+            title={labels.level[dot]}
             onClick={() => onChange(dot)}
             className="flex h-4 w-3 items-center justify-center"
           >
@@ -64,9 +62,10 @@ export function SkillChip({
   onRemove?: () => void;
   tone?: "default" | "gap" | "have";
 }) {
+  const t = useMessages(SKILL_CHIP);
   return (
     <span
-      title={evidence ? `Found in: “${evidence}”` : undefined}
+      title={evidence ? t.foundIn(evidence) : undefined}
       className={cn(
         "inline-flex items-center gap-2 rounded-lg border px-2.5 py-1 text-[13px]",
         tone === "default" && "border-border bg-surface-muted text-ink",
@@ -75,12 +74,12 @@ export function SkillChip({
       )}
     >
       {name}
-      <LevelDots level={level} onChange={onLevel} label={`${name} level`} />
+      <LevelDots level={level} onChange={onLevel} label={t.level(name)} />
       {onRemove ? (
         <button
           type="button"
           onClick={onRemove}
-          aria-label={`Remove ${name}`}
+          aria-label={t.remove(name)}
           className="-mr-1 rounded p-0.5 text-muted hover:text-fall"
         >
           <X className="h-3.5 w-3.5" aria-hidden />

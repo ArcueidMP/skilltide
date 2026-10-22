@@ -1,11 +1,13 @@
 // Synthetic sample students for the demo. These people and CVs are invented; the brief forbids
 // real personal data. Skills are not stored here: they are extracted from each CV at load time.
 
+import type { Locale } from "./i18n";
 import type { Profile } from "./types";
 
 export interface SamplePersona {
   id: string;
-  tagline: string;
+  /** Shown after the name on the sample button, in each interface language. Names and CVs stay in English. */
+  tagline: Record<Locale, string>;
   profile: Profile;
   cv: string;
 }
@@ -13,7 +15,11 @@ export interface SamplePersona {
 export const SAMPLE_PERSONAS: SamplePersona[] = [
   {
     id: "aina",
-    tagline: "Electrical & electronic, Penang test-floor intern",
+    tagline: {
+      en: "Electrical & electronic, Penang test-floor intern",
+      ms: "Elektrik & elektronik, pelatih kejuruteraan ujian di Pulau Pinang",
+      zh: "电气与电子，槟城测试工程实习生",
+    },
     profile: {
       name: "Aina Sofea",
       programme: "ee",
@@ -45,7 +51,11 @@ Soldering, oscilloscope and multimeter use, technical report writing, teamwork`,
   },
   {
     id: "weijie",
-    tagline: "Computer science, Kuala Lumpur web intern",
+    tagline: {
+      en: "Computer science, Kuala Lumpur web intern",
+      ms: "Sains komputer, pelatih web di Kuala Lumpur",
+      zh: "计算机科学，吉隆坡网页开发实习生",
+    },
     profile: {
       name: "Lim Wei Jie",
       programme: "cs",
@@ -79,7 +89,11 @@ JavaScript, HTML, CSS, Java, presenting to stakeholders`,
   },
   {
     id: "kavin",
-    tagline: "Mechatronics, Johor factory automation intern",
+    tagline: {
+      en: "Mechatronics, Johor factory automation intern",
+      ms: "Mekatronik, pelatih automasi kilang di Johor",
+      zh: "机电一体化，柔佛工厂自动化实习生",
+    },
     profile: {
       name: "Kavin a/l Raj",
       programme: "mechatronics",
@@ -112,7 +126,11 @@ AutoCAD, troubleshooting, Malay and English, working in shifts`,
   },
   {
     id: "nurul",
-    tagline: "Computer science, data analytics focus",
+    tagline: {
+      en: "Computer science, data analytics focus",
+      ms: "Sains komputer, tumpuan analitik data",
+      zh: "计算机科学，主攻数据分析",
+    },
     profile: {
       name: "Nurul Izzah",
       programme: "cs",

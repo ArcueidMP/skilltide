@@ -6,10 +6,12 @@ import { ArrowDownRight, ArrowRight, ArrowUpRight, Building2, Globe2, Telescope 
 import { cn } from "@/lib/cn";
 import { cite, dataset, roleById, skillById } from "@/lib/data";
 import { OUTLOOK_MODEL, type RoleOutlook, type SkillTrend } from "@/lib/engine";
-import { pct, signed, signedPct, SKILL_TREND_LABEL, TREND_LABEL, TREND_TONE } from "@/lib/format";
-import { CLUSTER_LABELS } from "@/lib/labels";
+import { pct, signed, signedPct, TREND_TONE } from "@/lib/format";
 import { useStore } from "@/lib/store";
 import { useAnalysis, useOutlooks } from "@/lib/use-analysis";
+import { useMessages } from "@/lib/use-messages";
+import { LABELS } from "@/messages/labels";
+import { RADAR, SKILL_CLUSTERS } from "@/messages/radar";
 import { CitationList } from "./citations";
 import { SdgTag } from "./sdg";
 import { SkillsRadar } from "./skills-radar";
@@ -19,6 +21,8 @@ import { Badge, Card, CardHeader, Loading, Meter, buttonClasses } from "./ui";
 
 export function RadarView() {
   const { profile } = useStore();
+  const t = useMessages(RADAR);
+  const labels = useMessages(LABELS);
   const { snapshot, scenario, outlooks, trends, outlooksLoading, pending } = useAnalysis();
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -34,18 +38,18 @@ export function RadarView() {
     return {
       snapshot: before,
       outlooks: beforeView.outlooks,
-      trends: new Map(beforeView.trends.map((t) => [t.skillId, t])),
+      trends: new Map(beforeView.trends.map((trend) => [trend.skillId, trend])),
     };
   }, [before, beforeView.loading, beforeView.pending, beforeView.outlooks, beforeView.trends]);
 
   const owned = useMemo(() => new Set(profile?.skills.map((s) => s.skillId) ?? []), [profile]);
   // Skills with no role evidence and no hiring-post signal have nothing to say; leave them off the radar.
-  const evidenced = trends.filter((t) => t.roleIds.length > 0 || t.momentum !== 0);
+  const evidenced = trends.filter((trend) => trend.roleIds.length > 0 || trend.momentum !== 0);
   const sortedSkills = [...evidenced].sort((a, b) => b.score - a.score);
-  const rising = sortedSkills.filter((t) => t.trend === "rising").slice(0, 6);
-  const cooling = [...sortedSkills].reverse().filter((t) => t.trend !== "rising").slice(0, 6);
+  const rising = sortedSkills.filter((trend) => trend.trend === "rising").slice(0, 6);
+  const cooling = [...sortedSkills].reverse().filter((trend) => trend.trend !== "rising").slice(0, 6);
   const roles = [...outlooks.values()].sort((a, b) => b.score - a.score);
-  const selectedTrend = trends.find((t) => t.skillId === (selected ?? rising[0]?.skillId));
+  const selectedTrend = trends.find((trend) => trend.skillId === (selected ?? rising[0]?.skillId));
 
   if (!snapshot || !scenario) return null;
 
@@ -55,23 +59,20 @@ export function RadarView() {
       <DataFreshness />
 
       {outlooksLoading ? (
-        <Loading label="Reading this snapshot's signals…" />
+        <Loading label={t.loading} />
       ) : (
         <div aria-busy={pending || undefined} className={cn("space-y-6 transition-opacity", pending && "opacity-60")}>
           <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
             <Card className="animate-rise-in p-4 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <h2 className="font-display text-lg font-semibold">Skills on the radar</h2>
-                  <p className="text-sm text-muted">
-                    Closer to the centre = rising faster. Ringed dots are skills you have. Dashed trails show the move since{" "}
-                    {previous ? previous.snapshot.label : "the previous snapshot"}.
-                  </p>
+                  <h2 className="font-display text-lg font-semibold">{t.radar.title}</h2>
+                  <p className="text-sm text-muted">{t.radar.hint(previous?.snapshot.label)}</p>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-muted">
-                  <Legend color="bg-rise" label="Rising" />
-                  <Legend color="bg-slate-400" label="Steady" />
-                  <Legend color="bg-fall" label="Cooling" />
+                  <Legend color="bg-rise" label={labels.skillTrend.rising} />
+                  <Legend color="bg-slate-400" label={labels.skillTrend.stable} />
+                  <Legend color="bg-fall" label={labels.skillTrend.declining} />
                 </div>
               </div>
               <div className="mt-4">
@@ -89,7 +90,7 @@ export function RadarView() {
             <div className="space-y-4">
               {selectedTrend ? <SkillDetail trend={selectedTrend} previous={previous?.trends.get(selectedTrend.skillId)} /> : null}
               <TrendList
-                title="Rising fastest"
+                title={t.lists.rising}
                 icon={<ArrowUpRight className="h-4 w-4 text-rise" aria-hidden />}
                 items={rising}
                 previous={previous?.trends}
@@ -97,7 +98,7 @@ export function RadarView() {
                 onSelect={setSelected}
               />
               <TrendList
-                title="Cooling"
+                title={t.lists.cooling}
                 icon={<ArrowDownRight className="h-4 w-4 text-fall" aria-hidden />}
                 items={cooling}
                 previous={previous?.trends}
@@ -109,23 +110,19 @@ export function RadarView() {
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <RoleList
-              title="Roles on the rise"
-              subtitle={`Highest outlook under the ${scenario.label} scenario over ${dataset.horizonYears} years: hiring demand plus how AI touches the work`}
+              title={t.roles.risingTitle}
+              subtitle={t.roles.risingSubtitle(labels.scenario[scenario.id], dataset.horizonYears)}
               roles={roles.slice(0, 6)}
               previous={previous?.outlooks}
             />
             <RoleList
-              title="Roles under most pressure"
-              subtitle="Lowest outlook: much of the work is exposed to automation, or hiring is slowing"
+              title={t.roles.pressureTitle}
+              subtitle={t.roles.pressureSubtitle}
               roles={roles.slice(-6).reverse()}
               previous={previous?.outlooks}
             />
           </div>
-          <p className="-mt-3 text-[12px] leading-relaxed text-muted">
-            Postings are Indeed Hiring Lab job postings in the US, UK and Australia; Malaysian postings are not in this data.
-            MyCOL marks roles on Malaysia&apos;s Critical Occupations List, SkillTide&apos;s local demand signal, which adds{" "}
-            {OUTLOOK_MODEL.malaysia} points to the outlook.
-          </p>
+          <p className="-mt-3 text-[12px] leading-relaxed text-muted">{t.roles.footnote(OUTLOOK_MODEL.malaysia)}</p>
         </div>
       )}
 
@@ -137,7 +134,7 @@ export function RadarView() {
 
       <div className="flex justify-end">
         <Link href="/match" className={buttonClasses("primary", "lg")}>
-          See my best-fit roles <ArrowRight className="h-4 w-4" aria-hidden />
+          {t.next} <ArrowRight className="h-4 w-4" aria-hidden />
         </Link>
       </div>
     </div>
@@ -175,6 +172,7 @@ function TrendList({
   owned: Set<string>;
   onSelect: (id: string) => void;
 }) {
+  const t = useMessages(RADAR);
   return (
     <Card className="p-4">
       <div className="flex items-center gap-2">
@@ -193,7 +191,7 @@ function TrendList({
               >
                 <span className="flex min-w-0 items-center gap-2">
                   <span className="truncate">{skill?.name}</span>
-                  {owned.has(item.skillId) ? <Badge tone="brand">you</Badge> : null}
+                  {owned.has(item.skillId) ? <Badge tone="brand">{t.owned}</Badge> : null}
                 </span>
                 <span className="flex shrink-0 items-center gap-2">
                   <span className="font-mono text-xs text-ink-soft">{Math.round(item.score)}</span>
@@ -209,6 +207,9 @@ function TrendList({
 }
 
 function SkillDetail({ trend, previous }: { trend: SkillTrend; previous?: SkillTrend }) {
+  const t = useMessages(RADAR);
+  const labels = useMessages(LABELS);
+  const clusters = useMessages(SKILL_CLUSTERS);
   const skill = skillById(trend.skillId);
   if (!skill) return null;
   const needing = trend.roleIds
@@ -219,26 +220,26 @@ function SkillDetail({ trend, previous }: { trend: SkillTrend; previous?: SkillT
     <Card className="border-ink/30 p-4">
       <div className="flex items-start justify-between gap-2">
         <div>
-          <p className="chart-label text-[10px] text-muted">{CLUSTER_LABELS[skill.cluster]}</p>
+          <p className="chart-label text-[10px] text-muted">{clusters[skill.cluster]}</p>
           <h3 className="mt-1 font-display text-base font-semibold">{skill.name}</h3>
         </div>
-        <Badge tone={TREND_TONE[trend.trend]}>{SKILL_TREND_LABEL[trend.trend]}</Badge>
+        <Badge tone={TREND_TONE[trend.trend]}>{labels.skillTrend[trend.trend]}</Badge>
       </div>
       <dl className="mt-3 grid grid-cols-2 gap-3 text-[12px]">
         <div>
-          <dt className="text-muted">Trend score</dt>
+          <dt className="text-muted">{t.detail.score}</dt>
           <dd className="font-mono text-ink">
             {Math.round(trend.score)} {previous ? <Delta value={trend.score - previous.score} /> : null}
           </dd>
         </div>
         <div>
-          <dt className="text-muted">Hiring-post mentions</dt>
+          <dt className="text-muted">{t.detail.mentions}</dt>
           <dd className="font-mono text-ink">
-            {trend.momentum === 0 ? "too few to tell" : signedPct(trend.momentum * 0.5)}
+            {trend.momentum === 0 ? t.detail.tooFew : signedPct(trend.momentum * 0.5)}
           </dd>
         </div>
       </dl>
-      <p className="mt-3 text-[12px] text-muted">Needed by</p>
+      <p className="mt-3 text-[12px] text-muted">{t.detail.neededBy}</p>
       <ul className="mt-1 space-y-0.5 text-[13px]">
         {needing.map((role) => (
           <li key={role!.id}>{role!.title}</li>
@@ -264,6 +265,8 @@ function RoleList({
   roles: RoleOutlook[];
   previous?: Map<string, RoleOutlook>;
 }) {
+  const t = useMessages(RADAR);
+  const labels = useMessages(LABELS);
   const { snapshot } = useAnalysis();
   return (
     <Card>
@@ -280,18 +283,18 @@ function RoleList({
                   <p className="truncate text-[14px] font-medium">
                     {role?.title}
                     {role?.mycol ? (
-                      <span className="ml-2 rounded-[3px] border border-accent/40 bg-accent-soft px-1 font-mono text-[10px] text-accent" title="On Malaysia's Critical Occupations List">
+                      <span className="ml-2 rounded-[3px] border border-accent/40 bg-accent-soft px-1 font-mono text-[10px] text-accent" title={t.roles.mycol}>
                         MyCOL
                       </span>
                     ) : null}
                   </p>
                   <p className="mt-0.5 font-mono text-[11px] text-muted">
-                    AI assists {pct(outlook.augmentation)} · automates {pct(outlook.displacement)}
-                    {yoy !== undefined ? ` · postings ${signedPct(yoy)} y/y (US/UK/AU)` : ""}
+                    {t.roles.ai(pct(outlook.augmentation), pct(outlook.displacement))}
+                    {yoy !== undefined ? t.roles.postings(signedPct(yoy)) : ""}
                   </p>
                 </div>
                 <div className="flex shrink-0 items-center gap-2">
-                  <Badge tone={TREND_TONE[outlook.trend]}>{TREND_LABEL[outlook.trend]}</Badge>
+                  <Badge tone={TREND_TONE[outlook.trend]}>{labels.trend[outlook.trend]}</Badge>
                   <span className="w-8 text-right font-mono text-sm">{Math.round(outlook.score)}</span>
                   <Delta value={before ? outlook.score - before.score : null} />
                 </div>
@@ -310,17 +313,16 @@ function RoleList({
 }
 
 function AutomationTrendCard() {
+  const t = useMessages(RADAR);
   const points = dataset.scenarioBasis.automationTrend;
   const max = Math.max(...points.map((p) => p.share), 0.6);
   return (
     <Card className="p-5">
       <div className="flex items-center gap-2">
         <Telescope className="h-4 w-4 text-brand" aria-hidden />
-        <h3 className="font-display text-sm font-semibold">How people use AI is shifting</h3>
+        <h3 className="font-display text-sm font-semibold">{t.automation.title}</h3>
       </div>
-      <p className="mt-1 text-[13px] text-muted">
-        Share of Claude conversations that hand work over (automation) rather than work alongside (augmentation).
-      </p>
+      <p className="mt-1 text-[13px] text-muted">{t.automation.body}</p>
       <div className="mt-4 flex h-28 items-end gap-2">
         {points.map((point) => (
           <div key={point.release} className="flex flex-1 flex-col items-center gap-1">
@@ -339,6 +341,7 @@ function AutomationTrendCard() {
 }
 
 function MalaysiaCard() {
+  const t = useMessages(RADAR);
   const { snapshot } = useAnalysis();
   const index = snapshot?.malaysiaUsageIndex;
   const facts = dataset.malaysiaContext.slice(0, 3);
@@ -346,25 +349,23 @@ function MalaysiaCard() {
     <Card className="p-5">
       <div className="flex items-center gap-2">
         <Globe2 className="h-4 w-4 text-brand" aria-hidden />
-        <h3 className="font-display text-sm font-semibold">Malaysia in the picture</h3>
+        <h3 className="font-display text-sm font-semibold">{t.malaysia.title}</h3>
       </div>
       {index ? (
         <p className="mt-3 text-[13px] text-ink-soft">
-          Malaysians use Claude at{" "}
-          <span className="font-mono text-lg font-semibold text-brand-strong">{index.toFixed(2)}×</span> the world rate per
-          working-age person ({snapshot?.aiUsePeriod}).
+          {t.malaysia.usageBefore}
+          <span className="font-mono text-lg font-semibold text-brand-strong">{index.toFixed(2)}×</span>
+          {t.malaysia.usageAfter(snapshot?.aiUsePeriod ?? "")}
         </p>
       ) : (
-        <p className="mt-3 text-[13px] text-muted">
-          This snapshot&apos;s data release has no Malaysia usage index; pick another date to see it.
-        </p>
+        <p className="mt-3 text-[13px] text-muted">{t.malaysia.noIndex}</p>
       )}
       <ul className="mt-3 space-y-2">
         {facts.map((fact) => (
           <li key={fact.id} className="text-[12.5px] text-ink-soft">
             <span className="font-medium text-ink">{fact.value}</span> {fact.label}{" "}
             <a href={fact.source_url} target="_blank" rel="noreferrer" className="text-muted underline underline-offset-2">
-              source
+              {t.source}
             </a>
           </li>
         ))}
@@ -374,21 +375,23 @@ function MalaysiaCard() {
   );
 }
 
-const EMERGING_REGIONS = [
-  { label: "Malaysia", pattern: /TalentCorp|MCMC|Malaysia/i },
-  { label: "China", pattern: /China|MOHRSS/i },
-  { label: "Global", pattern: /World Economic Forum|WEF/i },
+type Region = "malaysia" | "china" | "global" | "other";
+
+const EMERGING_REGIONS: { key: Exclude<Region, "other">; pattern: RegExp }[] = [
+  { key: "malaysia", pattern: /TalentCorp|MCMC|Malaysia/i },
+  { key: "china", pattern: /China|MOHRSS/i },
+  { key: "global", pattern: /World Economic Forum|WEF/i },
 ];
 const EMERGING_PREVIEW = 6;
 
-function regionOf(recognisedBy: string) {
-  return EMERGING_REGIONS.find((region) => region.pattern.test(recognisedBy))?.label ?? "Other";
+function regionOf(recognisedBy: string): Region {
+  return EMERGING_REGIONS.find((region) => region.pattern.test(recognisedBy))?.key ?? "other";
 }
 
 /** Interleaves the source lists, Malaysian first, so one country's list cannot fill the card. */
 function balancedEmerging() {
-  const groups = [...EMERGING_REGIONS.map((region) => region.label), "Other"].map((label) =>
-    dataset.emergingRoles.filter((item) => regionOf(item.recognised_by) === label),
+  const groups = [...EMERGING_REGIONS.map((region) => region.key), "other" as const].map((key) =>
+    dataset.emergingRoles.filter((item) => regionOf(item.recognised_by) === key),
   );
   const longest = Math.max(0, ...groups.map((group) => group.length));
   return Array.from({ length: longest }, (_, index) => groups.flatMap((group) => group[index] ?? [])).flat();
@@ -396,6 +399,7 @@ function balancedEmerging() {
 const BALANCED_EMERGING = balancedEmerging();
 
 function EmergingCard() {
+  const t = useMessages(RADAR);
   const [showAll, setShowAll] = useState(false);
   const all = BALANCED_EMERGING;
   const items = showAll ? all : all.slice(0, EMERGING_PREVIEW);
@@ -403,7 +407,7 @@ function EmergingCard() {
     <Card className="p-5">
       <div className="flex items-center gap-2">
         <Building2 className="h-4 w-4 text-brand" aria-hidden />
-        <h3 className="font-display text-sm font-semibold">Newly recognised roles</h3>
+        <h3 className="font-display text-sm font-semibold">{t.emerging.title}</h3>
       </div>
       {items.length ? (
         <>
@@ -412,7 +416,7 @@ function EmergingCard() {
               <li key={`${item.name}-${item.date}`} className="text-[12.5px]">
                 <p className="font-medium text-ink">
                   <Badge tone="neutral" className="mr-1.5 align-middle">
-                    {regionOf(item.recognised_by)}
+                    {t.emerging.regions[regionOf(item.recognised_by)]}
                   </Badge>
                   {item.name}
                   {item.name_original ? <span className="ml-1 text-muted">{item.name_original}</span> : null}
@@ -420,7 +424,7 @@ function EmergingCard() {
                 <p className="text-muted">
                   {item.recognised_by} · {item.date} ·{" "}
                   <a href={item.source_url} target="_blank" rel="noreferrer" className="underline underline-offset-2">
-                    source
+                    {t.source}
                   </a>
                 </p>
               </li>
@@ -432,12 +436,12 @@ function EmergingCard() {
               onClick={() => setShowAll(!showAll)}
               className="mt-3 text-[12.5px] font-medium text-brand underline-offset-2 hover:underline"
             >
-              {showAll ? "Show fewer" : `Show all ${all.length}`}
+              {showAll ? t.emerging.showFewer : t.emerging.showAll(all.length)}
             </button>
           ) : null}
         </>
       ) : (
-        <p className="mt-3 text-[13px] text-muted">Official new-occupation lists are being checked and will appear here.</p>
+        <p className="mt-3 text-[13px] text-muted">{t.emerging.empty}</p>
       )}
     </Card>
   );

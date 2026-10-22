@@ -4,24 +4,23 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, FileText, LoaderCircle, RotateCcw, ScanLine, SlidersHorizontal, Sparkles, Upload, UserRound } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { CvImportError, readCvFile } from "@/lib/cv-file";
+import { CvImportError, MAX_CV_FILE_BYTES, MAX_CV_PAGES, readCvFile } from "@/lib/cv-file";
 import { dataset, skillById } from "@/lib/data";
 import { extractSkills } from "@/lib/engine";
-import { CLUSTER_LABELS } from "@/lib/labels";
 import { SAMPLE_PERSONAS } from "@/lib/samples";
 import { useStore } from "@/lib/store";
 import type { Profile, Programme, SkillCluster, SkillLevel } from "@/lib/types";
+import { useMessages } from "@/lib/use-messages";
+import { PROFILE } from "@/messages/profile";
+import { SKILL_CHIP } from "@/messages/skill-chip";
 
-import { SdgPicker } from "./sdg";
+import { MAX_SDG_GOALS, SdgPicker } from "./sdg";
 import { LevelDots, SkillChip } from "./skill-chip";
 import { Badge, Button, Card, CardHeader, Segmented, buttonClasses } from "./ui";
 
-const PROGRAMMES: { value: Programme; label: string }[] = [
-  { value: "cs", label: "Computing / CS" },
-  { value: "ee", label: "Electrical & electronic" },
-  { value: "mechatronics", label: "Mechatronics / automation" },
-  { value: "other", label: "Other" },
-];
+const PROGRAMMES: Programme[] = ["cs", "ee", "mechatronics", "other"];
+
+const MAX_CV_MB = MAX_CV_FILE_BYTES / (1024 * 1024);
 
 const EMPTY_PROFILE: Profile = {
   name: "",
@@ -36,14 +35,68 @@ const EMPTY_PROFILE: Profile = {
 
 type Tab = "cv" | "skills" | "questions";
 
+type ProfileText = (typeof PROFILE)["en"];
+
+// Notes, progress and errors are kept as data and worded at render, so they follow a language switch.
+type ScanNote =
+  | { kind: "reset" }
+  | { kind: "scan"; found: number; file?: { name: string; pages?: number } }
+  | { kind: "sample"; name: string; found: number };
+
+interface ImportStatus {
+  file: string;
+  page?: number;
+  total?: number;
+}
+
+/** A CvImportError carries its English message; anything else gets the general message. */
+type ImportFailure = { kind: "cv"; message: string } | { kind: "other" };
+
+function noteText(note: ScanNote, t: ProfileText) {
+  if (note.kind === "reset") return t.notes.reset;
+  if (note.kind === "sample") return t.notes.sample(note.name, note.found);
+  const result = note.found ? t.notes.found(note.found) : t.notes.none;
+  return note.file ? t.notes.imported(note.file.name, note.file.pages, result) : result;
+}
+
+function statusText(status: ImportStatus, t: ProfileText) {
+  return status.page && status.total
+    ? t.status.readingPage(status.file, status.page, status.total)
+    : t.status.reading(status.file);
+}
+
+/** The messages src/lib/cv-file.ts throws, in a fixed order, so an English one can be matched to its translation. */
+function cvErrors(errors: ProfileText["errors"]) {
+  return [
+    errors.type,
+    errors.tooLarge(MAX_CV_MB),
+    errors.empty,
+    errors.noText,
+    errors.tooLong,
+    errors.tooManyPages(MAX_CV_PAGES),
+    errors.noSelectableText,
+    errors.password,
+    errors.unreadablePdf,
+  ];
+}
+
+function failureText(failure: ImportFailure, t: ProfileText) {
+  if (failure.kind === "other") return t.errors.unreadable;
+  const index = cvErrors(PROFILE.en.errors).indexOf(failure.message);
+  // A message without a translation is shown as thrown.
+  return index === -1 ? failure.message : cvErrors(t.errors)[index];
+}
+
 export function ProfileBuilder() {
-  const { profile: saved, update, reset } = useStore();
+  const { profile: saved, locale, update, reset } = useStore();
+  const t = useMessages(PROFILE);
+  const chip = useMessages(SKILL_CHIP);
   const profile = saved ?? EMPTY_PROFILE;
   const [tab, setTab] = useState<Tab>("cv");
   const [cvText, setCvText] = useState("");
-  const [scanNote, setScanNote] = useState<string | null>(null);
-  const [importStatus, setImportStatus] = useState<string | null>(null);
-  const [importError, setImportError] = useState<string | null>(null);
+  const [scanNote, setScanNote] = useState<ScanNote | null>(null);
+  const [importStatus, setImportStatus] = useState<ImportStatus | null>(null);
+  const [importError, setImportError] = useState<ImportFailure | null>(null);
   const fileInput = useRef<HTMLInputElement>(null);
   const importId = useRef(0);
 
@@ -58,7 +111,7 @@ export function ProfileBuilder() {
     setCvText("");
     setImportStatus(null);
     setImportError(null);
-    setScanNote("Demo reset. Your profile, CV text and saved preferences have been cleared from this browser.");
+    setScanNote({ kind: "reset" });
     if (fileInput.current) fileInput.current.value = "";
   }
 
@@ -75,7 +128,7 @@ export function ProfileBuilder() {
     setProfile({ skills: profile.skills.filter((s) => s.skillId !== skillId) });
   }
 
-  function scan(text: string, source?: string) {
+  function scan(text: string, file?: { name: string; pages?: number }) {
     const found = extractSkills(text, dataset.skills);
     // PDF extraction is asynchronous; retain edits made while it was reading.
     update((state) => {
@@ -88,11 +141,7 @@ export function ProfileBuilder() {
       return { profile: { ...latest, skills: [...merged.values()] } };
     });
     setImportError(null);
-    setScanNote(
-      (source ? `${source} ` : "") + (found.length
-        ? `Found ${found.length} skills. Hover a chip to see the phrase it came from, and fix any level that looks wrong.`
-        : "No skills from SkillTide's list were found. Try the skills tab instead."),
-    );
+    setScanNote({ kind: "scan", found: found.length, file });
   }
 
   function loadSample(id: string) {
@@ -104,26 +153,24 @@ export function ProfileBuilder() {
     setCvText(persona.cv);
     const claims = extractSkills(persona.cv, dataset.skills);
     update({ profile: { ...persona.profile, skills: claims }, targetRoleId: null });
-    setScanNote(`Loaded ${persona.profile.name}, a synthetic sample student. ${claims.length} skills found in the CV.`);
+    setScanNote({ kind: "sample", name: persona.profile.name, found: claims.length });
   }
 
   async function readFile(file: File) {
     const id = ++importId.current;
     setImportError(null);
     setScanNote(null);
-    setImportStatus(`Reading ${file.name}…`);
+    setImportStatus({ file: file.name });
     try {
       const result = await readCvFile(file, (page, total) => {
-        if (importId.current === id) setImportStatus(`Reading ${file.name} — page ${page} of ${total}…`);
+        if (importId.current === id) setImportStatus({ file: file.name, page, total });
       });
       if (importId.current !== id) return;
       setCvText(result.text);
-      scan(result.text, `Imported ${file.name}${result.pages ? ` (${result.pages} ${result.pages === 1 ? "page" : "pages"})` : ""}.`);
+      scan(result.text, { name: file.name, pages: result.pages });
     } catch (error) {
       if (importId.current === id) {
-        setImportError(error instanceof CvImportError
-          ? error.message
-          : "This file could not be read. Please try again, or paste your CV text.");
+        setImportError(error instanceof CvImportError ? { kind: "cv", message: error.message } : { kind: "other" });
       }
     } finally {
       if (importId.current === id) setImportStatus(null);
@@ -148,10 +195,10 @@ export function ProfileBuilder() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <UserRound className="h-4 w-4 text-brand" aria-hidden />
-              <p className="text-sm text-ink-soft">Try a synthetic sample student</p>
+              <p className="text-sm text-ink-soft">{t.sampleIntro}</p>
             </div>
             <Button variant="ghost" size="sm" onClick={resetDemo}>
-              <RotateCcw className="h-3.5 w-3.5" aria-hidden /> Reset demo
+              <RotateCcw className="h-3.5 w-3.5" aria-hidden /> {t.resetDemo}
             </Button>
             <div className="flex flex-wrap gap-2">
               {SAMPLE_PERSONAS.map((persona) => (
@@ -166,7 +213,7 @@ export function ProfileBuilder() {
                   )}
                 >
                   <span className="font-medium">{persona.profile.name}</span>
-                  <span className="ml-1.5 text-muted">· {persona.tagline}</span>
+                  <span className="ml-1.5 text-muted">· {persona.tagline[locale]}</span>
                 </button>
               ))}
             </div>
@@ -175,12 +222,12 @@ export function ProfileBuilder() {
 
         <Card className="animate-rise-in [animation-delay:80ms]">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-3">
-            <div role="tablist" aria-label="Ways to add your skills" className="flex gap-1">
+            <div role="tablist" aria-label={t.tabList} className="flex gap-1">
               {(
                 [
-                  { id: "cv", label: "Paste or upload CV", icon: FileText },
-                  { id: "skills", label: "Pick skills", icon: SlidersHorizontal },
-                  { id: "questions", label: "Quick questions", icon: Sparkles },
+                  { id: "cv", icon: FileText },
+                  { id: "skills", icon: SlidersHorizontal },
+                  { id: "questions", icon: Sparkles },
                 ] as const
               ).map((item) => (
                 <button
@@ -194,7 +241,7 @@ export function ProfileBuilder() {
                   )}
                 >
                   <item.icon className="h-4 w-4" aria-hidden />
-                  {item.label}
+                  {t.tabs[item.id]}
                 </button>
               ))}
             </div>
@@ -203,7 +250,7 @@ export function ProfileBuilder() {
           {tab === "cv" ? (
             <div className="space-y-3 p-5" aria-busy={!!importStatus}>
               <label htmlFor="cv-text" className="sr-only">
-                CV text
+                {t.cv.label}
               </label>
               <textarea
                 id="cv-text"
@@ -211,22 +258,22 @@ export function ProfileBuilder() {
                 readOnly={!!importStatus}
                 onChange={(event) => setCvText(event.target.value)}
                 rows={12}
-                placeholder={"Paste your CV here. Use headings like Experience, Projects and Coursework so SkillTide can tell how you used each skill.\n\nPlease use a sample or your own made-up CV — never someone else's real CV."}
+                placeholder={t.cv.placeholder}
                 className="w-full resize-y rounded-md border border-border-strong bg-surface p-4 font-mono text-[12.5px] leading-relaxed text-ink placeholder:font-sans placeholder:text-muted focus:border-brand focus:outline-none"
               />
               <div className="flex flex-wrap items-center gap-2">
                 <Button onClick={() => scan(cvText)} disabled={!cvText.trim() || !!importStatus}>
-                  <ScanLine className="h-4 w-4" aria-hidden /> Scan for skills
+                  <ScanLine className="h-4 w-4" aria-hidden /> {t.cv.scan}
                 </Button>
                 <Button variant="secondary" onClick={() => fileInput.current?.click()} disabled={!!importStatus}>
                   {importStatus ? <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden /> : <Upload className="h-4 w-4" aria-hidden />}
-                  {importStatus ? "Reading CV…" : "Upload PDF or text"}
+                  {importStatus ? t.cv.reading : t.cv.upload}
                 </Button>
                 <input
                   ref={fileInput}
                   type="file"
                   accept=".pdf,.txt,.md,application/pdf,text/plain,text/markdown"
-                  aria-label="Upload CV file"
+                  aria-label={t.cv.fileLabel}
                   className="hidden"
                   disabled={!!importStatus}
                   onChange={(event) => {
@@ -235,31 +282,30 @@ export function ProfileBuilder() {
                     if (file) void readFile(file);
                   }}
                 />
-                <p className="text-xs text-muted">Scanned in your browser with fixed rules — nothing is uploaded.</p>
+                <p className="text-xs text-muted">{t.cv.local}</p>
               </div>
               <p className="text-xs text-muted">
-                PDF, TXT or Markdown · up to 10 MB and 20 PDF pages. PDFs need selectable text. Use synthetic CVs for the
-                demo — for example this{" "}
+                {t.cv.helpBefore(MAX_CV_MB, MAX_CV_PAGES)}
                 <a
                   href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/samples/kavin-raj-synthetic-cv.pdf`}
                   download
                   className="font-medium text-brand underline underline-offset-2"
                 >
-                  sample CV (PDF)
+                  {t.cv.sampleLink}
                 </a>
-                .
+                {t.cv.helpAfter}
               </p>
               <div role="status" aria-live="polite" className="text-[13px] text-ink-soft">
-                {importStatus}
+                {importStatus ? statusText(importStatus, t) : null}
               </div>
               {importError ? (
                 <p role="alert" className="rounded-lg border border-fall/25 bg-fall-soft px-3 py-2 text-[13px] text-fall">
-                  {importError}
+                  {failureText(importError, t)}
                 </p>
               ) : null}
               {scanNote ? (
                 <p role="status" className="rounded-lg border border-brand/25 bg-brand-soft px-3 py-2 text-[13px] text-ink-soft">
-                  {scanNote}
+                  {noteText(scanNote, t)}
                 </p>
               ) : null}
             </div>
@@ -267,13 +313,11 @@ export function ProfileBuilder() {
 
           {tab === "skills" ? (
             <div className="space-y-5 p-5">
-              <p className="text-[13px] text-muted">
-                Click the dots to set a level: one for coursework, two for projects, three for work or internship use.
-              </p>
+              <p className="text-[13px] text-muted">{t.picker.help}</p>
               {[...byCluster.entries()].map(([cluster, skills]) => (
                 <div key={cluster}>
                   <h3 className="chart-label text-muted">
-                    {CLUSTER_LABELS[cluster]}
+                    {t.picker.clusters[cluster]}
                   </h3>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {skills.map((skill) => {
@@ -289,7 +333,7 @@ export function ProfileBuilder() {
                           {skill.name}
                           <LevelDots
                             level={level}
-                            label={`${skill.name} level`}
+                            label={chip.level(skill.name)}
                             onChange={(next) =>
                               level === next ? removeSkill(skill.id) : setLevel(skill.id, next)
                             }
@@ -305,25 +349,25 @@ export function ProfileBuilder() {
 
           {tab === "questions" ? (
             <div className="grid gap-6 p-5 md:grid-cols-2">
-              <Field label="Programme">
+              <Field label={t.questions.programme}>
                 <Segmented
-                  label="Programme"
+                  label={t.questions.programme}
                   value={profile.programme}
-                  options={PROGRAMMES}
+                  options={PROGRAMMES.map((value) => ({ value, label: t.questions.programmes[value] }))}
                   onChange={(programme) => setProfile({ programme })}
                   size="sm"
                 />
               </Field>
-              <Field label="Expected graduation">
+              <Field label={t.questions.graduation}>
                 <Segmented
-                  label="Expected graduation"
+                  label={t.questions.graduation}
                   value={profile.graduation}
                   options={["2026", "2027", "2028"].map((year) => ({ value: year, label: year }))}
                   onChange={(graduation) => setProfile({ graduation })}
                   size="sm"
                 />
               </Field>
-              <Field label={`Study time: ${profile.hoursPerWeek} hours a week`}>
+              <Field label={t.questions.studyTime(profile.hoursPerWeek)}>
                 <input
                   type="range"
                   min={2}
@@ -332,23 +376,23 @@ export function ProfileBuilder() {
                   value={profile.hoursPerWeek}
                   onChange={(event) => setProfile({ hoursPerWeek: Number(event.target.value) })}
                   className="w-full accent-[#1d5c8a]"
-                  aria-label="Study hours per week"
+                  aria-label={t.questions.studyHours}
                 />
               </Field>
-              <Field label="Budget for courses">
+              <Field label={t.questions.budgetField}>
                 <Segmented
-                  label="Budget"
+                  label={t.questions.budget}
                   value={profile.budget}
                   options={[
-                    { value: "free", label: "Free only" },
-                    { value: "low", label: "Free + low cost" },
+                    { value: "free", label: t.questions.budgets.free },
+                    { value: "low", label: t.questions.budgets.low },
                   ]}
                   onChange={(budget) => setProfile({ budget })}
                   size="sm"
                 />
               </Field>
               <div className="md:col-span-2">
-                <Field label="Which goals do you want your career to push forward? Pick up to three.">
+                <Field label={t.questions.goals}>
                   <SdgPicker value={profile.sdgGoals} onChange={(sdgGoals) => setProfile({ sdgGoals })} />
                 </Field>
               </div>
@@ -360,8 +404,8 @@ export function ProfileBuilder() {
       <aside className="space-y-4">
         <Card className="animate-rise-in [animation-delay:160ms]">
           <CardHeader
-            title="Your skills"
-            subtitle={profile.skills.length ? `${profile.skills.length} recognised` : "Nothing added yet"}
+            title={t.summary.title}
+            subtitle={profile.skills.length ? t.summary.recognised(profile.skills.length) : t.summary.nothing}
           />
           <div className="flex flex-wrap gap-2 p-5">
             {profile.skills.length ? (
@@ -382,21 +426,19 @@ export function ProfileBuilder() {
                   ) : null;
                 })
             ) : (
-              <p className="text-[13px] text-muted">Scan a CV, pick skills, or load a sample student.</p>
+              <p className="text-[13px] text-muted">{t.summary.empty}</p>
             )}
           </div>
         </Card>
         <Card className="animate-rise-in p-5 [animation-delay:220ms]">
           <div className="flex items-center justify-between">
-            <p className="text-sm font-medium">SDG goals</p>
+            <p className="text-sm font-medium">{t.summary.sdgTitle}</p>
             <Badge tone={profile.sdgGoals.length ? "brand" : "neutral"}>
-              {profile.sdgGoals.length}/3 chosen
+              {t.summary.chosen(profile.sdgGoals.length, MAX_SDG_GOALS)}
             </Badge>
           </div>
           <p className="mt-2 text-[13px] leading-relaxed text-muted">
-            {profile.sdgGoals.length
-              ? "Your matches will lean towards roles that move these goals."
-              : "Optional. Pick goals under Quick questions to let them shape your matches."}
+            {profile.sdgGoals.length ? t.summary.sdgSet : t.summary.sdgUnset}
           </p>
         </Card>
         <Link
@@ -404,10 +446,10 @@ export function ProfileBuilder() {
           aria-disabled={!ready}
           className={cn(buttonClasses("primary", "lg"), "w-full", !ready && "pointer-events-none opacity-40")}
         >
-          See my Skills Radar <ArrowRight className="h-4 w-4" aria-hidden />
+          {t.summary.next} <ArrowRight className="h-4 w-4" aria-hidden />
         </Link>
         {!ready ? (
-          <p className="text-center text-xs text-muted">Add at least three skills to continue.</p>
+          <p className="text-center text-xs text-muted">{t.summary.needMore}</p>
         ) : null}
       </aside>
     </div>
