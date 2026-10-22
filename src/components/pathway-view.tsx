@@ -10,12 +10,15 @@ import { useStore } from "@/lib/store";
 import { useAnalysis } from "@/lib/use-analysis";
 import { CitationList } from "./citations";
 import { SdgTag } from "./sdg";
-import { Badge, Card, CardHeader, buttonClasses } from "./ui";
+import { Badge, Card, CardHeader, Loading, buttonClasses } from "./ui";
 
 export function PathwayView() {
   const { profile, update, targetRoleId } = useStore();
-  const { matches, target, pathway, scenario, snapshot } = useAnalysis();
-  const replan = useReplanNotice(pathway, `${scenario?.id}|${snapshot?.id}|${target?.roleId}`);
+  const { matches, target, pathway, basis, loading } = useAnalysis();
+  // Keyed on the scenario and snapshot the pathway was built for, which can lag the selection while loading.
+  const replan = useReplanNotice(pathway, `${basis}|${target?.roleId}`);
+
+  if (profile && loading) return <Loading label="Building your pathway…" />;
 
   if (!profile || !target || !pathway) {
     return (

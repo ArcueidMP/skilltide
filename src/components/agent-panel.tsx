@@ -5,9 +5,11 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { LifeBuoy, Send } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { useStore } from "@/lib/store";
-import { replanMessage, respond, suggestionsFor, type AgentContext, type AgentMessage } from "@/lib/agent";
+import { replanMessage, suggestionsFor, type AgentContext, type AgentMessage } from "@/lib/agent";
+import { toApiProfile } from "@/lib/api-types";
+import { askGuide } from "@/lib/guide-client";
 import { useAnalysis } from "@/lib/use-analysis";
-import { Badge } from "./ui";
+import { Segmented } from "./ui";
 import { CitationList } from "./citations";
 
 export function AgentPanel() {
@@ -20,7 +22,8 @@ export function AgentPanel() {
   const analysis = useAnalysis();
   const context: AgentContext = {
     pathname,
-    store,
+    profile: store.profile,
+    weights: store.weights,
     snapshot: analysis.snapshot,
     scenario: analysis.scenario,
     matches: analysis.matches,
@@ -33,12 +36,12 @@ export function AgentPanel() {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
   }, [messages]);
 
-  // Automatic re-planning: when the scenario or data snapshot changes, say what moved.
+  // Automatic re-planning: when results for a new scenario or data snapshot arrive, say what moved.
   const seen = useRef<{ key: string; top: string | null } | null>(null);
   const topRole = analysis.matches[0]?.roleId ?? null;
-  const viewKey = `${store.scenario}|${store.snapshotId}`;
+  const viewKey = analysis.basis;
   useEffect(() => {
-    if (!store.hydrated) return;
+    if (!store.hydrated || !viewKey) return;
     const previous = seen.current;
     seen.current = { key: viewKey, top: topRole };
     if (!previous || previous.key === viewKey || !topRole) return;
@@ -48,21 +51,36 @@ export function AgentPanel() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [viewKey, topRole, store.hydrated]);
 
-  function ask(question: string) {
+  async function ask(question: string) {
     const text = question.trim();
     if (!text) return;
-    const answer = respond(text, context);
+    const userId = `m${nextId.current++}`;
+    const replyId = `m${nextId.current++}`;
     setMessages((current) => [
       ...current,
-      { id: `m${nextId.current++}`, role: "user", text },
-      { ...answer, id: `m${nextId.current++}` },
+      { id: userId, role: "user", text },
+      {
+        id: replyId,
+        role: "agent",
+        text: store.aiWording ? "Wording an answer from SkillTide's facts…" : "Checking SkillTide's data…",
+        pending: true,
+      },
     ]);
     setDraft("");
+    const reply = await askGuide(text, context, {
+      ai: store.aiWording,
+      snapshot: analysis.snapshot?.id ?? "latest",
+      scenario: store.scenario,
+      weights: store.weights,
+      profile: store.profile ? toApiProfile(store.profile) : null,
+      targetRoleId: store.targetRoleId,
+    });
+    setMessages((current) => current.map((message) => (message.id === replyId ? { ...reply, id: replyId } : message)));
   }
 
   function onSubmit(event: FormEvent) {
     event.preventDefault();
-    ask(draft);
+    void ask(draft);
   }
 
   const suggestions = suggestionsFor(pathname);
@@ -72,7 +90,7 @@ export function AgentPanel() {
       aria-label="SkillTide guide"
       className="panel flex h-full flex-col overflow-hidden rounded-md"
     >
-      <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3">
         <div className="flex items-center gap-2">
           <span className="flex h-7 w-7 items-center justify-center rounded-full border border-accent/40 bg-accent-soft text-accent" aria-hidden>
             <LifeBuoy className="h-4 w-4" />
@@ -82,8 +100,24 @@ export function AgentPanel() {
             <p className="text-[11px] text-muted">Answers only from SkillTide data</p>
           </div>
         </div>
-        <Badge tone="neutral">Rule-based</Badge>
+        <Segmented
+          size="sm"
+          label="How the guide words its answers"
+          value={store.aiWording ? "ai" : "rules"}
+          options={[
+            { value: "rules", label: "Rules" },
+            { value: "ai", label: "AI wording" },
+          ]}
+          onChange={(value) => store.update({ aiWording: value === "ai" })}
+        />
       </div>
+      {store.aiWording ? (
+        <p className="border-b border-border bg-surface-muted px-4 py-2 text-[11.5px] leading-relaxed text-ink-soft">
+          AI wording sends your question and SkillTide&apos;s computed facts about your results (never your name or CV) to
+          OpenAI to phrase the answer. Numbers and sources still come only from SkillTide: an answer with a number the
+          facts lack is discarded.
+        </p>
+      ) : null}
 
       <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
         {messages.length === 0 ? (
@@ -99,6 +133,7 @@ export function AgentPanel() {
             className={cn("flex", message.role === "user" ? "justify-end" : "justify-start")}
           >
             <div
+              aria-busy={message.pending || undefined}
               className={cn(
                 "max-w-[92%] rounded-md px-3 py-2 text-[13px] leading-relaxed",
                 message.role === "user"
@@ -106,12 +141,17 @@ export function AgentPanel() {
                   : message.kind === "replan"
                     ? "border border-accent/40 bg-accent-soft text-ink"
                     : "border border-border bg-surface-muted text-ink",
+                message.pending && "text-muted",
               )}
             >
               <p className="whitespace-pre-line">{message.text}</p>
               {message.citations?.length ? (
                 <CitationList citations={message.citations} className="mt-2" />
               ) : null}
+              {message.engine === "ai" ? (
+                <p className="mt-2 text-[11px] text-muted">Worded by OpenAI {message.model} from the SkillTide facts cited here.</p>
+              ) : null}
+              {message.note ? <p className="mt-2 text-[11px] text-muted">{message.note}</p> : null}
             </div>
           </div>
         ))}
@@ -123,7 +163,7 @@ export function AgentPanel() {
             {suggestions.map((suggestion) => (
               <button
                 key={suggestion}
-                onClick={() => ask(suggestion)}
+                onClick={() => void ask(suggestion)}
                 className="rounded-md border border-border-strong bg-surface px-2.5 py-1 text-[12px] text-ink-soft hover:border-ink/50 hover:text-ink"
               >
                 {suggestion}
@@ -138,6 +178,7 @@ export function AgentPanel() {
           <input
             id="agent-input"
             value={draft}
+            maxLength={500}
             onChange={(event) => setDraft(event.target.value)}
             placeholder="Ask why, what if, or where from…"
             className="h-9 min-w-0 flex-1 rounded-md border border-border-strong bg-surface px-3 text-[13px] text-ink placeholder:text-muted outline-none focus:border-brand"

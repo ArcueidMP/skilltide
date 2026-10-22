@@ -16,11 +16,11 @@ import { CitationList } from "./citations";
 import { SdgTag } from "./sdg";
 import { SkillChip } from "./skill-chip";
 import { ScenarioComparisonView } from "./scenario-comparison";
-import { Badge, Button, Card, Meter, ScoreRing, buttonClasses } from "./ui";
+import { Badge, Button, Card, Loading, Meter, ScoreRing, buttonClasses } from "./ui";
 
 export function MatchView() {
   const { profile, weights, update } = useStore();
-  const { matches, scenario, snapshot, fairness } = useAnalysis();
+  const { matches, scenario, snapshot, fairness, loading, pending } = useAnalysis();
   const [showAll, setShowAll] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
   const [comparing, setComparing] = useState(false);
@@ -37,6 +37,8 @@ export function MatchView() {
     );
   }
 
+  if (loading) return <Loading label={`Ranking ${dataset.roles.length} roles against your skills…`} />;
+
   const visible = showAll ? matches : matches.slice(0, 8);
 
   return (
@@ -49,7 +51,7 @@ export function MatchView() {
               <h2 className="font-display text-sm font-semibold">What matters to you</h2>
             </div>
             <p className="mt-1 text-[13px] text-muted">
-              Your match score blends three parts. Move the sliders and the ranking updates instantly.
+              Your match score blends three parts. Move the sliders and the ranking updates.
             </p>
             <div className="mt-4 grid gap-4 sm:grid-cols-3">
               <WeightSlider label="Skills you already have" value={weights.skills} onChange={(skills) => update({ weights: { ...weights, skills } })} />
@@ -99,7 +101,7 @@ export function MatchView() {
       {comparing && snapshot ? <ScenarioComparisonView snapshot={snapshot} /> : null}
 
       <LayoutGroup>
-        <ol className="space-y-3">
+        <ol aria-busy={pending || undefined} className={cn("space-y-3 transition-opacity", pending && "opacity-60")}>
           {visible.map((match, index) => (
             <motion.li
               key={match.roleId}

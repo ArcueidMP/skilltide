@@ -1,16 +1,14 @@
 "use client";
 
-import { useMemo } from "react";
 import { FlaskConical, Lightbulb, School, Target, Users } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { COHORT_PER_PROGRAMME, syntheticCohort, type CohortStudent } from "@/lib/cohort";
-import { cite, dataset, roleById, skillById } from "@/lib/data";
-import { rankRoles } from "@/lib/engine";
+import { COHORT_PER_PROGRAMME, type CohortStudent } from "@/lib/cohort";
+import { cite, roleById, skillById } from "@/lib/data";
 import { pct, SKILL_TREND_LABEL, TREND_LABEL, TREND_TONE } from "@/lib/format";
-import { useAnalysis } from "@/lib/use-analysis";
+import { useAnalysis, useCohort } from "@/lib/use-analysis";
 import { CitationList } from "./citations";
 import { SdgTag } from "./sdg";
-import { Badge, Card, CardHeader } from "./ui";
+import { Badge, Card, CardHeader, Loading } from "./ui";
 
 const PROGRAMME_LABELS: Record<CohortStudent["programme"], string> = {
   cs: "Computing",
@@ -18,67 +16,21 @@ const PROGRAMME_LABELS: Record<CohortStudent["programme"], string> = {
   mechatronics: "Mechatronics",
 };
 const PROGRAMMES = Object.keys(PROGRAMME_LABELS) as CohortStudent["programme"][];
-const WEIGHTS = { skills: 50, outlook: 30, sdg: 20 };
 
 export function CareerCentreView() {
-  const { snapshot, outlooks, trends, scenario } = useAnalysis();
-  const cohort = useMemo(() => syntheticCohort(), []);
+  const { snapshot, scenario } = useAnalysis();
+  const { value: analysis, pending } = useCohort(snapshot?.id, scenario?.id);
 
-  const analysis = useMemo(() => {
-    if (!snapshot) return null;
-    const results = cohort.map((student) => ({
-      student,
-      matches: rankRoles(student.profile, dataset, snapshot, outlooks, WEIGHTS),
-    }));
-
-    // Share of each programme holding a skill at project level (2+).
-    const coverage = (skillId: string, programme?: CohortStudent["programme"]) => {
-      const group = cohort.filter((s) => !programme || s.programme === programme);
-      const holding = group.filter((s) => s.profile.skills.some((c) => c.skillId === skillId && c.level >= 2));
-      return holding.length / (group.length || 1);
-    };
-
-    const technical = trends
-      .filter((t) => skillById(t.skillId)?.cluster !== "human")
-      .sort((a, b) => b.score - a.score);
-    const heatRows = technical.slice(0, 16);
-
-    const gaps = technical
-      .filter((t) => t.trend === "rising")
-      .map((t) => ({ trend: t, coverage: coverage(t.skillId) }))
-      .sort((a, b) => a.coverage - b.coverage)
-      .slice(0, 4);
-
-    const roleIds = [...new Set(results.map((r) => r.matches[0].roleId))];
-    const readiness = roleIds
-      .map((roleId) => {
-        const fits = results.map((r) => r.matches.find((m) => m.roleId === roleId)!.components.skills);
-        const topCount = results.filter((r) => r.matches[0].roleId === roleId).length;
-        return { roleId, ready: fits.filter((f) => f >= 60).length / fits.length, topCount };
-      })
-      .sort((a, b) => b.topCount - a.topCount)
-      .slice(0, 6);
-
-    const targetCounts = new Map<string, number>();
-    for (const r of results) {
-      for (const link of roleById(r.matches[0].roleId)?.sdg ?? []) {
-        targetCounts.set(link.targetId, (targetCounts.get(link.targetId) ?? 0) + 1);
-      }
-    }
-    const targets = [...targetCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6);
-
-    return { coverage, heatRows, gaps, readiness, targets };
-  }, [cohort, snapshot, outlooks, trends]);
-
-  if (!analysis || !snapshot || !scenario) return null;
-  const maxTarget = Math.max(...analysis.targets.map(([, n]) => n), 1);
+  if (!snapshot || !scenario) return null;
+  if (!analysis) return <Loading label="Summarising the synthetic cohort…" />;
+  const maxTarget = Math.max(...analysis.targets.map((target) => target.count), 1);
 
   return (
-    <div className="space-y-6">
+    <div aria-busy={pending || undefined} className={cn("space-y-6 transition-opacity", pending && "opacity-60")}>
       <Card className="flex flex-wrap items-center gap-4 border-shift/30 p-4">
         <FlaskConical className="h-5 w-5 text-shift" aria-hidden />
         <p className="flex-1 text-[13px] text-ink-soft">
-          <span className="font-medium text-ink">Demo cohort, not real students.</span> {cohort.length} synthetic final-year
+          <span className="font-medium text-ink">Demo cohort, not real students.</span> {analysis.students} synthetic final-year
           students ({COHORT_PER_PROGRAMME} per programme) drawn from typical skill mixes with a fixed seed. A real career
           centre would load its own anonymised, aggregated survey data instead.
         </p>
@@ -114,7 +66,7 @@ export function CareerCentreView() {
                       <Badge tone={TREND_TONE[row.trend]}>{SKILL_TREND_LABEL[row.trend]}</Badge>
                     </td>
                     {PROGRAMMES.map((p) => {
-                      const value = analysis.coverage(row.skillId, p);
+                      const value = row.coverage[p];
                       return (
                         <td
                           key={p}
@@ -144,11 +96,11 @@ export function CareerCentreView() {
             </div>
             <p className="mt-1 text-[12.5px] text-muted">Rising skills the fewest students have at project level.</p>
             <ul className="mt-3 space-y-3">
-              {analysis.gaps.map(({ trend, coverage }) => (
-                <li key={trend.skillId} className="text-[13px]">
-                  <p className="font-medium text-ink">{skillById(trend.skillId)?.name}</p>
+              {analysis.gaps.map((gap) => (
+                <li key={gap.skillId} className="text-[13px]">
+                  <p className="font-medium text-ink">{skillById(gap.skillId)?.name}</p>
                   <p className="text-muted">
-                    Outlook score {Math.round(trend.score)}, but only {pct(coverage)} of the cohort can use it in a project.
+                    Outlook score {Math.round(gap.score)}, but only {pct(gap.coverage)} of the cohort can use it in a project.
                   </p>
                 </li>
               ))}
@@ -161,10 +113,10 @@ export function CareerCentreView() {
             </div>
             <p className="mt-1 text-[12.5px] text-muted">Targets linked to each student&apos;s top-matched role.</p>
             <ul className="mt-3 space-y-2">
-              {analysis.targets.map(([target, count]) => (
-                <li key={target}>
+              {analysis.targets.map(({ targetId, count }) => (
+                <li key={targetId}>
                   <div className="flex items-center justify-between gap-2">
-                    <SdgTag targetId={target} />
+                    <SdgTag targetId={targetId} />
                     <span className="font-mono text-xs text-ink-soft">{count}</span>
                   </div>
                   <div className="mt-1 h-1 rounded-full bg-surface-muted">
@@ -184,12 +136,11 @@ export function CareerCentreView() {
         />
         <div className="grid gap-3 p-5 sm:grid-cols-2 lg:grid-cols-3">
           {analysis.readiness.map((item) => {
-            const outlook = outlooks.get(item.roleId);
             return (
               <div key={item.roleId} className="rounded-md border border-border bg-surface-muted p-4">
                 <div className="flex items-start justify-between gap-2">
                   <p className="font-medium text-ink">{roleById(item.roleId)?.title}</p>
-                  {outlook ? <Badge tone={TREND_TONE[outlook.trend]}>{TREND_LABEL[outlook.trend]}</Badge> : null}
+                  {item.trend ? <Badge tone={TREND_TONE[item.trend]}>{TREND_LABEL[item.trend]}</Badge> : null}
                 </div>
                 <div className="mt-3 flex items-end justify-between">
                   <span className="flex items-center gap-1.5 text-[12px] text-muted">

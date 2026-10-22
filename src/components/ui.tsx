@@ -5,6 +5,16 @@ export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return <div className={cn("panel rounded-md", className)} {...props} />;
 }
 
+/** Shown until the first result for a page arrives from the API or the browser fallback. */
+export function Loading({ label, className }: { label: string; className?: string }) {
+  return (
+    <Card role="status" className={cn("flex items-center justify-center gap-2.5 px-6 py-14 text-sm text-muted", className)}>
+      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand" aria-hidden />
+      {label}
+    </Card>
+  );
+}
+
 export function CardHeader({
   title,
   subtitle,

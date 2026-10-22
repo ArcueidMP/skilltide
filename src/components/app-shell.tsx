@@ -10,6 +10,7 @@ import type { ScenarioId } from "@/lib/types";
 import { Segmented } from "./ui";
 import { LogoMark } from "./decor";
 import { AgentPanel } from "./agent-panel";
+import { ApiStatusNote } from "./api-status";
 
 const STEPS = [
   { href: "/profile", label: "Profile" },
@@ -168,6 +169,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             Data &amp; method
           </Link>
           .
+          <ApiStatusNote />
         </p>
       </footer>
     </div>

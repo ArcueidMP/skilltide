@@ -5,36 +5,38 @@ import { useMemo, useState } from "react";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Building2, Globe2, Telescope } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { cite, dataset, roleById, skillById } from "@/lib/data";
-import { allOutlooks, skillTrends, type RoleOutlook, type SkillTrend } from "@/lib/engine";
+import type { RoleOutlook, SkillTrend } from "@/lib/engine";
 import { pct, signed, signedPct, SKILL_TREND_LABEL, TREND_LABEL, TREND_TONE } from "@/lib/format";
 import { CLUSTER_LABELS } from "@/lib/labels";
 import { useStore } from "@/lib/store";
-import { useAnalysis } from "@/lib/use-analysis";
+import { useAnalysis, useOutlooks } from "@/lib/use-analysis";
 import { CitationList } from "./citations";
 import { SdgTag } from "./sdg";
 import { SkillsRadar } from "./skills-radar";
 import { SnapshotTimeline } from "./snapshot-timeline";
 import { DataFreshness } from "./data-freshness";
-import { Badge, Card, CardHeader, Meter, buttonClasses } from "./ui";
+import { Badge, Card, CardHeader, Loading, Meter, buttonClasses } from "./ui";
 
 export function RadarView() {
   const { profile } = useStore();
-  const { snapshot, scenario, outlooks, trends } = useAnalysis();
+  const { snapshot, scenario, outlooks, trends, outlooksLoading, pending } = useAnalysis();
   const [selected, setSelected] = useState<string | null>(null);
 
   // The snapshot before the current one, for "what changed" deltas.
+  const before = useMemo(() => {
+    const index = snapshot ? dataset.snapshots.findIndex((s) => s.id === snapshot.id) : -1;
+    return index > 0 ? dataset.snapshots[index - 1] : null;
+  }, [snapshot]);
+  const beforeView = useOutlooks("radar:previous", before?.id, scenario?.id);
   const previous = useMemo(() => {
-    if (!snapshot || !scenario) return null;
-    const index = dataset.snapshots.findIndex((s) => s.id === snapshot.id);
-    const before = index > 0 ? dataset.snapshots[index - 1] : null;
-    if (!before) return null;
-    const beforeOutlooks = allOutlooks(dataset, before, scenario);
+    // Hide the deltas while they load, rather than compare against another snapshot's numbers.
+    if (!before || beforeView.loading || beforeView.pending) return null;
     return {
       snapshot: before,
-      outlooks: beforeOutlooks,
-      trends: new Map(skillTrends(dataset, before, beforeOutlooks).map((t) => [t.skillId, t])),
+      outlooks: beforeView.outlooks,
+      trends: new Map(beforeView.trends.map((t) => [t.skillId, t])),
     };
-  }, [snapshot, scenario]);
+  }, [before, beforeView.loading, beforeView.pending, beforeView.outlooks, beforeView.trends]);
 
   const owned = useMemo(() => new Set(profile?.skills.map((s) => s.skillId) ?? []), [profile]);
   // Skills with no role evidence and no hiring-post signal have nothing to say; leave them off the radar.
@@ -52,69 +54,75 @@ export function RadarView() {
       <SnapshotTimeline />
       <DataFreshness />
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
-        <Card className="animate-rise-in p-4 sm:p-6">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <h2 className="font-display text-lg font-semibold">Skills on the radar</h2>
-              <p className="text-sm text-muted">
-                Closer to the centre = rising faster. Ringed dots are skills you have. Dashed trails show the move since{" "}
-                {previous ? previous.snapshot.label : "the previous snapshot"}.
-              </p>
-            </div>
-            <div className="flex items-center gap-3 text-xs text-muted">
-              <Legend color="bg-rise" label="Rising" />
-              <Legend color="bg-slate-400" label="Steady" />
-              <Legend color="bg-fall" label="Cooling" />
+      {outlooksLoading ? (
+        <Loading label="Reading this snapshot's signals…" />
+      ) : (
+        <div aria-busy={pending || undefined} className={cn("space-y-6 transition-opacity", pending && "opacity-60")}>
+          <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+            <Card className="animate-rise-in p-4 sm:p-6">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h2 className="font-display text-lg font-semibold">Skills on the radar</h2>
+                  <p className="text-sm text-muted">
+                    Closer to the centre = rising faster. Ringed dots are skills you have. Dashed trails show the move since{" "}
+                    {previous ? previous.snapshot.label : "the previous snapshot"}.
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 text-xs text-muted">
+                  <Legend color="bg-rise" label="Rising" />
+                  <Legend color="bg-slate-400" label="Steady" />
+                  <Legend color="bg-fall" label="Cooling" />
+                </div>
+              </div>
+              <div className="mt-4">
+                <SkillsRadar
+                  trends={evidenced}
+                  previous={previous?.trends}
+                  owned={owned}
+                  selected={selected}
+                  onSelect={setSelected}
+                />
+              </div>
+              <CitationList citations={cite(snapshot.sources)} className="mt-4" />
+            </Card>
+
+            <div className="space-y-4">
+              {selectedTrend ? <SkillDetail trend={selectedTrend} previous={previous?.trends.get(selectedTrend.skillId)} /> : null}
+              <TrendList
+                title="Rising fastest"
+                icon={<ArrowUpRight className="h-4 w-4 text-rise" aria-hidden />}
+                items={rising}
+                previous={previous?.trends}
+                owned={owned}
+                onSelect={setSelected}
+              />
+              <TrendList
+                title="Cooling"
+                icon={<ArrowDownRight className="h-4 w-4 text-fall" aria-hidden />}
+                items={cooling}
+                previous={previous?.trends}
+                owned={owned}
+                onSelect={setSelected}
+              />
             </div>
           </div>
-          <div className="mt-4">
-            <SkillsRadar
-              trends={evidenced}
-              previous={previous?.trends}
-              owned={owned}
-              selected={selected}
-              onSelect={setSelected}
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            <RoleList
+              title="Roles on the rise"
+              subtitle={`Highest outlook under the ${scenario.label.toLowerCase()} scenario over ${dataset.horizonYears} years: hiring demand plus how AI touches the work`}
+              roles={roles.slice(0, 6)}
+              previous={previous?.outlooks}
+            />
+            <RoleList
+              title="Roles under most pressure"
+              subtitle="Lowest outlook: much of the work is exposed to automation, or hiring is slowing"
+              roles={roles.slice(-6).reverse()}
+              previous={previous?.outlooks}
             />
           </div>
-          <CitationList citations={cite(snapshot.sources)} className="mt-4" />
-        </Card>
-
-        <div className="space-y-4">
-          {selectedTrend ? <SkillDetail trend={selectedTrend} previous={previous?.trends.get(selectedTrend.skillId)} /> : null}
-          <TrendList
-            title="Rising fastest"
-            icon={<ArrowUpRight className="h-4 w-4 text-rise" aria-hidden />}
-            items={rising}
-            previous={previous?.trends}
-            owned={owned}
-            onSelect={setSelected}
-          />
-          <TrendList
-            title="Cooling"
-            icon={<ArrowDownRight className="h-4 w-4 text-fall" aria-hidden />}
-            items={cooling}
-            previous={previous?.trends}
-            owned={owned}
-            onSelect={setSelected}
-          />
         </div>
-      </div>
-
-      <div className="grid gap-6 lg:grid-cols-2">
-        <RoleList
-          title="Roles on the rise"
-          subtitle={`Highest outlook under the ${scenario.label.toLowerCase()} scenario over ${dataset.horizonYears} years: hiring demand plus how AI touches the work`}
-          roles={roles.slice(0, 6)}
-          previous={previous?.outlooks}
-        />
-        <RoleList
-          title="Roles under most pressure"
-          subtitle="Lowest outlook: much of the work is exposed to automation, or hiring is slowing"
-          roles={roles.slice(-6).reverse()}
-          previous={previous?.outlooks}
-        />
-      </div>
+      )}
 
       <div className="grid gap-6 lg:grid-cols-3">
         <AutomationTrendCard />

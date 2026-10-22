@@ -1,29 +1,36 @@
 "use client";
 
-import { useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
-import { compareScenarios, type ScenarioResult } from "@/lib/comparison";
-import { cite, dataset, roleById, skillById } from "@/lib/data";
+import { cn } from "@/lib/cn";
+import type { ScenarioSummary } from "@/lib/comparison";
+import { cite, roleById, skillById } from "@/lib/data";
 import { pct, signed } from "@/lib/format";
 import { useStore } from "@/lib/store";
 import type { Snapshot } from "@/lib/types";
+import { useComparison } from "@/lib/use-analysis";
 import { CitationList } from "./citations";
-import { Badge, Button, Card, CardHeader } from "./ui";
+import { Badge, Button, Card, CardHeader, Loading } from "./ui";
 
 export function ScenarioComparisonView({ snapshot }: { snapshot: Snapshot }) {
   const { profile, weights, update } = useStore();
   const router = useRouter();
-  const comparison = useMemo(() => compareScenarios(profile, dataset, snapshot, weights), [profile, snapshot, weights]);
+  const { value: comparison, pending } = useComparison(profile, snapshot, weights);
+  if (comparison === undefined && profile) return <Loading label="Comparing both scenarios…" />;
   if (!comparison) return null;
 
-  function choosePlan(result: ScenarioResult) {
+  function choosePlan(result: ScenarioSummary) {
     update({ scenario: result.scenarioId, targetRoleId: result.leadingMatch.roleId });
     router.push("/pathway");
   }
 
   return (
-    <section id="scenario-comparison" aria-label="Scenario comparison" className="space-y-4">
+    <section
+      id="scenario-comparison"
+      aria-label="Scenario comparison"
+      aria-busy={pending || undefined}
+      className={cn("space-y-4 transition-opacity", pending && "opacity-60")}
+    >
       <Card>
         <CardHeader title="Two futures, the same starting point" subtitle={`Same profile, weights and data (${snapshot.label}). Only the AI adoption assumptions change.`} />
         <div className="space-y-4 p-5">

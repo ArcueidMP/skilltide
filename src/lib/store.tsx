@@ -10,6 +10,8 @@ interface PersistedState {
   targetRoleId: string | null;
   weights: MatchWeights;
   agentOpen: boolean;
+  /** Let OpenAI word the guide's answers from SkillTide's facts. Off unless the user turns it on. */
+  aiWording: boolean;
 }
 
 const DEFAULT_STATE: PersistedState = {
@@ -19,6 +21,7 @@ const DEFAULT_STATE: PersistedState = {
   targetRoleId: null,
   weights: { skills: 50, outlook: 30, sdg: 20 },
   agentOpen: true,
+  aiWording: false,
 };
 
 const STORAGE_KEY = "skilltide:v1";
