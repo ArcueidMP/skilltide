@@ -1,0 +1,71 @@
+/* Fonts come from the app's own @fontsource packages (npm ci at the repository root). */
+@font-face { font-family: "Source Serif 4"; src: url("/repo/node_modules/@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2") format("woff2"); font-weight: 200 900; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url("/repo/node_modules/@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-italic.woff2") format("woff2"); font-weight: 200 900; font-style: italic; }
+@font-face { font-family: "Plex Sans"; src: url("/repo/node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Plex Sans"; src: url("/repo/node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Plex Sans"; src: url("/repo/node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; }
+@font-face { font-family: "Plex Sans"; src: url("/repo/node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Plex Sans"; src: url("/repo/node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Plex Mono"; src: url("/repo/node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
+@font-face { font-family: "Plex Mono"; src: url("/repo/node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+@font-face { font-family: "Plex Mono"; src: url("/repo/node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+
+:root {
+  --paper: #f4f1e7;
+  --surface: #fbfaf5;
+  --surface-muted: #ece7d8;
+  --border: #d8d0bc;
+  --border-strong: #a99f88;
+  --ink: #12263a;
+  --ink-soft: #33475b;
+  --muted: #5d6b78;
+  --brand: #1d5c8a;
+  --brand-strong: #133f61;
+  --brand-soft: #dde9f0;
+  --accent: #b84a1c;
+  --accent-soft: #f6e0d3;
+  --rise: #2a7348;
+  --rise-soft: #dcede1;
+  --fall: #b3382b;
+  --fall-soft: #f5dcd7;
+  --shift: #8e3b78;
+  --shift-soft: #efdde9;
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "Plex Sans", "Segoe UI", sans-serif;
+  --mono: "Plex Mono", Consolas, monospace;
+  --cjk: "Microsoft YaHei", "Microsoft YaHei UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--paper); }
+body { color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; font-kerning: normal; }
+#stage { position: absolute; inset: 0; overflow: hidden; }
+#gl { position: absolute; inset: 0; width: 1920px; height: 1080px; }
+#dom, #subs { position: absolute; inset: 0; pointer-events: none; }
+#dom > *, #subs > * { position: absolute; }
+
+.layer { position: absolute; inset: 0; }
+.abs { position: absolute; }
+.serif { font-family: var(--serif); font-optical-sizing: auto; }
+.sans { font-family: var(--sans); }
+.mono { font-family: var(--mono); }
+.italic { font-style: italic; }
+.label { font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+.nowrap { white-space: nowrap; }
+
+.c-ink { color: var(--ink); } .c-soft { color: var(--ink-soft); } .c-muted { color: var(--muted); }
+.c-brand { color: var(--brand); } .c-accent { color: var(--accent); } .c-rise { color: var(--rise); }
+.c-fall { color: var(--fall); } .c-shift { color: var(--shift); }
+
+.panel { background: var(--surface); border: 1px solid var(--border); box-shadow: 0 1px 2px rgba(18, 38, 58, 0.06), 0 12px 32px -18px rgba(18, 38, 58, 0.28); border-radius: 6px; }
+.neatline { height: 8px; border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); background: repeating-linear-gradient(90deg, var(--ink) 0 48px, var(--surface) 48px 96px); }
+.word { display: inline-block; white-space: pre; }
+
+/* Subtitles: a quiet chart-label slip at the foot of the frame. */
+#subs .sub {
+  left: 50%; bottom: 46px; transform: translateX(-50%);
+  width: max-content; max-width: 1500px; padding: 10px 22px 11px;
+  font-family: var(--sans); font-size: 29px; line-height: 1.34; font-weight: 500; color: var(--ink);
+  text-align: center; background: rgba(251, 250, 245, 0.93); border: 1px solid rgba(169, 159, 136, 0.7); border-radius: 6px;
+  box-shadow: 0 10px 30px -18px rgba(18, 38, 58, 0.45);
+}
