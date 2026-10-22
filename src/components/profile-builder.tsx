@@ -142,7 +142,7 @@ export function ProfileBuilder() {
   const ready = profile.skills.length >= 3;
 
   return (
-    <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
+    <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
       <div className="space-y-6">
         <Card className="animate-rise-in p-5">
           <div className="flex flex-wrap items-center justify-between gap-3">

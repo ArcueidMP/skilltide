@@ -9,10 +9,11 @@ export function CitationList({
   citations: Citation[];
   className?: string;
 }) {
+  // Capping each item lets a long source name truncate instead of pushing the page past a phone screen.
   return (
     <ul className={cn("flex flex-wrap gap-1.5", className)} aria-label="Sources">
       {citations.map((citation, index) => (
-        <li key={`${citation.label}-${index}`}>
+        <li key={`${citation.label}-${index}`} className="max-w-full">
           <CitationChip citation={citation} />
         </li>
       ))}

@@ -58,7 +58,7 @@ export function RadarView() {
         <Loading label="Reading this snapshot's signals…" />
       ) : (
         <div aria-busy={pending || undefined} className={cn("space-y-6 transition-opacity", pending && "opacity-60")}>
-          <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+          <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
             <Card className="animate-rise-in p-4 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
@@ -107,7 +107,7 @@ export function RadarView() {
             </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <RoleList
               title="Roles on the rise"
               subtitle={`Highest outlook under the ${scenario.label} scenario over ${dataset.horizonYears} years: hiring demand plus how AI touches the work`}

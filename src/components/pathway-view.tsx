@@ -78,7 +78,7 @@ export function PathwayView() {
         </div>
       ) : null}
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
         <ol className="relative space-y-4 pl-8">
           <span className="absolute bottom-4 left-[11px] top-4 border-l-2 border-dashed border-ink/30" aria-hidden />
           {pathway.steps.map((step, index) => (
