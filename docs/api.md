@@ -28,7 +28,7 @@ The computations sit in `src/lib/analysis.ts`. The Worker and the browser fallba
 
 ## What leaves the browser
 
-A request carries an `ApiProfile`: skill ids and levels, chosen SDG goals, weekly study hours and budget. It never carries the name, graduation year, interests, CV text or evidence phrases (see `toApiProfile`). The server rebuilds a scoring profile and leaves those fields empty; scoring does not use them. The server stores nothing.
+A request carries an `ApiProfile`: skill ids and levels, chosen SDG goals, weekly study hours and budget. It never carries the name, graduation year, interests, CV text or evidence phrases (see `toApiProfile`). The server rebuilds a scoring profile and leaves those fields empty; scoring does not use them. `/matches` and `/guide` also carry the ids of the pathway steps the student has marked done, and `/guide` the interface language. The server stores nothing.
 
 Workers Logs get one line per request: path, method, status, duration and, for the Guide, whether the answer came from the AI or the rules. The body, which holds the profile, is never logged.
 
@@ -58,13 +58,16 @@ Returns `{ roles: RoleOutlook[], skills: SkillTrend[] }`: every role's outlook, 
   "scenario": "moderate",
   "weights": { "skills": 50, "outlook": 30, "sdg": 20 },
   "profile": { "skills": [{ "skillId": "plc", "level": 3 }], "sdgGoals": [9, 12], "hoursPerWeek": 8, "budget": "free" },
-  "targetRoleId": null
+  "targetRoleId": null,
+  "done": { "courses": ["mslearn-get-started-with-python-fundamentals"], "tasks": [] }
 }
 ```
 
-Returns `{ snapshot, scenario, matches, targetRoleId, pathway, fairness }`.
+Returns `{ snapshot, scenario, matches, targetRoleId, pathway, circle, fairness }`.
 - Matches leave out `outlook`, because the browser already holds it from `/outlooks`. That cuts the response from 171 KB to about 40 KB.
 - `targetRoleId` is the role the pathway was built for: the requested one if it exists, otherwise the top match.
+- `done` lists the course ids and O*NET task ids of pathway steps marked done; a missing `done` counts as none. Finished courses are never suggested again. A skill from a finished course that is still short of the role's level moves to the portfolio project, and a finished project is not repeated. The profile already carries the raised levels: the browser raises a course's skills to level 1 and a project's to level 2 when the step is marked done.
+- `circle` is a study circle of up to five synthetic cohort students who need the same skills as the pathway's next course, chosen by skill gaps alone, or `null`.
 
 ### POST /api/v1/scenarios/compare
 
@@ -72,15 +75,18 @@ The body is `{ snapshot, weights, profile }`. The response is `ScenarioCompariso
 
 ### GET /api/v1/cohort?snapshot=latest&scenario=moderate&v=…
 
-Returns the career-centre summary of the synthetic cohort: the skills heatmap, workshop gaps, readiness and SDG targets. Ranking 180 students takes 17–38 ms, more than a free-plan Worker request may use. So `scripts/materialize-cohort.mts` computes all 12 snapshot and scenario pairs before every build and test run. If those summaries come from another dataset version, the endpoint answers `503 cohort_unavailable`, and the browser computes the summary itself.
+Returns the career-centre summary of the synthetic cohort: the skills heatmap, workshop gaps, readiness, SDG targets and study groups (students whose pathway starts with the same gap, in groups of up to six, each with a starter course). Ranking 180 students takes 17–38 ms, more than a free-plan Worker request may use. So `scripts/materialize-cohort.mts` computes all 12 snapshot and scenario pairs before every build and test run. If those summaries come from another dataset version, the endpoint answers `503 cohort_unavailable`, and the browser computes the summary itself.
 
 ### POST /api/v1/guide
 
 ```json
 { "question": "Why is my top role ranked first?", "page": "/match", "ai": false,
   "snapshot": "latest", "scenario": "moderate", "weights": { "skills": 50, "outlook": 30, "sdg": 20 },
-  "profile": { "…": "ApiProfile, or null" }, "targetRoleId": null }
+  "profile": { "…": "ApiProfile, or null" }, "targetRoleId": null,
+  "done": { "courses": [], "tasks": [] }, "locale": "ms" }
 ```
+
+`locale` is `en`, `ms` or `zh` (English when missing). The rule-based answer, and the AI wording when it is on, come in that language; role, skill, course and source names stay in English.
 
 Returns `{ text, citations, kind, engine, model?, fallback? }`. `engine` is `"rules"` or `"ai"`. When `ai` is true and the answer came from the rules, `fallback.reason` says why (see [AI wording](#ai-wording)).
 

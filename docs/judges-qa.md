@@ -26,7 +26,7 @@ It checks that changing names and graduation years leaves the ranking unchanged.
 
 ## 7. What happens to a CV?
 
-PDF and text extraction run in the browser. The file and full CV text are not saved or sent to a parsing service. Skills and short supporting phrases remain in browser storage until Reset demo clears them. To rank roles, SkillTide's API receives only skill ids and levels, chosen goals, weekly hours and budget, and stores none of it. Demonstrations use synthetic profiles only. Scanned PDFs need OCR first, and protected PDFs need an unlocked copy.
+PDF and text extraction run in the browser. The file and full CV text are not saved or sent to a parsing service. Skills and short supporting phrases remain in browser storage until Reset demo clears them. To rank roles, SkillTide's API receives only skill ids and levels, chosen goals, weekly hours, budget and the ids of pathway steps marked done, and stores none of it. Pathway progress and badges stay in browser storage too. Demonstrations use synthetic profiles only. Scanned PDFs need OCR first, and protected PDFs need an unlocked copy.
 
 ## 8. How are SDGs meaningful here?
 

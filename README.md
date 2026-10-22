@@ -15,10 +15,11 @@ A final-year student in computer science, electrical & electronic engineering or
 1. **Profile** — paste a CV, upload a PDF/TXT/Markdown CV, tick skills, or load a synthetic sample student. Skills are recognised in the browser with fixed rules; each match shows the phrase it came from. A [synthetic sample CV](public/samples/kavin-raj-synthetic-cv.pdf) is included for trying the upload.
 2. **Future Skills Radar** — skills and roles rising or under pressure, from dated data. Replay six historical signal snapshots with the current catalogue and assumptions, and inspect actual refresh provenance.
 3. **Matches** — roles ranked by an explainable score (skills fit, AI outlook, SDG fit) with weights you control, skill gaps, and a fairness check.
-4. **Pathway** — an ordered plan of courses whose hours and cost were checked at the source, ending with a portfolio project built on a real task from the role.
+4. **Pathway** — an ordered plan of courses whose hours and cost were checked at the source, ending with a portfolio project built on a real task from the role. Mark a step done and its skills rise (a course to coursework level, the project to project level), the ranking and the plan update, and badges mark the milestones. A study circle shows synthetic students who need the same skills next.
 5. **Scenarios** — compare *Moderate* and *Fast* AI adoption side by side with the same profile, snapshot and weights. See both top-five rankings and leading pathways, including outcomes that stay unchanged.
 6. **Guide** — a side panel that answers "why?", "what if?" and "where from?" from SkillTide's own data, with sources. Re-plans automatically when the data or scenario changes. Optional *AI wording* (off by default) lets an OpenAI model phrase the answer from the same facts; a reply with a number the facts lack is discarded.
-7. **Career-centre view** — skills heatmap, readiness and SDG contribution across a (synthetic) cohort.
+7. **Career-centre view** — skills heatmap, readiness, SDG contribution and study groups by shared gap across a (synthetic) cohort.
+8. **Three languages** — English, Bahasa Melayu and Simplified Chinese, switched in the header; the Guide answers in the chosen language. Role, skill, course and source names stay in English, as their sources publish them. CV headings are recognised in all three languages.
 
 ## How it works
 
@@ -98,7 +99,7 @@ The evaluation uses 12 synthetic design cases and an explicit skills-only compar
 
 - SkillTide supports career decisions; it does not make them and is not a hiring tool.
 - Scoring never uses name, age, gender, ethnicity or background. Rankings are re-checked against name/graduation-year variants. This narrow invariance check does not establish fairness across all groups or inputs.
-- No real personal data: sample students and the career-centre cohort are synthetic. Profiles are saved only in the user's browser; the API computes from skills, goals, hours and budget and stores nothing.
+- No real personal data: sample students and the career-centre cohort are synthetic. Profiles, pathway progress and badges are saved only in the user's browser; the API computes from skills, goals, hours, budget and the ids of finished steps, and stores nothing. Study circles are drawn from the synthetic cohort, never from other users.
 - Every recommendation cites its source. Jobs, courses and figures come only from the sources above; no language model produces any of them.
 - **AI disclosure:** recommendations use explicit formulas and published data. The Guide answers with fixed rules unless the user turns on *AI wording*: then OpenAI's `gpt-6-luna` phrases the answer from SkillTide's computed facts, and the reply is shown only if every number in it appears in those facts. Claude Code (Anthropic) and Codex (OpenAI) assisted development.
 
