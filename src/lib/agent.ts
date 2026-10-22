@@ -81,10 +81,10 @@ function explainMatch(match: RoleMatch, rank: number, ctx: AgentContext): Answer
   return answer(
     `${role.title} is #${rank} with a match of ${Math.round(match.score)}.\n` +
       `• Skills fit ${Math.round(match.components.skills)} (weight ${w.skills}): you already have ${strengths.length ? strengths.join(", ") : "few of its core skills"}.\n` +
-      `• Outlook ${Math.round(match.outlook.score)} (weight ${w.outlook}): in the ${ctx.scenario?.label} scenario AI assists ${pct(match.outlook.augmentation)} and automates ${pct(match.outlook.displacement)} of its work over ${dataset.horizonYears} years; postings in its sector are ${signedPct(demand)} on a year earlier.\n` +
+      `• Outlook ${Math.round(match.outlook.score)} (weight ${w.outlook}): in the ${ctx.scenario?.label} scenario AI assists ${pct(match.outlook.augmentation)} and automates ${pct(match.outlook.displacement)} of its work over ${dataset.horizonYears} years; postings in its sector are ${signedPct(demand)} on a year earlier in the US, UK and Australia (Indeed; Malaysian postings are not in this data).\n` +
       (role.mycol
-        ? `• Malaysia lists it as a critical occupation (“${role.mycol.listedTitle}”), worth +${OUTLOOK_MODEL.malaysia} outlook points.\n`
-        : "") +
+        ? `• Malaysia lists it as a critical occupation (“${role.mycol.listedTitle}”) on MyCOL, SkillTide's local demand signal, worth +${OUTLOOK_MODEL.malaysia} outlook points.\n`
+        : `• It is not on Malaysia's Critical Occupations List (MyCOL), SkillTide's local demand signal, so no local bonus applies.\n`) +
       `• SDG fit ${Math.round(match.components.sdg)} (weight ${w.sdg}).\n` +
       (gaps.length ? `Biggest gaps to close: ${gaps.join(", ")}.` : "You already cover its core skills.") +
       pressureNote(match, ctx),
@@ -170,7 +170,7 @@ export function respond(question: string, ctx: AgentContext): Answer {
     const s = ctx.snapshot;
     return answer(
       s
-        ? `This view uses AI-use data from ${s.aiUsePeriod} (Anthropic Economic Index) and job demand as of ${s.asOf} (Indeed postings), task data from O*NET ${dataset.sources.onet ? "31.0" : ""} and exposure ratings from Eloundou et al. Every chip under a chart links to its source; the full list is on the Data & method page.`
+        ? `This view uses AI-use data from ${s.aiUsePeriod} (Anthropic Economic Index) and job demand as of ${s.asOf} (Indeed postings in the US, UK and Australia; Malaysian postings are not in this data), task data from O*NET ${dataset.sources.onet ? "31.0" : ""} and exposure ratings from Eloundou et al. Malaysia's local demand signal is its Critical Occupations List (MyCOL), which adds ${OUTLOOK_MODEL.malaysia} outlook points to listed roles. Every chip under a chart links to its source; the full list is on the Data & method page.`
         : "Every chart cites its sources; the full list is on the Data & method page.",
       s ? cite(s.sources) : undefined,
     );

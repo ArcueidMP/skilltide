@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, type ReactNode } from "react";
-import { BookOpen, LifeBuoy, School, X } from "lucide-react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { BookOpen, Info, LifeBuoy, School, X } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { dataset } from "@/lib/data";
 import { useStore } from "@/lib/store";
 import type { ScenarioId } from "@/lib/types";
 import { Segmented } from "./ui";
@@ -82,13 +83,16 @@ export function AppShell({ children }: { children: ReactNode }) {
 
           <div className="ml-auto flex items-center gap-2">
             {!isLanding ? (
-              <Segmented
-                label="AI disruption scenario"
-                value={scenario}
-                options={SCENARIOS}
-                onChange={(value) => update({ scenario: value })}
-                size="sm"
-              />
+              <>
+                <Segmented
+                  label="AI disruption scenario"
+                  value={scenario}
+                  options={SCENARIOS}
+                  onChange={(value) => update({ scenario: value })}
+                  size="sm"
+                />
+                <ScenarioAssumptions />
+              </>
             ) : null}
             <Link
               href="/career-centre"
@@ -172,6 +176,58 @@ export function AppShell({ children }: { children: ReactNode }) {
           <ApiStatusNote />
         </p>
       </footer>
+    </div>
+  );
+}
+
+/** The two scenarios differ only in assumed paces, so the switch says what they assume. */
+function ScenarioAssumptions() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const close = (event: Event) => {
+      const done = event instanceof KeyboardEvent ? event.key === "Escape" : !ref.current?.contains(event.target as Node);
+      if (done) setOpen(false);
+    };
+    document.addEventListener("pointerdown", close);
+    document.addEventListener("keydown", close);
+    return () => {
+      document.removeEventListener("pointerdown", close);
+      document.removeEventListener("keydown", close);
+    };
+  }, [open]);
+
+  // Below sm the note spans the sticky header, so it cannot run off a phone screen.
+  return (
+    <div ref={ref} className="sm:relative">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls="scenario-assumptions"
+        aria-label="What the AI scenarios assume"
+        className="flex items-center gap-1 rounded-md px-1.5 py-1.5 text-[12px] font-medium text-ink-soft hover:text-ink"
+      >
+        <Info className="h-4 w-4" aria-hidden />
+        <span className="hidden xl:inline">Assumptions</span>
+      </button>
+      {open ? (
+        <div
+          id="scenario-assumptions"
+          className="panel absolute left-4 right-4 top-full z-40 mt-2 space-y-2 rounded-md p-3 text-[12px] leading-relaxed text-ink-soft sm:left-auto sm:right-0 sm:w-80"
+        >
+          {dataset.scenarios.map((scenario) => (
+            <p key={scenario.id}>
+              <span className="font-medium text-ink">{scenario.label}:</span> {scenario.description} {scenario.assumption}
+            </p>
+          ))}
+          <Link href="/methodology" onClick={() => setOpen(false)} className="inline-block text-brand-strong underline underline-offset-2">
+            How the scenarios work
+          </Link>
+        </div>
+      ) : null}
     </div>
   );
 }

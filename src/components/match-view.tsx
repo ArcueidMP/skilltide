@@ -275,17 +275,23 @@ function MatchCard({
             </p>
             <p>
               <span className="font-medium text-ink">Outlook {Math.round(match.outlook.score)}:</span> over{" "}
-              {dataset.horizonYears} years in the {scenario.label.toLowerCase()} scenario, AI is projected to assist{" "}
+              {dataset.horizonYears} years in the {scenario.label} scenario, AI is projected to assist{" "}
               {pct(match.outlook.augmentation)} and automate {pct(match.outlook.displacement)} of this role&apos;s work
-              (task-weighted). Job postings in its sector are {signedPct(demand?.postingsYoY ?? 0)} on a year earlier. AI-signal
-              data covers {pct(match.outlook.coverage)} of its tasks.
+              (task-weighted). Job postings in its sector are {signedPct(demand?.postingsYoY ?? 0)} on a year earlier in the US,
+              UK and Australia (Indeed Hiring Lab); Malaysian postings are not in this data. AI-signal data covers{" "}
+              {pct(match.outlook.coverage)} of its tasks.
             </p>
-            {role.mycol ? (
-              <p>
-                <span className="font-medium text-ink">Malaysia:</span> listed as &ldquo;{role.mycol.listedTitle}&rdquo; on the
-                Critical Occupations List, which adds {OUTLOOK_MODEL.malaysia} points to the outlook.
-              </p>
-            ) : null}
+            <p>
+              <span className="font-medium text-ink">Malaysia:</span>{" "}
+              {role.mycol ? (
+                <>
+                  listed as &ldquo;{role.mycol.listedTitle}&rdquo; on the Critical Occupations List (MyCOL), SkillTide&apos;s
+                  local demand signal, which adds {OUTLOOK_MODEL.malaysia} points to the outlook.
+                </>
+              ) : (
+                <>not on the Critical Occupations List (MyCOL), SkillTide&apos;s local demand signal, so no local bonus applies.</>
+              )}
+            </p>
             <p>
               <span className="font-medium text-ink">SDG fit {Math.round(match.components.sdg)}:</span>{" "}
               {profile?.sdgGoals.length

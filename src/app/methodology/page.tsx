@@ -11,7 +11,7 @@ const USES: Record<string, string> = {
   aei: "How much Claude is used for each task, how (automating vs assisting), and Malaysia's usage index",
   "aei-method": "The idea of combining theoretical exposure with observed use",
   "aei-robots": "Robot exposure index shown on role cards (context only)",
-  indeed: "Hiring demand: postings by sector, relative to all postings",
+  indeed: "Hiring demand in the US, UK and Australia (no Malaysian postings): postings by sector, relative to all postings",
   "indeed-ai": "Share of postings that mention AI, for AI skills' momentum",
   hn: "Mentions of each skill in monthly hiring threads, for skill momentum",
   "un-sdg": "Goal and target wording",
@@ -197,7 +197,7 @@ match = (w_skills × skills fit + w_outlook × outlook + w_sdg × SDG fit) ÷ (w
             <ul className="list-disc space-y-2 p-5 pl-10 text-[13.5px] leading-relaxed text-ink-soft">
               <li>O*NET describes US occupations. Malaysian roles of the same name are similar but not identical.</li>
               <li>The Anthropic Economic Index covers people who use Claude, not all AI use. Releases differ in sample and method, so part of the change between snapshots is measurement, not the world.</li>
-              <li>Indeed&apos;s postings data covers the US, UK and Australia, not Malaysia; Malaysia appears through Claude usage and the context figures we cite.</li>
+              <li>Indeed&apos;s postings data covers the US, UK and Australia, not Malaysia. Malaysia&apos;s own demand signal is the Critical Occupations List (MyCOL), worth {m.malaysia} outlook points; Claude usage and the context figures we cite add background.</li>
               <li>Hacker News hiring threads lean towards US software start-ups, so they say little about electronics or automation skills (those show &ldquo;too few to tell&rdquo;).</li>
               <li>The adoption rates in the two scenarios are assumptions. The labels are relative: &ldquo;under pressure&rdquo; means a weaker outlook than most roles here, not that a job will vanish.</li>
               <li>Course lists are not exhaustive: SkillTide only lists courses whose length and cost it could check.</li>

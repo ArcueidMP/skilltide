@@ -29,7 +29,7 @@ public data ──► pipeline/build_dataset.py ──► src/data/dataset.json 
 The pages call SkillTide's API, served by the Cloudflare Worker in front of the static site. It ranks roles, builds pathways, compares scenarios, summarises the demo cohort and answers the Guide. If the API cannot be reached, the browser runs the same engine on the same data, and the footer says so. See the [API notes](docs/api.md).
 
 - **Task exposure.** Each O*NET task gets a theoretical ceiling (Eloundou et al. β) and today's observed AI use (Anthropic Economic Index), projected forward: `e(h) = c − (c − e₀)(1 − r)^h`. Usage data also splits AI use into *automating* vs *assisting*.
-- **Role outlook.** `50 + 20·demand + 40·assisted − 55·automated`, with demand = sector job postings relative to all postings (Indeed Hiring Lab). Labels are relative to the 30 roles tracked.
+- **Role outlook.** `50 + 20·demand + 40·assisted − 55·automated + 5 if on MyCOL`, with demand = sector job postings relative to all postings (Indeed Hiring Lab: US, UK and Australia, no Malaysian postings) and MyCOL = Malaysia's Critical Occupations List, the local demand signal. Labels are relative to the 30 roles tracked.
 - **Skills.** Hiring-post momentum (Hacker News "Who is hiring?", Indeed AI tracker) plus the outlook of the roles that need them.
 - **Matching and pathways.** Weighted, inspectable blend of skills fit, outlook and SDG fit; greedy course selection by priority per hour.
 

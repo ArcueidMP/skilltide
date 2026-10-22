@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Building2, Globe2, Telescope } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { cite, dataset, roleById, skillById } from "@/lib/data";
-import type { RoleOutlook, SkillTrend } from "@/lib/engine";
+import { OUTLOOK_MODEL, type RoleOutlook, type SkillTrend } from "@/lib/engine";
 import { pct, signed, signedPct, SKILL_TREND_LABEL, TREND_LABEL, TREND_TONE } from "@/lib/format";
 import { CLUSTER_LABELS } from "@/lib/labels";
 import { useStore } from "@/lib/store";
@@ -110,7 +110,7 @@ export function RadarView() {
           <div className="grid gap-6 lg:grid-cols-2">
             <RoleList
               title="Roles on the rise"
-              subtitle={`Highest outlook under the ${scenario.label.toLowerCase()} scenario over ${dataset.horizonYears} years: hiring demand plus how AI touches the work`}
+              subtitle={`Highest outlook under the ${scenario.label} scenario over ${dataset.horizonYears} years: hiring demand plus how AI touches the work`}
               roles={roles.slice(0, 6)}
               previous={previous?.outlooks}
             />
@@ -121,6 +121,11 @@ export function RadarView() {
               previous={previous?.outlooks}
             />
           </div>
+          <p className="-mt-3 text-[12px] leading-relaxed text-muted">
+            Postings are Indeed Hiring Lab job postings in the US, UK and Australia; Malaysian postings are not in this data.
+            MyCOL marks roles on Malaysia&apos;s Critical Occupations List, SkillTide&apos;s local demand signal, which adds{" "}
+            {OUTLOOK_MODEL.malaysia} points to the outlook.
+          </p>
         </div>
       )}
 
@@ -282,7 +287,7 @@ function RoleList({
                   </p>
                   <p className="mt-0.5 font-mono text-[11px] text-muted">
                     AI assists {pct(outlook.augmentation)} · automates {pct(outlook.displacement)}
-                    {yoy !== undefined ? ` · postings ${signedPct(yoy)} y/y` : ""}
+                    {yoy !== undefined ? ` · postings ${signedPct(yoy)} y/y (US/UK/AU)` : ""}
                   </p>
                 </div>
                 <div className="flex shrink-0 items-center gap-2">
