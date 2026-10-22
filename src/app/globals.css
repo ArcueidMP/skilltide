@@ -27,6 +27,11 @@
   --graticule: rgba(29, 92, 138, 0.07);
 }
 
+/* Chinese has no true italics: browsers would slant the glyphs, so emphasis keeps only its colour. */
+:lang(zh) em {
+  font-style: normal;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
