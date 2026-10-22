@@ -209,9 +209,17 @@ match = (w_skills × skills fit + w_outlook × outlook + w_sdg × SDG fit) ÷ (w
             <ul className="list-disc space-y-2 p-5 pl-10 text-[13.5px] leading-relaxed text-ink-soft">
               <li>SkillTide supports your decisions; it does not make them, and it is not a hiring tool.</li>
               <li>Scoring never uses name, age, gender, ethnicity or background. Every match is re-checked against profile variants with different names and graduation years, and must come out identical.</li>
-              <li>Your profile stays in your browser. Sample students are synthetic; please never paste someone else&apos;s CV.</li>
-              <li>CV reading and the guide&apos;s answers are rule-based. No language model runs in the product. Recommendations use published data, explicit formulas and stated scenario assumptions.</li>
+              <li>Your profile is saved only in your browser. To rank roles, SkillTide&apos;s API receives your skills and levels, chosen goals, weekly hours and budget — never your name or CV — and stores none of it. Sample students are synthetic; please never paste someone else&apos;s CV.</li>
+              <li>CV reading is rule-based and runs in your browser. Recommendations use published data, explicit formulas and stated scenario assumptions; no language model produces a job, course or number. The guide answers with fixed rules unless you turn on AI wording: then OpenAI&apos;s gpt-6-luna phrases the answer from SkillTide&apos;s computed facts, and a reply with a number those facts lack is discarded.</li>
               <li>Historical views replay past signals with the current role catalogue and scenario assumptions; they are not a historical forecasting backtest. Learning plans address skill gaps, but completing a course does not establish mastery.</li>
+            </ul>
+          </Card>
+
+          <Card>
+            <CardHeader title="8. Where it runs" />
+            <ul className="list-disc space-y-2 p-5 pl-10 text-[13.5px] leading-relaxed text-ink-soft">
+              <li>The pages are static files on Cloudflare. SkillTide&apos;s API, a Cloudflare Worker on the same domain, ranks roles, builds pathways, compares scenarios, summarises the demo cohort and answers the guide.</li>
+              <li>The API and your browser carry the same engine and the same dataset build. If the API cannot be reached, your browser computes the same results itself; the footer says which one is in use.</li>
             </ul>
           </Card>
         </div>

@@ -2,7 +2,7 @@
 
 ## 1. Where is the AI in this product?
 
-SkillTide models the impact of AI using published task-exposure and observed-use datasets. The shipped product uses deterministic rules and scenario formulas; it does not run a language model. AI coding tools assisted development. We disclose that distinction and do not describe the guide as an LLM chatbot.
+SkillTide models the impact of AI using published task-exposure and observed-use datasets. Recommendations come from deterministic rules and scenario formulas. The only runtime language model is optional and off by default: with *AI wording* turned on, OpenAI's `gpt-6-luna` rephrases the Guide's answer from facts SkillTide computed, and the server shows the reply only if every number in it appears in those facts; otherwise the rule-based answer is shown. AI coding tools assisted development. We disclose these distinctions and do not describe the guide as an LLM chatbot.
 
 ## 2. How does this differ from asking a chatbot for jobs?
 
@@ -26,7 +26,7 @@ It checks that changing names and graduation years leaves the ranking unchanged.
 
 ## 7. What happens to a CV?
 
-PDF and text extraction run in the browser. The file and full CV text are not saved or sent to a parsing service. Skills and short supporting phrases remain in browser storage until Reset demo clears them. Demonstrations use synthetic profiles only. Scanned PDFs need OCR first, and protected PDFs need an unlocked copy.
+PDF and text extraction run in the browser. The file and full CV text are not saved or sent to a parsing service. Skills and short supporting phrases remain in browser storage until Reset demo clears them. To rank roles, SkillTide's API receives only skill ids and levels, chosen goals, weekly hours and budget, and stores none of it. Demonstrations use synthetic profiles only. Scanned PDFs need OCR first, and protected PDFs need an unlocked copy.
 
 ## 8. How are SDGs meaningful here?
 
@@ -58,7 +58,7 @@ The largest risk is whether source coverage and the model assumptions support us
 |---|---:|---|
 | Innovation & Creativity | 30% | A specific final-year decision; task-level evidence and explicit scenario comparison |
 | Problem–Solution Fit | 25% | The complete intake → signals → roles → pathway → SDG journey |
-| Feasibility of Build | 25% | Working public site, accessible source, validated refresh and a local fallback |
+| Feasibility of Build | 25% | Working public site and API, accessible source, validated refresh and an in-browser fallback |
 | Clarity of Proposal | 20% | One student's decision, an understandable method and an actionable result |
 
 The final-round rubric may differ. The supplied brief does not provide submission length or presentation-time limits; confirm those separately before submitting these working materials.
