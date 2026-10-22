@@ -1,16 +1,13 @@
 import { EmptyData } from "@/components/empty-data";
 import { MatchView } from "@/components/match-view";
-import { PageHeader } from "@/components/ui";
+import { PageIntro } from "@/components/page-intro";
 import { hasData } from "@/lib/data";
+import { PAGE_INTROS } from "@/messages/pages";
 
 export default function MatchPage() {
   return (
     <>
-      <PageHeader
-        step="Step 3 of 4"
-        title="Your best-fit future roles"
-        description="Every score is a visible formula: what you already have, how the role is likely to change with AI, and how it serves the goals you care about. Switch the scenario at the top and watch the ranking move."
-      />
+      <PageIntro messages={PAGE_INTROS.match} />
       {hasData ? <MatchView /> : <EmptyData />}
     </>
   );

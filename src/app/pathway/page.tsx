@@ -1,16 +1,13 @@
 import { EmptyData } from "@/components/empty-data";
 import { PathwayView } from "@/components/pathway-view";
-import { PageHeader } from "@/components/ui";
+import { PageIntro } from "@/components/page-intro";
 import { hasData } from "@/lib/data";
+import { PAGE_INTROS } from "@/messages/pages";
 
 export default function PathwayPage() {
   return (
     <>
-      <PageHeader
-        step="Step 4 of 4"
-        title="Your reskilling pathway"
-        description="An ordered plan that addresses your most important gaps first, using free or low-cost courses that exist today. Every duration and price links to where we read it."
-      />
+      <PageIntro messages={PAGE_INTROS.pathway} />
       {hasData ? <PathwayView /> : <EmptyData />}
     </>
   );

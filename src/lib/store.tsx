@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useMemo, useSyncExternalStore, type ReactNode } from "react";
+import { isLocale, type Locale } from "./i18n";
 import type { MatchWeights, Profile, ScenarioId } from "./types";
 
 interface PersistedState {
@@ -12,6 +13,7 @@ interface PersistedState {
   agentOpen: boolean;
   /** Let OpenAI word the guide's answers from SkillTide's facts. Off unless the user turns it on. */
   aiWording: boolean;
+  locale: Locale;
 }
 
 const DEFAULT_STATE: PersistedState = {
@@ -22,6 +24,7 @@ const DEFAULT_STATE: PersistedState = {
   weights: { skills: 50, outlook: 30, sdg: 20 },
   agentOpen: true,
   aiWording: false,
+  locale: "en",
 };
 
 const STORAGE_KEY = "skilltide:v1";
@@ -40,7 +43,11 @@ function load() {
     if (raw) {
       const saved = JSON.parse(raw) as Partial<PersistedState> & { llmEnabled?: unknown };
       delete saved.llmEnabled;
-      current = { ...DEFAULT_STATE, ...saved };
+      current = {
+        ...DEFAULT_STATE,
+        ...saved,
+        locale: isLocale(saved.locale) ? saved.locale : DEFAULT_STATE.locale,
+      };
     }
   } catch {
     // Unreadable storage: keep defaults.

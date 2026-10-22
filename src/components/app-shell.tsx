@@ -3,41 +3,49 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { BookOpen, Info, LifeBuoy, School, X } from "lucide-react";
+import { BookOpen, Info, Languages, LifeBuoy, School, X } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { dataset } from "@/lib/data";
+import { LOCALES, isLocale } from "@/lib/i18n";
+import { scenarioNote } from "@/lib/scenarios";
 import { useStore } from "@/lib/store";
 import type { ScenarioId } from "@/lib/types";
+import { useMessages } from "@/lib/use-messages";
+import { LABELS } from "@/messages/labels";
+import { SHELL } from "@/messages/shell";
 import { Segmented } from "./ui";
 import { LogoMark } from "./decor";
 import { AgentPanel } from "./agent-panel";
 import { ApiStatusNote } from "./api-status";
 
 const STEPS = [
-  { href: "/profile", label: "Profile" },
-  { href: "/radar", label: "Skills Radar" },
-  { href: "/match", label: "Matches" },
-  { href: "/pathway", label: "Pathway" },
+  { href: "/profile", key: "profile" },
+  { href: "/radar", key: "radar" },
+  { href: "/match", key: "match" },
+  { href: "/pathway", key: "pathway" },
 ] as const;
 
-const SCENARIOS: { value: ScenarioId; label: string }[] = [
-  { value: "moderate", label: "Moderate AI" },
-  { value: "fast", label: "Fast AI" },
-];
+const SCENARIO_IDS: ScenarioId[] = ["moderate", "fast"];
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const { scenario, agentOpen, update } = useStore();
+  const { scenario, agentOpen, locale, update } = useStore();
+  const t = useMessages(SHELL);
+  const labels = useMessages(LABELS);
   // The docked column is a persisted desktop preference; the phone sheet opens only on demand.
   const [sheetOpen, setSheetOpen] = useState(false);
   const isLanding = pathname === "/";
+
+  useEffect(() => {
+    document.documentElement.lang = LOCALES.find((option) => option.value === locale)?.htmlLang ?? "en";
+  }, [locale]);
 
   return (
     <div className="flex min-h-full flex-col">
       <header className="sticky top-0 z-30 border-b border-border bg-background">
         <div className="neatline" aria-hidden />
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-x-6 gap-y-3 px-4 py-3 sm:px-6">
-          <Link href="/" className="flex items-center gap-2" aria-label="SkillTide home">
+          <Link href="/" className="flex items-center gap-2" aria-label={t.home}>
             <LogoMark className="h-8 w-8" />
             <span className="font-display text-[20px] font-semibold">
               Skill<span className="italic text-brand">Tide</span>
@@ -45,7 +53,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </Link>
 
           {!isLanding ? (
-            <nav aria-label="Journey" className="order-3 w-full overflow-x-auto [scrollbar-width:none] lg:order-none lg:w-auto">
+            <nav aria-label={t.journey} className="order-3 w-full overflow-x-auto [scrollbar-width:none] lg:order-none lg:w-auto">
               <ol className="flex items-center gap-1">
                 {STEPS.map((step, index) => {
                   const active = pathname.startsWith(step.href);
@@ -68,7 +76,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                           {index + 1}
                         </span>
                         <span className={cn(active && "underline decoration-accent decoration-2 underline-offset-[7px]")}>
-                          {step.label}
+                          {t.steps[step.key]}
                         </span>
                       </Link>
                       {index < STEPS.length - 1 ? (
@@ -85,28 +93,45 @@ export function AppShell({ children }: { children: ReactNode }) {
             {!isLanding ? (
               <>
                 <Segmented
-                  label="AI disruption scenario"
+                  label={t.scenarioGroup}
                   value={scenario}
-                  options={SCENARIOS}
+                  options={SCENARIO_IDS.map((id) => ({ value: id, label: labels.scenario[id] }))}
                   onChange={(value) => update({ scenario: value })}
                   size="sm"
                 />
                 <ScenarioAssumptions />
               </>
             ) : null}
+            <label className="flex items-center gap-1 rounded-md px-1.5 py-1.5 text-ink-soft hover:text-ink">
+              <Languages className="h-4 w-4" aria-hidden />
+              <select
+                aria-label={t.language}
+                value={locale}
+                onChange={(event) => {
+                  if (isLocale(event.target.value)) update({ locale: event.target.value });
+                }}
+                className="cursor-pointer bg-transparent text-[12.5px] font-medium text-ink-soft outline-none hover:text-ink"
+              >
+                {LOCALES.map((option) => (
+                  <option key={option.value} value={option.value} lang={option.htmlLang}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
             <Link
               href="/career-centre"
               className="hidden items-center gap-1.5 rounded-md px-2.5 py-1.5 text-[13px] font-medium text-ink-soft hover:text-ink md:flex"
             >
               <School className="h-4 w-4" aria-hidden />
-              Career centre
+              {t.careerCentre}
             </Link>
             <Link
               href="/methodology"
               className="hidden items-center gap-1.5 rounded-md px-2.5 py-1.5 text-[13px] font-medium text-ink-soft hover:text-ink md:flex"
             >
               <BookOpen className="h-4 w-4" aria-hidden />
-              Data &amp; method
+              {t.dataMethod}
             </Link>
             {!isLanding ? (
               <>
@@ -119,14 +144,14 @@ export function AppShell({ children }: { children: ReactNode }) {
                   )}
                 >
                   <LifeBuoy className="h-4 w-4 text-accent" aria-hidden />
-                  Guide
+                  {t.guide}
                 </button>
                 <button
                   onClick={() => setSheetOpen(true)}
                   className="flex items-center gap-1.5 rounded-md border border-border-strong bg-surface px-2.5 py-1.5 text-[13px] font-medium text-ink lg:hidden"
                 >
                   <LifeBuoy className="h-4 w-4 text-accent" aria-hidden />
-                  Guide
+                  {t.guide}
                 </button>
               </>
             ) : null}
@@ -154,7 +179,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               onClick={() => setSheetOpen(false)}
               className="panel mb-2 ml-auto flex items-center gap-1 rounded-md px-3 py-1.5 text-sm"
             >
-              <X className="h-4 w-4" aria-hidden /> Close guide
+              <X className="h-4 w-4" aria-hidden /> {t.closeGuide}
             </button>
             <div className="min-h-0 flex-1">
               <AgentPanel />
@@ -166,13 +191,11 @@ export function AppShell({ children }: { children: ReactNode }) {
       <footer className="bg-background">
         <div className="neatline" aria-hidden />
         <p className="mx-auto max-w-[1440px] px-4 py-4 text-xs leading-relaxed text-muted sm:px-6">
-          SkillTide shows estimates, not certainties. It supports your career decisions and does
-          not make them, and it is never used for hiring. All data is public, open or synthetic —
-          see{" "}
+          {t.footerBefore}
           <Link href="/methodology" className="underline underline-offset-2 hover:text-ink">
-            Data &amp; method
+            {t.dataMethod}
           </Link>
-          .
+          {t.footerAfter}
           <ApiStatusNote />
         </p>
       </footer>
@@ -182,6 +205,8 @@ export function AppShell({ children }: { children: ReactNode }) {
 
 /** The two scenarios differ only in assumed paces, so the switch says what they assume. */
 function ScenarioAssumptions() {
+  const t = useMessages(SHELL);
+  const labels = useMessages(LABELS);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -207,11 +232,11 @@ function ScenarioAssumptions() {
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-controls="scenario-assumptions"
-        aria-label="What the AI scenarios assume"
+        aria-label={t.assumptionsLabel}
         className="flex items-center gap-1 rounded-md px-1.5 py-1.5 text-[12px] font-medium text-ink-soft hover:text-ink"
       >
         <Info className="h-4 w-4" aria-hidden />
-        <span className="hidden xl:inline">Assumptions</span>
+        <span className="hidden xl:inline">{t.assumptions}</span>
       </button>
       {open ? (
         <div
@@ -220,11 +245,11 @@ function ScenarioAssumptions() {
         >
           {dataset.scenarios.map((scenario) => (
             <p key={scenario.id}>
-              <span className="font-medium text-ink">{scenario.label}:</span> {scenario.description} {scenario.assumption}
+              <span className="font-medium text-ink">{labels.scenario[scenario.id]}:</span> {scenarioNote(labels, scenario)}
             </p>
           ))}
           <Link href="/methodology" onClick={() => setOpen(false)} className="inline-block text-brand-strong underline underline-offset-2">
-            How the scenarios work
+            {t.howScenarios}
           </Link>
         </div>
       ) : null}
