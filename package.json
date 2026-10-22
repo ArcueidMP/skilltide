@@ -5,7 +5,8 @@
   "scripts": {
     "predev": "node scripts/prepare-pdf-assets.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/prepare-pdf-assets.mjs",
+    "dev:api": "node scripts/dev-api.mjs",
+    "prebuild": "node scripts/prepare-pdf-assets.mjs && tsx scripts/materialize-cohort.mts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

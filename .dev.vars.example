@@ -1,0 +1,3 @@
+# Copy to .dev.vars for `npm run dev:api`. Real keys never go in the repository.
+# Without a key, AI wording falls back to the rule-based answers.
+OPENAI_API_KEY=

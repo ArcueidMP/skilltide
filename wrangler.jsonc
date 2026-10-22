@@ -2,12 +2,22 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "xmumhkt",
   "account_id": "9d9dacc6b1bad169761a23dd11a13a06",
+  // The API. Only /api/* runs it (run_worker_first); every other path is a static file from out/.
+  "main": "src/server/worker.ts",
   "compatibility_date": "2026-10-01",
   "workers_dev": false,
   "routes": [{ "pattern": "xmumhkt.arcueidmp.com", "custom_domain": true }],
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
     "html_handling": "force-trailing-slash",
     "not_found_handling": "404-page"
-  }
+  },
+  // OPENAI_API_KEY is a secret: set it with `npx wrangler secret put OPENAI_API_KEY`, never in this file.
+  "vars": {
+    "OPENAI_MODEL": "gpt-6-luna",
+    "OPENAI_REASONING_EFFORT": "none"
+  },
+  "observability": { "enabled": true }
 }

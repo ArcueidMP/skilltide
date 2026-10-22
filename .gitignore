@@ -50,3 +50,10 @@ next-env.d.ts
 # local tooling
 .claude/
 .cache/
+
+# Worker secrets for `npm run dev:api` (copy .dev.vars.example)
+.dev.vars*
+!.dev.vars.example
+
+# generated before builds and tests
+/src/server/generated/

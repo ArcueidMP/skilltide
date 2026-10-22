@@ -7,5 +7,7 @@ export default defineConfig({
   },
   test: {
     exclude: [...configDefaults.exclude, "video/**"],
+    // The API serves cohort summaries computed ahead of time from the current dataset.
+    globalSetup: ["./scripts/materialize-cohort.mts"],
   },
 });
