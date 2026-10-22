@@ -1,9 +1,14 @@
 // The guide answers from SkillTide's own data and engine output. It never generates facts:
 // every number comes from the analysis, and when nothing covers a question it says so.
+// It understands questions in English, Malay and Chinese, and answers in the interface language.
 
+import { COMMON, snapshotName } from "@/messages/common";
+import { GUIDE, type GuideQuestion } from "@/messages/guide";
+import { LABELS } from "@/messages/labels";
 import { cite, dataset, roleById, scenarioById, skillById } from "./data";
 import { allOutlooks, OUTLOOK_MODEL, rankRoles, type Pathway, type RoleMatch, type RoleOutlook, type SkillTrend } from "./engine";
-import { pct, signedPct, SKILL_TREND_LABEL, TREND_LABEL } from "./format";
+import { pct, signedPct } from "./format";
+import type { Locale } from "./i18n";
 import type { Citation, MatchWeights, Profile, ScenarioSpec, Snapshot } from "./types";
 
 export interface AgentMessage {
@@ -23,6 +28,8 @@ export interface AgentMessage {
 
 export interface AgentContext {
   pathname: string;
+  /** The language to answer in. */
+  locale: Locale;
   profile: Profile | null;
   weights: MatchWeights;
   snapshot?: Snapshot;
@@ -35,89 +42,234 @@ export interface AgentContext {
 
 type Answer = Omit<AgentMessage, "id">;
 
-const SUGGESTIONS: Record<string, string[]> = {
-  "/profile": ["What should I fill in?", "Is my CV stored anywhere?", "Is this fair?"],
-  "/radar": ["Where does this data come from?", "What changes under Fast AI?", "Is Python rising?"],
-  "/match": ["Why is my top role ranked first?", "What changes under Fast AI?", "How sure is this?"],
-  "/pathway": ["What should I learn first?", "Can I do it for free?", "Why this order?"],
-  "/career-centre": ["Where does this data come from?", "Is this fair?"],
+const SUGGESTIONS: Record<string, GuideQuestion[]> = {
+  "/profile": ["fill", "stored", "fair"],
+  "/radar": ["source", "fast", "python"],
+  "/match": ["top", "fast", "sure"],
+  "/pathway": ["first", "free", "order"],
+  "/career-centre": ["source", "fair"],
 };
+const OTHER_PAGES: GuideQuestion[] = ["source", "sure"];
 
-export function suggestionsFor(pathname: string): string[] {
+/** The questions suggested on a page, in the interface language. */
+export function suggestionsFor(pathname: string, locale: Locale = "en"): string[] {
   // The static export serves pages with a trailing slash, e.g. "/match/".
-  return SUGGESTIONS[pathname.replace(/(.)\/$/, "$1")] ?? ["Where does this data come from?", "How sure is this?"];
+  const questions = SUGGESTIONS[pathname.replace(/(.)\/$/, "$1")] ?? OTHER_PAGES;
+  return questions.map((question) => GUIDE[locale].questions[question]);
 }
+
+// ---------------------------------------------------------------------------
+// Understanding the question
+
+export type Intent =
+  | "privacy"
+  | "fairness"
+  | "accuracy"
+  | "source"
+  | "scenario"
+  | "first-step"
+  | "cost"
+  | "order"
+  /** Why a named role ranks where it does. */
+  | "why-role"
+  /** Why the top match is first. */
+  | "why-top"
+  | "sdg"
+  | "help";
+
+// Keywords in English, Malay and Chinese, matched against the lower-cased question whatever the
+// interface language: students mix languages, and role and skill names stay English. Word
+// boundaries keep English stems out of Malay words ("bias" in "biasa", "kos" in "kosong").
+const INTENTS: [Intent, RegExp][] = [
+  [
+    "privacy",
+    /\bstor(e|ed|es|ing|age)\b|privacy|private|my (cv|data)|personal data|upload|simpan|privasi|peribadi|muat ?naik|\b(cv|resume|data|maklumat) saya\b|隐私|存储|储存|保存|存在哪|上传|简历|泄露|个人(信息|数据|资料)|我的\s*(数据|信息|资料|cv)/,
+  ],
+  [
+    "fairness",
+    /fair|bias(?!a)|discriminat|gender|\brac(e|es|ial|ism)\b|\bage(s|ism)?\b|my name|\b(fe)?males?\b|\bwom[ae]n\b|adil|berat sebelah|diskriminasi|jantina|\b(ber)?umur\b|\b(ber)?usia\b|\bbangsa\b|\bkaum\b|etnik|agama|\bnama saya\b|wanita|lelaki|perempuan|公平|偏见|偏袒|偏向|歧视|性别|年龄|种族|民族|宗教|姓名|我的名字|女性|男性|女生|男生/,
+  ],
+  [
+    "accuracy",
+    /\b(un)?sure\b|accura|confiden|reliab|trust|estimate|tepat|pasti|yakin|percaya|anggaran|ramalan|jitu|准确|精确|精准|可靠|确定|把握|可信|信任|靠谱|估计|估算|准不准|准吗|多准/,
+  ],
+  [
+    "source",
+    /source|data come|where.*from|dated|how old|up to date|sumber|(dari|daripada) mana.*\b(data|maklumat|angka)\b|\b(data|maklumat|angka)\b.*(dari|daripada) mana|\bdata (ini |itu )?(dari|daripada)\b|(datang|diambil|diperoleh) (dari|daripada)|berasal|bertarikh|dikemas ?kini|terkini|来源|出处|从哪(里|儿)?来|哪(里|儿)?来的|来自哪|数据.{0,4}(从哪|来自|多新|多旧|更新|日期|最新)|什么时候的数据/,
+  ],
+  [
+    "scenario",
+    /fast|scenario|what if|senario|pantas|lebih (cepat|laju)|(bagaimana|apa jadi|apa akan berlaku) (jika|kalau)|sederhana|情景|场景|快速\s*ai|更快|加速|温和\s*ai|假如|(如果|要是).*(会怎样|会怎么样|会如何|会有什么|呢)/,
+  ],
+  [
+    "first-step",
+    /(first|start|begin).*(learn|step|do)|learn first|next step|first course|\b(ber|per|me)?mula|(langkah|kursus) (pertama|seterusnya|berikutnya)|第一门课|\b(belajar|pelajari|ambil|buat|lakukan|ikuti)\b.*\b(dahulu|dulu)\b|先学|先做|首先|第一步|下一步|从哪(里|儿)?(开始|入手|学起)|(怎么|如何|怎样)(开始|入门|起步)|开始学|入门|起步/,
+  ],
+  [
+    "cost",
+    /free|cost|money|\bpa(y|ys|ying|id|yments?)\b|afford|hrd|percuma|\bkos(nya)?\b|bayar|\bwang\b|duit|\bharga|yuran|bajet|mahal|murah|免费|费用|钱|付费|收费|学费|价格|便宜|贵|预算/,
+  ],
+  // "susunan ayat AI" is the Malay name of AI wording, not a question about the pathway's order.
+  ["order", /order|why this|sequence|\b(susunan|urutan|turutan|tertib|disusun)(nya)?\b(?! ayat)|顺序|次序|先后|排列|安排|这样排(?!名)/],
+  ["why-role", /why|rank|not|lower|higher|kenapa|mengapa|kedudukan|\b(tidak|tak|bukan)\b|rendah|tinggi|为什么|为何|怎么会|排名|名次|不|没|低|高/],
+  ["why-top", /why|\btop\b|first|best|rank|kenapa|mengapa|teratas|pertama|terbaik|kedudukan|paling sesuai|nombor satu|为什么|为何|排名|第一|首位|首选|最好|最佳|最适合|最匹配/],
+  ["sdg", /sdg|goal|sustainab|matlamat|mampan|lestari|可持续|联合国|目标(?!岗位|职位|角色|职业|工作)/],
+  [
+    "help",
+    /fill|what should i|how (does|do)|help|\b(isi|mengisi|diisi|isikan)\b|bantuan|\bbantu\b|tolong|bagaimana (saya|nak|hendak|mahu|untuk|cara|menggunakan|guna)|macam mana|apa (yang )?(perlu|patut|harus) saya|(怎么|如何)(填|用|做|操作|使用|添加)|填写|填什么|帮助|帮忙|帮我|求助/,
+  ],
+];
+
+/** Lower-cased, with full-width letters, digits and punctuation folded to their usual forms. */
+const normalize = (question: string) => question.normalize("NFKC").toLowerCase();
+
+/** Every intent the question's wording points to, in the order `respond` tries them. */
+export function intentOf(question: string): Intent[] {
+  const q = normalize(question);
+  return INTENTS.filter(([, pattern]) => pattern.test(q)).map(([intent]) => intent);
+}
+
+const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+/** True when the phrase stands as a whole word, so "cad" finds "CAD" but not the Malay "cadangan". */
+const hasPhrase = (text: string, phrase: string) => new RegExp(`(^|[^a-z])${escapeRegExp(phrase)}([^a-z]|$)`).test(text);
+
+/**
+ * The entry with the longest name the question contains, and that name. The longest wins so that
+ * "Manufacturing Engineer" is not read as the bare reported title "Engineer" of an earlier role.
+ */
+function longestNamed<T>(items: T[], namesOf: (item: T) => string[], contains: (name: string) => boolean) {
+  let best: { item: T; name: string } | undefined;
+  for (const item of items) {
+    for (const name of namesOf(item)) if ((!best || name.length > best.name.length) && contains(name)) best = { item, name };
+  }
+  return best;
+}
+
+/** Roles are named by title, O*NET title or a reported title; these stay English in every language. */
+function findRole(q: string) {
+  return longestNamed(
+    dataset.roles,
+    (role) =>
+      [role.title, role.onetTitle.replace(/s$/, ""), ...role.reportedTitles.filter((t) => t.length > 6).map((t) => t.split(" (")[0])].map((name) =>
+        name.toLowerCase(),
+      ),
+    (name) => q.includes(name),
+  );
+}
+
+function findSkill(q: string) {
+  return longestNamed(
+    dataset.skills,
+    (skill) =>
+      [skill.name.split(" (")[0], ...skill.aliases.map((alias) => (alias.startsWith("=") ? alias.slice(1) : alias)).filter((alias) => alias.length > 2)].map(
+        (name) => name.toLowerCase(),
+      ),
+    (name) => hasPhrase(q, name),
+  );
+}
+
+/** The answer `respond` gives: a topic, or the match, skill or role it explains. */
+export type Branch =
+  | { kind: "privacy" | "fairness" | "accuracy" | "source" | "scenario" | "first-step" | "cost" | "order" | "sdg" | "help" | "unknown" }
+  | { kind: "match"; rank: number }
+  | { kind: "skill"; skillId: string }
+  | { kind: "role"; roleId: string };
+
+/** Intents answered whatever the student's results are, in priority order. */
+const DIRECT = ["privacy", "fairness", "accuracy", "source", "scenario", "first-step", "cost"] as const satisfies readonly Intent[];
+
+/** Picks the answer for a question: its intents first, then the role or skill it names. */
+export function branchOf(question: string, ctx: AgentContext): Branch {
+  const intents = new Set(intentOf(question));
+  const direct = DIRECT.find((intent) => intents.has(intent));
+  if (direct) return { kind: direct };
+  if (intents.has("order") && ctx.pathway) return { kind: "order" };
+
+  const q = normalize(question);
+  const named = findRole(q);
+  const role = named?.item;
+  if (role && intents.has("why-role") && ctx.matches.length) {
+    const index = ctx.matches.findIndex((m) => m.roleId === role.id);
+    if (index >= 0) return { kind: "match", rank: index + 1 };
+  }
+  if (intents.has("why-top") && ctx.matches.length) return { kind: "match", rank: 1 };
+
+  // A skill inside the role title the question names ("Robotics" in "Robotics Engineer") stands for the role.
+  const skillMatch = findSkill(q);
+  const skill = skillMatch && !named?.name.includes(skillMatch.name) ? skillMatch.item : undefined;
+  if (skill && ctx.trends.some((trend) => trend.skillId === skill.id)) return { kind: "skill", skillId: skill.id };
+  if (role) return { kind: "role", roleId: role.id };
+  if (intents.has("sdg")) return { kind: "sdg" };
+  if (intents.has("help")) return { kind: "help" };
+  return { kind: "unknown" };
+}
+
+// ---------------------------------------------------------------------------
+// Answers
 
 const answer = (text: string, citations?: Citation[]): Answer => ({ role: "agent", kind: "answer", text, citations });
 
-function findRole(question: string) {
-  const q = question.toLowerCase();
-  return dataset.roles.find(
-    (role) =>
-      q.includes(role.title.toLowerCase()) ||
-      q.includes(role.onetTitle.toLowerCase().replace(/s$/, "")) ||
-      role.reportedTitles.some((t) => t.length > 6 && q.includes(t.toLowerCase().split(" (")[0])),
-  );
-}
-
-function findSkill(question: string) {
-  const q = question.toLowerCase();
-  return dataset.skills.find(
-    (skill) =>
-      q.includes(skill.name.toLowerCase().split(" (")[0]) ||
-      skill.aliases.some((alias) => {
-        const phrase = (alias.startsWith("=") ? alias.slice(1) : alias).toLowerCase();
-        return phrase.length > 2 && new RegExp(`(^|[^a-z])${phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^a-z]|$)`).test(q);
-      }),
-  );
-}
+const skillNames = (ids: string[]) => ids.flatMap((id) => skillById(id)?.name ?? []);
+const roleTitle = (id: string) => roleById(id)?.title ?? id;
 
 function explainMatch(match: RoleMatch, rank: number, ctx: AgentContext): Answer {
   const role = roleById(match.roleId)!;
   const w = match.appliedWeights;
   const demand = ctx.snapshot?.roles[role.id]?.postingsYoY ?? 0;
-  const strengths = match.strengths.slice(0, 3).map((s) => skillById(s.skillId)?.name).filter(Boolean);
-  const gaps = match.gaps.slice(0, 3).map((g) => skillById(g.skillId)?.name).filter(Boolean);
-  return answer(
-    `${role.title} is #${rank} with a match of ${Math.round(match.score)}.\n` +
-      `• Skills fit ${Math.round(match.components.skills)} (weight ${w.skills}): you already have ${strengths.length ? strengths.join(", ") : "few of its core skills"}.\n` +
-      `• Outlook ${Math.round(match.outlook.score)} (weight ${w.outlook}): in the ${ctx.scenario?.label} scenario AI assists ${pct(match.outlook.augmentation)} and automates ${pct(match.outlook.displacement)} of its work over ${dataset.horizonYears} years; postings in its sector are ${signedPct(demand)} on a year earlier in the US, UK and Australia (Indeed; Malaysian postings are not in this data).\n` +
-      (role.mycol
-        ? `• Malaysia lists it as a critical occupation (“${role.mycol.listedTitle}”) on MyCOL, SkillTide's local demand signal, worth +${OUTLOOK_MODEL.malaysia} outlook points.\n`
-        : `• It is not on Malaysia's Critical Occupations List (MyCOL), SkillTide's local demand signal, so no local bonus applies.\n`) +
-      `• SDG fit ${Math.round(match.components.sdg)} (weight ${w.sdg}).\n` +
-      (gaps.length ? `Biggest gaps to close: ${gaps.join(", ")}.` : "You already cover its core skills.") +
-      pressureNote(match, ctx),
-    cite(["onet", "aei", "indeed", ...(role.mycol ? ["mycol"] : [])]),
-  );
+  const text = GUIDE[ctx.locale].match({
+    role: role.title,
+    rank,
+    score: Math.round(match.score),
+    skills: Math.round(match.components.skills),
+    skillsWeight: w.skills,
+    strengths: skillNames(match.strengths.slice(0, 3).map((s) => s.skillId)),
+    outlook: Math.round(match.outlook.score),
+    outlookWeight: w.outlook,
+    scenario: ctx.scenario ? LABELS[ctx.locale].scenario[ctx.scenario.id] : "",
+    assists: pct(match.outlook.augmentation),
+    automates: pct(match.outlook.displacement),
+    years: dataset.horizonYears,
+    postings: signedPct(demand),
+    mycol: role.mycol ? { listedTitle: role.mycol.listedTitle, points: OUTLOOK_MODEL.malaysia } : null,
+    sdg: Math.round(match.components.sdg),
+    sdgWeight: w.sdg,
+    gaps: skillNames(match.gaps.slice(0, 3).map((g) => g.skillId)),
+  });
+  return answer(text + pressureNote(match, ctx), cite(["onet", "aei", "indeed", ...(role.mycol ? ["mycol"] : [])]));
 }
 
 /** When a strong skills match sits in a role under pressure, point to a nearby role with a better outlook. */
 function pressureNote(match: RoleMatch, ctx: AgentContext): string {
   if (match.outlook.trend !== "declining") return "";
+  const t = GUIDE[ctx.locale].pressure;
   const alternative = ctx.matches
     .slice(0, 6)
     .filter((m) => m.roleId !== match.roleId && m.outlook.score > match.outlook.score + 5)
     .sort((a, b) => b.score - a.score)[0];
-  return alternative
-    ? `\nHeads-up: this role is under pressure in this scenario. ${roleById(alternative.roleId)?.title} uses many of the same skills and has a stronger outlook (${Math.round(alternative.outlook.score)} vs ${Math.round(match.outlook.score)}).`
-    : "\nHeads-up: this role is under pressure in this scenario, so keep a second option in view.";
+  return `\n${
+    alternative
+      ? t.alternative(roleTitle(alternative.roleId), Math.round(alternative.outlook.score), Math.round(match.outlook.score))
+      : t.noAlternative
+  }`;
 }
 
 function compareScenario(ctx: AgentContext): Answer {
+  const t = GUIDE[ctx.locale];
+  const scenarioLabel = LABELS[ctx.locale].scenario;
   const profile = ctx.profile;
   const other = scenarioById(ctx.scenario?.id === "fast" ? "moderate" : "fast");
-  if (!ctx.snapshot || !other) return answer("I need a data snapshot to compare scenarios.");
+  if (!ctx.snapshot || !other) return answer(t.scenario.noSnapshot);
   const otherOutlooks = allOutlooks(dataset, ctx.snapshot, other);
   if (!profile || !ctx.matches.length) {
+    // What Fast AI does compared with Moderate AI, whichever of the two is on screen.
+    const fast = other.id === "fast" ? otherOutlooks : ctx.outlooks;
+    const moderate = other.id === "fast" ? ctx.outlooks : otherOutlooks;
     const movers = dataset.roles
-      .map((role) => ({ role, delta: otherOutlooks.get(role.id)!.score - ctx.outlooks.get(role.id)!.score }))
+      .map((role) => ({ role, delta: fast.get(role.id)!.score - moderate.get(role.id)!.score }))
       .sort((a, b) => a.delta - b.delta);
-    const hit = movers.slice(0, 2).map((m) => `${m.role.title} (${Math.round(m.delta)})`).join(", ");
-    return answer(
-      `Under ${other.label}, AI spreads faster and automates more. The roles that lose most outlook are ${hit}: more of their tasks are exposed and automation-heavy.`,
-      cite(["aei", "eloundou"]),
-    );
+    const hit = movers.slice(0, 2).map((m) => t.scenario.loss(m.role.title, Math.round(m.delta)));
+    return answer(t.scenario.overview(scenarioLabel.fast, t.list(hit)), cite(["aei", "eloundou"]));
   }
   const otherMatches = rankRoles(profile, dataset, ctx.snapshot, otherOutlooks, ctx.weights);
   const nowTop = ctx.matches[0];
@@ -127,149 +279,122 @@ function compareScenario(ctx: AgentContext): Answer {
     .slice(0, 8)
     .map((m) => ({ m, change: rankOf(otherMatches, m.roleId) - rankOf(ctx.matches, m.roleId) }))
     .sort((a, b) => b.change - a.change)[0];
+  const otherLabel = scenarioLabel[other.id];
   const lines = [
     nowTop.roleId === thenTop.roleId
-      ? `Under ${other.label} your top role stays ${roleById(nowTop.roleId)?.title} (${Math.round(thenTop.score)}).`
-      : `Under ${other.label} your top role becomes ${roleById(thenTop.roleId)?.title} (${Math.round(thenTop.score)}), replacing ${roleById(nowTop.roleId)?.title}.`,
+      ? t.scenario.topStays(otherLabel, roleTitle(nowTop.roleId), Math.round(thenTop.score))
+      : t.scenario.topChanges(otherLabel, roleTitle(thenTop.roleId), Math.round(thenTop.score), roleTitle(nowTop.roleId)),
   ];
   if (biggestDrop && biggestDrop.change > 0) {
     const before = ctx.outlooks.get(biggestDrop.m.roleId)!;
     const after = otherOutlooks.get(biggestDrop.m.roleId)!;
-    lines.push(
-      `${roleById(biggestDrop.m.roleId)?.title} falls ${biggestDrop.change} places: the share of its work AI automates goes from ${pct(before.displacement)} to ${pct(after.displacement)}.`,
-    );
+    lines.push(t.scenario.falls(roleTitle(biggestDrop.m.roleId), biggestDrop.change, pct(before.displacement), pct(after.displacement)));
   }
-  lines.push(`Switch the scenario at the top to see the full list.`);
+  lines.push(t.scenario.seeAll);
   return answer(lines.join("\n"), cite(["aei", "eloundou"]));
 }
 
+function sourcesAnswer(ctx: AgentContext): Answer {
+  const t = GUIDE[ctx.locale];
+  const s = ctx.snapshot;
+  if (!s) return answer(t.sourcesWithoutSnapshot);
+  return answer(
+    t.sources({ aiUsePeriod: s.aiUsePeriod, asOf: s.asOf, onetVersion: dataset.sources.onet ? "31.0" : "", mycolPoints: OUTLOOK_MODEL.malaysia }),
+    cite(s.sources),
+  );
+}
+
+function firstStep(ctx: AgentContext): Answer {
+  const t = GUIDE[ctx.locale];
+  const step = ctx.pathway?.steps[0];
+  if (!step) return answer(t.firstStep.noPathway);
+  if (step.kind !== "course" || !step.course) return answer(t.firstStep.project(step.task?.statement ?? ""));
+  const course = step.course;
+  return answer(
+    t.firstStep.course({ title: course.title, provider: course.provider, hours: step.hours, price: t.price[course.cost], skills: skillNames(step.skillIds) }),
+    cite(course.sources),
+  );
+}
+
+function costCheck(ctx: AgentContext): Answer {
+  const t = GUIDE[ctx.locale].budget;
+  const steps = ctx.pathway?.steps.filter((s) => s.kind === "course") ?? [];
+  if (!steps.length) return answer(t.noPathway);
+  const lowCost = steps.filter((s) => s.course?.cost !== "free").map((s) => s.course?.title ?? "");
+  return answer(lowCost.length ? t.someLowCost(steps.length - lowCost.length, steps.length, lowCost) : t.allFree);
+}
+
+/** Answers a question in `ctx.locale`, whatever language it was asked in. */
 export function respond(question: string, ctx: AgentContext): Answer {
-  const q = question.toLowerCase();
-  const profile = ctx.profile;
-
-  if (/stored|privacy|private|my cv|upload/.test(q)) {
-    return answer(
-      "Your profile and skill evidence stay in this browser's local storage. PDF and text CVs are scanned in your browser with fixed rules; the file and full CV text are never uploaded or saved. To rank roles, SkillTide's API receives only your skills and levels, chosen goals, weekly study hours and budget, and keeps none of them. AI wording is off unless you turn it on; then your question and SkillTide's computed facts are sent to OpenAI to phrase the answer. Use Reset demo on Profile to clear your profile, CV text and preferences.",
-    );
-  }
-
-  if (/fair|bias|discriminat|gender|race|age/.test(q)) {
-    return answer(
-      "Scoring uses only your skills, study time, budget and chosen goals — never your name, age, gender, ethnicity or background. Each time you are matched, SkillTide re-ranks eight variants of your profile with different names and graduation years; the rankings must be identical, and the result is shown on the matches page.",
-    );
-  }
-
-  if (/sure|accura|confiden|reliab|trust|estimate/.test(q)) {
-    return answer(
-      "These are estimates, not forecasts. They come from dated public data (O*NET, Anthropic Economic Index, Indeed, Hacker News) and stated formulas. Two weak spots: the adoption rates in the scenarios are assumptions, and most data describes the US and global AI use rather than Malaysia. Use the scenarios and the timeline to see how much a conclusion depends on them.",
-      cite(["onet", "aei", "indeed"]),
-    );
-  }
-
-  if (/source|data come|where.*from|dated|how old/.test(q)) {
-    const s = ctx.snapshot;
-    return answer(
-      s
-        ? `This view uses AI-use data from ${s.aiUsePeriod} (Anthropic Economic Index) and job demand as of ${s.asOf} (Indeed postings in the US, UK and Australia; Malaysian postings are not in this data), task data from O*NET ${dataset.sources.onet ? "31.0" : ""} and exposure ratings from Eloundou et al. Malaysia's local demand signal is its Critical Occupations List (MyCOL), which adds ${OUTLOOK_MODEL.malaysia} outlook points to listed roles. Every chip under a chart links to its source; the full list is on the Data & method page.`
-        : "Every chart cites its sources; the full list is on the Data & method page.",
-      s ? cite(s.sources) : undefined,
-    );
-  }
-
-  if (/fast|scenario|what if|faster/.test(q)) return compareScenario(ctx);
-
-  if (/(first|start|begin).*(learn|step|do)|learn first/.test(q)) {
-    const step = ctx.pathway?.steps[0];
-    if (!step) return answer("Pick a target role on the matches page and I'll show your first step.");
-    return step.kind === "course"
-      ? answer(
-          `Start with “${step.course!.title}” (${step.course!.provider}, ${step.hours} h, ${step.course!.cost}). It addresses ${step.skillIds.map((id) => skillById(id)?.name).join(", ")}, your highest-priority gap${step.skillIds.length > 1 ? "s" : ""} for the hours it takes.`,
-          cite(step.course!.sources),
-        )
-      : answer(`Your gaps are already covered, so go straight to the portfolio project: “${step.task?.statement}”.`);
-  }
-
-  if (/free|cost|money|pay|afford|hrd/.test(q)) {
-    const steps = ctx.pathway?.steps.filter((s) => s.kind === "course") ?? [];
-    const paid = steps.filter((s) => s.course?.cost !== "free");
-    return answer(
-      steps.length
-        ? paid.length
-          ? `${steps.length - paid.length} of ${steps.length} courses are free; ${paid.map((s) => s.course!.title).join(", ")} ${paid.length > 1 ? "are" : "is"} low cost. Set your budget to "Free only" in Quick questions to drop them. HRD Corp funding is claimed by employers, not students — once you're hired, ask about training under your employer's levy.`
-          : `Yes — every course in this pathway is free to complete (some offer paid certificates, which you can skip).`
-        : "Build your pathway first, then I can check its cost.",
-    );
-  }
-
-  if (/order|why this|sequence/.test(q) && ctx.pathway) {
-    return answer(
-      "Courses are picked to address important gaps for the study time available, then ordered from introductory to advanced. The project comes last so you can practise the skills together on a real task from the role. The plan does not certify mastery.",
-    );
-  }
-
-  const role = findRole(question);
-  if (role && /why|rank|not|lower|higher/.test(q) && ctx.matches.length) {
-    const index = ctx.matches.findIndex((m) => m.roleId === role.id);
-    if (index >= 0) return explainMatch(ctx.matches[index], index + 1, ctx);
-  }
-
-  if (/why|top|first|best|rank/.test(q) && ctx.matches.length) return explainMatch(ctx.matches[0], 1, ctx);
-
-  const skill = findSkill(question);
-  if (skill) {
-    const trend = ctx.trends.find((t) => t.skillId === skill.id);
-    if (trend) {
-      const needing = trend.roleIds.slice(0, 3).map((id) => roleById(id)?.title).join(", ");
+  const t = GUIDE[ctx.locale];
+  const labels = LABELS[ctx.locale];
+  const branch = branchOf(question, ctx);
+  switch (branch.kind) {
+    case "privacy":
+      return answer(t.privacy);
+    case "fairness":
+      return answer(t.fairness);
+    case "accuracy":
+      return answer(t.accuracy, cite(["onet", "aei", "indeed"]));
+    case "source":
+      return sourcesAnswer(ctx);
+    case "scenario":
+      return compareScenario(ctx);
+    case "first-step":
+      return firstStep(ctx);
+    case "cost":
+      return costCheck(ctx);
+    case "order":
+      return answer(t.order);
+    case "match":
+      return explainMatch(ctx.matches[branch.rank - 1], branch.rank, ctx);
+    case "skill": {
+      const skill = skillById(branch.skillId)!;
+      const trend = ctx.trends.find((candidate) => candidate.skillId === skill.id)!;
       return answer(
-        `${skill.name}: ${SKILL_TREND_LABEL[trend.trend].toLowerCase()} (score ${Math.round(trend.score)}). ` +
-          (trend.momentum ? `Mentions in hiring posts are moving ${signedPct(trend.momentum * 0.5)} versus the previous six months. ` : "Too few hiring-post mentions to measure momentum. ") +
-          (needing ? `It matters most for ${needing}.` : "No role in SkillTide relies on it heavily."),
+        t.skill({
+          skill: skill.name,
+          trend: labels.skillTrend[trend.trend].toLowerCase(),
+          score: Math.round(trend.score),
+          momentum: trend.momentum ? signedPct(trend.momentum * 0.5) : null,
+          roles: trend.roleIds.slice(0, 3).flatMap((id) => roleById(id)?.title ?? []),
+        }),
         cite(["hn", "onet"]),
       );
     }
+    case "role": {
+      const role = roleById(branch.roleId)!;
+      const outlook = ctx.outlooks.get(role.id);
+      return answer(
+        t.role({
+          role: role.title,
+          onetTitle: role.onetTitle,
+          summary: role.summary,
+          outlook: outlook ? { score: Math.round(outlook.score), trend: labels.trend[outlook.trend].toLowerCase() } : null,
+        }),
+        cite(["onet"]),
+      );
+    }
+    case "sdg": {
+      const goals = ctx.profile?.sdgGoals ?? [];
+      return answer(goals.length ? t.sdg.picked(goals) : t.sdg.none, cite(["un-sdg"]));
+    }
+    case "help":
+      return answer(t.help);
+    case "unknown":
+      return { role: "agent", kind: "info", text: t.unknown };
   }
-
-  if (role) {
-    const outlook = ctx.outlooks.get(role.id);
-    return answer(
-      `${role.title} (O*NET: ${role.onetTitle}). ${role.summary}` +
-        (outlook ? `\nOutlook ${Math.round(outlook.score)} — ${TREND_LABEL[outlook.trend].toLowerCase()} in this scenario.` : ""),
-      cite(["onet"]),
-    );
-  }
-
-  if (/sdg|goal|sustainab/.test(q)) {
-    const goals = profile?.sdgGoals ?? [];
-    return answer(
-      goals.length
-        ? `You picked SDG ${goals.join(", ")}. Each role links to specific targets through an O*NET task that clearly serves them — open a role's "Why this score?" or your pathway to see the task behind each link.`
-        : "Pick up to three SDGs under Quick questions on your profile, and SkillTide will lean your matches towards roles that serve them.",
-      cite(["un-sdg"]),
-    );
-  }
-
-  if (/fill|what should i|how (does|do)|help/.test(q)) {
-    return answer(
-      "Upload a text-based PDF, TXT or Markdown CV, paste CV text with headings like Experience, Projects and Coursework, or load a synthetic sample student. You can also use Pick skills. Then set your study hours, budget and SDG goals under Quick questions.",
-    );
-  }
-
-  return {
-    role: "agent",
-    kind: "info",
-    text: "I can only answer from SkillTide's data and scoring, and nothing there covers that. Try asking why a role is ranked where it is, what changes under Fast AI, or where the data comes from.",
-  };
 }
 
 /** Message posted when the scenario or snapshot changes and the top match moves. */
 export function replanMessage(previousTop: string | null, ctx: AgentContext): Answer | null {
   const top = ctx.matches[0];
   if (!top || !ctx.scenario || !ctx.snapshot) return null;
-  const title = roleById(top.roleId)?.title;
-  const where = `${ctx.scenario.label}, data ${ctx.snapshot.label}`;
+  const t = GUIDE[ctx.locale].replan;
+  const basis = { scenario: LABELS[ctx.locale].scenario[ctx.scenario.id], snapshot: snapshotName(COMMON[ctx.locale], ctx.snapshot) };
+  const title = roleTitle(top.roleId);
+  const score = Math.round(top.score);
   const text =
-    previousTop && previousTop !== top.roleId
-      ? `Re-planned for ${where}: your top role is now ${title} (${Math.round(top.score)}), replacing ${roleById(previousTop)?.title}. Your pathway has been rebuilt.`
-      : `Re-planned for ${where}: ${title} is still your top role (${Math.round(top.score)}).`;
+    previousTop && previousTop !== top.roleId ? t.changed(basis, title, score, roleTitle(previousTop)) : t.same(basis, title, score);
   return { role: "agent", kind: "replan", text, citations: cite(ctx.snapshot.sources.slice(0, 2)) };
 }

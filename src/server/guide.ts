@@ -5,7 +5,11 @@ import { respond, suggestionsFor, type AgentContext } from "@/lib/agent";
 import { computeMatches } from "@/lib/analysis";
 import { fromApiProfile, type GuideFallbackReason, type GuideRequest, type GuideResult } from "@/lib/api-types";
 import { cite, roleById, scenarioById, snapshotById } from "@/lib/data";
+import type { Locale } from "@/lib/i18n";
 import type { Citation } from "@/lib/types";
+import { COMMON, snapshotName } from "@/messages/common";
+import { GUIDE } from "@/messages/guide";
+import { LABELS } from "@/messages/labels";
 import type { WindowLimiter } from "./limiter";
 import { outlooksFor } from "./memo";
 import { openAiConfig, ProviderError, wordWithOpenAI, type GuideReply, type OpenAiEnv } from "./openai";
@@ -26,18 +30,27 @@ export interface GuideDeps {
 }
 
 /** Bump when the instructions or the fact format change, so cached answers are not reused. */
-const PROMPT_VERSION = 2;
+const PROMPT_VERSION = 3;
 const CACHE_SECONDS = 7 * 24 * 60 * 60;
 
-export const GUIDE_INSTRUCTIONS = [
-  "You are the SkillTide Guide. You help a final-year student in Malaysia understand SkillTide's career analysis.",
-  "Answer the student's question using only the numbered facts, which come from SkillTide's own data and scoring.",
-  "Never add a job, course, skill, statistic, date or number that is not in the facts. Copy every number exactly as the facts write it; do not calculate, round or estimate.",
-  "When you give a job-postings figure, say it comes from Indeed postings in the US, UK and Australia, which leave out Malaysia.",
-  "If the facts do not answer the question, say that SkillTide's data does not cover it and suggest one question it can answer.",
-  'Write plain English in at most 120 words, without headings or Markdown, and address the student as "you".',
-  'Return JSON: "answer" is your reply and "facts" lists the ids of the facts you used, such as "F1".',
-].join("\n");
+const ANSWER_LANGUAGE: Record<Locale, string> = {
+  en: 'Write plain English in at most 120 words, without headings or Markdown, and address the student as "you".',
+  ms: 'Write plain Bahasa Melayu in at most 120 words, without headings or Markdown, and address the student as "anda".',
+  zh: 'Write plain Simplified Chinese in at most 200 characters, without headings or Markdown, and address the student as "你".',
+};
+
+export function guideInstructions(locale: Locale): string {
+  return [
+    "You are the SkillTide Guide. You help a final-year student in Malaysia understand SkillTide's career analysis.",
+    "Answer the student's question using only the numbered facts, which come from SkillTide's own data and scoring.",
+    "Never add a job, course, skill, statistic, date or number that is not in the facts. Copy every number exactly as the facts write it, in digits; do not calculate, round or estimate.",
+    "When you give a job-postings figure, say it comes from Indeed postings in the US, UK and Australia, which leave out Malaysia.",
+    "If the facts do not answer the question, say that SkillTide's data does not cover it and suggest one question it can answer.",
+    "Keep role, skill, course and source names in English, as the facts write them.",
+    ANSWER_LANGUAGE[locale],
+    'Return JSON: "answer" is your reply and "facts" lists the ids of the facts you used, such as "F1".',
+  ].join("\n");
+}
 
 export interface Fact {
   id: string;
@@ -53,6 +66,7 @@ export function guideContext(request: GuideRequest): AgentContext {
   const analysis = profile ? computeMatches({ snapshot, scenario, weights, profile, targetRoleId }, outlooks) : null;
   return {
     pathname: request.page,
+    locale: request.locale,
     profile: profile ? fromApiProfile(profile) : null,
     weights: request.weights,
     snapshot: snapshotById(request.snapshot),
@@ -64,8 +78,12 @@ export function guideContext(request: GuideRequest): AgentContext {
   };
 }
 
-/** The rule-based answers that could matter for this question, plus the student's current results. */
+/**
+ * The rule-based answers that could matter for this question, plus the student's current results, in
+ * the student's language: the page's suggestions and the data-source answer are the ones they can see.
+ */
 export function buildFacts(request: GuideRequest, context: AgentContext, ruleAnswer: ReturnType<typeof respond>): Fact[] {
+  const t = GUIDE[request.locale];
   const facts: Fact[] = [];
   const add = (text: string, citations: Citation[] = [], question?: string) => {
     const clean = text.trim();
@@ -76,22 +94,26 @@ export function buildFacts(request: GuideRequest, context: AgentContext, ruleAns
   };
 
   addAnswer(request.question, ruleAnswer);
-  for (const question of [...suggestionsFor(request.page), "Where does this data come from?"]) addAnswer(question);
+  for (const question of [...suggestionsFor(request.page, request.locale), t.questions.source]) addAnswer(question);
 
   const { snapshot, scenario, matches, pathway } = context;
-  if (snapshot && scenario) add(`The student is viewing the ${scenario.label} scenario with data from ${snapshot.label}.`);
+  if (snapshot && scenario) {
+    add(t.facts.viewing({ scenario: LABELS[request.locale].scenario[scenario.id], snapshot: snapshotName(COMMON[request.locale], snapshot) }));
+  }
   if (matches.length) {
-    const top = matches.slice(0, 3).map((match, index) => `#${index + 1} ${roleById(match.roleId)?.title} (match ${Math.round(match.score)}, outlook ${Math.round(match.outlook.score)})`);
-    add(`The student's top matches: ${top.join("; ")}.`, cite(snapshot?.sources.slice(0, 2) ?? []));
+    const top = matches
+      .slice(0, 3)
+      .map((match, index) => t.facts.match(index + 1, roleById(match.roleId)?.title ?? match.roleId, Math.round(match.score), Math.round(match.outlook.score)));
+    add(t.facts.topMatches(top), cite(snapshot?.sources.slice(0, 2) ?? []));
   }
   if (pathway) {
     const steps = pathway.steps.map((step) =>
       step.course
-        ? `${step.course.title} by ${step.course.provider} (${step.hours} h, ${step.course.cost === "free" ? "free" : "low cost"})`
-        : `a portfolio project practising "${step.task?.statement ?? "a task from the role"}" (${step.hours} h)`,
+        ? t.facts.course(step.course.title, step.course.provider, step.hours, t.price[step.course.cost])
+        : t.facts.project(step.task?.statement ?? null, step.hours),
     );
     add(
-      `The student's pathway towards ${roleById(pathway.roleId)?.title}: ${Math.round(pathway.totalHours)} h over ${pathway.totalWeeks} weeks. Steps in order: ${steps.join("; ")}.`,
+      t.facts.pathway(roleById(pathway.roleId)?.title ?? pathway.roleId, Math.round(pathway.totalHours), pathway.totalWeeks, steps),
       cite([...new Set(pathway.steps.flatMap((step) => step.course?.sources ?? []))]),
     );
   }
@@ -163,13 +185,13 @@ export async function answerGuide(request: GuideRequest, deps: GuideDeps): Promi
   const facts = buildFacts(request, context, ruleAnswer);
   const input = guideInput(request, facts);
   // Identical questions on identical results reuse one answer: no second model call.
-  const key = new Request(`${deps.origin}/api/v1/_guide-cache/${await sha256(JSON.stringify([PROMPT_VERSION, config.model, config.effort, input]))}`);
+  const key = new Request(`${deps.origin}/api/v1/_guide-cache/${await sha256(JSON.stringify([PROMPT_VERSION, config.model, config.effort, request.locale, input]))}`);
   const hit = await cached(deps.cache, key);
   if (hit) return hit;
   if (!deps.limits.client.take(deps.clientId) || !deps.limits.instance.take("all")) return withFallback(rules, "rate-limited");
 
   try {
-    const grounded = groundReply(await wordWithOpenAI(config, GUIDE_INSTRUCTIONS, input, deps.fetch), facts);
+    const grounded = groundReply(await wordWithOpenAI(config, guideInstructions(request.locale), input, deps.fetch), facts);
     if (!grounded) return withFallback(rules, "ungrounded");
     const result: GuideResult = { ...grounded, kind: "answer", engine: "ai", model: config.model };
     if (deps.cache) {

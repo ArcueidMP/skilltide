@@ -3,6 +3,7 @@
 import type { CohortSummary } from "./cohort";
 import type { ScenarioComparisonSummary } from "./comparison";
 import type { FairnessResult, Pathway, RoleMatch, RoleOutlook, SkillTrend } from "./engine";
+import type { Locale } from "./i18n";
 import type { Citation, MatchWeights, Profile, ScenarioId, SkillLevel } from "./types";
 
 export const API_PREFIX = "/api/v1";
@@ -116,6 +117,8 @@ export interface GuideRequest {
   weights: MatchWeights;
   profile: ApiProfile | null;
   targetRoleId: string | null;
+  /** The language to answer in. Optional on the wire; English when missing. */
+  locale: Locale;
 }
 
 export type GuideFallbackReason = "not-configured" | "rate-limited" | "provider-error" | "timeout" | "refused" | "ungrounded";

@@ -4,10 +4,12 @@ import { computeCohort, computeComparison, computeMatches, computeOutlooks } fro
 import { toApiProfile, type GuideRequest, type GuideResult, type MatchesRequest, type MatchesResult } from "@/lib/api-types";
 import { dataset, datasetVersion, scenarioById, snapshotById } from "@/lib/data";
 import { extractSkills, type RoleMatch } from "@/lib/engine";
+import type { Locale } from "@/lib/i18n";
 import { SAMPLE_PERSONAS } from "@/lib/samples";
 import type { ScenarioId } from "@/lib/types";
+import { GUIDE } from "@/messages/guide";
 import { handleApi } from "./api";
-import { buildFacts, guideContext, type EdgeCache, type GuideDeps } from "./guide";
+import { buildFacts, guideContext, guideInput, type EdgeCache, type Fact, type GuideDeps } from "./guide";
 import { WindowLimiter } from "./limiter";
 import { DEFAULT_MODEL, OPENAI_URL } from "./openai";
 
@@ -88,19 +90,27 @@ describe("API results", () => {
     expect(await dataOf(await post("/scenarios/compare", empty))).toBeNull();
   });
 
-  it("gives the same rule-based guide answers as the browser with the full profile", async () => {
-    for (const [page, question] of [
-      ["/match", "Why is my top role ranked first?"],
-      ["/match", "What changes under Fast AI?"],
-      ["/pathway", "What should I learn first?"],
-      ["/profile", "Is my CV stored anywhere?"],
-    ]) {
-      const request: GuideRequest = { ...matchesRequest(), question, page, ai: false };
+  it("gives the same rule-based guide answers as the browser with the full profile, in every language", async () => {
+    const cases: [string, string, Locale][] = [
+      ["/match", "Why is my top role ranked first?", "en"],
+      ["/match", "What changes under Fast AI?", "en"],
+      ["/pathway", "What should I learn first?", "en"],
+      ["/profile", "Is my CV stored anywhere?", "en"],
+      ["/match", "Kenapa peranan teratas saya berada di tempat pertama?", "ms"],
+      ["/pathway", "Berapa kos kursus dalam laluan saya?", "ms"],
+      ["/radar", "这些数据从哪里来？", "zh"],
+      ["/pathway", "我应该先学什么？", "zh"],
+      // Asked in English with the interface in Chinese: the answer follows the interface.
+      ["/match", "What changes under Fast AI?", "zh"],
+    ];
+    for (const [page, question, locale] of cases) {
+      const request: GuideRequest = { ...matchesRequest(), question, page, ai: false, locale };
       const result = await dataOf<GuideResult>(await post("/guide", request));
       const { outlooks, trends } = computeOutlooks("latest", "moderate");
       const analysis = computeMatches(matchesRequest(), outlooks);
       const browser: AgentContext = {
         pathname: page,
+        locale,
         profile: kavin,
         weights: WEIGHTS,
         snapshot: snapshotById("latest"),
@@ -114,7 +124,14 @@ describe("API results", () => {
       expect(result.engine).toBe("rules");
       expect(result.text, question).toBe(expected.text);
       expect(result.citations).toEqual(roundTrip(expected.citations ?? []));
+      if (locale !== "en") expect(result.text, question).not.toBe(respond(question, { ...browser, locale: "en" }).text);
+      if (locale === "zh") expect(result.text, question).toMatch(/[一-鿿]/);
     }
+  });
+
+  it("answers in English when an older page sends no language", async () => {
+    const request: Partial<GuideRequest> = { ...matchesRequest(), question: "Is my CV stored anywhere?", page: "/profile", ai: false };
+    expect((await dataOf<GuideResult>(await post("/guide", request))).text).toBe(GUIDE.en.privacy);
   });
 });
 
@@ -214,7 +231,7 @@ describe("API requests", () => {
 describe("Guide AI wording", () => {
   const ENV = { OPENAI_API_KEY: "test-key" };
   const question = "Why is my top role ranked first?";
-  const request = (overrides: Partial<GuideRequest> = {}): GuideRequest => ({ ...matchesRequest(), question, page: "/match", ai: true, ...overrides });
+  const request = (overrides: Partial<GuideRequest> = {}): GuideRequest => ({ ...matchesRequest(), question, page: "/match", ai: true, locale: "en", ...overrides });
   const factsFor = (r: GuideRequest) => {
     const context = guideContext(r);
     return buildFacts(r, context, respond(r.question, context));
@@ -255,6 +272,21 @@ describe("Guide AI wording", () => {
     expect(body.input).toContain(factsFor(request())[0].text);
     expect(String(init?.body)).not.toContain(kavin.name);
     expect((init?.headers as Record<string, string>).authorization).toBe("Bearer test-key");
+  });
+
+  it("builds the facts in the student's language, with the same numbers and sources", () => {
+    const english = factsFor(request());
+    const numbers = (facts: Fact[]) => facts.flatMap((fact) => fact.text.match(/\d+(?:\.\d+)?/g) ?? []).sort();
+    for (const locale of ["ms", "zh"] as const) {
+      const local = factsFor(request({ locale }));
+      const questions = local.flatMap((fact) => (fact.question ? [fact.question] : []));
+      // The answers to the page's suggestions and to "Where does this data come from?", as the student sees them.
+      expect(questions).toContain(GUIDE[locale].questions.source);
+      expect(questions).not.toContain(GUIDE.en.questions.source);
+      expect(local.map((fact) => fact.citations)).toEqual(english.map((fact) => fact.citations));
+      expect(numbers(local)).toEqual(numbers(english));
+      expect(guideInput(request({ locale }), local)).toContain(GUIDE[locale].questions.sure);
+    }
   });
 
   it("discards a reply with a number the facts do not contain", async () => {

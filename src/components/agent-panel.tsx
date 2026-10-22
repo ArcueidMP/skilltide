@@ -9,12 +9,15 @@ import { replanMessage, suggestionsFor, type AgentContext, type AgentMessage } f
 import { toApiProfile } from "@/lib/api-types";
 import { askGuide } from "@/lib/guide-client";
 import { useAnalysis } from "@/lib/use-analysis";
+import { useMessages } from "@/lib/use-messages";
+import { GUIDE_PANEL } from "@/messages/guide";
 import { Segmented } from "./ui";
 import { CitationList } from "./citations";
 
 export function AgentPanel() {
   const pathname = usePathname();
   const store = useStore();
+  const t = useMessages(GUIDE_PANEL);
   const [messages, setMessages] = useState<AgentMessage[]>([]);
   const [draft, setDraft] = useState("");
   const nextId = useRef(0);
@@ -22,6 +25,7 @@ export function AgentPanel() {
   const analysis = useAnalysis();
   const context: AgentContext = {
     pathname,
+    locale: store.locale,
     profile: store.profile,
     weights: store.weights,
     snapshot: analysis.snapshot,
@@ -62,7 +66,7 @@ export function AgentPanel() {
       {
         id: replyId,
         role: "agent",
-        text: store.aiWording ? "Wording an answer from SkillTide's facts…" : "Checking SkillTide's data…",
+        text: store.aiWording ? t.pendingAi : t.pendingRules,
         pending: true,
       },
     ]);
@@ -74,6 +78,7 @@ export function AgentPanel() {
       weights: store.weights,
       profile: store.profile ? toApiProfile(store.profile) : null,
       targetRoleId: store.targetRoleId,
+      locale: store.locale,
     });
     setMessages((current) => current.map((message) => (message.id === replyId ? { ...reply, id: replyId } : message)));
   }
@@ -83,11 +88,11 @@ export function AgentPanel() {
     void ask(draft);
   }
 
-  const suggestions = suggestionsFor(pathname);
+  const suggestions = suggestionsFor(pathname, store.locale);
 
   return (
     <section
-      aria-label="SkillTide guide"
+      aria-label={t.region}
       className="panel flex h-full flex-col overflow-hidden rounded-md"
     >
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3">
@@ -96,36 +101,30 @@ export function AgentPanel() {
             <LifeBuoy className="h-4 w-4" />
           </span>
           <div>
-            <p className="font-display text-sm font-semibold">SkillTide Guide</p>
-            <p className="text-[11px] text-muted">Answers only from SkillTide data</p>
+            <p className="font-display text-sm font-semibold">{t.title}</p>
+            <p className="text-[11px] text-muted">{t.subtitle}</p>
           </div>
         </div>
         <Segmented
           size="sm"
-          label="How the guide words its answers"
+          label={t.modeLabel}
           value={store.aiWording ? "ai" : "rules"}
           options={[
-            { value: "rules", label: "Rules" },
-            { value: "ai", label: "AI wording" },
+            { value: "rules", label: t.rules },
+            { value: "ai", label: t.ai },
           ]}
           onChange={(value) => store.update({ aiWording: value === "ai" })}
         />
       </div>
       {store.aiWording ? (
         <p className="border-b border-border bg-surface-muted px-4 py-2 text-[11.5px] leading-relaxed text-ink-soft">
-          AI wording sends your question and SkillTide&apos;s computed facts about your results (never your name or CV) to
-          OpenAI to phrase the answer. Numbers and sources still come only from SkillTide: an answer with a number the
-          facts lack is discarded.
+          {t.aiDisclosure}
         </p>
       ) : null}
 
       <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
         {messages.length === 0 ? (
-          <div className="rounded-lg bg-surface-muted p-3 text-[13px] leading-relaxed text-ink-soft">
-            I explain why SkillTide ranks things the way it does, and every answer points to its
-            source. I don&apos;t invent jobs, courses or numbers — if the data doesn&apos;t cover
-            something, I&apos;ll say so.
-          </div>
+          <div className="rounded-lg bg-surface-muted p-3 text-[13px] leading-relaxed text-ink-soft">{t.intro}</div>
         ) : null}
         {messages.map((message) => (
           <div
@@ -149,7 +148,7 @@ export function AgentPanel() {
                 <CitationList citations={message.citations} className="mt-2" />
               ) : null}
               {message.engine === "ai" ? (
-                <p className="mt-2 text-[11px] text-muted">Worded by OpenAI {message.model} from the SkillTide facts cited here.</p>
+                <p className="mt-2 text-[11px] text-muted">{t.wordedBy(message.model ?? "")}</p>
               ) : null}
               {message.note ? <p className="mt-2 text-[11px] text-muted">{message.note}</p> : null}
             </div>
@@ -173,19 +172,19 @@ export function AgentPanel() {
         ) : null}
         <form onSubmit={onSubmit} className="flex items-center gap-2">
           <label htmlFor="agent-input" className="sr-only">
-            Ask the guide
+            {t.inputLabel}
           </label>
           <input
             id="agent-input"
             value={draft}
             maxLength={500}
             onChange={(event) => setDraft(event.target.value)}
-            placeholder="Ask why, what if, or where from…"
+            placeholder={t.placeholder}
             className="h-9 min-w-0 flex-1 rounded-md border border-border-strong bg-surface px-3 text-[13px] text-ink placeholder:text-muted outline-none focus:border-brand"
           />
           <button
             type="submit"
-            aria-label="Send"
+            aria-label={t.send}
             className="flex h-9 w-9 items-center justify-center rounded-md bg-ink text-brand-ink hover:bg-brand-strong"
           >
             <Send className="h-4 w-4" aria-hidden />

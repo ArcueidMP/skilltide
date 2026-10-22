@@ -3,6 +3,7 @@
 
 import type { ApiProfile, CompareRequest, GuideRequest, MatchesRequest } from "@/lib/api-types";
 import { dataset } from "@/lib/data";
+import { LOCALES, type Locale } from "@/lib/i18n";
 import type { MatchWeights, ScenarioId, SkillLevel } from "@/lib/types";
 import { ApiError } from "./http";
 
@@ -10,6 +11,7 @@ const SKILLS = new Set(dataset.skills.map((skill) => skill.id));
 const ROLES = new Set(dataset.roles.map((role) => role.id));
 const SNAPSHOTS = new Set(dataset.snapshots.map((snapshot) => snapshot.id));
 const SCENARIOS = new Set<string>(dataset.scenarios.map((scenario) => scenario.id));
+const LOCALE_CODES = new Set<string>(LOCALES.map((locale) => locale.value));
 
 export const MAX_QUESTION_CHARS = 500;
 
@@ -91,6 +93,10 @@ class Checker {
     return { skills, sdgGoals, hoursPerWeek: this.number(fields?.hoursPerWeek, "profile.hoursPerWeek", 1, 60), budget: budget ?? "free" };
   }
 
+  locale(value: unknown): Locale {
+    return value === undefined ? "en" : this.oneOf<Locale>(value, "locale", LOCALE_CODES, "en");
+  }
+
   roleId(value: unknown): string | null {
     if (value === null || value === undefined) return null;
     if (typeof value === "string" && ROLES.has(value)) return value;
@@ -153,5 +159,6 @@ export function parseGuideRequest(body: unknown): GuideRequest {
     weights: check.weights(fields?.weights),
     profile: fields?.profile === null ? null : check.profile(fields?.profile),
     targetRoleId: check.roleId(fields?.targetRoleId),
+    locale: check.locale(fields?.locale),
   });
 }
