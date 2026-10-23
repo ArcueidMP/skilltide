@@ -10,7 +10,7 @@ The catalogue is source-backed, the same inputs produce the same scores, and eac
 
 ## 3. Does it really keep updating?
 
-The refresh pipeline can re-download changing hiring inputs and the live course catalogue, validate them and publish an updated dataset. The weekly workflow is scheduled for Monday at 10:00 SGT. Actual activation and run results must be checked in the repository's Actions view. Fixed Anthropic releases and curated mappings require explicit version updates; we do not claim automatic discovery of every new AI release.
+The refresh pipeline can re-download changing hiring inputs and the live course catalogue, validate them and publish an updated dataset. Its weekly schedule (Monday 10:00 SGT) is paused during judging so the submitted data stays fixed; the last successful run was on 21 Oct 2026 and can be checked in the repository's Actions view. Fixed Anthropic releases and curated mappings require explicit version updates; we do not claim automatic discovery of every new AI release.
 
 ## 4. How accurate are the predictions?
 

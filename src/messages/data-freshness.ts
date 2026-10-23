@@ -18,7 +18,7 @@ export const DATA_FRESHNESS = defineMessages({
     overdue: "No successful refresh has been recorded in the last eight days. The last published dataset remains available. ",
     unchanged: "Substantive data was unchanged in this build. ",
     changed: "Substantive data changed in this build. ",
-    note: "Build dates are not source publication dates. Fixed AI releases are curated; hiring signals and the live course catalogue are refreshed by the weekly pipeline.",
+    note: "Build dates are not source publication dates. Fixed AI releases are curated; hiring signals and the live course catalogue are refreshed by the data pipeline.",
     inputs: (downloaded: number, cached: number, unknownDates: number) =>
       `${downloaded} inputs downloaded · ${cached} reused · ${unknownDates} download dates not recorded.`,
     history: "Refresh history",
@@ -39,7 +39,7 @@ export const DATA_FRESHNESS = defineMessages({
       "Tiada penyegaran yang berjaya direkodkan dalam lapan hari lalu. Set data terakhir yang diterbitkan masih tersedia. ",
     unchanged: "Data substantif tidak berubah dalam binaan ini. ",
     changed: "Data substantif berubah dalam binaan ini. ",
-    note: "Tarikh binaan bukan tarikh penerbitan sumber. Keluaran data AI adalah tetap dan dipilih secara manual; isyarat pengambilan pekerja dan katalog kursus semasa disegarkan oleh saluran paip data mingguan.",
+    note: "Tarikh binaan bukan tarikh penerbitan sumber. Keluaran data AI adalah tetap dan dipilih secara manual; isyarat pengambilan pekerja dan katalog kursus semasa disegarkan oleh saluran paip data.",
     inputs: (downloaded, cached, unknownDates) =>
       `${downloaded} input dimuat turun · ${cached} diguna semula · ${unknownDates} tarikh muat turun tidak direkodkan.`,
     history: "Sejarah penyegaran",
@@ -59,7 +59,7 @@ export const DATA_FRESHNESS = defineMessages({
     overdue: "过去八天内没有成功更新的记录。上一次发布的数据集仍可使用。",
     unchanged: "本次构建的实质数据没有变化。",
     changed: "本次构建的实质数据有变化。",
-    note: "构建日期不是来源的发布日期。AI 数据版本是固定的，经人工筛选；招聘信号和实时课程目录由每周运行的数据管道更新。",
+    note: "构建日期不是来源的发布日期。AI 数据版本是固定的，经人工筛选；招聘信号和实时课程目录由数据管道更新。",
     inputs: (downloaded, cached, unknownDates) =>
       `已下载 ${downloaded} 项输入 · 复用 ${cached} 项 · ${unknownDates} 项下载日期未记录。`,
     history: "更新历史",

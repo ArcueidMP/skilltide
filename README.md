@@ -84,7 +84,7 @@ npx wrangler secret put OPENAI_API_KEY  # once, to enable AI wording; without it
 
 SkillTide also runs on **Replit**: see [How We Use Replit](#how-we-use-replit).
 
-The repository includes validation and weekly/manual data-refresh workflows. Refreshes are scheduled for Monday at 10:00 SGT. Check actual Actions runs and the Cloudflare build integration before claiming automation is active. See [deployment instructions](docs/deployment.md).
+The repository includes a validation workflow and a data-refresh workflow (weekly schedule or manual run). Pushes to `main` deploy to Cloudflare through Workers Builds. The refresh schedule is paused while the competition is judged, so the submitted code and data stay as they are; the last successful refresh ran on 21 Oct 2026 ([run log](https://github.com/ArcueidMP/skilltide/actions/runs/39643199831)). See [deployment instructions](docs/deployment.md).
 
 ## How We Use Replit
 
