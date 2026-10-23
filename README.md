@@ -70,6 +70,7 @@ Refresh the data (downloads about 500 MB into `.cache/`, takes a few minutes):
 ```bash
 npm run data:refresh  # refresh, validate and build; restore the old dataset on failure
 npm run evaluate      # update the synthetic case evidence
+npm run impact        # gap-coverage KPI from the proposal, across the synthetic cohort
 ```
 
 ## Deploy
@@ -81,13 +82,23 @@ npm run deploy:cloudflare             # build a static export, then deploy the s
 npx wrangler secret put OPENAI_API_KEY  # once, to enable AI wording; without it the Guide uses its rules
 ```
 
-SkillTide also runs on **Replit** as one Node server (`src/server/node.ts`), serving the same static export through the same API handler as the Worker. `.replit` builds with `npm ci && npm run build:static` and starts `npm run start:node`. To enable AI wording there, add `OPENAI_API_KEY` under Replit Secrets.
+SkillTide also runs on **Replit**: see [How We Use Replit](#how-we-use-replit).
 
 The repository includes validation and weekly/manual data-refresh workflows. Refreshes are scheduled for Monday at 10:00 SGT. Check actual Actions runs and the Cloudflare build integration before claiming automation is active. See [deployment instructions](docs/deployment.md).
 
+## How We Use Replit
+
+- **Hosting:** The live demo at [skilltide.replit.app](https://skilltide.replit.app) is a Replit Autoscale deployment (region Asia). One Node server (`src/server/node.ts`) serves the static site and the `/api/v1` API through the same handler as the Cloudflare Worker.
+- **Build:** The Repl is imported from this repository. `.replit` builds with `npm ci && npm run build:static` and starts `npm run start:node` on port 3000, exposed on port 80.
+- **Secrets:** `OPENAI_API_KEY`, used only for the Guide's optional AI wording, is stored in Replit Secrets, never in the code. Without it the Guide answers with its rules.
+- **Updates:** Replit deployments do not follow git pushes, so we run `git pull` in the Repl shell and then republish.
+- **Check it:** `curl https://skilltide.replit.app/api/v1/health` returns `"ok": true`, and the footer of every page says whether the API or the browser computed the results.
+
+📄 Proof of use: [`submission/SDC2026_Traiblazers_Replit_POU.pdf`](submission/SDC2026_Traiblazers_Replit_POU.pdf)
+
 ## Competition materials
 
-- The proposal is submitted separately; an [earlier working draft](docs/archive/proposal-draft-v1.md) is archived for reference.
+- [Preliminary proposal (PRD)](submission/SDC2026_Traiblazers_Preliminary.pdf) on the official template, and the [Replit proof of use](submission/SDC2026_Traiblazers_Replit_POU.pdf); an [earlier working draft](docs/archive/proposal-draft-v1.md) is archived for reference.
 - [Three-minute demo script and fallback](docs/demo-script.md)
 - [Five-minute demo film](video/README.md): built from the real app and dataset, with its [subtitles](video/out/skilltide-demo.srt) and [narration script](video/out/narration-script.txt)
 - [Judge Q&A and requirement evidence](docs/judges-qa.md)
@@ -113,6 +124,7 @@ src/lib/analysis.ts  what each API endpoint computes, shared with the browser fa
 src/lib/agent.ts     rule-based guide
 src/server/          API Worker: routes, validation, optional OpenAI wording (docs/api.md)
 src/app/             pages: profile, radar, match, pathway, career-centre, methodology
+submission/          competition PDFs: preliminary proposal, Replit proof of use
 ```
 
 ## License
