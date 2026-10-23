@@ -17,7 +17,8 @@
     "deploy:cloudflare": "node scripts/deploy-cloudflare.mjs",
     "test:pipeline": "python -m unittest discover -s pipeline -p test_*.py",
     "data:refresh": "node scripts/refresh-data.mjs",
-    "evaluate": "tsx scripts/evaluate.mts"
+    "evaluate": "tsx scripts/evaluate.mts",
+    "impact": "tsx scripts/impact.mts"
   },
   "dependencies": {
     "@fontsource-variable/source-serif-4": "^5.3.1",
