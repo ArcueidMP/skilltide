@@ -114,3 +114,7 @@ src/lib/agent.ts     rule-based guide
 src/server/          API Worker: routes, validation, optional OpenAI wording (docs/api.md)
 src/app/             pages: profile, radar, match, pathway, career-centre, methodology
 ```
+
+## License
+
+SkillTide's code is released under the [Apache License 2.0](LICENSE). The data it bundles keeps the licence of each source, listed under [Data sources](#data-sources).
