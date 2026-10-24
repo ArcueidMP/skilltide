@@ -4,7 +4,18 @@
 
 SkillTide follows dated public signals of AI progress and hiring, matches a student's skills to future roles, and builds a reskilling pathway of real, free or low-cost courses — with every role and skill linked to specific UN SDG targets.
 
-Built for the XMUM Hackathon, *Aiversecity Future-Ready Workforce* domain (main SDG 4; also 5, 8, 9, 10).
+Built by **Team Traiblazers** (Xiamen University Malaysia) for the **SDC Hackathon 2026**, hosted by the XMUM AI Club.
+
+| | |
+|---|---|
+| Domain | Domain 1: The Aiversecity Future-Ready Workforce |
+| SDG track | SDG 4: Quality Education (the domain also covers SDGs 5, 8, 9 and 10) |
+| Live demo | [skilltide.replit.app](https://skilltide.replit.app) on Replit; mirror at [xmumhkt.arcueidmp.com](https://xmumhkt.arcueidmp.com) on Cloudflare |
+| GitHub repository | [github.com/ArcueidMP/skilltide](https://github.com/ArcueidMP/skilltide) |
+| Replit project | Repl `@ArcueidMP/skilltide`, private; see [How We Use Replit](#how-we-use-replit) |
+| Slide deck | [Canva](https://canva.link/8u9yhzbwafhnxuy) · [PDF](submission/SDC2026_Traiblazers_PitchDeck.pdf) |
+| Demo video | YouTube link to be added |
+| RunPod | Not used: SkillTide has no GPU workload ([why](#how-we-use-runpod)) |
 
 ## Who it is for
 
@@ -96,11 +107,16 @@ The repository includes a validation workflow and a data-refresh workflow (weekl
 
 📄 Proof of use: [`submission/SDC2026_Traiblazers_Replit_POU.pdf`](submission/SDC2026_Traiblazers_Replit_POU.pdf)
 
+## How We Use RunPod
+
+Not used. SkillTide trains, fine-tunes and runs no model on a GPU: scoring uses published formulas, CV skills are recognised with fixed rules in the browser, and the optional AI wording calls OpenAI's API from our server. The hackathon routes GPU work through RunPod, so without a GPU workload there was nothing to run there. Section 5 of the [technology declaration](submission/SDC2026_Traiblazers_TechDeclaration.pdf) records this.
+
 ## Competition materials
 
-- [Preliminary proposal (PRD)](submission/SDC2026_Traiblazers_Preliminary.pdf) on the official template, and the [Replit proof of use](submission/SDC2026_Traiblazers_Replit_POU.pdf); an [earlier working draft](docs/archive/proposal-draft-v1.md) is archived for reference.
+- [Preliminary proposal (PRD)](submission/SDC2026_Traiblazers_Preliminary.pdf) on the official template, the [technology declaration](submission/SDC2026_Traiblazers_TechDeclaration.pdf) and the [Replit proof of use](submission/SDC2026_Traiblazers_Replit_POU.pdf); an [earlier working draft](docs/archive/proposal-draft-v1.md) is archived for reference.
+- Pitch deck: [Canva](https://canva.link/8u9yhzbwafhnxuy) and [PDF](submission/SDC2026_Traiblazers_PitchDeck.pdf)
 - [Three-minute demo script and fallback](docs/demo-script.md)
-- [Five-minute demo film](video/README.md): built from the real app and dataset, with its [subtitles](video/out/skilltide-demo.srt) and [narration script](video/out/narration-script.txt)
+- [Five-minute demo film](video/README.md): built from the real app and dataset and narrated by a team member, with its [subtitles](video/out/skilltide-demo.srt) and [narration script](video/out/narration-script.txt)
 - [Judge Q&A and requirement evidence](docs/judges-qa.md)
 - [Synthetic evaluation report](docs/evaluation-report.md) and [machine-readable results](docs/evaluation-results.json)
 
@@ -124,8 +140,25 @@ src/lib/analysis.ts  what each API endpoint computes, shared with the browser fa
 src/lib/agent.ts     rule-based guide
 src/server/          API Worker: routes, validation, optional OpenAI wording (docs/api.md)
 src/app/             pages: profile, radar, match, pathway, career-centre, methodology
-submission/          competition PDFs: preliminary proposal, Replit proof of use
+submission/          competition PDFs: preliminary proposal, technology declaration, Replit proof of use, pitch deck
 ```
+
+## Team
+
+Team Traiblazers, Xiamen University Malaysia: HUANG BAONING (team leader) and WANG YUZHE.
+
+## Submission checklist
+
+- [x] Team name, domain (Domain 1) and SDG track filled in
+- [x] Slide deck link added
+- [ ] Demo video link added
+- [x] Replit used, with proof of use in `submission/`
+- [x] RunPod: not used, as SkillTide has no GPU workload (see [How We Use RunPod](#how-we-use-runpod))
+- [x] Preliminary submission completed (`SDC2026_Traiblazers_Preliminary.pdf`)
+- [x] Technology declaration completed (`SDC2026_Traiblazers_TechDeclaration.pdf`)
+- [x] Submission files renamed with our team name
+- [x] "Run it" steps checked by CI on every push (install, tests, lint, static build)
+- [x] No API keys or secrets committed to the repository (full history scanned on 24 Oct 2026)
 
 ## License
 

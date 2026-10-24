@@ -57,7 +57,7 @@ To check a single frame, run `node tools/still.mjs <seconds> [--subs]`. It write
 
 Everything on screen comes from SkillTide's public data, its synthetic sample CV and its synthetic student. If a data refresh changes the numbers, re-run steps 1 and 2 and check the narration against the new figures before rendering again.
 
-- **Narration:** a synthetic voice from Kokoro-82M (Apache-2.0 weights), run locally on the CPU.
+- **Narration:** the submitted film is narrated by a team member. Earlier cuts used a synthetic voice from Kokoro-82M (Apache-2.0 weights), run locally on the CPU, and that cut set the line timings the recording follows. The recordings are not in git, so step 4 rebuilds the synthetic-voice cut.
 - **Music and effects:** synthesised in `tools/audio.py`.
 - **"Next" section:** everything listed there is planned for the final round and not built yet; the line under it names what was built after the proposal.
 - **Pronunciation check:** run ffmpeg's `whisper` filter with `use_gpu=false`, so no model runs on a local GPU (the hackathon routes GPU model work through RunPod).
