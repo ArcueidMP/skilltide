@@ -88,10 +88,10 @@ The repository includes a validation workflow and a data-refresh workflow (weekl
 
 ## How We Use Replit
 
-- **Hosting:** The live demo at [skilltide.replit.app](https://skilltide.replit.app) is a Replit Autoscale deployment (region Asia). One Node server (`src/server/node.ts`) serves the static site and the `/api/v1` API through the same handler as the Cloudflare Worker.
-- **Build:** The Repl is imported from this repository. `.replit` builds with `npm ci && npm run build:static` and starts `npm run start:node` on port 3000, exposed on port 80.
+- **Hosting:** The live demo at [skilltide.replit.app](https://skilltide.replit.app) is a public Replit Autoscale deployment (2 vCPU / 4 GiB RAM, region Asia). One Node server (`src/server/node.ts`) serves the static site and the `/api/v1` API through the same handler as the Cloudflare Worker.
+- **Build:** The Repl `@ArcueidMP/skilltide` is imported from this repository. `.replit` builds with `npm ci && npm run build:static` and starts `npm run start:node` on port 3000, exposed on port 80.
 - **Secrets:** `OPENAI_API_KEY`, used only for the Guide's optional AI wording, is stored in Replit Secrets, never in the code. Without it the Guide answers with its rules.
-- **Updates:** Replit deployments do not follow git pushes, so we run `git pull` in the Repl shell and then republish.
+- **Updates:** Replit deployments do not follow git pushes. We fetch and merge the latest commit from GitHub in the Repl shell, then republish; Replit provisions, runs its security checks, builds, bundles and promotes the new version.
 - **Check it:** `curl https://skilltide.replit.app/api/v1/health` returns `"ok": true`, and the footer of every page says whether the API or the browser computed the results.
 
 📄 Proof of use: [`submission/SDC2026_Traiblazers_Replit_POU.pdf`](submission/SDC2026_Traiblazers_Replit_POU.pdf)
