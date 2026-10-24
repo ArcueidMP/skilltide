@@ -10,7 +10,7 @@ export default {
   async build({ world, root, prevCam, local, spec, sfx }) {
     const tLayer = local("L31", "Each"), tFlow = local("L31", "flows");
     const tMy = local("L32", "critical"), tDosm = local("L32", "national");
-    const tVol = local("L33", "Testing"), tLang = local("L33", "Bahasa"), tLow = local("L33", "low-bandwidth");
+    const tCourses = local("L33", "verified"), tVol = local("L33", "timed"), tPilot = local("L33", "anonymous");
 
     const veil = el("div", "abs", root);
     css(veil, { left: 0, top: 0, width: "1920px", height: "1080px", background: "linear-gradient(90deg, rgba(246,243,234,.95) 0%, rgba(246,243,234,.9) 46%, rgba(246,243,234,.35) 66%, rgba(246,243,234,0) 80%)" });
@@ -42,9 +42,9 @@ export default {
 
     // Survey marks: the rest of the plan.
     const marks = [
-      { title: "Final-year volunteers", body: "Timed sessions and interviews across the three programmes. Target: a first pathway in under five minutes.", t: tVol },
-      { title: "Bahasa Malaysia · 中文", body: `<div style="font:500 17px/1.7 var(--sans);color:var(--ink)">Profil → Radar Kemahiran → Padanan → Laluan</div><div style="font:500 17px/1.7 var(--cjk);color:var(--ink)">个人档案 → 技能雷达 → 岗位匹配 → 学习路径</div><div style="font:500 13px var(--mono);color:var(--shift);margin-top:4px">CONCEPT · NOT BUILT YET</div>`, t: tLang },
-      { title: "Low-bandwidth mode", body: "A lighter version of every step for slow or metered connections.", t: tLow },
+      { title: "A verified course for every gap", body: "Free courses for the skills none covers yet: maintenance, lean and quality, MATLAB. Target: 90% of priority gaps covered, up from 78%.", t: tCourses },
+      { title: "Final-year volunteers", body: "Timed sessions with at least ten students. Target: a first pathway in under five minutes, and four in five can explain their top role.", t: tVol },
+      { title: "Anonymous pilot metrics", body: "Aggregate counts in Replit PostgreSQL, nothing personal.", t: tPilot },
     ].map((m, i) => {
       const c = el("div", "abs panel", root);
       css(c, { left: "700px", top: `${330 + i * 196}px`, width: "560px", padding: "16px 20px" });
@@ -53,7 +53,7 @@ export default {
     });
     const optional = el("div", "abs", root);
     css(optional, { left: "700px", top: "860px", width: "620px", font: "italic 500 19px/1.4 var(--serif)", color: "var(--muted)" });
-    optional.textContent = "Optional: a language model may reword explanations — opt-in, off by default, never a source of jobs, courses or numbers.";
+    optional.textContent = "Built since the proposal: Bahasa Melayu and Chinese, progress badges and study circles, and opt-in AI wording checked against the data.";
 
     // Camera: east past the Data & method sheet to the unsurveyed edge.
     const edge = { target: [104, 0, 40], dist: 34, pitch: 62, heading: -0.55, fov: 32 };
@@ -65,7 +65,7 @@ export default {
 
     sfx(0, "whoosh", 1);
     sfx(tMy - 0.4, "pop", 0.5); sfx(tDosm - 0.4, "pop", 0.5);
-    sfx(tVol - 0.3, "tick", 0.45); sfx(tLang - 0.3, "tick", 0.45); sfx(tLow - 0.3, "tick", 0.45);
+    sfx(tCourses - 0.3, "tick", 0.45); sfx(tVol - 0.3, "tick", 0.45); sfx(tPilot - 0.3, "tick", 0.45);
     return {
       camEnd: cam(spec.dur + 0.5),
       render(lt) {
@@ -93,7 +93,7 @@ export default {
         });
         show(caption, win(lt, tFlow - 0.2, tFlow + 0.4) * vk);
         marks.forEach((m) => { const k = win(lt, m.t - 0.3, m.t + 0.3, ease.outCubic); css(m.el, { opacity: String(k * vk), transform: `translateY(${((1 - k) * 16).toFixed(1)}px)` }); });
-        show(optional, win(lt, tLow + 1.2, tLow + 1.8) * vk);
+        show(optional, win(lt, tPilot + 1.2, tPilot + 1.8) * vk);
       },
     };
   },

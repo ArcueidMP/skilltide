@@ -207,53 +207,53 @@ It must stay identical.
 Under the hood, one Python script rebuilds the dataset from 13 public sources.
 
 53
-00:04:04,336 --> 00:04:08,105
-Every Monday, GitHub Actions refreshes it, runs the tests,
+00:04:04,336 --> 00:04:10,359
+A GitHub Actions job refreshes it, runs the tests, and publishes only if they pass.
 
 54
-00:04:08,106 --> 00:04:10,634
-and redeploys only if they pass.
+00:04:10,709 --> 00:04:14,139
+Jobs, courses and numbers come only from the data.
 
 55
-00:04:10,984 --> 00:04:15,158
-No language model runs in SkillTide, so it cannot invent a job,
+00:04:14,140 --> 00:04:17,706
+An opt-in AI model may rephrase the Guide's answers.
 
 56
-00:04:15,159 --> 00:04:16,999
-a course or a number.
+00:04:17,707 --> 00:04:21,792
+A reply with a number not in the data is thrown away.
 
 57
-00:04:17,449 --> 00:04:21,424
+00:04:22,242 --> 00:04:26,217
 Twelve synthetic test cases check coverage, budgets and fairness.
 
 58
-00:04:21,425 --> 00:04:24,932
+00:04:26,218 --> 00:04:29,725
 They are design checks, not proof of job outcomes.
 
 59
-00:04:27,150 --> 00:04:29,309
+00:04:32,150 --> 00:04:34,309
 Each layer reads only the one above it,
 
 60
-00:04:29,310 --> 00:04:32,526
+00:04:34,310 --> 00:04:37,526
 so every new source flows through to every screen.
 
 61
-00:04:32,976 --> 00:04:34,784
+00:04:37,976 --> 00:04:39,784
 Next: more Malaysian signals,
 
 62
-00:04:34,785 --> 00:04:39,225
+00:04:39,785 --> 00:04:44,225
 from the critical occupations list and national job-market data.
 
 63
-00:04:39,675 --> 00:04:43,867
-Testing with final-year volunteers, Bahasa Malaysia and Chinese,
+00:04:44,675 --> 00:04:48,738
+Then verified free courses for the gaps that are still open,
 
 64
-00:04:43,868 --> 00:04:45,955
-and a low-bandwidth mode.
+00:04:48,739 --> 00:04:54,538
+a timed test with final-year volunteers, and anonymous pilot metrics on Replit.
 
 65
-00:04:48,600 --> 00:04:51,860
+00:04:57,350 --> 00:05:00,610
 SkillTide. Chart your course before you graduate.

@@ -22,14 +22,14 @@ export default {
     tagline.textContent = "Chart your course before you graduate.";
     const links = el("div", "", title);
     css(links, { marginTop: "38px", display: "flex", justifyContent: "center", gap: "28px", font: "500 24px var(--mono)" });
-    links.innerHTML = `<span style="padding:10px 18px;border:1.5px solid var(--ink);border-radius:6px;background:var(--surface)">xmumhkt.arcueidmp.com</span><span style="padding:10px 18px;border:1.5px solid var(--border-strong);border-radius:6px;background:var(--surface)">github.com/ArcueidMP/skilltide</span>`;
+    links.innerHTML = `<span style="padding:10px 18px;border:1.5px solid var(--ink);border-radius:6px;background:var(--surface)">skilltide.replit.app</span><span style="padding:10px 18px;border:1.5px solid var(--border-strong);border-radius:6px;background:var(--surface)">xmumhkt.arcueidmp.com</span><span style="padding:10px 18px;border:1.5px solid var(--border-strong);border-radius:6px;background:var(--surface)">github.com/ArcueidMP/skilltide</span>`;
     const event = el("div", "", title);
     css(event, { marginTop: "26px", font: "600 16px var(--sans)", letterSpacing: ".2em", textTransform: "uppercase", color: "var(--muted)" });
     event.textContent = "XMUM Hackathon · Domain 1 · The Aiversecity Future-Ready Workforce";
     const credits = el("div", "abs", root);
     css(credits, { left: "160px", bottom: "40px", width: "1600px", textAlign: "center", font: "500 14px/1.7 var(--mono)", color: "var(--muted)" });
     credits.innerHTML = `Data: O*NET 31.0 (USDOL/ETA, CC BY 4.0) · Anthropic Economic Index · GPTs are GPTs (Eloundou et al.) · Indeed Hiring Lab · UN SDG API · Microsoft Learn · TalentCorp MyCOL<br>
-      All students shown are synthetic · Narration: synthetic voice (Kokoro) · Music: generated for this film · Built with Claude Code`;
+      All students shown are synthetic · Narration: synthetic voice (Kokoro) · Music: generated for this film · Opt-in Guide wording: OpenAI gpt-6-luna · Built with Claude Code and Codex`;
     const fade = el("div", "abs", root);
     css(fade, { left: 0, top: 0, width: "1920px", height: "1080px", background: "var(--paper)" });
 

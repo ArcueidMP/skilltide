@@ -25,10 +25,10 @@
 [03:41] Career centres run the same engine across a synthetic cohort, to see which rising skills few students have.
 [03:48] Scoring never uses names or backgrounds, and every ranking is re-run for eight profile variants. It must stay identical.
 [03:58] Under the hood, one Python script rebuilds the dataset from 13 public sources.
-[04:04] Every Monday, GitHub Actions refreshes it, runs the tests, and redeploys only if they pass.
-[04:11] No language model runs in SkillTide, so it cannot invent a job, a course or a number.
-[04:17] Twelve synthetic test cases check coverage, budgets and fairness. They are design checks, not proof of job outcomes.
-[04:27] Each layer reads only the one above it, so every new source flows through to every screen.
-[04:33] Next: more Malaysian signals, from the critical occupations list and national job-market data.
-[04:39] Testing with final-year volunteers, Bahasa Malaysia and Chinese, and a low-bandwidth mode.
-[04:48] SkillTide. Chart your course before you graduate.
+[04:04] A GitHub Actions job refreshes it, runs the tests, and publishes only if they pass.
+[04:10] Jobs, courses and numbers come only from the data. An opt-in AI model may rephrase the Guide's answers. A reply with a number not in the data is thrown away.
+[04:22] Twelve synthetic test cases check coverage, budgets and fairness. They are design checks, not proof of job outcomes.
+[04:32] Each layer reads only the one above it, so every new source flows through to every screen.
+[04:38] Next: more Malaysian signals, from the critical occupations list and national job-market data.
+[04:44] Then verified free courses for the gaps that are still open, a timed test with final-year volunteers, and anonymous pilot metrics on Replit.
+[04:57] SkillTide. Chart your course before you graduate.

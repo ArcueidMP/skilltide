@@ -164,14 +164,14 @@
  {
   "id": "L28",
   "scene": "engine",
-  "sub": "Every Monday, GitHub Actions refreshes it, runs the tests, and redeploys only if they pass.",
-  "say": "Every Monday, GitHub Actions refreshes it, runs the tests, and redeploys only if they pass."
+  "sub": "A GitHub Actions job refreshes it, runs the tests, and publishes only if they pass.",
+  "say": "A GitHub Actions job refreshes it, runs the tests, and publishes only if they pass."
  },
  {
   "id": "L29",
   "scene": "engine",
-  "sub": "No language model runs in SkillTide, so it cannot invent a job, a course or a number.",
-  "say": "No language model runs in SkillTide, so it cannot invent a job, a course, or a number."
+  "sub": "Jobs, courses and numbers come only from the data. An opt-in AI model may rephrase the Guide's answers. A reply with a number not in the data is thrown away.",
+  "say": "Jobs, courses and numbers come only from the data. An opt-in AI model may rephrase the Guide's answers. A reply with a number not in the data, is thrown away."
  },
  {
   "id": "L30",
@@ -194,8 +194,8 @@
  {
   "id": "L33",
   "scene": "future",
-  "sub": "Testing with final-year volunteers, Bahasa Malaysia and Chinese, and a low-bandwidth mode.",
-  "say": "Testing with final-year volunteers. Bahasa Malaysia and Chinese. And a low-bandwidth mode."
+  "sub": "Then verified free courses for the gaps that are still open, a timed test with final-year volunteers, and anonymous pilot metrics on Replit.",
+  "say": "Then, verified free courses for the gaps that are still open. A timed test with final-year volunteers. And anonymous pilot metrics, on Replit."
  },
  {
   "id": "L34",

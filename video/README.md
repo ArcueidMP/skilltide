@@ -55,8 +55,9 @@ To check a single frame, run `node tools/still.mjs <seconds> [--subs]`. It write
 
 ## Sources and disclosure
 
-Everything on screen comes from SkillTide's public data, its synthetic sample CV and its synthetic student. If the weekly refresh changes the numbers, re-run steps 1 and 2 and check the narration against the new figures before rendering again.
+Everything on screen comes from SkillTide's public data, its synthetic sample CV and its synthetic student. If a data refresh changes the numbers, re-run steps 1 and 2 and check the narration against the new figures before rendering again.
 
-- **Narration:** a synthetic voice from Kokoro-82M (Apache-2.0 weights), run locally.
+- **Narration:** a synthetic voice from Kokoro-82M (Apache-2.0 weights), run locally on the CPU.
 - **Music and effects:** synthesised in `tools/audio.py`.
-- **"Next" section:** the items marked "concept · not built yet" are not built.
+- **"Next" section:** everything listed there is planned for the final round and not built yet; the line under it names what was built after the proposal.
+- **Pronunciation check:** run ffmpeg's `whisper` filter with `use_gpu=false`, so no model runs on a local GPU (the hackathon routes GPU model work through RunPod).

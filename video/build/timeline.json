@@ -2,8 +2,8 @@
  "fps": 60,
  "bpm": 96,
  "beat": 0.625,
- "duration": 300,
- "frames": 18000,
+ "duration": 308.75,
+ "frames": 18525,
  "scenes": [
   {
    "id": "open",
@@ -79,21 +79,21 @@
    "id": "engine",
    "title": "Under the hood",
    "start": 237.5,
-   "end": 266.25,
-   "dur": 28.75
+   "end": 271.25,
+   "dur": 33.75
   },
   {
    "id": "future",
    "title": "Next",
-   "start": 266.25,
-   "end": 287.5,
-   "dur": 21.25
+   "start": 271.25,
+   "end": 296.25,
+   "dur": 25
   },
   {
    "id": "close",
    "title": "SkillTide",
-   "start": 287.5,
-   "end": 300,
+   "start": 296.25,
+   "end": 308.75,
    "dur": 12.5
   }
  ],
@@ -2289,458 +2289,554 @@
    "id": "L28",
    "scene": "engine",
    "start": 244.436,
-   "end": 250.284,
-   "sub": "Every Monday, GitHub Actions refreshes it, runs the tests, and redeploys only if they pass.",
+   "end": 250.009,
+   "sub": "A GitHub Actions job refreshes it, runs the tests, and publishes only if they pass.",
    "words": [
     {
-     "w": "Every",
+     "w": "A",
      "t": 244.436
     },
     {
-     "w": "Monday",
-     "t": 245.063
-    },
-    {
      "w": "GitHub",
-     "t": 245.689
+     "t": 244.668
     },
     {
      "w": "Actions",
-     "t": 246.107
+     "t": 245.133
+    },
+    {
+     "w": "job",
+     "t": 245.597
     },
     {
      "w": "refreshes",
-     "t": 246.525
+     "t": 245.829
     },
     {
      "w": "it",
-     "t": 247.151
+     "t": 246.526
     },
     {
      "w": "runs",
-     "t": 247.569
+     "t": 246.99
     },
     {
      "w": "the",
-     "t": 247.778
+     "t": 247.222
     },
     {
      "w": "tests",
-     "t": 247.987
+     "t": 247.455
     },
     {
      "w": "and",
-     "t": 248.404
+     "t": 247.919
     },
     {
-     "w": "redeploys",
-     "t": 248.613
+     "w": "publishes",
+     "t": 248.151
     },
     {
      "w": "only",
-     "t": 249.24
+     "t": 248.848
     },
     {
      "w": "if",
-     "t": 249.657
+     "t": 249.312
     },
     {
      "w": "they",
-     "t": 249.866
+     "t": 249.545
     },
     {
      "w": "pass",
-     "t": 250.075
+     "t": 249.777
     }
    ]
   },
   {
    "id": "L29",
    "scene": "engine",
-   "start": 251.084,
-   "end": 256.649,
-   "sub": "No language model runs in SkillTide, so it cannot invent a job, a course or a number.",
+   "start": 250.809,
+   "end": 261.442,
+   "sub": "Jobs, courses and numbers come only from the data. An opt-in AI model may rephrase the Guide's answers. A reply with a number not in the data is thrown away.",
    "words": [
     {
-     "w": "No",
-     "t": 251.084
+     "w": "Jobs",
+     "t": 250.809
     },
     {
-     "w": "language",
-     "t": 251.298
+     "w": "courses",
+     "t": 251.234
+    },
+    {
+     "w": "and",
+     "t": 251.66
+    },
+    {
+     "w": "numbers",
+     "t": 251.872
+    },
+    {
+     "w": "come",
+     "t": 252.298
+    },
+    {
+     "w": "only",
+     "t": 252.51
+    },
+    {
+     "w": "from",
+     "t": 252.936
+    },
+    {
+     "w": "the",
+     "t": 253.148
+    },
+    {
+     "w": "data",
+     "t": 253.361
+    },
+    {
+     "w": "An",
+     "t": 254.233
+    },
+    {
+     "w": "opt-in",
+     "t": 254.445
+    },
+    {
+     "w": "AI",
+     "t": 254.871
     },
     {
      "w": "model",
-     "t": 251.726
+     "t": 255.254
     },
     {
-     "w": "runs",
-     "t": 252.154
+     "w": "may",
+     "t": 255.679
     },
     {
-     "w": "in",
-     "t": 252.368
+     "w": "rephrase",
+     "t": 255.892
     },
     {
-     "w": "SkillTide",
-     "t": 252.582
+     "w": "the",
+     "t": 256.317
     },
     {
-     "w": "so",
-     "t": 253.224
+     "w": "Guide's",
+     "t": 256.53
     },
     {
-     "w": "it",
-     "t": 253.438
+     "w": "answers",
+     "t": 256.955
     },
     {
-     "w": "cannot",
-     "t": 253.652
+     "w": "A",
+     "t": 257.827
     },
     {
-     "w": "invent",
-     "t": 254.081
+     "w": "reply",
+     "t": 258.039
     },
     {
-     "w": "a",
-     "t": 254.509
-    },
-    {
-     "w": "job",
-     "t": 254.723
+     "w": "with",
+     "t": 258.465
     },
     {
      "w": "a",
-     "t": 255.151
-    },
-    {
-     "w": "course",
-     "t": 255.365
-    },
-    {
-     "w": "or",
-     "t": 255.793
-    },
-    {
-     "w": "a",
-     "t": 256.007
+     "t": 258.677
     },
     {
      "w": "number",
-     "t": 256.221
+     "t": 258.89
+    },
+    {
+     "w": "not",
+     "t": 259.315
+    },
+    {
+     "w": "in",
+     "t": 259.528
+    },
+    {
+     "w": "the",
+     "t": 259.741
+    },
+    {
+     "w": "data",
+     "t": 259.953
+    },
+    {
+     "w": "is",
+     "t": 260.591
+    },
+    {
+     "w": "thrown",
+     "t": 260.804
+    },
+    {
+     "w": "away",
+     "t": 261.017
     }
    ]
   },
   {
    "id": "L30",
    "scene": "engine",
-   "start": 257.549,
-   "end": 264.582,
+   "start": 262.342,
+   "end": 269.375,
    "sub": "Twelve synthetic test cases check coverage, budgets and fairness. They are design checks, not proof of job outcomes.",
    "words": [
     {
      "w": "Twelve",
-     "t": 257.549
+     "t": 262.342
     },
     {
      "w": "synthetic",
-     "t": 257.761
+     "t": 262.554
     },
     {
      "w": "test",
-     "t": 258.399
+     "t": 263.192
     },
     {
      "w": "cases",
-     "t": 258.611
+     "t": 263.404
     },
     {
      "w": "check",
-     "t": 259.036
+     "t": 263.829
     },
     {
      "w": "coverage",
-     "t": 259.249
+     "t": 264.042
     },
     {
      "w": "budgets",
-     "t": 260.099
+     "t": 264.892
     },
     {
      "w": "and",
-     "t": 260.524
+     "t": 265.317
     },
     {
      "w": "fairness",
-     "t": 260.736
+     "t": 265.529
     },
     {
      "w": "They",
-     "t": 261.607
+     "t": 266.4
     },
     {
      "w": "are",
-     "t": 261.82
+     "t": 266.613
     },
     {
      "w": "design",
-     "t": 262.245
+     "t": 267.038
     },
     {
      "w": "checks",
-     "t": 262.67
+     "t": 267.463
     },
     {
      "w": "not",
-     "t": 263.095
+     "t": 267.888
     },
     {
      "w": "proof",
-     "t": 263.307
+     "t": 268.1
     },
     {
      "w": "of",
-     "t": 263.52
+     "t": 268.313
     },
     {
      "w": "job",
-     "t": 263.732
+     "t": 268.525
     },
     {
      "w": "outcomes",
-     "t": 263.945
+     "t": 268.738
     }
    ]
   },
   {
    "id": "L31",
    "scene": "future",
-   "start": 267.25,
-   "end": 272.176,
+   "start": 272.25,
+   "end": 277.176,
    "sub": "Each layer reads only the one above it, so every new source flows through to every screen.",
    "words": [
     {
      "w": "Each",
-     "t": 267.25
+     "t": 272.25
     },
     {
      "w": "layer",
-     "t": 267.447
+     "t": 272.447
     },
     {
      "w": "reads",
-     "t": 267.644
+     "t": 272.644
     },
     {
      "w": "only",
-     "t": 267.841
+     "t": 272.841
     },
     {
      "w": "the",
-     "t": 268.235
+     "t": 273.235
     },
     {
      "w": "one",
-     "t": 268.432
+     "t": 273.432
     },
     {
      "w": "above",
-     "t": 268.826
+     "t": 273.826
     },
     {
      "w": "it",
-     "t": 269.22
+     "t": 274.22
     },
     {
      "w": "so",
-     "t": 269.614
+     "t": 274.614
     },
     {
      "w": "every",
-     "t": 269.812
+     "t": 274.812
     },
     {
      "w": "new",
-     "t": 270.403
+     "t": 275.403
     },
     {
      "w": "source",
-     "t": 270.6
+     "t": 275.6
     },
     {
      "w": "flows",
-     "t": 270.797
+     "t": 275.797
     },
     {
      "w": "through",
-     "t": 270.994
+     "t": 275.994
     },
     {
      "w": "to",
-     "t": 271.191
+     "t": 276.191
     },
     {
      "w": "every",
-     "t": 271.388
+     "t": 276.388
     },
     {
      "w": "screen",
-     "t": 271.979
+     "t": 276.979
     }
    ]
   },
   {
    "id": "L32",
    "scene": "future",
-   "start": 273.076,
-   "end": 278.875,
+   "start": 278.076,
+   "end": 283.875,
    "sub": "Next: more Malaysian signals, from the critical occupations list and national job-market data.",
    "words": [
     {
      "w": "Next",
-     "t": 273.076
+     "t": 278.076
     },
     {
      "w": "more",
-     "t": 273.461
+     "t": 278.461
     },
     {
      "w": "Malaysian",
-     "t": 273.654
+     "t": 278.654
     },
     {
      "w": "signals",
-     "t": 274.232
+     "t": 279.232
     },
     {
      "w": "from",
-     "t": 275.022
+     "t": 280.022
     },
     {
      "w": "the",
-     "t": 275.215
+     "t": 280.215
     },
     {
      "w": "critical",
-     "t": 275.407
+     "t": 280.407
     },
     {
      "w": "occupations",
-     "t": 275.985
+     "t": 280.985
     },
     {
      "w": "list",
-     "t": 276.756
+     "t": 281.756
     },
     {
      "w": "and",
-     "t": 277.141
+     "t": 282.141
     },
     {
      "w": "national",
-     "t": 277.334
+     "t": 282.334
     },
     {
      "w": "job-market",
-     "t": 277.912
+     "t": 282.912
     },
     {
      "w": "data",
-     "t": 278.49
+     "t": 283.49
     }
    ]
   },
   {
    "id": "L33",
    "scene": "future",
-   "start": 279.775,
-   "end": 285.605,
-   "sub": "Testing with final-year volunteers, Bahasa Malaysia and Chinese, and a low-bandwidth mode.",
+   "start": 284.775,
+   "end": 294.188,
+   "sub": "Then verified free courses for the gaps that are still open, a timed test with final-year volunteers, and anonymous pilot metrics on Replit.",
    "words": [
     {
-     "w": "Testing",
-     "t": 279.775
+     "w": "Then",
+     "t": 284.775
+    },
+    {
+     "w": "verified",
+     "t": 285.192
+    },
+    {
+     "w": "free",
+     "t": 285.816
+    },
+    {
+     "w": "courses",
+     "t": 286.025
+    },
+    {
+     "w": "for",
+     "t": 286.441
+    },
+    {
+     "w": "the",
+     "t": 286.649
+    },
+    {
+     "w": "gaps",
+     "t": 286.858
+    },
+    {
+     "w": "that",
+     "t": 287.066
+    },
+    {
+     "w": "are",
+     "t": 287.274
+    },
+    {
+     "w": "still",
+     "t": 287.691
+    },
+    {
+     "w": "open",
+     "t": 287.899
+    },
+    {
+     "w": "A",
+     "t": 288.753
+    },
+    {
+     "w": "timed",
+     "t": 288.961
+    },
+    {
+     "w": "test",
+     "t": 289.377
     },
     {
      "w": "with",
-     "t": 280.188
+     "t": 289.586
     },
     {
      "w": "final-year",
-     "t": 280.395
+     "t": 289.794
     },
     {
      "w": "volunteers",
-     "t": 281.015
-    },
-    {
-     "w": "Bahasa",
-     "t": 282.07
-    },
-    {
-     "w": "Malaysia",
-     "t": 282.69
-    },
-    {
-     "w": "and",
-     "t": 283.31
-    },
-    {
-     "w": "Chinese",
-     "t": 283.517
+     "t": 290.419
     },
     {
      "w": "And",
-     "t": 284.365
+     "t": 291.481
     },
     {
-     "w": "a",
-     "t": 284.571
+     "w": "anonymous",
+     "t": 291.689
     },
     {
-     "w": "low-bandwidth",
-     "t": 284.778
+     "w": "pilot",
+     "t": 292.522
     },
     {
-     "w": "mode",
-     "t": 285.398
+     "w": "metrics",
+     "t": 292.938
+    },
+    {
+     "w": "on",
+     "t": 293.563
+    },
+    {
+     "w": "Replit",
+     "t": 293.771
     }
    ]
   },
   {
    "id": "L34",
    "scene": "close",
-   "start": 288.7,
-   "end": 291.51,
+   "start": 297.45,
+   "end": 300.26,
    "sub": "SkillTide. Chart your course before you graduate.",
    "words": [
     {
      "w": "SkillTide",
-     "t": 288.7
+     "t": 297.45
     },
     {
      "w": "Chart",
-     "t": 289.579
+     "t": 298.329
     },
     {
      "w": "your",
-     "t": 289.794
+     "t": 298.544
     },
     {
      "w": "course",
-     "t": 290.008
+     "t": 298.758
     },
     {
      "w": "before",
-     "t": 290.437
+     "t": 299.187
     },
     {
      "w": "you",
-     "t": 290.866
+     "t": 299.616
     },
     {
      "w": "graduate",
-     "t": 291.081
+     "t": 299.831
     }
    ]
   }
