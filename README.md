@@ -63,6 +63,8 @@ This product includes information from the O*NET 31.0 Database by the U.S. Depar
 
 ## Run it
 
+Needs Node.js 24, the version CI and the Cloudflare build use; Replit runs Node 22. Python 3.13 is needed only for the data pipeline and its tests (`npm run data:refresh`, `npm run test:pipeline`).
+
 ```bash
 npm install
 npm run dev          # http://localhost:3000; forwards /api/* to the API below
@@ -113,14 +115,14 @@ Not used. SkillTide trains, fine-tunes and runs no model on a GPU: scoring uses 
 
 ## Competition materials
 
-- [Preliminary proposal (PRD)](submission/SDC2026_Traiblazers_Preliminary.pdf) on the official template, the [technology declaration](submission/SDC2026_Traiblazers_TechDeclaration.pdf) and the [Replit proof of use](submission/SDC2026_Traiblazers_Replit_POU.pdf); an [earlier working draft](docs/archive/proposal-draft-v1.md) is archived for reference.
+- [Preliminary proposal (PRD)](submission/SDC2026_Traiblazers_Preliminary.pdf) on the official template, the [technology declaration](submission/SDC2026_Traiblazers_TechDeclaration.pdf) and the [Replit proof of use](submission/SDC2026_Traiblazers_Replit_POU.pdf)
 - Pitch deck: [Canva](https://canva.link/8u9yhzbwafhnxuy) and [PDF](submission/SDC2026_Traiblazers_PitchDeck.pdf)
-- [Three-minute demo script and fallback](docs/demo-script.md)
+- [Three-minute live demo script and fallback](docs/demo-script.md)
 - Five-minute demo and pitch film on [YouTube](https://youtu.be/2s0kn1vYpV0): built from the real app and dataset and narrated by a team member; see how it is [built](video/README.md), with its [subtitles](video/out/skilltide-demo.srt) and [narration script](video/out/narration-script.txt)
 - [Judge Q&A and requirement evidence](docs/judges-qa.md)
 - [Synthetic evaluation report](docs/evaluation-report.md) and [machine-readable results](docs/evaluation-results.json)
 
-The evaluation uses 12 synthetic design cases and an explicit skills-only comparator. It is not independent expert validation, a user study, or a forecasting-accuracy claim. The demo duration is a working default, not an official submission limit.
+The evaluation uses 12 synthetic design cases and an explicit skills-only comparator. It is not independent expert validation, a user study, or a forecasting-accuracy claim.
 
 ## Responsible AI
 

@@ -2,7 +2,7 @@
 
 Target: [https://xmumhkt.arcueidmp.com](https://xmumhkt.arcueidmp.com). This is a working three-minute script, not an official competition time limit. Use only the supplied synthetic profiles and CV files.
 
-The story follows Kavin a/l Raj, a synthetic final-year mechatronics student. Role titles below are what the 16 October 2026 data shows; if the weekly refresh has changed them, say the titles on screen instead.
+The story follows Kavin a/l Raj, a synthetic final-year mechatronics student. Role titles below are what the 16 October 2026 data shows. The data refresh is paused while the competition is judged, so the screen should match; if it does not, say the titles on screen instead.
 
 ## Before the presentation
 
@@ -31,7 +31,7 @@ The story follows Kavin a/l Raj, a synthetic final-year mechatronics student. Ro
 
 **Action:** Open Skills Radar. Show the data-update panel, then select Mar 2025 on the timeline and return to Latest. Watch the Guide.
 
-**Say:** “Every signal is dated. In March 2025 the same profile would have been pointed to Electro-Mechanical & Mechatronics Technician; with today's hiring and AI-use data it is Manufacturing Engineer. The Guide re-plans automatically and says what replaced what. These replays use today's catalogue and assumptions, so they are not a backtest. The data itself refreshes weekly through GitHub Actions, and this panel shows the last validated run.”
+**Say:** “Every signal is dated. In March 2025 the same profile would have been pointed to Electro-Mechanical & Mechatronics Technician; with today's hiring and AI-use data it is Manufacturing Engineer. The Guide re-plans automatically and says what replaced what. These replays use today's catalogue and assumptions, so they are not a backtest. A GitHub Actions job refreshes the data and publishes it only if the checks pass; its weekly schedule is paused while the competition is judged, and this panel shows the last validated run.”
 
 **Show:** The two re-plan messages in the Guide and the data-update panel. Avoid implying that US hiring data is Malaysian vacancy data.
 
