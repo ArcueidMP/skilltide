@@ -14,7 +14,7 @@ Built by **Team Traiblazers** (Xiamen University Malaysia) for the **SDC Hackath
 | GitHub repository | [github.com/ArcueidMP/skilltide](https://github.com/ArcueidMP/skilltide) |
 | Replit project | Repl `@ArcueidMP/skilltide`, private; see [How We Use Replit](#how-we-use-replit) |
 | Slide deck | [Canva](https://canva.link/8u9yhzbwafhnxuy) · [PDF](submission/SDC2026_Traiblazers_PitchDeck.pdf) |
-| Demo video | YouTube link to be added |
+| Demo and pitch video | [youtu.be/2s0kn1vYpV0](https://youtu.be/2s0kn1vYpV0): 5:09, narrated by a team member, with subtitles |
 | RunPod | Not used: SkillTide has no GPU workload ([why](#how-we-use-runpod)) |
 
 ## Who it is for
@@ -116,7 +116,7 @@ Not used. SkillTide trains, fine-tunes and runs no model on a GPU: scoring uses 
 - [Preliminary proposal (PRD)](submission/SDC2026_Traiblazers_Preliminary.pdf) on the official template, the [technology declaration](submission/SDC2026_Traiblazers_TechDeclaration.pdf) and the [Replit proof of use](submission/SDC2026_Traiblazers_Replit_POU.pdf); an [earlier working draft](docs/archive/proposal-draft-v1.md) is archived for reference.
 - Pitch deck: [Canva](https://canva.link/8u9yhzbwafhnxuy) and [PDF](submission/SDC2026_Traiblazers_PitchDeck.pdf)
 - [Three-minute demo script and fallback](docs/demo-script.md)
-- [Five-minute demo film](video/README.md): built from the real app and dataset and narrated by a team member, with its [subtitles](video/out/skilltide-demo.srt) and [narration script](video/out/narration-script.txt)
+- Five-minute demo and pitch film on [YouTube](https://youtu.be/2s0kn1vYpV0): built from the real app and dataset and narrated by a team member; see how it is [built](video/README.md), with its [subtitles](video/out/skilltide-demo.srt) and [narration script](video/out/narration-script.txt)
 - [Judge Q&A and requirement evidence](docs/judges-qa.md)
 - [Synthetic evaluation report](docs/evaluation-report.md) and [machine-readable results](docs/evaluation-results.json)
 
@@ -151,7 +151,7 @@ Team Traiblazers, Xiamen University Malaysia: HUANG BAONING (team leader) and WA
 
 - [x] Team name, domain (Domain 1) and SDG track filled in
 - [x] Slide deck link added
-- [ ] Demo video link added
+- [x] Demo and pitch video link added
 - [x] Replit used, with proof of use in `submission/`
 - [x] RunPod: not used, as SkillTide has no GPU workload (see [How We Use RunPod](#how-we-use-runpod))
 - [x] Preliminary submission completed (`SDC2026_Traiblazers_Preliminary.pdf`)
